@@ -182,6 +182,7 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
     estimatedCount: 0, pointMean: null, lowerMean: null, upperMean: null,
     generationMw: 0, storageMw: 0, loadMw: 0, capacityUnknownCount: 0,
     typeCounts: { generation: 0, storage: 0, load: 0 },
+    knownCapacityCounts: { generation: 0, storage: 0, load: 0 },
   };
   let pointTotal = 0;
   let lowerTotal = 0;
@@ -210,7 +211,10 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
       if (capacity !== null && (!Number.isFinite(capacity) || capacity < 0)) throw new Error(`Invalid ${field} for ${project.id}.`);
       if (!types.has(type)) continue;
       if (capacity === null) missing = true;
-      else summary[field] += capacity;
+      else {
+        summary[field] += capacity;
+        summary.knownCapacityCounts[type]++;
+      }
     }
     if (missing) summary.capacityUnknownCount++;
   }

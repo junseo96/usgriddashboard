@@ -73,7 +73,12 @@ function validateObservation(data) {
   if (data.verification?.allGatesVerifiedUnknown !== true || data.verification.assessedGateCount !== 0 || data.verification.actualApiProjectCount !== data.projects.length || data.summary?.scoredCount !== 0 || data.summary?.estimatedCount !== 0 || data.snapshot.projectCount !== data.projects.length || data.snapshot.sourceCount !== data.sources.length) throw new Error('Snapshot is not a verified unassessed inventory.');
   if (data.modelVersion !== 'grid-atlas-v1' || data.snapshot.modelVersion !== data.modelVersion) throw new Error('Unsupported score model.');
   const reproduced = summarize(data.projects.map(project => scoreProject(project, [], { asOf: calendarDayKst(data.exportedAt), knownAt: data.exportedAt })));
-  if (reproduced.recordCount !== data.projects.length || stable(reproduced) !== stable(data.summary)) throw new Error('Cached observation does not reproduce the verified API summary.');
+  // Older verified exports predate per-type disclosure counts. Validate every
+  // stored summary field, then derive the new counts from the preserved rows.
+  const comparable = { ...reproduced };
+  if (!Object.hasOwn(data.summary, 'knownCapacityCounts')) delete comparable.knownCapacityCounts;
+  if (reproduced.recordCount !== data.projects.length || stable(comparable) !== stable(data.summary)) throw new Error('Cached observation does not reproduce the verified API summary.');
+  data.summary = reproduced;
   if (data.demand && !isDemandDataset(data.demand)) throw new Error('Invalid demand observations.');
   if (data.comparison && stable(data.comparison) !== stable(compareMarkets(data.projects, data.snapshot.capturedAt))) throw new Error('Market comparison does not match the exported inventory.');
 }

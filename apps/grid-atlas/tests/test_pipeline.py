@@ -128,6 +128,64 @@ class PipelineTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 pipeline.validate(d)
 
+    def test_regional_coverage_covers_seven_explicit_non_additive_scopes(self):
+        coverage = {row['region']: row for row in self.output['regionalCoverage']}
+        self.assertEqual(set(coverage), set(pipeline.MARKET_REGIONS))
+        self.assertEqual(coverage['ERCOT']['coverage'], 'operator_requests')
+        self.assertEqual(coverage['NYISO']['coverage'], 'register_only')
+        for region in ('CAISO', 'ISO-NE', 'MISO', 'PJM', 'SPP'):
+            self.assertEqual(coverage[region]['coverage'], 'partial_pipeline')
+        self.assertEqual(self.aggregates[coverage['MISO']['headlineAggregateId']]['capacityMw'], 26600)
+        self.assertIn('disclosure:MISO_MTEP26_EPR_LOAD_20260817', coverage['MISO']['additionalAggregateIds'])
+        self.assertEqual(self.aggregates[coverage['PJM']['headlineAggregateId']]['capacityQualifier'], 'greater_than')
+        self.assertNotIn('totalMw', self.output)
+
+    def test_nyiso_summary_uses_only_eligible_active_public_register_and_original_provenance(self):
+        summary = self.aggregates['register-summary:nyiso-active-load']
+        source = next(row for row in self.bootstrap['sources'] if row['id'] == 'nyiso-load-register')
+        self.assertEqual((summary['capacityMw'], summary['projectCount']), (14232.9, 53))
+        self.assertEqual((summary['sourceUrl'], summary['sourceAsOf'], summary['checkedAt']), (source['url'], source['sourceAsOf'], source['lastCheckedAt']))
+        changed = copy.deepcopy(self.bootstrap)
+        eligible = next(row for row in changed['projects'] if row['sourceId'] == 'nyiso-load-register' and row['eligible'])
+        excluded = copy.deepcopy(eligible); excluded.update(id='NYISO::test-excluded', eligible=False, loadMw=999999)
+        operating = copy.deepcopy(eligible); operating.update(id='NYISO::test-operating', status='operational', loadMw=999999)
+        other = copy.deepcopy(eligible); other.update(id='OTHER::test', sourceId='another-source', loadMw=999999)
+        changed['projects'] += [excluded, operating, other]
+        self.assertEqual(pipeline.nyiso_active_register_summary(changed)['capacityMw'], 14232.9)
+        self.assertEqual(pipeline.nyiso_active_register_summary(changed)['projectCount'], 53)
+        missing = eligible['loadMw']; eligible['loadMw'] = None
+        result = pipeline.nyiso_active_register_summary(changed)
+        self.assertAlmostEqual(result['capacityMw'], 14232.9 - missing)
+        self.assertEqual(result['projectCount'], 53)
+        self.assertIn('미공개 1행', result['caveats'][0])
+
+    def test_broken_regional_references_and_scope_promotions_fail_build(self):
+        for mutation in ('missing', 'wrong_region', 'duplicate_region', 'duplicate_reference', 'operator_promotion', 'register_promotion'):
+            coverage = copy.deepcopy(self.output['regionalCoverage'])
+            row = next(item for item in coverage if item['region'] == 'PJM')
+            if mutation == 'missing': row['headlineAggregateId'] = 'missing:row'
+            elif mutation == 'wrong_region': row['additionalAggregateIds'].append('disclosure:ERCOT_LARGE_LOAD_REQUESTS_20260618')
+            elif mutation == 'duplicate_region': coverage[-1] = copy.deepcopy(row)
+            elif mutation == 'duplicate_reference': row['additionalAggregateIds'].append(row['headlineAggregateId'])
+            elif mutation == 'operator_promotion': row['coverage'] = 'operator_requests'
+            elif mutation == 'register_promotion': row['coverage'] = 'register_only'
+            with self.subTest(mutation=mutation):
+                with self.assertRaises(ValueError):
+                    pipeline.build(self.bootstrap, self.output['generatedAt'], coverage)
+
+    def test_new_primary_disclosures_keep_dates_qualifiers_and_stage_limits(self):
+        isone = self.aggregates['disclosure:ISONE_CELT_SELECTED_LARGE_LOADS_20260327']
+        miso = self.aggregates['disclosure:MISO_MTEP26_RECOMMENDED_LOAD_20261007']
+        ercot = self.aggregates['disclosure:ERCOT_BATCHZERO_CONDITIONAL_BASE_20260903']
+        self.assertEqual((isone['capacityMw'], isone['projectCount'], isone['sourceAsOf']), (285, 2, '2026-03-27'))
+        self.assertIn('전체 접속 신청 명부가 아닙니다', isone['scope'])
+        self.assertEqual((miso['capacityMw'], miso['projectCount'], miso['capacityQualifier'], miso['sourceAsOf']), (26600, None, 'approximate', '2026-08-19'))
+        self.assertIn('532는 송전사업 수', ' '.join(miso['caveats']))
+        self.assertEqual((ercot['capacityMw'], ercot['projectCount'], ercot['capacityBasis'], ercot['sourceAsOf']), (66400, 204, 'mixed_mw', '2026-09-03'))
+        self.assertIn('이미 통전', ' '.join(ercot['caveats']))
+        before = len(self.output['projects'])
+        self.assertEqual(len(pipeline.build(self.bootstrap, '2030-01-01T00:00:00Z')['projects']), before)
+
     def test_multi_site_aws_and_alaska_not_individual_lower48_projects(self):
         self.assertNotIn('named:NAMED_DONLIN_GOLD_AK', self.by_id)
         self.assertNotIn('named:NAMED_AWS_NIPSCO_NORTHERN_INDIANA', self.by_id)

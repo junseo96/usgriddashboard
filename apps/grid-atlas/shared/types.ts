@@ -32,6 +32,7 @@ export interface Summary {
   estimatedCount: number; pointMean: number | null; lowerMean: number | null; upperMean: number | null;
   generationMw: number; storageMw: number; loadMw: number; capacityUnknownCount: number;
   typeCounts: Record<ProjectType, number>;
+  knownCapacityCounts: Record<ProjectType, number>;
 }
 export interface SnapshotMeta {
   id: string; capturedAt: string; contentHash: string; projectCount: number; sourceCount: number;

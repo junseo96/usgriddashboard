@@ -39,6 +39,8 @@ REGISTER_SOURCES = {
     'spp-dpns-reports': 'grid_support',
     'gpc-removed-screen': 'historical',
 }
+MARKET_REGIONS = ('CAISO', 'ERCOT', 'ISO-NE', 'MISO', 'NYISO', 'PJM', 'SPP')
+OPERATOR_REQUEST_HEADLINES = {'ERCOT': 'disclosure:ERCOT_LARGE_LOAD_REQUESTS_20260618'}
 NON_ADDITIVE = '원장·계약·공시·유틸리티 집계 간 동일 사업 연결이 미완료이므로 다른 행·집계와 용량을 합산하지 않습니다.'
 
 
@@ -139,6 +141,75 @@ def historical_register_aggregates(bootstrap: dict) -> list[dict]:
     return out
 
 
+
+def nyiso_active_register_summary(bootstrap: dict) -> dict:
+    source = next((item for item in bootstrap['sources'] if item['id'] == 'nyiso-load-register'), None)
+    if source is None:
+        raise ValueError('NYISO source metadata missing')
+    records = [item for item in bootstrap['projects'] if item.get('sourceId') == 'nyiso-load-register'
+               and item.get('region') == 'NYISO' and item.get('eligible') is True
+               and item.get('status') == 'active' and 'load' in item.get('types', [])]
+    if len({item['id'] for item in records}) != len(records):
+        raise ValueError('Duplicate NYISO active register ID')
+    known = [item['loadMw'] for item in records if item.get('loadMw') is not None]
+    if any(isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0 for value in known):
+        raise ValueError('Invalid NYISO active register MW')
+    unknown = len(records) - len(known)
+    return {
+        'id': 'register-summary:nyiso-active-load', 'region': 'NYISO',
+        'name': 'NYISO · 공개 Load Projects 원장의 활성 신청',
+        'capacityMw': math.fsum(known) if known else None,
+        'capacityBasis': 'requested_grid_mw' if known else 'unknown',
+        'capacityQualifier': 'exact', 'projectCount': len(records),
+        'sourceName': 'NYISO · ' + source['name'], 'sourceUrl': source['url'],
+        'sourceAsOf': source.get('sourceAsOf'), 'checkedAt': source.get('lastCheckedAt'),
+        'scope': f"NYISO 공개 Load Projects 원장 중 본토 활성 신청으로 적격 판정된 {len(records)}행의 공개 용량 합계입니다. 철회·운영·참고 기록은 제외하며 뉴욕 전체 배전·소매 신청 또는 미국 전국 수용가 총계가 아닙니다.",
+        'caveats': [f"활성 {len(records)}행 중 용량 미공개 {unknown}행입니다. 알려진 MW만 더하며 누락 값을 0으로 대체하지 않습니다.",
+                    *source.get('gaps', []), '기존 개별 원장의 파생 집계로 새 프로젝트 행이나 병목 점수 분모를 추가하지 않습니다.', NON_ADDITIVE],
+    }
+
+
+def validate_regional_coverage(dataset: dict) -> None:
+    rows = dataset.get('regionalCoverage')
+    if not isinstance(rows, list) or len(rows) != len(MARKET_REGIONS):
+        raise ValueError('Regional coverage must identify all seven markets')
+    aggregates = {row['id']: row for row in dataset['aggregates']}
+    seen = set()
+    for row in rows:
+        if not isinstance(row, dict) or row.get('region') not in MARKET_REGIONS or row['region'] in seen:
+            raise ValueError('Duplicate or invalid regional coverage')
+        region = row['region']
+        seen.add(region)
+        coverage = row.get('coverage')
+        if coverage not in {'operator_requests', 'partial_pipeline', 'register_only', 'unavailable'}:
+            raise ValueError('Unknown regional coverage category')
+        if not all(isinstance(row.get(key), str) and row[key].strip() for key in ('scopeLabel', 'metricLabel', 'explanation')):
+            raise ValueError('Missing regional scope labels')
+        head, additional = row.get('headlineAggregateId'), row.get('additionalAggregateIds')
+        if not isinstance(additional, list) or not all(isinstance(key, str) and key for key in additional):
+            raise ValueError('Invalid additional aggregate references')
+        if coverage == 'unavailable':
+            if head is not None or additional:
+                raise ValueError('Unavailable coverage cannot claim an aggregate')
+            continue
+        if not isinstance(head, str) or not head:
+            raise ValueError('Regional headline reference missing')
+        ids = [head, *additional]
+        if len(set(ids)) != len(ids):
+            raise ValueError('Duplicate regional aggregate reference')
+        if any(key not in aggregates for key in ids):
+            raise ValueError('Missing regional aggregate reference')
+        if any(aggregates[key]['region'] != region for key in ids):
+            raise ValueError('Regional aggregate reference points to the wrong region')
+        headline = aggregates[head]
+        if coverage == 'operator_requests' and (OPERATOR_REQUEST_HEADLINES.get(region) != head
+                or headline['capacityBasis'] != 'requested_grid_mw' or headline['capacityMw'] is None
+                or urlparse(headline['sourceUrl']).hostname != 'www.ercot.com'):
+            raise ValueError('Unsafe operator_requests coverage: reviewed operator-wide request publication required')
+        if coverage == 'register_only' and (region != 'NYISO' or head != 'register-summary:nyiso-active-load'):
+            raise ValueError('Unsafe register_only coverage: reviewed public register summary required')
+
+
 def valid_date(value: object) -> bool:
     if value is None:
         return True
@@ -189,8 +260,10 @@ def validate(dataset: dict) -> None:
             if collection == 'aggregates' and p.get('capacityQualifier', 'exact') not in {'exact', 'approximate', 'greater_than', 'at_least'}:
                 raise ValueError(f'Invalid capacity qualifier: {p["id"]}')
 
+    validate_regional_coverage(dataset)
 
-def build(bootstrap: dict, generated_at: str) -> dict:
+
+def build(bootstrap: dict, generated_at: str, regional_coverage: list | None = None) -> dict:
     source_map = {s['id']: s for s in bootstrap['sources']}
     projects = [project_from_register(p, source_map[p['sourceId']]) for p in bootstrap['projects']
                 if 'load' in p['types'] and p['sourceId'] in REGISTER_SOURCES]
@@ -200,7 +273,8 @@ def build(bootstrap: dict, generated_at: str) -> dict:
     result = {
         'schemaVersion': 1, 'generatedAt': generated_at,
         'projects': projects,
-        'aggregates': REVIEWED_EVIDENCE['aggregates'] + historical_register_aggregates(bootstrap),
+        'aggregates': REVIEWED_EVIDENCE['aggregates'] + historical_register_aggregates(bootstrap) + [nyiso_active_register_summary(bootstrap)],
+        'regionalCoverage': regional_coverage if regional_coverage is not None else json.loads((APP / 'data/regional-pipeline-coverage.json').read_text()),
         'limitations': [
             '기존 53건은 NYISO 공개 원장에서 현재 활성으로 확인된 행 수이며 미국 전체 데이터센터·공장의 수가 아닙니다.',
             '이 목록은 신청·유틸리티 원장·계약·공시·송전 지원·이력을 분리한 탐색 자료입니다. 전체 행 수를 활성 접속 대기열 규모로 해석하지 않습니다.',
@@ -1357,10 +1431,10 @@ REVIEWED_EVIDENCE = json.loads(r'''{
       "sourceName": "PG&E Corporation Q2 2026 Earnings Presentation — slide 7 and slide 18 endnotes",
       "sourceUrl": "https://www.sec.gov/Archives/edgar/data/75488/000100498026000047/q226earningspresentation.htm",
       "sourceAsOf": "2026-06-30",
-      "checkedAt": "2026-10-03",
+      "checkedAt": "2026-10-08T09:45:51.452037+00:00",
       "scope": "PG&E 서비스 구역의 20 MW 이상 신규 데이터센터. CAISO 전체 대기열이 아닌 일부 지역 집계이며, 개별 프로젝트명·위치 미공개. 총 12,710 MW: 신청·예비설계 8,200, 최종설계 3,880, 접속공사 계약 490, 공사 중 140 MW. 예비설계에는 50만 달러 연구비, 최종설계에는 WPA 체결과 설계·조달비 납부(추정 사업비 10%) 필요. 통전 후 공사 단계에서 제외. 2026년 3월 수치는 강화된 2분기 기준으로 재작성. 단계별 공시: 신청·예비설계: 8.2 GW (서명한 신청서 제출 및 예비설계 연구비 50만 달러 납부.) 최종설계: 3.88 GW (WPA 체결 및 추정 사업비 10%에 해당하는 설계·조달비 납부.) 접속공사 계약: 0.49 GW (접속공사 계약(Interconnection Construction Agreement) 체결.) 공사 중: 0.14 GW (고객 통전 전 공사 단계.)",
       "caveats": [
-        "SCE·SDG&E 등 미포함. 프로젝트별 용량·일정·병목 원인 미공개. 2026-10-03에 검증한 6월 말 자료이며, 10월 현황 아님.",
+        "SCE·SDG&E 등 미포함. 프로젝트별 용량·일정·병목 원인 미공개. 원문을 2026-10-08에 재확인했지만 6월 말 자료이며, 10월 현황 아님.",
         "원장·계약·공시·유틸리티 집계 간 동일 사업 연결이 미완료이므로 다른 행·집계와 용량을 합산하지 않습니다.",
         "발표일: 2026-07-23; 원자료 기준일과 구별합니다."
       ]
@@ -1819,7 +1893,7 @@ REVIEWED_EVIDENCE = json.loads(r'''{
       "sourceName": "Evergy Second Quarter 2026 Earnings Presentation, slide 7",
       "sourceUrl": "https://investors.evergy.com/static-files/73352465-a5e0-4dbf-ac4b-98692902443f",
       "sourceAsOf": "2026-08-06",
-      "checkedAt": "2026-10-03",
+      "checkedAt": "2026-10-08T09:45:51.453120+00:00",
       "scope": "Evergy Kansas/Missouri 서비스 권역의 추가 체결 프로젝트. SPP 전체 큐 아님. Tier 1 약 3 GW는 운영 개시 프로젝트의 최종 램프 약 1.3 GW와 추가 발표·ESA 체결 약 1.7 GW로 구분. 추가 계약에는 16~17년 최소요금 의무. 1.3 GW는 현재 실제 사용량이 아님.",
       "caveats": [
         "1.7 GW의 프로젝트별 분할 및 남은 망보강 단계 미공개; 원장·DPNS 중복 가능.",
@@ -2215,6 +2289,70 @@ REVIEWED_EVIDENCE = json.loads(r'''{
         "원장·계약·공시·유틸리티 집계 간 동일 사업 연결이 미완료이므로 다른 행·집계와 용량을 합산하지 않습니다.",
         "발표일: 2026-01-13; 원자료 기준일과 구별합니다."
       ]
+    },
+    {
+      "id": "disclosure:ERCOT_BATCHZERO_CONDITIONAL_BASE_20260903",
+      "region": "ERCOT",
+      "name": "ERCOT · Batch Zero 조건부 Base Load 편입",
+      "capacityMw": 66400,
+      "projectCount": 204,
+      "capacityBasis": "mixed_mw",
+      "capacityQualifier": "approximate",
+      "sourceName": "ERCOT Board of Directors · Item 14: Batch Zero Update (2026-09-14–15)",
+      "sourceUrl": "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf",
+      "sourceAsOf": "2026-09-03",
+      "checkedAt": "2026-10-08T09:47:44.747903+00:00",
+      "scope": "ERCOT 전역 Batch Zero의 조건부 Base Load 분류 204개 프로젝트, 약 66.4 GW. TSP에 분류를 통보한 기준일은 2026-09-03; 원문은 2026-09-14–15 이사회 발표자료 1·4·5·6쪽. 전체 접속 요청의 부분집합으로, 기존 통전 부하를 포함할 수 있습니다.",
+      "caveats": [
+        "조건부 편입이며 최종 승인·통전 허가가 아닙니다. 최종 포함·제외는 적격성 검증·감사 후 12월에 결정한다고 공시했습니다.",
+        "Base에는 2022-03-25 이전·이후 이미 통전된 부하가 포함되어 신규 미통전 대기 용량으로 해석할 수 없습니다.",
+        "ERCOT 전체 요청 >438 GW, 6월 LLIS 466.5 GW, Oncor·CenterPoint 집계와 겹칠 수 있으므로 합산하지 않습니다.",
+        "문서 발표일 2026-09-14–15와 분류 통보 기준일 2026-09-03을 구별합니다. PDF URL 경로의 2026-09-11은 확인된 발표일로 대신하지 않습니다.",
+        "동일 문서 Studied Load 요약·2032 도표 간 범위 차이가 미해결이므로 Base와 Studied를 합한 신규 총량은 제시하지 않습니다."
+      ]
+    },
+    {
+      "id": "disclosure:ISONE_CELT_SELECTED_LARGE_LOADS_20260327",
+      "region": "ISO-NE",
+      "name": "ISO-NE · 2026 CELT 선별 대규모 부하 공식 연구 2건",
+      "capacityMw": 285,
+      "projectCount": 2,
+      "capacityBasis": "requested_grid_mw",
+      "capacityQualifier": "exact",
+      "sourceName": "ISO New England — Final 2026 Large Load Forecast, 2026-03-27, slide 14",
+      "sourceUrl": "https://www.iso-ne.com/static-assets/documents/100033/fx2026_large_loads.pdf",
+      "sourceAsOf": "2026-03-27",
+      "checkedAt": "2026-10-08T09:45:51.453649+00:00",
+      "scope": "2026 CELT 전망 반영을 위해 선별된 20 MW 초과 공식 연구계약 단계의 2건. NEMA 데이터센터 보고 정격부하 200 MW와 Connecticut 일반 전기화 85 MW를 합한 285 MW. 두 건 모두 공사 중으로 분류되지 않았으며 전체 접속 신청 명부가 아닙니다.",
+      "caveats": [
+        "초기 문의·20 MW 이하·전망 선별에서 제외한 사업은 포함하지 않습니다. ISO-NE 전체 수용가 접속 요청 총량이 아닙니다.",
+        "공개된 200 MW·85 MW는 디레이팅 전 보고 정격부하입니다. 전망용 할인 수치 110 MW와 혼동하지 않습니다.",
+        "개별 명칭·전체 원장 ID가 미공개입니다. 기존 선별 원장 2행과 겹치므로 새 개별 프로젝트를 만들거나 건수를 추가하지 않습니다.",
+        "원장·계약·공시·유틸리티 집계 간 동일 사업 연결이 미완료이므로 다른 행·집계와 용량을 합산하지 않습니다."
+      ]
+    },
+    {
+      "region": "MISO",
+      "name": "MISO · MTEP26 권고 송전 포트폴리오가 지원하는 부하",
+      "capacityMw": 26600,
+      "capacityQualifier": "approximate",
+      "sourceName": "MISO PAC — MTEP26 Report Review, 2026-10-07, p4",
+      "sourceUrl": "https://cdn.misoenergy.org/20261007%20PAC%20Item%2006%20MTEP26%20Report%20Review785938.pdf",
+      "sourceAsOf": "2026-08-19",
+      "checkedAt": "2026-10-08T09:49:10.982602+00:00",
+      "scope": "MISO 전체 권역의 MTEP26 Appendix A 추천 송전 포트폴리오가 지원하는 spot load additions. 신청 문의·계약·고객 대기열 전수는 아님. 2026년 10월 7일 발표 자료의 사업 정보 기준일은 2026년 8월 19일이며 12월 승인을 권고할 단계입니다.",
+      "caveats": [
+        "26.6 GW는 공식 반올림치. 같은 표의 4권역 MW 합계는 26,617 MW이며 별도 지표로 더하지 않음.",
+        "532는 송전사업 수이며 고객 프로젝트 수가 아님.",
+        "기존 2026-08-26 발표의 예비 포트폴리오 32.6 GW와 합산하지 않음.",
+        "계획에 포함된 지원 부하이며 모든 접속 문의·신청의 총량이나 아직 미통전인 잔여 용량은 아님.",
+        "승인 EPR 21,654 MW는 관련 부분집합/별도 범위이므로 합산하지 않음.",
+        "발표일 2026-10-07과 원자료 사업 정보 기준일 2026-08-19를 구분합니다.",
+        "원장·계약·공시·유틸리티 집계 간 동일 사업 연결이 미완료이므로 다른 행·집계와 용량을 합산하지 않습니다."
+      ],
+      "id": "disclosure:MISO_MTEP26_RECOMMENDED_LOAD_20261007",
+      "capacityBasis": "mixed_mw",
+      "projectCount": null
     }
   ]
 }''')

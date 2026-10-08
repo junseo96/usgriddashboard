@@ -1,0 +1,82 @@
+[
+  {
+    "region": "CAISO",
+    "coverage": "partial_pipeline",
+    "headlineAggregateId": "disclosure:WEST-PGE-20260630-DC-PIPELINE",
+    "additionalAggregateIds": [],
+    "scopeLabel": "PG&E 서비스 구역 · 20 MW 이상 신규 데이터센터",
+    "metricLabel": "공개된 부분 파이프라인",
+    "explanation": "PG&E의 신청·설계·접속공사 단계 공시입니다. SCE·SDG&E와 다른 산업 수요를 포함한 CAISO 전체 접속 요청 총계가 아닙니다."
+  },
+  {
+    "region": "ERCOT",
+    "coverage": "operator_requests",
+    "headlineAggregateId": "disclosure:ERCOT_LARGE_LOAD_REQUESTS_20260618",
+    "additionalAggregateIds": [
+      "disclosure:ERCOT_BATCHZERO_CONDITIONAL_BASE_20260903",
+      "disclosure:ERCOT_ONCOR_DC_REQUESTS_2026Q2",
+      "disclosure:ERCOT_ONCOR_OTHER_INDUSTRIAL_2026Q2"
+    ],
+    "scopeLabel": "ERCOT 공식 추적 대규모 부하 요청",
+    "metricLabel": "운영기관 공개 요청량",
+    "explanation": "2026년 6월 18일 ERCOT 발표의 438 GW 초과 요청량입니다. 정확한 추출 기준일·개별 명부는 미공개이며 현재 미통전 확정 수요와 같지 않습니다. Batch Zero·Oncor 값은 별도 단계·부분집합으로 합산하지 않습니다."
+  },
+  {
+    "region": "ISO-NE",
+    "coverage": "partial_pipeline",
+    "headlineAggregateId": "disclosure:ISONE_CELT_SELECTED_LARGE_LOADS_20260327",
+    "additionalAggregateIds": [],
+    "scopeLabel": "2026 CELT 반영을 위해 선별한 공식 연구 단계 2건",
+    "metricLabel": "공개된 선별 사업 계획 부하",
+    "explanation": "20 MW 초과·공식 연구계약 단계에서 선별된 NEMA 데이터센터 200 MW와 코네티컷 일반 전기화 85 MW입니다. 전체 접속 요청 명부가 아니며 초기 문의·기준 미달·선별 제외 사업은 포함하지 않습니다. 공개 검색용 대규모 부하 추적표는 향후 게시 계획으로 안내되어 현재 전체 공개 원장이 아닙니다."
+  },
+  {
+    "region": "MISO",
+    "coverage": "partial_pipeline",
+    "headlineAggregateId": "disclosure:MISO_MTEP26_RECOMMENDED_LOAD_20261007",
+    "additionalAggregateIds": [
+      "disclosure:MISO_MTEP26_EPR_LOAD_20260817",
+      "disclosure:MISO_DTE_GOOGLE_20260928",
+      "disclosure:MISO_DTE_ORACLE_20260928",
+      "disclosure:MISO_AMEREN_ESA_2026Q2",
+      "disclosure:MISO_AMEREN_CONSTRUCTION_AGREEMENTS_2026Q2"
+    ],
+    "scopeLabel": "MTEP26 권고 송전 포트폴리오 지원 부하 · 고객 신청 전수 아님",
+    "metricLabel": "계획 송전사업이 지원하는 부하",
+    "explanation": "2026년 10월 7일 MISO 발표에서 12월 승인을 권고할 송전 포트폴리오의 지원 부하입니다. 사업 정보 기준일은 8월 19일입니다. 이전 32.6 GW 예비 포트폴리오와 DTE·Ameren 계약 공시는 범위·기준일·단계가 달라 합산하지 않습니다."
+  },
+  {
+    "region": "NYISO",
+    "coverage": "register_only",
+    "headlineAggregateId": "register-summary:nyiso-active-load",
+    "additionalAggregateIds": [],
+    "scopeLabel": "NYISO 공개 Load Projects 원장 · 활성 신청 행",
+    "metricLabel": "공개 원장의 활성 신청 용량",
+    "explanation": "NYISO 공개 원장에서 본토 활성 신청으로 확인된 행만 집계합니다. 뉴욕 전체 배전·소매 서비스 신청의 포함 여부는 미확인이며 미국 전국 수용가 신청 총계로 사용하지 않습니다."
+  },
+  {
+    "region": "PJM",
+    "coverage": "partial_pipeline",
+    "headlineAggregateId": "disclosure:pjm-ppl-requests-20260929",
+    "additionalAggregateIds": [
+      "disclosure:pjm-fe-study-20260929",
+      "disclosure:pjm-exelon-pipeline-20260929",
+      "disclosure:pjm-dom-eloa-202607"
+    ],
+    "scopeLabel": "PPL Electric 서비스 구역 · 2024년 9월 이후 누적 요청",
+    "metricLabel": "유틸리티 공개 누적 요청량",
+    "explanation": "PPL의 누적 대규모 부하 요청으로 PJM 전체 또는 현재 활성 대기량이 아닙니다. FirstEnergy 연구 요청, Exelon 혼합 단계 파이프라인, Dominion ELOA는 범위·기준일·단계가 달라 합산하지 않습니다. PJM은 구역·지역별 Registry 집계 공개를 2027년 3월로 안내했으며 현재 전체 공개 총계는 미확보입니다."
+  },
+  {
+    "region": "SPP",
+    "coverage": "partial_pipeline",
+    "headlineAggregateId": "disclosure:SPP-EVERGY-ADDITIONAL-ESA-20260806",
+    "additionalAggregateIds": [
+      "disclosure:SPP-EVERGY-ESA-10Q-20260630",
+      "disclosure:SPP-OGE-GOOGLE-3SITES-20260430"
+    ],
+    "scopeLabel": "Evergy Kansas·Missouri · 추가 발표 ESA 체결 프로젝트",
+    "metricLabel": "공개된 부분 계약 부하",
+    "explanation": "Evergy 추가 ESA의 정상상태 최대부하이며 SPP 전체 요청량은 미확보입니다. 이미 운영을 시작한 프로젝트의 최종 램프를 더하지 않으며 다른 Evergy·OG&E 공시와도 합산하지 않습니다. SPP는 전체 접속 요청을 공개하지 않으며 NTC 송전 연구 자료만으로 전체 대기량을 복원하지 않습니다."
+  }
+]

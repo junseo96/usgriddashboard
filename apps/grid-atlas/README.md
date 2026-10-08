@@ -56,6 +56,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - [Pages 게시와 실측 부하 갱신](docs/PAGES.md)
 - [부하 관측·일별 피크 산식](docs/DEMAND.md)
 - [수용가 조사 자료·단위·중복](docs/LOAD_PIPELINE.md)
+- [ISO/RTO별 수용가 대표 지표와 전체 요청 공백](docs/REGIONAL_LOAD.md)
 - [수집·정기 갱신과 복구](docs/OPERATIONS.md)
 - [데이터 출처·범위·미확보 항목](docs/DATA.md)
 - [오프라인 미리보기](docs/PREVIEW.md)

@@ -4,6 +4,9 @@ import { GATES, MODEL_VERSION, type Assessment, type CollectionRun, type Dashboa
 import { calendarDayKst } from '../shared/time';
 import MarketPanel from './MarketPanel';
 import LoadPipelinePanel from './LoadPipelinePanel';
+import RegionalPipelinePanel from './RegionalPipelinePanel';
+import type { LoadPipelineDataset, MarketRegion } from '../shared/market-types';
+import type { MarketComparison } from '../shared/market';
 import './styles.css';
 
 type View = 'overview' | 'market' | 'pipeline' | 'projects' | 'history' | 'sources' | 'method';
@@ -69,6 +72,10 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [revision, setRevision] = useState(0);
+  const [pipeline, setPipeline] = useState<LoadPipelineDataset | null>(null);
+  const [marketComparison, setMarketComparison] = useState<MarketComparison | null>(null);
+  const [pipelineError, setPipelineError] = useState('');
+  const [marketRegion, setMarketRegion] = useState<MarketRegion>('PJM');
   const [selected, setSelected] = useState<string | null>(null);
   const [token, setToken] = useState('');
   const [adminOpen, setAdminOpen] = useState(false);
@@ -89,8 +96,21 @@ export default function App() {
     return () => controller.abort();
   }, [queryString, revision]);
   useEffect(() => { request<HealthResponse>('/api/health').then(setHealth).catch(() => setHealth(null)); }, [revision]);
+  useEffect(() => {
+    if (view !== 'overview') return;
+    const controller = new AbortController();
+    setPipelineError('');
+    Promise.all([
+      request<LoadPipelineDataset>('/api/load-pipeline', { signal: controller.signal }),
+      request<MarketComparison>('/api/market-comparison', { signal: controller.signal }),
+    ]).then(([nextPipeline, nextComparison]) => {
+      setPipeline(nextPipeline); setMarketComparison(nextComparison);
+    }).catch(e => { if (e.name !== 'AbortError') setPipelineError(e.message); });
+    return () => controller.abort();
+  }, [view, revision]);
   useEffect(() => { if (!notice) return; const timer = setTimeout(() => setNotice(''), 7000); return () => clearTimeout(timer); }, [notice]);
   const navigate = (next: View) => { setView(next); setMobileOpen(false); };
+  const openMarket = (nextRegion: MarketRegion = 'PJM') => { setMarketRegion(nextRegion); navigate('market'); };
   const authHeaders = () => ({ 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) });
   const capture = async () => {
     setCapturing(true);
@@ -121,10 +141,17 @@ export default function App() {
           {timeOpen && <div className="temporal-panel"><div><strong>시점 기준 조회</strong><p>현재까지 확인한 근거로 과거를 재평가하거나, 당시 알려진 범위만 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
           <div className="disclosure"><CircleHelp size={16} /><span><strong>수집된 공개 원장 기준</strong> · 전국 전수 데이터가 아닙니다. 동일 출처 신청 ID로 집계하며, 원장 간 동일 실물 프로젝트의 중복 식별은 미완료입니다.</span><button onClick={() => navigate('sources')}>수집 범위 확인 <ArrowUpRight size={14} /></button></div>
         </>}
-        {view === 'market' ? <MarketPanel revision={revision} /> : view === 'pipeline' ? <LoadPipelinePanel revision={revision} onRegister={() => { setType('load'); setRegion(''); setSearch(''); setStatus('all'); setAsOf(''); setKnownAt(''); navigate('projects'); }} /> : error ? <div className="empty-state error-state"><Database size={34} /><h2>데이터를 불러오지 못했습니다</h2><p>{error}</p><button className="button primary" onClick={() => setRevision(v => v + 1)}><RefreshCw size={15} /> 다시 시도</button></div> : !data && loading ? <LoadingSkeleton /> : data && <>
+        {view === 'market' ? <MarketPanel revision={revision} initialRegion={marketRegion} /> : view === 'pipeline' ? <LoadPipelinePanel revision={revision} onRegister={() => { setType('load'); setRegion(''); setSearch(''); setStatus('all'); setAsOf(''); setKnownAt(''); navigate('projects'); }} /> : error ? <div className="empty-state error-state"><Database size={34} /><h2>데이터를 불러오지 못했습니다</h2><p>{error}</p><button className="button primary" onClick={() => setRevision(v => v + 1)}><RefreshCw size={15} /> 다시 시도</button></div> : !data && loading ? <LoadingSkeleton /> : data && <>
           {loading && <div className="loading-strip" role="status">선택한 조건을 불러오는 중…</div>}
           {view === 'method' ? <Methodology /> : !data.available ? <div className="empty-state"><CalendarDays size={36} /><h2>이 시점의 관측 자료가 없습니다</h2><p>첫 수집 이전의 진행 상태를 현재 데이터로 채우지 않습니다.<br />다른 기준일을 선택하거나 현재 관측으로 돌아가세요.</p><button className="button primary" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재 관측 보기 <ArrowRight size={15} /></button></div> : <>
-            {(view === 'overview' || view === 'projects') && <Metrics data={data} scoped={filtersChanged} />}
+            {view === 'overview' && <>
+              <div className="national-load-scope"><Factory size={20} /><div><strong>전국 수용가 접속 요청 총량은 아직 미확보입니다.</strong><p>개별 신청 원장의 알려진 용량을 전국 수용가 총량으로 해석하지 않습니다. 아래에서는 각 ISO/RTO의 공식 요청 집계와 공개 파이프라인을 해당 권역의 발전·저장 신청과 함께 확인할 수 있습니다. 회사별 부분 집계와 단계별 수치를 전국 합계로 더하지 않습니다.</p></div></div>
+              {(asOf || knownAt) && <div className="market-notice">아래 권역별 파이프라인은 최신 공개 자료입니다. 선택한 과거 시점은 그 아래 프로젝트 원장·평가에 적용됩니다.</div>}
+              {pipelineError && <div className="market-error" role="alert">권역별 파이프라인 재조회 실패: {pipelineError}{pipeline ? ' 이전에 불러온 자료를 표시합니다.' : ''}</div>}
+              {pipeline && marketComparison ? <RegionalPipelinePanel pipeline={pipeline} comparison={marketComparison} onChoose={openMarket} /> : !pipelineError && <div className="market-loading" role="status">ISO/RTO별 공개 요청·파이프라인을 불러오는 중…</div>}
+              <p className="market-caveat">위 표는 7개 ISO/RTO 범위입니다. 아래 발전·저장 원장 합계에는 ISO/RTO 밖의 서부·남동부 자료도 포함되며, 수용가 전체 요청과 같은 모집단이 아닙니다.</p>
+            </>}
+            {(view === 'overview' || view === 'projects') && <Metrics data={data} scoped={filtersChanged} selectedType={type} selectedRegion={region} onMarket={() => openMarket()} />}
             {view === 'overview' && <>
               <div className="market-feature-links"><button className="market-feature-link" onClick={() => navigate('market')}><Activity size={23} /><span><strong>실제 부하와 신청 용량 비교</strong><small>7개 ISO·RTO · 공개 부하 관측과 일별 피크</small></span><ArrowRight size={17} /></button><button className="market-feature-link" onClick={() => navigate('pipeline')}><Factory size={23} /><span><strong>수용가 파이프라인 확장 보기</strong><small>데이터센터·공장 · 신청, 계약, 발표 근거 구분</small></span><ArrowRight size={17} /></button></div>
               <div className="overview-grid"><RegionMap data={data} region={region} setRegion={setRegion} type={type} /><CoverageCard data={data} onReview={() => { setStatus('unknown'); navigate('projects'); }} /></div>
@@ -146,12 +173,12 @@ export default function App() {
   </div>;
 }
 
-function Metrics({ data, scoped }: { data: DashboardResponse; scoped: boolean }) {
+function Metrics({ data, scoped, selectedType, selectedRegion, onMarket }: { data: DashboardResponse; scoped: boolean; selectedType: TypeFilter; selectedRegion: string; onMarket: () => void }) {
   const s = data.summary;
   return <section className="metrics-grid" aria-label="관측 요약">
     <article className="metric metric-score"><div className="metric-label">{scoped ? '선택 범위' : '관측 프로젝트'} 평균 병목점수<BarChart3 size={17} /></div><div className={`metric-value ${s.pointMean === null ? 'unavailable' : ''}`}>{s.pointMean === null ? '미산출' : decimal(s.pointMean)}{s.pointMean !== null && <small>/ 100</small>}</div><div className="metric-bottom"><span className="tiny-dot" /> {number(s.scoredCount)}개 평가 완료 신청의 단순 평균</div><span className="metric-trace" /></article>
     <article className="metric"><div className="metric-label">평가 대상 신청<Layers3 size={17} /></div><div className="metric-value">{number(s.eligibleCount)}<small>건</small></div><div className="metric-bottom">본토 활성 신청 · 유형 간 혼합 사업 중복 제외</div></article>
-    <article className="metric"><div className="metric-label">공개된 유형별 용량<Activity size={17} /></div><div className="capacity-stack">{(['generation', 'storage', 'load'] as ProjectType[]).map(t => <div key={t}><span><i className={`type-dot ${t}`} />{TYPE_LABEL[t]}</span><strong>{decimal(s[`${t}Mw`] / 1000, 2)}<small>GW</small></strong></div>)}</div><div className="metric-bottom">유형별 알려진 값 · 서로 합산하지 않음</div></article>
+    <article className="metric"><div className="metric-label">공개 개별 신청 원장 용량<Activity size={17} /></div><div className="capacity-stack">{(['generation', 'storage', 'load'] as ProjectType[]).filter(t => selectedType === 'all' || t === selectedType).map(t => <div key={t}><span><i className={`type-dot ${t}`} />{t === 'load' ? '수용가 원장' : TYPE_LABEL[t]}</span>{t === 'load' && selectedType === 'all' && !selectedRegion ? <button className="text-button" onClick={onMarket}>권역별 규모 확인 <ArrowRight size={13} /></button> : <strong>{s.knownCapacityCounts[t] > 0 ? decimal(s[`${t}Mw`] / 1000, 2) : '미확보'}{s.knownCapacityCounts[t] > 0 && <small>GW</small>}</strong>}</div>)}</div><div className="metric-bottom">{selectedType === 'load' ? '확보한 개별 원장 범위 · 전국 수용가 총량과 별도' : '수용가 파이프라인은 권역표의 공개 범위와 함께 확인'}</div></article>
     <article className="metric"><div className="metric-label">진행 근거 미확인<CircleHelp size={17} /></div><div className="metric-value">{number(s.unknownCount)}<small>건</small></div><div className="metric-bottom"><span className="tiny-dot amber" />평균에서 제외 · 미진행과 구분</div></article>
   </section>;
 }

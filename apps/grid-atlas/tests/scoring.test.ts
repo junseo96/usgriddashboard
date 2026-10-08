@@ -177,6 +177,7 @@ test('summary uses an unweighted project mean with unknown and excluded counts s
   assert.equal(result.upperMean, 66.6666666667);
   assert.equal(result.loadMw, 10001);
   assert.equal(result.capacityUnknownCount, 1);
+  assert.deepEqual(result.knownCapacityCounts, { generation: 0, storage: 0, load: 2 });
 });
 
 test('hybrids count once overall, once per type, and retain distinct capacity measures', () => {
@@ -186,6 +187,7 @@ test('hybrids count once overall, once per type, and retain distinct capacity me
   assert.equal(summary.recordCount, 1);
   assert.equal(summary.eligibleCount, 1);
   assert.deepEqual(summary.typeCounts, { generation: 1, storage: 1, load: 0 });
+  assert.deepEqual(summary.knownCapacityCounts, { generation: 1, storage: 1, load: 0 });
   assert.equal(summary.generationMw, 200);
   assert.equal(summary.storageMw, 50);
   assert.equal(summary.loadMw, 0);
@@ -201,6 +203,28 @@ test('conflicting duplicates and alternate IDs for the same source record are re
   assert.throws(() => summarize([scoreProject({ ...project, loadMw: -1 }, [], at)]), /Invalid loadMw/);
 });
 
+test('known capacity counts distinguish entirely undisclosed MW from a disclosed zero', () => {
+  const unknown = { ...project, loadMw: null, capacityStatus: 'unknown' as const };
+  const missing = summarize([scoreProject(unknown, [], at)]);
+  const zero = summarize([scoreProject({ ...project, loadMw: 0 }, [], at)]);
+  assert.equal(missing.typeCounts.load, 1);
+  assert.equal(zero.typeCounts.load, 1);
+  assert.equal(missing.loadMw, 0);
+  assert.equal(zero.loadMw, 0);
+  assert.equal(missing.knownCapacityCounts.load, 0);
+  assert.equal(zero.knownCapacityCounts.load, 1);
+  assert.equal(missing.pointMean, zero.pointMean);
+  assert.equal(missing.lowerMean, zero.lowerMean);
+  assert.equal(missing.upperMean, zero.upperMean);
+
+  const partialHybrid = { ...project, types: ['generation', 'storage'] as Project['types'],
+    generationMw: 0, storageMw: null, loadMw: 100, capacityStatus: 'partial' as const };
+  const partial = summarize([scoreProject(partialHybrid, [], at)]);
+  // Nonmember load capacity and undisclosed storage do not become known components.
+  assert.deepEqual(partial.knownCapacityCounts, { generation: 1, storage: 0, load: 0 });
+  assert.equal(partial.loadMw, 0);
+});
+
 test('empty summaries and all-excluded inventories have no manufactured mean', () => {
   for (const rows of [[], [scoreProject({ ...project, eligible: false }, [], at)]]) {
     const summary = summarize(rows);
@@ -208,6 +232,7 @@ test('empty summaries and all-excluded inventories have no manufactured mean', (
     assert.equal(summary.pointMean, null);
     assert.equal(summary.lowerMean, null);
     assert.equal(summary.upperMean, null);
+    assert.deepEqual(summary.knownCapacityCounts, { generation: 0, storage: 0, load: 0 });
   }
 });
 

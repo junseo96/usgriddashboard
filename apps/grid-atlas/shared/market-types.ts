@@ -34,7 +34,13 @@ export interface PipelineAggregate {
   checkedAt: string | null; scope: string; caveats: string[];
   capacityQualifier?: 'exact' | 'approximate' | 'greater_than' | 'at_least';
 }
+export interface RegionalPipelineCoverage {
+  region: MarketRegion; coverage: 'operator_requests' | 'partial_pipeline' | 'register_only' | 'unavailable';
+  headlineAggregateId: string | null; additionalAggregateIds: string[];
+  scopeLabel: string; metricLabel: string; explanation: string;
+}
 export interface LoadPipelineDataset {
   schemaVersion: 1; generatedAt: string; projects: PipelineProject[];
   aggregates: PipelineAggregate[]; limitations: string[];
+  regionalCoverage?: RegionalPipelineCoverage[];
 }
