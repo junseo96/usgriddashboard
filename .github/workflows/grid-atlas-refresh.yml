@@ -1,0 +1,132 @@
+name: Grid Atlas collection
+
+on:
+  schedule:
+    # Monday 09:00 Korea Standard Time.
+    - cron: '0 0 * * 1'
+    # The first day of each month at 09:00 Korea Standard Time.
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+    inputs:
+      run_refresh:
+        description: 'Collect official sources and write reviewed records to the configured NEW Grid Atlas site'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: grid-atlas-production-write
+  cancel-in-progress: false
+
+jobs:
+  configuration:
+    name: Check whether collection is enabled
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.gate.outputs.enabled }}
+      cadence: ${{ steps.gate.outputs.cadence }}
+    steps:
+      - name: Resolve the explicit activation and cadence
+        id: gate
+        env:
+          REFRESH_ENABLED: ${{ vars.ENABLE_GRID_ATLAS_REFRESH }}
+          REQUESTED_CADENCE: ${{ vars.GRID_ATLAS_REFRESH_CADENCE }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+          MANUAL_REQUESTED: ${{ inputs.run_refresh }}
+          IS_DEFAULT_BRANCH: ${{ github.ref_name == github.event.repository.default_branch }}
+        run: |
+          python3 - <<'PY'
+          import os
+          cadence = os.environ.get('REQUESTED_CADENCE') or 'weekly'
+          active = False
+          if os.environ.get('IS_DEFAULT_BRANCH') != 'true':
+              reason = 'Disabled: only the default branch can run production collection.'
+          elif os.environ.get('REFRESH_ENABLED') != 'true':
+              reason = 'Disabled: ENABLE_GRID_ATLAS_REFRESH is not true. No data was collected or refreshed.'
+          elif cadence not in ('weekly', 'monthly'):
+              reason = 'Disabled: GRID_ATLAS_REFRESH_CADENCE must be weekly or monthly.'
+          elif os.environ.get('EVENT_NAME') == 'workflow_dispatch':
+              active = os.environ.get('MANUAL_REQUESTED') == 'true'
+              reason = 'Enabled: explicit manual collection requested.' if active else 'Disabled: manual run_refresh was not selected.'
+          else:
+              expected = {'weekly': '0 0 * * 1', 'monthly': '0 0 1 * *'}[cadence]
+              active = os.environ.get('EVENT_SCHEDULE') == expected
+              reason = 'Enabled: the selected cadence is due.' if active else 'Skipped: this schedule is not the selected cadence.'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              safe_cadence = cadence if cadence in ('weekly', 'monthly') else 'invalid'
+              output.write(f'enabled={str(active).lower()}\ncadence={safe_cadence}\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('### Grid Atlas collection configuration\n\n' + reason + '\n')
+          print(reason)
+          PY
+  collect:
+    name: Collect and record source outcomes
+    needs: configuration
+    if: needs.configuration.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: apps/grid-atlas
+    env:
+      GRID_ATLAS_URL: ${{ vars.GRID_ATLAS_URL }}
+      GRID_ATLAS_ADMIN_TOKEN: ${{ secrets.GRID_ATLAS_ADMIN_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate the remote target
+        run: |
+          python3 - <<'PY'
+          import os
+          from urllib.parse import urlsplit
+          parsed = urlsplit(os.environ.get('GRID_ATLAS_URL', ''))
+          if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password or parsed.query or parsed.fragment or parsed.path not in ('', '/'):
+              raise SystemExit('Set GRID_ATLAS_URL to the HTTPS origin of the NEW Grid Atlas Worker.')
+          if len(os.environ.get('GRID_ATLAS_ADMIN_TOKEN', '')) < 32:
+              raise SystemExit('Missing or too-short GRID_ATLAS_ADMIN_TOKEN. No refresh attempted.')
+          print('Remote target and write credential are configured. Values are not displayed.')
+          PY
+      - name: Restore last successfully normalized source state
+        uses: actions/cache/restore@v4
+        with:
+          path: apps/grid-atlas/.local/collection/state.json
+          key: grid-atlas-collection-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            grid-atlas-collection-v1-
+      - name: Collect supported sources and record partial coverage honestly
+        env:
+          COLLECTION_CADENCE: ${{ needs.configuration.outputs.cadence }}
+        run: python3 scripts/collect.py --cadence "$COLLECTION_CADENCE" --api-url "$GRID_ATLAS_URL" --state-dir .local/collection
+      - name: Preserve reports and raw source evidence even on collection failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grid-atlas-collection-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            apps/grid-atlas/.local/collection/runs/**/*.json
+            apps/grid-atlas/.local/collection/raw/**
+            apps/grid-atlas/.local/collection/state.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Save latest successfully normalized state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: apps/grid-atlas/.local/collection/state.json
+          key: grid-atlas-collection-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Explain the meaning of a collection run
+        if: always()
+        run: |
+          {
+            echo '### Data coverage'
+            echo 'The immutable report artifact records source-level collection, parsing, and API-write outcomes.'
+            echo 'A downloaded source index is not a refreshed project dataset. Parser-review and inaccessible sources remain gaps.'
+            echo 'This workflow does not establish nationwide completeness or automatically infer procedure progress.'
+            echo 'Archive raw evidence before the 90-day artifact retention period expires.'
+          } >> "$GITHUB_STEP_SUMMARY"

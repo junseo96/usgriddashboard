@@ -1,0 +1,10 @@
+import { readFile } from 'node:fs/promises';
+const url = new URL(process.env.GRID_ATLAS_URL || 'http://invalid.local');
+if (url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/' || url.search || url.hash) throw new Error('GRID_ATLAS_URL에는 새 사이트의 HTTPS 원점만 지정하세요.');
+const token = process.env.GRID_ATLAS_ADMIN_TOKEN;
+if (!token) throw new Error('GRID_ATLAS_ADMIN_TOKEN 설정이 필요합니다. 채팅에 비밀값을 입력하지 마세요.');
+const bootstrap = JSON.parse(await readFile(new URL('../data/bootstrap.json', import.meta.url), 'utf8'));
+const response = await fetch(new URL('/api/bootstrap', url), { method: 'POST', redirect: 'error', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ projects: bootstrap.projects, sources: bootstrap.sources }), signal: AbortSignal.timeout(60000) });
+if (response.status === 409) throw new Error('이미 데이터가 있는 사이트입니다. 초기화를 중단했습니다.');
+if (!response.ok) throw new Error(`초기 데이터 적재 실패: HTTP ${response.status}`);
+console.log('새 사이트 초기 데이터 적재 완료. 기존 DB 초기화나 자동 일정 활성화는 수행하지 않았습니다.');

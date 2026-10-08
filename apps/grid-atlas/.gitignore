@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.state/
+.local/
+.wrangler/
+wrangler.deploy.json
+.env*
+!.env.example
+__pycache__/
+*.pyc
+*.tsbuildinfo

@@ -1,0 +1,42 @@
+name: Grid Atlas checks
+
+on:
+  pull_request:
+    paths:
+      - 'apps/grid-atlas/**'
+      - '.github/workflows/grid-atlas-*.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'apps/grid-atlas/**'
+      - '.github/workflows/grid-atlas-*.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: grid-atlas-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/grid-atlas
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/grid-atlas/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run test:python
+      - run: npm run build

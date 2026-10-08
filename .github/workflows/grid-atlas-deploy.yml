@@ -1,0 +1,89 @@
+name: Grid Atlas deploy (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed_empty_database:
+        description: 'After deployment, import the reviewed bootstrap into an EMPTY database only'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: grid-atlas-production-write
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Deploy the default branch; do not publish an arbitrary branch via the UI.
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/grid-atlas
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+      GRID_ATLAS_ADMIN_TOKEN: ${{ secrets.GRID_ATLAS_ADMIN_TOKEN }}
+      GRID_ATLAS_URL: ${{ vars.GRID_ATLAS_URL }}
+      ENABLE_GRID_ATLAS_REFRESH: ${{ vars.ENABLE_GRID_ATLAS_REFRESH }}
+      GRID_ATLAS_REFRESH_CADENCE: ${{ vars.GRID_ATLAS_REFRESH_CADENCE }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate required configuration without exposing values
+        env:
+          SEED_REQUESTED: ${{ inputs.seed_empty_database }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from urllib.parse import urlsplit
+          required = ['CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_ACCOUNT_ID', 'D1_DATABASE_ID', 'GRID_ATLAS_ADMIN_TOKEN']
+          missing = [name for name in required if not os.environ.get(name, '').strip()]
+          if missing:
+              raise SystemExit('Missing configuration names: ' + ', '.join(missing))
+          if len(os.environ['GRID_ATLAS_ADMIN_TOKEN']) < 32:
+              raise SystemExit('GRID_ATLAS_ADMIN_TOKEN must contain at least 32 characters.')
+          if os.environ.get('SEED_REQUESTED') == 'true':
+              parsed = urlsplit(os.environ.get('GRID_ATLAS_URL', ''))
+              if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password or parsed.query or parsed.fragment or parsed.path not in ('', '/'):
+                  raise SystemExit('Set GRID_ATLAS_URL to the HTTPS origin of this new Worker before requesting bootstrap.')
+          print('Required configuration is present. No secret values displayed.')
+          PY
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/grid-atlas/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run test:python
+      - run: npm run build
+      - run: npm run cf:configure
+      - name: Apply migrations to the dedicated Grid Atlas database
+        run: npx wrangler d1 migrations apply DB --remote --config wrangler.deploy.json
+      - name: Deploy the new Worker and static assets
+        run: npx wrangler deploy --config wrangler.deploy.json
+      - name: Install the write credential on the Worker
+        run: printf '%s' "$GRID_ATLAS_ADMIN_TOKEN" | npx wrangler secret put ADMIN_TOKEN --config wrangler.deploy.json
+      - name: Import the reviewed bootstrap into an empty database
+        if: inputs.seed_empty_database
+        run: npm run seed:remote
+      - name: Record deployment scope
+        env:
+          SEED_REQUESTED: ${{ inputs.seed_empty_database }}
+        run: |
+          {
+            echo '### Grid Atlas deployment'
+            echo '- Deployed the standalone application and applied its D1 migrations.'
+            echo '- Existing Sites hosting and data were not targeted.'
+            echo "- Empty-database bootstrap requested: ${SEED_REQUESTED}."
+            echo '- Recurring collection is controlled separately by ENABLE_GRID_ATLAS_REFRESH.'
+            echo '- Deployment success does not establish nationwide data completeness.'
+          } >> "$GITHUB_STEP_SUMMARY"

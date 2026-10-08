@@ -1,0 +1,44 @@
+{
+  "name": "us-grid-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:api": "node server/local.ts",
+    "seed:local": "node scripts/seed-local.ts",
+    "seed:remote": "node scripts/seed-remote.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --test-isolation=none tests/*.test.ts",
+    "test:python": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 5175",
+    "cf:configure": "node scripts/configure-cloudflare.mjs",
+    "cf:check": "wrangler deploy --config wrangler.jsonc --dry-run --outdir .state/worker-check",
+    "collect": "python3 scripts/collect.py"
+  },
+  "dependencies": {
+    "lucide-react": "1.31.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20260515.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "rolldown": "1.0.1",
+    "typescript": "5.9.3",
+    "vite": "8.0.13",
+    "wrangler": "4.92.0"
+  },
+  "overrides": {
+    "miniflare": {
+      "sharp": "0.35.4"
+    }
+  }
+}
