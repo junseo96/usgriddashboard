@@ -6,14 +6,15 @@ on:
     paths:
       - 'apps/grid-atlas/**'
       - '.github/workflows/grid-atlas-pages.yml'
+      - '.github/workflows/static.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: grid-atlas-pages
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
