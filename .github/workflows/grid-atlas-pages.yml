@@ -8,6 +8,9 @@ on:
       - '.github/workflows/grid-atlas-pages.yml'
       - '.github/workflows/static.yml'
   workflow_dispatch:
+  schedule:
+    # Best-effort demand refresh at minutes 7, 22, 37 and 52 of each hour.
+    - cron: '7,22,37,52 * * * *'
 
 permissions:
   contents: read
@@ -31,9 +34,84 @@ jobs:
           node-version: '24'
           cache: npm
           cache-dependency-path: apps/grid-atlas/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: npm ci
+      - name: Restore last verified regional demand observations
+        uses: actions/cache/restore@v4
+        with:
+          path: apps/grid-atlas/data/grid-demand.json
+          key: grid-atlas-demand-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            grid-atlas-demand-v1-
+      - name: Collect official current demand and daily peaks
+        id: demand
+        continue-on-error: true
+        run: |
+          set +e
+          python3 scripts/collect-demand.py --output data/grid-demand.json --previous data/grid-demand.json
+          result=$?
+          printf 'exit_code=%s\n' "$result" >> "$GITHUB_OUTPUT"
+          exit "$result"
+      - name: Validate demand artifact before publishing
+        env:
+          COLLECTOR_EXIT: ${{ steps.demand.outputs.exit_code }}
+        run: |
+          python3 - <<'PY'
+          import datetime, importlib.util, json, os, sys
+          from pathlib import Path
+          if os.environ['COLLECTOR_EXIT'] not in ('0', '1'):
+              raise RuntimeError('Collector did not finish safely; publication stopped.')
+          sys.path.insert(0, str(Path('scripts').resolve()))
+          spec = importlib.util.spec_from_file_location('collect_demand', 'scripts/collect-demand.py')
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          module.validate_previous(json.loads(Path('data/grid-demand.json').read_text()), datetime.datetime.now(datetime.timezone.utc))
+          PY
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs';
+          import { isDemandDataset } from './shared/market.ts';
+          const data = JSON.parse(fs.readFileSync('data/grid-demand.json', 'utf8'));
+          if (!isDemandDataset(data)) throw new Error('Cannot publish malformed demand observations.');
+          console.log('Validated demand artifact; stale/unavailable regions remain explicitly labelled.');
+          JS
+      - name: Preserve latest validated demand state
+        uses: actions/cache/save@v4
+        with:
+          path: apps/grid-atlas/data/grid-demand.json
+          key: grid-atlas-demand-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Record collection result separately from deployment
+        if: always()
+        env:
+          DEMAND_OUTCOME: ${{ steps.demand.outcome }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          data = json.loads(Path('data/grid-demand.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('### Regional demand collection\n\n')
+              summary.write('Collector step: ' + os.environ['DEMAND_OUTCOME'] + '\n\n')
+              summary.write('Publishing succeeds separately from collection; unavailable/stale regions are preserved as such.\n\n')
+              for region in data['regions']:
+                  summary.write(f"- {region['region']}: {region['status']}, observed {region['observedAt']}, cadence {region['intervalMinutes']} minutes\n")
+              summary.write('\n15-minute scheduling is best effort. Source cadence and reporting delays are not changed by publishing.\n')
+          PY
+      - name: Keep a compact collection audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: demand-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            apps/grid-atlas/.local/demand/runs/*.json
+            apps/grid-atlas/data/grid-demand.json
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: warn
       - run: npm run typecheck
       - run: npm test
+      - run: npm run test:python
       - run: npm run build:pages
       - uses: actions/upload-pages-artifact@v3
         with:

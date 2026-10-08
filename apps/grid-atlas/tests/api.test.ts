@@ -5,6 +5,7 @@ import { createLocalDatabase } from '../server/local-db.ts';
 import { handleApi, type ApiEnvironment } from '../server/api.ts';
 import { captureSnapshot, inventoryRevisionGuard, readInventory, readInventoryWithRevision, seedDatabase, sourceReplacementStatements } from '../server/database.ts';
 import { GATES, MODEL_VERSION, type Assessment, type ImportPayload, type Project, type Source } from '../shared/types.ts';
+import { isDemandDataset } from '../shared/market.ts';
 
 const migration = readFileSync(new URL('../migrations/0001_initial.sql', import.meta.url), 'utf8');
 const today = new Date().toISOString().slice(0,10);
@@ -60,6 +61,31 @@ test('production auth and local cross-origin boundaries are enforced',async()=>{
     assert.equal((await call(prod,'/api/snapshots',{}, {origin:'https://grid.example.org',headers:{Authorization:'Bearer secret'}})).status,201);
     const health=await (await call({...prod,SCHEDULE_ENABLED:'1',SCHEDULE_CADENCE:'monthly'},'/api/health')).json();assert.equal(health.schedule.configured,true);assert.match(health.schedule.cadence,/매월/);assert.equal(health.schedule.lastRunAt,null);
   }finally{db.close();}
+});
+test('public market APIs serve evidence separately and compare only eligible snapshot applications', async () => {
+  const { db, env } = fixture();
+  try {
+    const empty = await (await call(env, '/api/market-comparison')).json();
+    assert.equal(empty.snapshotAsOf, null);
+    assert.ok(empty.regions.every((r: { loadMw: number | null }) => r.loadMw === null));
+    await seedDatabase(db, { sources: [{ ...source, recordCount: 2 }], projects: [
+      project('hybrid-market', { region: 'PJM', types: ['generation', 'storage'], generationMw: 150, storageMw: 70 }),
+      project('reference-load', { region: 'PJM', types: ['load'], generationMw: null, loadMw: 5000,
+        status: 'reference', eligible: false, exclusionReason: 'Aggregate reference' }),
+    ] });
+    const comparison = await (await call(env, '/api/market-comparison')).json();
+    assert.ok(comparison.snapshotAsOf);
+    const pjm = comparison.regions.find((r: { region: string }) => r.region === 'PJM');
+    assert.equal(pjm.generationMw, 150); assert.equal(pjm.storageMw, 70);
+    assert.equal(pjm.loadMw, null); assert.equal(pjm.loadCount, 0);
+    const demand = await call(env, '/api/demand'); assert.equal(demand.status, 200);
+    assert.ok(isDemandDataset(await demand.json()));
+    const pipeline = await call(env, '/api/load-pipeline'); assert.equal(pipeline.status, 200);
+    const evidence = await pipeline.json();
+    assert.ok(evidence.projects.some((p: { sector: string }) => p.sector === 'manufacturing'));
+    assert.ok(evidence.aggregates.some((a: { region: string }) => a.region === 'ERCOT'));
+    assert.equal((await readInventory(db)).projects.length, 2);
+  } finally { db.close(); }
 });
 test('unknown projects are distinct from no progress and search does not change mean scope',async()=>{
   const {db,env}=await seeded();try{

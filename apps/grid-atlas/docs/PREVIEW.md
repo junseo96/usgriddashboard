@@ -46,6 +46,8 @@ node scripts/export-preview.mjs --snapshot .state/preview-observation.json --out
 npm run build:pages
 ```
 
-체크인된 `data/bootstrap.json`을 새 임시 SQLite에 초기화하고, 임시 API로 위 검증을 수행하여 `.state/pages/index.html`과 `.nojekyll`을 만듭니다. 기존 개발·운영 DB는 읽거나 변경하지 않으며, 임시 서버와 DB는 성공·실패·중단 시 정리합니다. API 포트는 사용 가능한 루프백 포트를 자동 선택하며 필요한 경우 `GRID_ATLAS_PAGES_PORT`로 지정할 수 있습니다.
+체크인된 `data/bootstrap.json`을 새 임시 SQLite에 초기화하고, 임시 API로 위 검증을 수행하여 `.state/pages/index.html`, `grid-demand.json`, `.nojekyll`을 만듭니다. 기존 개발·운영 DB는 읽거나 변경하지 않으며, 임시 서버와 DB는 성공·실패·중단 시 정리합니다. API 포트는 사용 가능한 루프백 포트를 자동 선택하며 필요한 경우 `GRID_ATLAS_PAGES_PORT`로 지정할 수 있습니다.
 
-이 디렉터리를 GitHub Pages에 게시하면 계정별 서버 비밀값 없이 읽기 전용 대시보드를 공유할 수 있습니다. 생성 시각의 초기화 관측만 포함하며 원자료 기준일·수집 시각은 초기 자료에 기록된 값을 유지합니다. 빌드가 원자료를 다시 수집하거나 진행 평가를 추가하지는 않습니다. Pages에는 API 서버가 없으므로 평가 저장, 운영 DB 이력 조회와 정기 수집은 별도 운영 배포가 필요합니다.
+이 디렉터리를 GitHub Pages에 게시하면 계정별 서버 비밀값 없이 읽기 전용 대시보드를 공유할 수 있습니다. 프로젝트는 생성 시각의 초기화 관측만 포함하며 원자료 기준일·수집 시각은 초기 자료에 기록된 값을 유지합니다. 빌드가 원자료를 다시 수집하거나 진행 평가를 추가하지는 않습니다. Pages에는 API 서버가 없으므로 평가 저장과 운영 DB 이력 조회는 별도 운영 배포가 필요합니다.
+
+Pages 빌드는 내보내기에 `--pages`를 전달합니다. 이 모드에서만 부하 화면이 동일 출처의 `./grid-demand.json`을 재조회하며, GitHub Actions가 별도로 수집·게시한 관측을 반영합니다. 기본 오프라인 HTML과 `file:`로 연 파일은 외부 요청 없이 포함된 부하 자료를 표시합니다. Pages 갱신 일정과 장애 처리·보존 기간은 [PAGES.md](PAGES.md)를 참고하세요.

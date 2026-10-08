@@ -1,6 +1,8 @@
 import { MODEL_VERSION, type Assessment, type CollectionRun, type DashboardResponse, type Filters, type HealthResponse, type ImportPayload, type Project, type ProjectScore, type SnapshotMeta, type Source } from '../shared/types.ts';
 import { scoreProject, summarize, validateAssessment } from '../shared/scoring.ts';
 import { calendarDayKst, endOfKstDay, isCalendarDay as date } from '../shared/time.ts';
+import { compareMarkets } from '../shared/market.ts';
+import { publicDemand, publicPipeline } from './market-data.ts';
 import { captureSnapshot, inventoryRevisionGuard, listSnapshots, MAX_PROJECTS, readAssessments, readInventoryWithRevision, readSnapshot, recordCollectionRun, seedDatabase, sha256, sourceReplacementStatements, stableJson, type Inventory, type SqlDatabase } from './database.ts';
 
 export type { SqlDatabase, SqlStatement } from './database.ts';
@@ -148,6 +150,14 @@ export async function handleApi(request: Request, env: ApiEnvironment): Promise<
   try {
     if (request.method !== 'GET' && request.method !== 'POST') throw new ApiError(405, 'Method not allowed');
     if (request.method === 'POST' && !canWrite(request, env)) throw new ApiError(401, 'An administrator bearer token is required');
+    if (path === '/api/demand' && request.method === 'GET') return json(publicDemand());
+    if (path === '/api/load-pipeline' && request.method === 'GET') return json(publicPipeline());
+    if (path === '/api/market-comparison' && request.method === 'GET') {
+      const snapshots = await listSnapshots(env.DB, new Date().toISOString(), 1);
+      if (!snapshots[0]) return json(compareMarkets([], null));
+      const inventory = await readSnapshot(env.DB, snapshots[0].id);
+      return json(compareMarkets(inventory.projects, snapshots[0].capturedAt));
+    }
     if (path === '/api/health' && request.method === 'GET') {
       try {
         const [snapshots, run] = await Promise.all([listSnapshots(env.DB, new Date().toISOString(), 1), env.DB.prepare('SELECT started_at,status FROM collection_runs ORDER BY started_at DESC LIMIT 1').first<{ started_at: string; status: string }>()]);

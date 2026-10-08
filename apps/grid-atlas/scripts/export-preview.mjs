@@ -7,14 +7,16 @@ import { createHash } from 'node:crypto';
 import { rolldown } from 'rolldown';
 import { scoreProject, summarize } from '../shared/scoring.ts';
 import { calendarDayKst } from '../shared/time.ts';
+import { compareMarkets, isDemandDataset } from '../shared/market.ts';
 
 const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const options = { api: 'http://127.0.0.1:8789', output: resolve(appRoot, '.state/grid-atlas-preview.html') };
 for (let index = 0; index < args.length; index++) {
   const option = args[index];
+  if (option === '--pages') { options.pages = true; continue; }
   if (option === '--help') {
-    console.log('node scripts/export-preview.mjs [--api http://127.0.0.1:8789] [--output file.html] [--snapshot snapshot.json] [--save-snapshot snapshot.json]');
+    console.log('node scripts/export-preview.mjs [--api http://127.0.0.1:8789] [--output file.html] [--snapshot snapshot.json] [--save-snapshot snapshot.json] [--pages]');
     process.exit(0);
   }
   if (!['--api', '--output', '--snapshot', '--save-snapshot'].includes(option) || !args[index + 1] || args[index + 1].startsWith('--')) throw new Error(`Unknown or incomplete option: ${option}`);
@@ -36,7 +38,7 @@ async function getObservation() {
     return response.json();
   }
   const params = new URLSearchParams({ pageSize: '100', knownAt: exportedAt, asOf: calendarDayKst(exportedAt) });
-  const [first, health, runs] = await Promise.all([get(`/api/dashboard?${params}`), get('/api/health'), get('/api/runs?limit=100')]);
+  const [first, health, runs, demand, pipeline] = await Promise.all([get(`/api/dashboard?${params}`), get('/api/health'), get('/api/runs?limit=100'), get('/api/demand'), get('/api/load-pipeline')]);
   if (!first.available || !first.snapshot) throw new Error('A real initialized snapshot is required. Run seed:local first.');
   const pages = Math.ceil(first.total / 100);
   if (!Number.isInteger(first.total) || first.total < 1 || first.total > 100_000) throw new Error('Unexpected inventory size.');
@@ -59,7 +61,8 @@ async function getObservation() {
     projects: scores.map(score => score.project), sources: first.sources,
     summary: first.summary, limitations: first.limitations,
     originalHistoryCount: first.history.length, originalHistoryTruncated: first.historyTruncated,
-    health, runs,
+    health, runs, demand, pipeline,
+    comparison: compareMarkets(scores.map(score => score.project), first.snapshot.capturedAt),
     verification: { actualApiProjectCount: scores.length, assessedGateCount: 0, allGatesVerifiedUnknown: true },
   };
 }
@@ -71,16 +74,48 @@ function validateObservation(data) {
   if (data.modelVersion !== 'grid-atlas-v1' || data.snapshot.modelVersion !== data.modelVersion) throw new Error('Unsupported score model.');
   const reproduced = summarize(data.projects.map(project => scoreProject(project, [], { asOf: calendarDayKst(data.exportedAt), knownAt: data.exportedAt })));
   if (reproduced.recordCount !== data.projects.length || stable(reproduced) !== stable(data.summary)) throw new Error('Cached observation does not reproduce the verified API summary.');
+  if (data.demand && !isDemandDataset(data.demand)) throw new Error('Invalid demand observations.');
+  if (data.comparison && stable(data.comparison) !== stable(compareMarkets(data.projects, data.snapshot.capturedAt))) throw new Error('Market comparison does not match the exported inventory.');
 }
 
-// Bundled with the same score functions as the live API. This does not write or
-// call a server: the browser receives only the explicitly exported observation.
-function installOffline(data, scoring) {
-  const { summarize, scoreProject, calendarDayKst, endOfKstDay, isCalendarDay } = scoring;
+// Shares live API score functions and never writes. Pages mode may refresh the
+// public demand JSON from the same origin; offline exports stay self-contained.
+function installOffline(data, scoring, pagesMode) {
+  const { summarize, scoreProject, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset } = scoring;
+  const networkFetch = window.fetch.bind(window);
+  let demand = data.demand;
+  let demandCheckedAt = 0;
+  let demandRequest = null;
+  async function currentDemand() {
+    if (!pagesMode || !/^https?:$/.test(window.location.protocol)) return demand;
+    if (demandRequest) return demandRequest;
+    if (Date.now() - demandCheckedAt < 55_000) return demand;
+    demandCheckedAt = Date.now();
+    demandRequest = (async () => {
+      try {
+        const url = new URL('./grid-demand.json', window.location.href);
+        if (url.origin !== window.location.origin) throw new Error('Invalid demand refresh origin');
+        const response = await networkFetch(url, { cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(12_000) });
+        if (!response.ok) throw new Error('Demand refresh unavailable');
+        const text = await response.text();
+        if (text.length > 8_000_000) throw new Error('Demand refresh exceeds limit');
+        const candidate = JSON.parse(text);
+        if (!isDemandDataset(candidate)) throw new Error('Invalid demand refresh schema');
+        if (!demand || Date.parse(candidate.lastAttemptAt) >= Date.parse(demand.lastAttemptAt)) demand = candidate;
+      } catch {
+        if (demand) demand = { ...demand, regions: demand.regions.map(r => ({ ...r,
+          status: r.status === 'unavailable' ? 'unavailable' : 'stale',
+          warnings: [...new Set([...r.warnings, '게시 자료 갱신 연결 실패 · 마지막으로 확인한 관측값 유지'])],
+        })) };
+      } finally { demandRequest = null; }
+      return demand;
+    })();
+    return demandRequest;
+  }
   const baseUrl = 'https://grid-atlas-offline.invalid';
   const scores = data.projects.map(project => scoreProject(project, [], { asOf: calendarDayKst(data.exportedAt), knownAt: data.exportedAt }));
   const byId = new Map(scores.map(score => [score.project.id, score]));
-  const extraLimit = '오프라인 미리보기에는 내보낸 최신 관측 1개만 포함됩니다. 새 수집·평가·저장은 서버 연결 후 사용할 수 있습니다.';
+  const extraLimit = '프로젝트 원장은 내보낸 관측 1개를 포함합니다. 프로젝트 신규 수집·평가·저장은 별도 서버 연결이 필요합니다.';
   const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
   const scoped = filters => scores.filter(score => (filters.type === 'all' || score.project.types.includes(filters.type)) && (!filters.region || filters.region === 'all' || score.project.region === filters.region));
   const visible = (items, filters) => items.filter(score => (!filters.q || [score.project.name, score.project.id, score.project.sourceRecordId, score.project.state ?? ''].some(value => value.toLocaleLowerCase().includes(filters.q.toLocaleLowerCase()))) && (filters.status !== 'scored' || (score.project.eligible && score.point !== null)) && (filters.status !== 'unknown' || (score.project.eligible && score.point === null)));
@@ -115,7 +150,10 @@ function installOffline(data, scoring) {
     if (url.origin !== baseUrl && url.protocol !== 'file:') return json({ error: 'External requests are disabled in this self-contained preview.' }, 403);
     const path = url.pathname.replace(/\/$/, '');
     try {
-      if (path === '/api/health') return json({ ...data.health, lastSnapshotAt: data.snapshot.capturedAt, canWrite: false, schedule: { ...data.health.schedule, configured: false, cadence: '자동 실행 없음 · 읽기 전용 미리보기' }, offlinePreview: true, exportedAt: data.exportedAt });
+      if (path === '/api/demand') { const latest = await currentDemand(); return latest ? json(latest) : json({ error: '이 내보내기에 부하 자료가 없습니다.' }, 503); }
+      if (path === '/api/load-pipeline') return data.pipeline ? json(data.pipeline) : json({ error: '이 내보내기에 수용가 파이프라인이 없습니다.' }, 503);
+      if (path === '/api/market-comparison') return data.comparison ? json(data.comparison) : json({ error: '이 내보내기에 권역별 비교 자료가 없습니다.' }, 503);
+      if (path === '/api/health') return json({ ...data.health, lastSnapshotAt: data.snapshot.capturedAt, canWrite: false, schedule: { ...data.health.schedule, configured: false, cadence: '프로젝트 원장 자동 적재 미가동' }, offlinePreview: true, exportedAt: data.exportedAt });
       if (path === '/api/runs') {
         const page = numberParam(url.searchParams, 'page', 1, 100000), limit = numberParam(url.searchParams, 'limit', 20, 100);
         return json({ runs: data.runs.runs.slice((page - 1) * limit, page * limit), page, limit, truncated: data.runs.runs.length > page * limit || data.runs.truncated });
@@ -189,11 +227,14 @@ for (const match of [...html.matchAll(/<link\b[^>]*rel=["'](?:icon|shortcut icon
   const href = /href=["']([^"']+)["']/i.exec(match[0])?.[1];
   if (href && !href.startsWith('data:')) html = html.replace(match[0], match[0].replace(href, await dataUrl(href)));
 }
-const runtime = await bundle(null, `import {scoreProject,summarize} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,calendarDayKst,endOfKstDay,isCalendarDay});`);
+const runtime = await bundle(null, `import {scoreProject,summarize} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset}, ${JSON.stringify(!!options.pages)});`);
 const exportedKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.exportedAt));
 const snapshotKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.snapshot.capturedAt));
-html = html.replace(/<head([^>]*)>/i, match => `${match}\n<script>${scriptText(runtime)}</script>\n<style>body{padding-bottom:72px!important}#grid-atlas-offline-banner{all:initial;box-sizing:border-box;position:fixed;bottom:0;left:0;right:0;z-index:2147483647;background:#102a28;color:#fff;font:13px/1.5 system-ui,sans-serif;padding:11px 18px;border-top:2px solid #58d3af;text-align:center;box-shadow:0 -3px 16px #0002}#grid-atlas-offline-banner strong{font-weight:700;color:#8de8cc}</style>`);
-html = html.replace('</body>', `<aside id="grid-atlas-offline-banner" role="note"><strong>읽기 전용 대시보드 · 변경사항 저장 불가</strong><br>${htmlText(snapshotKst)} KST 관측 자료 · ${htmlText(exportedKst)} KST 내보냄 · 최신 관측 1개 포함</aside></body>`);
+// Keep encoding within the first 1024 bytes, before the large embedded dataset.
+html = html.replace(/<meta\b[^>]*charset\s*=[^>]*>/gi, '');
+html = html.replace(/<head([^>]*)>/i, match => `${match}\n<meta charset="UTF-8">\n<script>${scriptText(runtime)}</script>\n<style>body{padding-bottom:72px!important}#grid-atlas-offline-banner{all:initial;box-sizing:border-box;position:fixed;bottom:0;left:0;right:0;z-index:2147483647;background:#102a28;color:#fff;font:13px/1.5 system-ui,sans-serif;padding:11px 18px;border-top:2px solid #58d3af;text-align:center;box-shadow:0 -3px 16px #0002}#grid-atlas-offline-banner strong{font-weight:700;color:#8de8cc}</style>`);
+const bannerDetail = options.pages ? `프로젝트 관측 ${htmlText(snapshotKst)} KST · 실측 부하의 관측·갱신 시각은 비교 화면에 별도 표시` : `프로젝트 관측 ${htmlText(snapshotKst)} KST · ${htmlText(exportedKst)} KST 내보냄 · 프로젝트 관측 1개 포함`;
+html = html.replace('</body>', `<aside id="grid-atlas-offline-banner" role="note"><strong>읽기 전용 대시보드 · 변경사항 저장 불가</strong><br>${bannerDetail}</aside></body>`);
 // Inline classic scripts must run after the root element exists. defer has no
 // effect on inline scripts, so move the built application to the body's end.
 const appScripts = [...html.matchAll(/<script defer>([\s\S]*?)<\/script>/g)];
@@ -203,5 +244,9 @@ if (/<script\b[^>]*src\s*=/i.test(html) || /<link\b[^>]*rel=["']stylesheet["']/i
 const output = resolve(options.output);
 await mkdir(dirname(output), { recursive: true });
 await writeFile(output, html);
+if (options.pages) {
+  if (!isDemandDataset(observation.demand)) throw new Error('Pages requires validated demand observations.');
+  await writeFile(resolve(dirname(output), 'grid-demand.json'), JSON.stringify(observation.demand));
+}
 if (options['save-snapshot']) { const path = resolve(options['save-snapshot']); await mkdir(dirname(path), { recursive: true }); await writeFile(path, JSON.stringify(observation)); }
 console.log(JSON.stringify({ output, bytes: (await stat(output)).size, sha256: createHash('sha256').update(html).digest('hex'), exportedAt: observation.exportedAt, snapshotAt: observation.snapshot.capturedAt, recordCount: observation.projects.length, scoredCount: observation.summary.scoredCount, readOnly: true, observationCount: 1 }, null, 2));

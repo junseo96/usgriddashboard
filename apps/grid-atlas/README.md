@@ -2,7 +2,7 @@
 
 미국 발전·저장·수용가의 계통접속 신청, 절차별 병목점수, 수집 공백과 시점별 이력을 다루는 독립 애플리케이션. 2026-10-08 새 구축 요청에 따라 작성했으며 기존 대시보드는 참고 자료로만 유지한다.
 
-**현재는 개발·검증용 앱이다.** Cloudflare 계정 연결, 실제 배포 주소, GitHub 정기 실행 활성화는 별도 완료해야 한다. 공개 자료에 없는 미국 전체 수용가 분모나 진행 근거를 임의로 만들지 않는다.
+**[GitHub Pages 대시보드](https://junseo96.github.io/usgriddashboard/)**에서 공개 자료를 조회한다. 7개 ISO/RTO 실측 부하는 GitHub Actions의 15분 목표 일정으로 수집·게시한다. 프로젝트 원장 주간·월간 자동 적재와 평가 저장 API는 별도 운영 설정이 필요하다. 공개 자료에 없는 미국 전체 수용가 분모나 진행 근거를 임의로 만들지 않는다.
 
 ## 실행
 
@@ -36,6 +36,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - `migrations/`: 스키마 변경. 적용한 migration은 수정하지 않고 새 파일을 추가.
 - `scripts/`: 초기 적재, 검증된 공식 원문 수집, 배포 설정, 미리보기 내보내기.
 - `data/`: 출처와 날짜가 보존된 초기 정규화 원장. 합성 평가 없음.
+- `data/grid-demand.json`: 실제 ISO/RTO 관측과 시장 현지일 피크. `public/data/load-pipeline.json`: 신청·계약·공시·참고 자료 및 범위별 집계.
 - `tests/`: 실제 SQL·모델·원문 파서 검증.
 - 저장소의 `.github/workflows/grid-atlas-*.yml`: 검사, 수동 배포, 명시적으로 활성화하는 주간/월간 수집.
 
@@ -52,6 +53,9 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 ## 운영 문서
 
 - [배포·계정 연결](docs/DEPLOYMENT.md)
+- [Pages 게시와 실측 부하 갱신](docs/PAGES.md)
+- [부하 관측·일별 피크 산식](docs/DEMAND.md)
+- [수용가 조사 자료·단위·중복](docs/LOAD_PIPELINE.md)
 - [수집·정기 갱신과 복구](docs/OPERATIONS.md)
 - [데이터 출처·범위·미확보 항목](docs/DATA.md)
 - [오프라인 미리보기](docs/PREVIEW.md)

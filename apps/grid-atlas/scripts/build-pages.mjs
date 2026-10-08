@@ -128,10 +128,11 @@ try {
   // accidentally export another local server's database.
   await waitForApi(api, origin, () => apiOutput.includes(`Grid Atlas local API listening on 127.0.0.1:${port}`));
   const temporaryHtml = join(temporaryDirectory, 'index.html');
-  await runNode(['scripts/export-preview.mjs', '--api', origin, '--output', temporaryHtml], env);
+  await runNode(['scripts/export-preview.mjs', '--api', origin, '--output', temporaryHtml, '--pages'], env);
   controller.signal.throwIfAborted();
   await mkdir(outputDirectory, { recursive: true });
   await rename(temporaryHtml, join(outputDirectory, 'index.html'));
+  await rename(join(temporaryDirectory, 'grid-demand.json'), join(outputDirectory, 'grid-demand.json'));
   await writeFile(join(outputDirectory, '.nojekyll'), '');
   console.log(JSON.stringify({
     output: join(outputDirectory, 'index.html'),
