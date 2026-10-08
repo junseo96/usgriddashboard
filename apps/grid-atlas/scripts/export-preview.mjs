@@ -193,7 +193,7 @@ const runtime = await bundle(null, `import {scoreProject,summarize} from ${JSON.
 const exportedKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.exportedAt));
 const snapshotKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.snapshot.capturedAt));
 html = html.replace(/<head([^>]*)>/i, match => `${match}\n<script>${scriptText(runtime)}</script>\n<style>body{padding-bottom:72px!important}#grid-atlas-offline-banner{all:initial;box-sizing:border-box;position:fixed;bottom:0;left:0;right:0;z-index:2147483647;background:#102a28;color:#fff;font:13px/1.5 system-ui,sans-serif;padding:11px 18px;border-top:2px solid #58d3af;text-align:center;box-shadow:0 -3px 16px #0002}#grid-atlas-offline-banner strong{font-weight:700;color:#8de8cc}</style>`);
-html = html.replace('</body>', `<aside id="grid-atlas-offline-banner" role="note"><strong>오프라인 미리보기 · 변경사항 저장 불가</strong><br>${htmlText(snapshotKst)} KST 관측 자료 · ${htmlText(exportedKst)} KST 내보냄 · 최신 관측 1개 포함</aside></body>`);
+html = html.replace('</body>', `<aside id="grid-atlas-offline-banner" role="note"><strong>읽기 전용 대시보드 · 변경사항 저장 불가</strong><br>${htmlText(snapshotKst)} KST 관측 자료 · ${htmlText(exportedKst)} KST 내보냄 · 최신 관측 1개 포함</aside></body>`);
 // Inline classic scripts must run after the root element exists. defer has no
 // effect on inline scripts, so move the built application to the body's end.
 const appScripts = [...html.matchAll(/<script defer>([\s\S]*?)<\/script>/g)];

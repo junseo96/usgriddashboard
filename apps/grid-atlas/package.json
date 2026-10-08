@@ -15,6 +15,7 @@
     "test": "node --test --test-isolation=none tests/*.test.ts",
     "test:python": "python3 -m unittest discover -s tests -p 'test_*.py'",
     "build": "vite build",
+    "build:pages": "npm run build && node scripts/build-pages.mjs",
     "preview": "vite preview --host 127.0.0.1 --port 5175",
     "cf:configure": "node scripts/configure-cloudflare.mjs",
     "cf:check": "wrangler deploy --config wrangler.jsonc --dry-run --outdir .state/worker-check",

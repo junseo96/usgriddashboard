@@ -46,6 +46,7 @@ npm run build
 
 ## 운영·개발 안내
 
+- [GitHub Pages 조회용 사이트 게시](apps/grid-atlas/docs/PAGES.md)
 - [앱 구조와 시점 조회 규칙](apps/grid-atlas/README.md)
 - [Cloudflare 계정 연결·배포](apps/grid-atlas/docs/DEPLOYMENT.md)
 - [주간·월간 갱신과 원문 보존](apps/grid-atlas/docs/OPERATIONS.md)
@@ -53,5 +54,7 @@ npm run build
 - [초기 구축 검증 기록](apps/grid-atlas/docs/STATUS_2026-10-08.md)
 
 React/Vite 화면과 Worker API, D1 데이터베이스로 구성합니다. 개발 환경에서는 같은 SQL 스키마의 SQLite를 사용합니다. GitHub Pages 같은 정적 호스팅만으로 평가 저장 API와 데이터베이스가 실행되지는 않습니다. 관리자 키는 GitHub Secrets와 배포 환경에만 설정하며 채팅이나 저장소에 넣지 않습니다.
+
+GitHub Pages용 읽기 전용 빌드도 제공합니다. 검색·필터·상세·CSV·계산 예시는 사용할 수 있으며, 게시된 자료는 저장소의 초기 데이터로 고정됩니다. 이 방식은 Cloudflare 계정이 필요하지 않습니다. 평가 저장과 정기 수집을 가동하려면 별도로 서버를 배포해야 합니다.
 
 공개 원자료의 권리와 이용 조건은 각 출처를 따릅니다. 이 저장소는 출처별 날짜·링크와 미확보 항목을 함께 보존합니다.
