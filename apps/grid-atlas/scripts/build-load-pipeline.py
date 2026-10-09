@@ -46,7 +46,7 @@ NON_ADDITIVE = '원장·계약·공시·유틸리티 집계 간 동일 사업 �
 
 def record_status(project: dict, source_id: str) -> str:
     """Do not equate a transmission milestone or a closed service ticket to operation."""
-    raw = project.get('rawStatus', '').lower()
+    raw = (project.get('rawStatus') or '').strip().lower().rstrip('.')
     if source_id == 'bpa-ll-register':
         return 'withdrawn' if raw == 'withdrawn' else 'unknown'
     if source_id in {'spp-dpns-reports', 'gpc-removed-screen'}:
@@ -55,11 +55,21 @@ def record_status(project: dict, source_id: str) -> str:
         return 'active' if raw == 'tariff ongoing' else 'unknown'
     if source_id == 'gpc-main-register':
         return 'unknown'  # Final-load planning entries can contain existing/ramping demand.
-    if project.get('status') == 'withdrawn' or 'cancelled' in raw:
+    if project.get('status') == 'withdrawn':
         return 'withdrawn'
+    if source_id == 'isone-selected-forecast':
+        # This selected-study register explicitly says construction has NOT begun.
+        # A signed study agreement identifies active review, not a completed gate.
+        return 'active' if raw in {'formal study agreement', 'formal study agreement; not under construction'} else 'unknown'
+    if raw in {'withdrawn', 'cancelled', 'canceled', 'tariff - cancelled', 'tariff - canceled'}:
+        return 'withdrawn'
+    if raw in {'closed', 'tariff closed', 'tariff - closed'}:
+        return 'unknown'
     if project.get('status') == 'operational':
+        if re.search(r'\bnot(?: yet)? (?:operating|operational|energized|in service)\b', raw):
+            return 'unknown'  # Conflicting source text cannot establish operation.
         return 'operating'
-    if 'under construction' in raw:
+    if raw == 'under construction':
         return 'construction'
     if project.get('status') == 'active' or raw == 'tariff - in-progress':
         return 'active'

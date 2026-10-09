@@ -1,6 +1,7 @@
 import { GATES, MODEL_VERSION } from './types.ts';
 import type { Assessment, GateScore, Project, ProjectScore, Summary } from './types.ts';
 import { calendarDayKst, isCalendarDay as calendarDay, startOfKstDay } from './time.ts';
+import { estimateStage } from './stage-estimate.ts';
 
 type AssessmentInput = Omit<Assessment, 'id' | 'recordedAt'>;
 const TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/;
@@ -107,7 +108,9 @@ function precise(value: number): number {
  * by server recordedAt, then id for deterministic replay. asOf restricts the
  * effective date; knownAt restricts when evidence entered our database. Omitting
  * knownAt reconstructs the past using knowledge available now. No evidence is
- * inferred from a project's legacy source status or its capacity.
+ * inferred from a project's legacy source status or its capacity. A separately
+ * labeled stage model may estimate the overall rating when there is no saved
+ * gate evidence; it does not change these evidence scores or their bounds.
  */
 export function scoreProject(
   project: Project,
@@ -152,12 +155,24 @@ export function scoreProject(
   const known = applicable.filter(gate => gate.points !== null);
   const assessedGates = gates.filter(gate => gate.status !== 'unknown').length;
   const estimated = gates.some(gate => gate.status !== 'unknown' && gate.assessment?.basis === 'estimate');
+  // Saved evidence, including an explicit unknown correction, takes precedence
+  // over a coarse source-status model. Never let that model mask a partial review.
+  const stageEstimate = project.eligible && selected.size === 0 ? estimateStage(project) : null;
   // An all-exempt record has no defined denominator, not a proved zero score.
-  if (!applicable.length) return { project, gates, point: null, lower: 0, upper: 100, assessedGates, estimated };
+  if (!applicable.length) return { project, gates, point: null, lower: 0, upper: 100, assessedGates, estimated, stageEstimate };
   const scale = GATES.length / applicable.length;
   const lower = precise(known.reduce((sum, gate) => sum + gate.points!, 0) * scale);
   const upper = precise(lower + (applicable.length - known.length) * 20 * scale);
-  return { project, gates, point: known.length === applicable.length ? lower : null, lower, upper, assessedGates, estimated };
+  return { project, gates, point: known.length === applicable.length ? lower : null, lower, upper, assessedGates, estimated, stageEstimate };
+}
+
+/** Displayed rating: complete gate evidence first, otherwise a labeled model estimate. */
+export function ratingPoint(score: ProjectScore): number | null {
+  return score.point ?? score.stageEstimate?.point ?? null;
+}
+
+export function ratingIsEstimated(score: ProjectScore): boolean {
+  return score.point !== null ? score.estimated : score.stageEstimate != null;
 }
 
 /** Arithmetic project-count mean. Unknown projects never receive an invented
@@ -183,8 +198,15 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
     generationMw: 0, storageMw: 0, loadMw: 0, capacityUnknownCount: 0,
     typeCounts: { generation: 0, storage: 0, load: 0 },
     knownCapacityCounts: { generation: 0, storage: 0, load: 0 },
+    ratingMean: null, ratedCount: 0, ratingUnknownCount: 0, ratingEstimatedCount: 0,
+    ratingTypeMeans: { generation: null, storage: null, load: null },
+    ratingTypeCounts: { generation: 0, storage: 0, load: 0 },
+    ratingRegions: [],
   };
   let pointTotal = 0;
+  let ratingTotal = 0;
+  const ratingTypeTotals = { generation: 0, storage: 0, load: 0 };
+  const ratingRegions = new Map<string, { region: string; total: number; ratedCount: number; unknownCount: number; estimatedCount: number }>();
   let lowerTotal = 0;
   let upperTotal = 0;
   for (const score of records.values()) {
@@ -198,12 +220,24 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
     if (score.point === null) summary.unknownCount++;
     else { summary.scoredCount++; pointTotal += score.point; }
     if (score.estimated) summary.estimatedCount++;
+    const rating = ratingPoint(score);
+    if (rating !== null && (!Number.isFinite(rating) || rating < 0 || rating > 100)) throw new Error(`Invalid rating for ${project.id}.`);
+    const ratingEstimated = ratingIsEstimated(score);
+    const region = ratingRegions.get(project.region) ?? { region: project.region, total: 0, ratedCount: 0, unknownCount: 0, estimatedCount: 0 };
+    ratingRegions.set(project.region, region);
+    if (rating === null) { summary.ratingUnknownCount++; region.unknownCount++; }
+    else {
+      summary.ratedCount++; ratingTotal += rating;
+      region.ratedCount++; region.total += rating;
+      if (ratingEstimated) { summary.ratingEstimatedCount++; region.estimatedCount++; }
+    }
     lowerTotal += score.lower;
     upperTotal += score.upper;
     const types = new Set(project.types);
     for (const type of types) {
       if (!(type in summary.typeCounts)) throw new Error(`Invalid project type for ${project.id}.`);
       summary.typeCounts[type]++;
+      if (rating !== null) { summary.ratingTypeCounts[type]++; ratingTypeTotals[type] += rating; }
     }
     let missing = project.capacityStatus !== 'known';
     for (const [type, field] of [['generation', 'generationMw'], ['storage', 'storageMw'], ['load', 'loadMw']] as const) {
@@ -219,6 +253,13 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
     if (missing) summary.capacityUnknownCount++;
   }
   if (summary.scoredCount) summary.pointMean = precise(pointTotal / summary.scoredCount);
+  if (summary.ratedCount) summary.ratingMean = precise(ratingTotal / summary.ratedCount);
+  for (const type of ['generation', 'storage', 'load'] as const) {
+    if (summary.ratingTypeCounts[type]) summary.ratingTypeMeans[type] = precise(ratingTypeTotals[type] / summary.ratingTypeCounts[type]);
+  }
+  summary.ratingRegions = [...ratingRegions.values()].sort((a, b) => a.region.localeCompare(b.region)).map(({ total, ...region }) => ({
+    ...region, mean: region.ratedCount ? precise(total / region.ratedCount) : null,
+  }));
   if (summary.eligibleCount) {
     summary.lowerMean = precise(lowerTotal / summary.eligibleCount);
     summary.upperMean = precise(upperTotal / summary.eligibleCount);

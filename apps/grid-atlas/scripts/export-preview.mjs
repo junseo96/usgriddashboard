@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { rolldown } from 'rolldown';
 import { scoreProject, summarize } from '../shared/scoring.ts';
+import { STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
 import { calendarDayKst } from '../shared/time.ts';
 import { compareMarkets, isDemandDataset } from '../shared/market.ts';
 
@@ -55,9 +56,12 @@ async function getObservation() {
   if (scores.some(score => score.point !== null || score.assessedGates !== 0 || score.estimated || score.lower !== 0 || score.upper !== 100 || score.gates.length !== 5 || score.gates.some(gate => gate.status !== 'unknown' || gate.assessment !== null || gate.progress !== null || gate.points !== null))) {
     throw new Error('This initial preview exporter supports observations with no gate assessments only. Export of real evidence/history must be added before exporting an assessed inventory.');
   }
+  if (first.ratingMethodVersion !== STAGE_ESTIMATE_VERSION || scores.some(score => stable(score) !== stable(scoreProject(score.project, [], { asOf: calendarDayKst(exportedAt), knownAt: exportedAt })))) {
+    throw new Error('Stage ratings do not reproduce the actual API using the current model.');
+  }
   return {
     format: 'grid-atlas-offline-preview-v1', exportedAt,
-    snapshot: first.snapshot, modelVersion: first.modelVersion,
+    snapshot: first.snapshot, modelVersion: first.modelVersion, ratingMethodVersion: STAGE_ESTIMATE_VERSION,
     projects: scores.map(score => score.project), sources: first.sources,
     summary: first.summary, limitations: first.limitations,
     originalHistoryCount: first.history.length, originalHistoryTruncated: first.historyTruncated,
@@ -72,13 +76,19 @@ function validateObservation(data) {
   if (!Number.isFinite(Date.parse(data.exportedAt)) || !Number.isFinite(Date.parse(data.snapshot.capturedAt)) || Date.parse(data.snapshot.capturedAt) > Date.parse(data.exportedAt)) throw new Error('Invalid observation/export timestamps.');
   if (data.verification?.allGatesVerifiedUnknown !== true || data.verification.assessedGateCount !== 0 || data.verification.actualApiProjectCount !== data.projects.length || data.summary?.scoredCount !== 0 || data.summary?.estimatedCount !== 0 || data.snapshot.projectCount !== data.projects.length || data.snapshot.sourceCount !== data.sources.length) throw new Error('Snapshot is not a verified unassessed inventory.');
   if (data.modelVersion !== 'grid-atlas-v1' || data.snapshot.modelVersion !== data.modelVersion) throw new Error('Unsupported score model.');
+  if (data.ratingMethodVersion !== undefined && data.ratingMethodVersion !== STAGE_ESTIMATE_VERSION) throw new Error('Unsupported cached stage rating model; re-export a verified API observation.');
+  if (data.ratingMethodVersion === undefined && Object.hasOwn(data.summary, 'ratingMean')) throw new Error('Cached stage ratings require their model version.');
   const reproduced = summarize(data.projects.map(project => scoreProject(project, [], { asOf: calendarDayKst(data.exportedAt), knownAt: data.exportedAt })));
   // Older verified exports predate per-type disclosure counts. Validate every
   // stored summary field, then derive the new counts from the preserved rows.
   const comparable = { ...reproduced };
   if (!Object.hasOwn(data.summary, 'knownCapacityCounts')) delete comparable.knownCapacityCounts;
+  if (data.ratingMethodVersion === undefined) {
+    for (const field of ['ratingMean', 'ratedCount', 'ratingUnknownCount', 'ratingEstimatedCount', 'ratingTypeMeans', 'ratingTypeCounts', 'ratingRegions']) delete comparable[field];
+  }
   if (reproduced.recordCount !== data.projects.length || stable(comparable) !== stable(data.summary)) throw new Error('Cached observation does not reproduce the verified API summary.');
   data.summary = reproduced;
+  data.ratingMethodVersion = STAGE_ESTIMATE_VERSION;
   if (data.demand && !isDemandDataset(data.demand)) throw new Error('Invalid demand observations.');
   if (data.comparison && stable(data.comparison) !== stable(compareMarkets(data.projects, data.snapshot.capturedAt))) throw new Error('Market comparison does not match the exported inventory.');
 }
@@ -86,7 +96,7 @@ function validateObservation(data) {
 // Shares live API score functions and never writes. Pages mode may refresh the
 // public demand JSON from the same origin; offline exports stay self-contained.
 function installOffline(data, scoring, pagesMode) {
-  const { summarize, scoreProject, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset } = scoring;
+  const { summarize, scoreProject, ratingPoint, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset } = scoring;
   const networkFetch = window.fetch.bind(window);
   let demand = data.demand;
   let demandCheckedAt = 0;
@@ -123,7 +133,7 @@ function installOffline(data, scoring, pagesMode) {
   const extraLimit = '프로젝트 원장은 내보낸 관측 1개를 포함합니다. 프로젝트 신규 수집·평가·저장은 별도 서버 연결이 필요합니다.';
   const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
   const scoped = filters => scores.filter(score => (filters.type === 'all' || score.project.types.includes(filters.type)) && (!filters.region || filters.region === 'all' || score.project.region === filters.region));
-  const visible = (items, filters) => items.filter(score => (!filters.q || [score.project.name, score.project.id, score.project.sourceRecordId, score.project.state ?? ''].some(value => value.toLocaleLowerCase().includes(filters.q.toLocaleLowerCase()))) && (filters.status !== 'scored' || (score.project.eligible && score.point !== null)) && (filters.status !== 'unknown' || (score.project.eligible && score.point === null)));
+  const visible = (items, filters) => items.filter(score => (!filters.q || [score.project.name, score.project.id, score.project.sourceRecordId, score.project.state ?? '', score.project.rawStatus, score.stageEstimate?.label ?? ''].some(value => value.toLocaleLowerCase().includes(filters.q.toLocaleLowerCase()))) && (filters.status !== 'scored' || (score.project.eligible && ratingPoint(score) !== null)) && (filters.status !== 'unknown' || (score.project.eligible && ratingPoint(score) === null)));
   function numberParam(params, name, fallback, maximum) {
     if (!params.has(name)) return fallback;
     const value = params.get(name);
@@ -140,7 +150,7 @@ function installOffline(data, scoring, pagesMode) {
   }
   const available = filter => data.snapshot.capturedAt <= [endOfKstDay(filter.asOf), filter.knownAt].sort()[0];
   function dashboard(filter) {
-    const result = { available: false, modelVersion: data.modelVersion, snapshot: null, summary: summarize([]), regions: [], projects: [], total: 0, page: filter.page, pageSize: filter.pageSize, sources: [], history: [], historyTruncated: false, nationalComplete: false, identityScope: 'source_record', limitations: [...data.limitations, extraLimit] };
+    const result = { available: false, modelVersion: data.modelVersion, ratingMethodVersion: data.ratingMethodVersion, snapshot: null, summary: summarize([]), regions: [], projects: [], total: 0, page: filter.page, pageSize: filter.pageSize, sources: [], history: [], historyTruncated: false, nationalComplete: false, identityScope: 'source_record', limitations: [...data.limitations, extraLimit] };
     if (!available(filter)) return result;
     const scope = scoped(filter), projects = visible(scope, filter), summary = summarize(scope);
     return { ...result, available: true, snapshot: data.snapshot, summary, regions: [...new Set(data.projects.map(project => project.region))].sort(), projects: projects.slice((filter.page - 1) * filter.pageSize, filter.page * filter.pageSize), total: projects.length, sources: data.sources, history: [{ snapshot: data.snapshot, summary }] };
@@ -174,8 +184,8 @@ function installOffline(data, scoring, pagesMode) {
         if (!available(filter)) return json({ error: 'No inventory observed at selected time' }, 404);
         const items = visible(scoped(filter), filter);
         if (items.length > 25000) return json({ error: 'Export exceeds 25000 rows; narrow type or region' }, 413);
-        const headers = ['id','name','types','region','state','status','eligible','generation_mw','storage_mw','load_mw','bottleneck_score','lower','upper','assessed_gates','estimated','source_url','source_as_of','snapshot_captured_at','as_of','known_at','model_version'];
-        const rows = items.map(score => [score.project.id, score.project.name, score.project.types.join('|'), score.project.region, score.project.state, score.project.status, score.project.eligible, score.project.generationMw, score.project.storageMw, score.project.loadMw, score.point, score.lower, score.upper, score.assessedGates, score.estimated, score.project.sourceUrl, score.project.sourceAsOf, data.snapshot.capturedAt, filter.asOf, filter.knownAt, data.modelVersion].map(csvValue).join(','));
+        const headers = ['id','name','types','region','state','status','eligible','generation_mw','storage_mw','load_mw','bottleneck_score','lower','upper','assessed_gates','estimated','source_url','source_as_of','snapshot_captured_at','as_of','known_at','model_version','rating_score','rating_basis','rating_model_version','raw_status','stage_model_rationale'];
+        const rows = items.map(score => [score.project.id, score.project.name, score.project.types.join('|'), score.project.region, score.project.state, score.project.status, score.project.eligible, score.project.generationMw, score.project.storageMw, score.project.loadMw, score.point, score.lower, score.upper, score.assessedGates, score.estimated, score.project.sourceUrl, score.project.sourceAsOf, data.snapshot.capturedAt, filter.asOf, filter.knownAt, data.modelVersion, ratingPoint(score), score.point !== null ? (score.estimated ? 'gate_estimate' : 'gate_evidence') : score.stageEstimate ? 'stage_model' : 'unknown', score.point !== null ? data.modelVersion : score.stageEstimate?.modelVersion ?? '', score.project.rawStatus, score.stageEstimate?.rationale ?? ''].map(csvValue).join(','));
         return new Response('\uFEFF' + [headers.join(','), ...rows].join('\r\n'), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-preview.csv"' } });
       }
       return json({ error: 'API is unavailable in the read-only offline preview' }, 404);
@@ -232,7 +242,7 @@ for (const match of [...html.matchAll(/<link\b[^>]*rel=["'](?:icon|shortcut icon
   const href = /href=["']([^"']+)["']/i.exec(match[0])?.[1];
   if (href && !href.startsWith('data:')) html = html.replace(match[0], match[0].replace(href, await dataUrl(href)));
 }
-const runtime = await bundle(null, `import {scoreProject,summarize} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset}, ${JSON.stringify(!!options.pages)});`);
+const runtime = await bundle(null, `import {scoreProject,summarize,ratingPoint} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,ratingPoint,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset}, ${JSON.stringify(!!options.pages)});`);
 const exportedKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.exportedAt));
 const snapshotKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.snapshot.capturedAt));
 // Keep encoding within the first 1024 bytes, before the large embedded dataset.
@@ -254,4 +264,4 @@ if (options.pages) {
   await writeFile(resolve(dirname(output), 'grid-demand.json'), JSON.stringify(observation.demand));
 }
 if (options['save-snapshot']) { const path = resolve(options['save-snapshot']); await mkdir(dirname(path), { recursive: true }); await writeFile(path, JSON.stringify(observation)); }
-console.log(JSON.stringify({ output, bytes: (await stat(output)).size, sha256: createHash('sha256').update(html).digest('hex'), exportedAt: observation.exportedAt, snapshotAt: observation.snapshot.capturedAt, recordCount: observation.projects.length, scoredCount: observation.summary.scoredCount, readOnly: true, observationCount: 1 }, null, 2));
+console.log(JSON.stringify({ output, bytes: (await stat(output)).size, sha256: createHash('sha256').update(html).digest('hex'), exportedAt: observation.exportedAt, snapshotAt: observation.snapshot.capturedAt, recordCount: observation.projects.length, scoredCount: observation.summary.scoredCount, ratedCount: observation.summary.ratedCount, ratingMean: observation.summary.ratingMean, ratingMethodVersion: observation.ratingMethodVersion, readOnly: true, observationCount: 1 }, null, 2));

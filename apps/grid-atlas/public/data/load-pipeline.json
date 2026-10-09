@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T09:54:56.045Z",
+  "generatedAt": "2026-10-09T04:13:02.290Z",
   "projects": [
     {
       "id": "named:NAMED_GOOGLE_DISK_DRIVE_CA",
@@ -7406,7 +7406,7 @@
       "state": null,
       "sector": "other",
       "classification": "utility_register",
-      "status": "construction",
+      "status": "active",
       "capacityMw": 85.0,
       "capacityBasis": "requested_grid_mw",
       "sourceName": "2026 CELT 대규모 부하 선별표",
@@ -7430,7 +7430,7 @@
       "state": null,
       "sector": "data_center",
       "classification": "utility_register",
-      "status": "construction",
+      "status": "active",
       "capacityMw": 200.0,
       "capacityBasis": "requested_grid_mw",
       "sourceName": "2026 CELT 대규모 부하 선별표",

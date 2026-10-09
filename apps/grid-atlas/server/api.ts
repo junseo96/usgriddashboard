@@ -1,5 +1,6 @@
 import { MODEL_VERSION, type Assessment, type CollectionRun, type DashboardResponse, type Filters, type HealthResponse, type ImportPayload, type Project, type ProjectScore, type SnapshotMeta, type Source } from '../shared/types.ts';
-import { scoreProject, summarize, validateAssessment } from '../shared/scoring.ts';
+import { ratingPoint, scoreProject, summarize, validateAssessment } from '../shared/scoring.ts';
+import { STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
 import { calendarDayKst, endOfKstDay, isCalendarDay as date } from '../shared/time.ts';
 import { compareMarkets } from '../shared/market.ts';
 import { publicDemand, publicPipeline } from './market-data.ts';
@@ -11,9 +12,11 @@ class ApiError extends Error { status: number; constructor(status: number, messa
 const LIMITATIONS = [
   '미국 본토 공개 자료에서 확보한 신청 레코드 기준이며 전국 전수 데이터가 아닙니다.',
   '서로 다른 기관의 신청을 하나의 실제 프로젝트로 연결하는 식별 작업은 완료되지 않았습니다.',
-  '미공개 절차는 별도 집계하며 평균 점수에는 모든 해당 요건을 평가한 신청만 포함합니다.',
+  '평균은 공개 진행 단계로 평가 가능한 신청의 동일 가중 평균입니다. 단계 모델 추정과 요건별 근거 평가는 구분하며, 단계 미공개는 별도 집계합니다.',
+  '단계 모델의 요건별 진행률은 비교를 위한 가정이며 실제 인허가·계약·공사의 완료를 증명하지 않습니다.',
   '수집 성공, 원장 정규화, 절차 평가, 예약 실행은 각각 별도 상태입니다.',
   '과거 스냅샷 이전 시점의 원장과 점수는 생성하지 않습니다.',
+  '이력의 단계 점수는 각 관측에 보존된 원문 상태에 현재 모델을 적용한 재평가이며 당시 산출한 점수가 아닙니다.',
 ];
 const TYPES = ['generation', 'storage', 'load'];
 const STATES = new Set('AL AZ AR CA CO CT DE FL GA ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC'.split(' '));
@@ -117,12 +120,12 @@ function scoresFor(projects: Project[], assessments: Assessment[], asOf: string,
 }
 function filterScores(scores: ProjectScore[], filters: Filters): ProjectScore[] {
   const q = filters.q?.toLocaleLowerCase();
-  return scores.filter(s => (!q || [s.project.name,s.project.id,s.project.sourceRecordId,s.project.state ?? ''].some(v => v.toLocaleLowerCase().includes(q))) && (filters.status !== 'scored' || (s.project.eligible && s.point !== null)) && (filters.status !== 'unknown' || (s.project.eligible && s.point === null)));
+  return scores.filter(s => (!q || [s.project.name,s.project.id,s.project.sourceRecordId,s.project.state ?? '',s.project.rawStatus,s.stageEstimate?.label ?? ''].some(v => v.toLocaleLowerCase().includes(q))) && (filters.status !== 'scored' || (s.project.eligible && ratingPoint(s) !== null)) && (filters.status !== 'unknown' || (s.project.eligible && ratingPoint(s) === null)));
 }
 async function dashboard(db: SqlDatabase, q: Query, includeHistory = true): Promise<DashboardResponse> {
   const snapshots = await listSnapshots(db, q.cutoff, includeHistory ? q.historyLimit + 1 : 1);
   const snapshot = snapshots[0] ?? null;
-  const empty: DashboardResponse = { available: false, modelVersion: MODEL_VERSION, snapshot: null, summary: summarize([]), regions: [], projects: [], total: 0, page: q.filters.page!, pageSize: q.filters.pageSize!, sources: [], history: [], historyTruncated: false, nationalComplete: false, identityScope: 'source_record', limitations: LIMITATIONS };
+  const empty: DashboardResponse = { available: false, modelVersion: MODEL_VERSION, ratingMethodVersion: STAGE_ESTIMATE_VERSION, snapshot: null, summary: summarize([]), regions: [], projects: [], total: 0, page: q.filters.page!, pageSize: q.filters.pageSize!, sources: [], history: [], historyTruncated: false, nationalComplete: false, identityScope: 'source_record', limitations: LIMITATIONS };
   if (!snapshot) return empty;
   const [inventory, assessments] = await Promise.all([readSnapshot(db, snapshot.id), readAssessments(db, q.asOf, q.knownAt)]);
   const scores = scoresFor(scoped(inventory.projects, q.filters), assessments, q.asOf, q.knownAt);
@@ -130,7 +133,9 @@ async function dashboard(db: SqlDatabase, q: Query, includeHistory = true): Prom
   const start = (q.filters.page! - 1) * q.filters.pageSize!;
   const result: DashboardResponse = { ...empty, available: true, snapshot, summary: summarize(scores), regions: [...new Set(inventory.projects.map(p => p.region))].sort(), sources: inventory.sources, projects: visible.slice(start, start + q.filters.pageSize!), total: visible.length, historyTruncated: includeHistory && snapshots.length > q.historyLimit };
   if (includeHistory) {
-    // Each point describes evidence available by that observation, avoiding later information leakage.
+    // Evidence is limited to the observation's knowledge cutoff. Stage ratings
+    // apply the current versioned model to that snapshot's own preserved status,
+    // never to today's inventory; they are explicitly retrospective estimates.
     for (const meta of snapshots.slice(0, q.historyLimit).reverse()) {
       const past = meta.id === snapshot.id ? inventory : await readSnapshot(db, meta.id);
       const pointKnownAt = [q.knownAt, meta.capturedAt].sort()[0];
@@ -187,8 +192,8 @@ export async function handleApi(request: Request, env: ApiEnvironment): Promise<
       const [inventory, assessments] = await Promise.all([readSnapshot(env.DB, snapshots[0].id), readAssessments(env.DB, q.asOf, q.knownAt)]);
       const scores = filterScores(scoresFor(scoped(inventory.projects, q.filters), assessments, q.asOf, q.knownAt), q.filters);
       if (scores.length > 25000) throw new ApiError(413, 'Export exceeds 25000 rows; narrow type or region');
-      const headers = ['id','name','types','region','state','status','eligible','generation_mw','storage_mw','load_mw','bottleneck_score','lower','upper','assessed_gates','estimated','source_url','source_as_of','snapshot_captured_at','as_of','known_at','model_version'];
-      const lines = scores.map(s => [s.project.id,s.project.name,s.project.types.join('|'),s.project.region,s.project.state,s.project.status,s.project.eligible,s.project.generationMw,s.project.storageMw,s.project.loadMw,s.point,s.lower,s.upper,s.assessedGates,s.estimated,s.project.sourceUrl,s.project.sourceAsOf,snapshots[0].capturedAt,q.asOf,q.knownAt,MODEL_VERSION].map(csvValue).join(','));
+      const headers = ['id','name','types','region','state','status','eligible','generation_mw','storage_mw','load_mw','bottleneck_score','lower','upper','assessed_gates','estimated','source_url','source_as_of','snapshot_captured_at','as_of','known_at','model_version','rating_score','rating_basis','rating_model_version','raw_status','stage_model_rationale'];
+      const lines = scores.map(s => [s.project.id,s.project.name,s.project.types.join('|'),s.project.region,s.project.state,s.project.status,s.project.eligible,s.project.generationMw,s.project.storageMw,s.project.loadMw,s.point,s.lower,s.upper,s.assessedGates,s.estimated,s.project.sourceUrl,s.project.sourceAsOf,snapshots[0].capturedAt,q.asOf,q.knownAt,MODEL_VERSION,ratingPoint(s),s.point !== null ? (s.estimated ? 'gate_estimate' : 'gate_evidence') : s.stageEstimate ? 'stage_model' : 'unknown',s.point !== null ? MODEL_VERSION : s.stageEstimate?.modelVersion ?? '',s.project.rawStatus,s.stageEstimate?.rationale ?? ''].map(csvValue).join(','));
       return new Response('\uFEFF' + [headers.join(','),...lines].join('\r\n'), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas.csv"', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
     }
     if (path === '/api/assessments' && request.method === 'POST') {

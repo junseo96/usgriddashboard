@@ -1,3 +1,5 @@
+import type { StageEstimate } from './stage-estimate.ts';
+
 export const MODEL_VERSION = 'grid-atlas-v1' as const;
 export const GATES = ['technical', 'commercial', 'permitting', 'construction', 'energization'] as const;
 export type Gate = typeof GATES[number];
@@ -25,7 +27,7 @@ export interface Assessment {
 export interface GateScore { gate: Gate; status: GateStatus; progress: number | null; points: number | null; assessment: Assessment | null; }
 export interface ProjectScore {
   project: Project; point: number | null; lower: number; upper: number; assessedGates: number;
-  estimated: boolean; gates: GateScore[];
+  estimated: boolean; gates: GateScore[]; stageEstimate: StageEstimate | null;
 }
 export interface Summary {
   recordCount: number; eligibleCount: number; scoredCount: number; unknownCount: number; excludedCount: number;
@@ -33,6 +35,10 @@ export interface Summary {
   generationMw: number; storageMw: number; loadMw: number; capacityUnknownCount: number;
   typeCounts: Record<ProjectType, number>;
   knownCapacityCounts: Record<ProjectType, number>;
+  ratingMean: number | null; ratedCount: number; ratingUnknownCount: number; ratingEstimatedCount: number;
+  ratingTypeMeans: Record<ProjectType, number | null>;
+  ratingTypeCounts: Record<ProjectType, number>;
+  ratingRegions: Array<{ region: string; mean: number | null; ratedCount: number; unknownCount: number; estimatedCount: number }>;
 }
 export interface SnapshotMeta {
   id: string; capturedAt: string; contentHash: string; projectCount: number; sourceCount: number;
@@ -41,7 +47,7 @@ export interface SnapshotMeta {
 export interface Filters { type?: ProjectType | 'all'; region?: string; q?: string; status?: 'all' | 'scored' | 'unknown'; asOf?: string; knownAt?: string; page?: number; pageSize?: number; }
 export interface HistoryPoint { snapshot: SnapshotMeta; summary: Summary; }
 export interface DashboardResponse {
-  available: boolean; modelVersion: typeof MODEL_VERSION; snapshot: SnapshotMeta | null; summary: Summary;
+  available: boolean; modelVersion: typeof MODEL_VERSION; ratingMethodVersion: string; snapshot: SnapshotMeta | null; summary: Summary;
   regions: string[]; projects: ProjectScore[]; total: number; page: number; pageSize: number;
   sources: Source[]; history: HistoryPoint[]; historyTruncated: boolean;
   nationalComplete: false; identityScope: 'source_record'; limitations: string[];

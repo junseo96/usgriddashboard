@@ -40,6 +40,34 @@ class PipelineTests(unittest.TestCase):
         p = {'rawStatus': 'ENERGIZED', 'status': 'operational'}
         self.assertEqual(pipeline.record_status(p, 'bpa-ll-register'), 'unknown')
 
+    def test_isone_formal_study_rows_do_not_turn_negated_construction_into_progress(self):
+        records = [row for row in self.bootstrap['projects'] if row['sourceId'] == 'isone-selected-forecast']
+        self.assertEqual(len(records), 2)
+        for original in records:
+            with self.subTest(project=original['id']):
+                self.assertIn('not under construction', original['rawStatus'].lower())
+                self.assertEqual(pipeline.record_status(original, original['sourceId']), 'active')
+                projected = self.by_id['register:' + original['id']]
+                self.assertEqual(projected['status'], 'active')
+                self.assertIn(original['rawStatus'], projected['evidence'])
+        affirmative = [row for row in self.bootstrap['projects'] if row['sourceId'] == 'nyiso-load-register' and row.get('rawStatus') == 'Under Construction']
+        self.assertEqual(len(affirmative), 4)
+        for original in affirmative:
+            self.assertEqual(pipeline.record_status(original, original['sourceId']), 'construction')
+            self.assertEqual(self.by_id['register:' + original['id']]['status'], 'construction')
+
+    def test_negated_or_administrative_status_does_not_establish_physical_completion(self):
+        for raw in ('Not under construction', 'Not yet under construction', 'Not cancelled'):
+            with self.subTest(raw=raw):
+                self.assertEqual(pipeline.record_status({'rawStatus': raw, 'status': 'active'}, 'nyiso-load-register'), 'active')
+        for raw in ('Not operating', 'Not energized', 'Not yet in service', 'Tariff - Closed'):
+            with self.subTest(raw=raw):
+                self.assertEqual(pipeline.record_status({'rawStatus': raw, 'status': 'operational'}, 'nyiso-load-register'), 'unknown')
+        self.assertEqual(pipeline.record_status({'rawStatus': 'ENERGIZED', 'status': 'reference'}, 'pjm-aes-contract-table'), 'unknown')
+        self.assertEqual(pipeline.record_status({'rawStatus': 'Under Construction', 'status': 'withdrawn'}, 'nyiso-load-register'), 'withdrawn')
+        self.assertEqual(pipeline.record_status({'rawStatus': 'Formal study agreement; not under construction', 'status': 'withdrawn'}, 'isone-selected-forecast'), 'withdrawn')
+        self.assertEqual(pipeline.record_status({'rawStatus': 'Tariff - Cancelled', 'status': 'reference'}, 'california-pge-industrial-register'), 'withdrawn')
+
     def test_bpa_and_spp_support_capacity_not_customer_queue_capacity(self):
         records = [p for p in self.output['projects'] if p['classification'] == 'grid_support']
         self.assertGreater(len(records), 400)
