@@ -1,0 +1,1347 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-09T04:47:17.975Z",
+  "series": [
+    {
+      "id": "ercot-large-load-tracked-history",
+      "name": "ERCOT 대규모 부하 추적 용량 · 월별 원문",
+      "region": "ERCOT",
+      "projectTypes": [
+        "load"
+      ],
+      "metric": "load_requests",
+      "unit": "MW",
+      "scope": "ERCOT이 당시 추적한 대규모 부하 접속 프로젝트의 standalone·co-located 용량 합계. 연구 미제출·검토·연구 승인·통전 승인·이미 관측 가동된 용량을 포함하며, 데이터센터 전용 또는 현재 미통전 대기량이 아닙니다.",
+      "description": "2022년 4월부터 2026년 6월까지 ERCOT 공식 LFLTF·LLWG 과거 도표에서 확인한 값입니다. 초기 암호화폐를 포함한 대규모 부하 접속 추적이 데이터센터 수요가 늘어난 시기를 지나 어떻게 변했는지 볼 수 있습니다.",
+      "comparability": "전체 수용가·데이터센터 전수 또는 동일 사업의 고정 코호트가 아닙니다. 2024-07 추적 가동연도 확대, 2025-11~12 LLIS 절차 전환, 2026-06 취소·중복·다중티켓 정리로 범위가 달라집니다. 해당 구간과 미확보 구간은 선을 끊습니다. 25 MW 부하 식별 의무는 LLIS 큐의 25 MW 진입 기준을 뜻하지 않습니다. 보도자료 >438 GW 및 Batch Zero 부분집합과 합산하거나 같은 계열로 연결하지 않습니다.",
+      "points": [
+        {
+          "id": "ercot-tracked-2022-04",
+          "date": "2022-04-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2022-04",
+          "publishedAt": "2023-12-08",
+          "value": 17376,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status — December 11, 2023",
+            "url": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+            "retrievedAt": "2026-10-09T04:39:13.882758+00:00",
+            "sha256": "92ad0ef11193f6edcb6ee726bbffc7e8313a7c1a2d7e3456131418dd6f33287f"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2022-04 total 17,376 MW = standalone 12,190 MW + co-located 5,186 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2023-03",
+          "date": "2023-03-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2023-03",
+          "publishedAt": "2023-12-08",
+          "value": 39351,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status — December 11, 2023",
+            "url": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+            "retrievedAt": "2026-10-09T04:39:13.882758+00:00",
+            "sha256": "92ad0ef11193f6edcb6ee726bbffc7e8313a7c1a2d7e3456131418dd6f33287f"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2023-03 total 39,351 MW = standalone 31,415 MW + co-located 7,936 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2023-04",
+          "date": "2023-04-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2023-04",
+          "publishedAt": "2023-12-08",
+          "value": 39645,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status — December 11, 2023",
+            "url": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+            "retrievedAt": "2026-10-09T04:39:13.882758+00:00",
+            "sha256": "92ad0ef11193f6edcb6ee726bbffc7e8313a7c1a2d7e3456131418dd6f33287f"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2023-04 total 39,645 MW = standalone 31,515 MW + co-located 8,130 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2023-05",
+          "date": "2023-05-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2023-05",
+          "publishedAt": "2023-12-08",
+          "value": 41766,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status — December 11, 2023",
+            "url": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+            "retrievedAt": "2026-10-09T04:39:13.882758+00:00",
+            "sha256": "92ad0ef11193f6edcb6ee726bbffc7e8313a7c1a2d7e3456131418dd6f33287f"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2023-05 total 41,766 MW = standalone 33,444 MW + co-located 8,322 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2023-08",
+          "date": "2023-08-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2023-08",
+          "publishedAt": "2023-12-08",
+          "value": 42546,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status — December 11, 2023",
+            "url": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+            "retrievedAt": "2026-10-09T04:39:13.882758+00:00",
+            "sha256": "92ad0ef11193f6edcb6ee726bbffc7e8313a7c1a2d7e3456131418dd6f33287f"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2023-08 total 42,546 MW = standalone 33,794 MW + co-located 8,752 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2023-09",
+          "date": "2023-09-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2023-09",
+          "publishedAt": "2023-12-08",
+          "value": 39559,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status — December 11, 2023",
+            "url": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+            "retrievedAt": "2026-10-09T04:39:13.882758+00:00",
+            "sha256": "92ad0ef11193f6edcb6ee726bbffc7e8313a7c1a2d7e3456131418dd6f33287f"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2023-09 total 39,559 MW = standalone 30,742 MW + co-located 8,817 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2023-10",
+          "date": "2023-10-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2023-10",
+          "publishedAt": "2023-12-08",
+          "value": 39336,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status — December 11, 2023",
+            "url": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+            "retrievedAt": "2026-10-09T04:39:13.882758+00:00",
+            "sha256": "92ad0ef11193f6edcb6ee726bbffc7e8313a7c1a2d7e3456131418dd6f33287f"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2023-10 total 39,336 MW = standalone 30,731 MW + co-located 8,605 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2023-12",
+          "date": "2023-12-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2023-12",
+          "publishedAt": "2023-12-08",
+          "value": 39238,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status — December 11, 2023",
+            "url": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+            "retrievedAt": "2026-10-09T04:39:13.882758+00:00",
+            "sha256": "92ad0ef11193f6edcb6ee726bbffc7e8313a7c1a2d7e3456131418dd6f33287f"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2023-12 total 39,238 MW = standalone 30,731 MW + co-located 8,507 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2024-01",
+          "date": "2024-01-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2024-01",
+          "publishedAt": "2024-09-05",
+          "value": 39271,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — September 6, 2024",
+            "url": "https://www.ercot.com/files/docs/2024/09/05/LLI%20Queue%20Status%20Update%20-%202024-9-6.pdf",
+            "retrievedAt": "2026-10-09T04:40:43.369145+00:00",
+            "sha256": "2e8fc9804c469a732348edbd7735b4a185d96287befa4990807645709dc47a76"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2024-01 total 39,271 MW = standalone 30,764 MW + co-located 8,507 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2024-03",
+          "date": "2024-03-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2024-03",
+          "publishedAt": "2024-09-05",
+          "value": 40808,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — September 6, 2024",
+            "url": "https://www.ercot.com/files/docs/2024/09/05/LLI%20Queue%20Status%20Update%20-%202024-9-6.pdf",
+            "retrievedAt": "2026-10-09T04:40:43.369145+00:00",
+            "sha256": "2e8fc9804c469a732348edbd7735b4a185d96287befa4990807645709dc47a76"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2024-03 total 40,808 MW = standalone 32,301 MW + co-located 8,507 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2024-05",
+          "date": "2024-05-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2024-05",
+          "publishedAt": "2024-09-05",
+          "value": 41492,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — September 6, 2024",
+            "url": "https://www.ercot.com/files/docs/2024/09/05/LLI%20Queue%20Status%20Update%20-%202024-9-6.pdf",
+            "retrievedAt": "2026-10-09T04:40:43.369145+00:00",
+            "sha256": "2e8fc9804c469a732348edbd7735b4a185d96287befa4990807645709dc47a76"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2024-05 total 41,492 MW = standalone 32,805 MW + co-located 8,687 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2024-06",
+          "date": "2024-06-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2024-06",
+          "publishedAt": "2024-09-05",
+          "value": 43683,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — September 6, 2024",
+            "url": "https://www.ercot.com/files/docs/2024/09/05/LLI%20Queue%20Status%20Update%20-%202024-9-6.pdf",
+            "retrievedAt": "2026-10-09T04:40:43.369145+00:00",
+            "sha256": "2e8fc9804c469a732348edbd7735b4a185d96287befa4990807645709dc47a76"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2024-06 total 43,683 MW = standalone 33,706 MW + co-located 9,977 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2024-07",
+          "date": "2024-07-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2024-07",
+          "publishedAt": "2024-09-05",
+          "value": 47879,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — September 6, 2024",
+            "url": "https://www.ercot.com/files/docs/2024/09/05/LLI%20Queue%20Status%20Update%20-%202024-9-6.pdf",
+            "retrievedAt": "2026-10-09T04:40:43.369145+00:00",
+            "sha256": "2e8fc9804c469a732348edbd7735b4a185d96287befa4990807645709dc47a76"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2024-07 total 47,879 MW = standalone 38,581 MW + co-located 9,298 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다.",
+            "범위 변경 — 같은 원문 3쪽: In July 2024 ERCOT expanded the queue to include projects with projected in-service dates of 2028. 무일자 프로젝트 기본 가동일도 2027-12-31에서 2028-12-31로 재배정. 전월과의 증감을 신규 신청만으로 해석할 수 없습니다."
+          ],
+          "ratingModelVersion": null,
+          "breakBefore": true
+        },
+        {
+          "id": "ercot-tracked-2024-08",
+          "date": "2024-08-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2024-08",
+          "publishedAt": "2024-09-05",
+          "value": 52515,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — September 6, 2024",
+            "url": "https://www.ercot.com/files/docs/2024/09/05/LLI%20Queue%20Status%20Update%20-%202024-9-6.pdf",
+            "retrievedAt": "2026-10-09T04:40:43.369145+00:00",
+            "sha256": "2e8fc9804c469a732348edbd7735b4a185d96287befa4990807645709dc47a76"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2024-08 total 52,515 MW = standalone 42,647 MW + co-located 9,868 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2024-09",
+          "date": "2024-09-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2024-09",
+          "publishedAt": "2024-09-05",
+          "value": 56954,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — September 6, 2024",
+            "url": "https://www.ercot.com/files/docs/2024/09/05/LLI%20Queue%20Status%20Update%20-%202024-9-6.pdf",
+            "retrievedAt": "2026-10-09T04:40:43.369145+00:00",
+            "sha256": "2e8fc9804c469a732348edbd7735b4a185d96287befa4990807645709dc47a76"
+          },
+          "notes": [
+            "원문 2쪽, Large Load Queue: 2024-09 total 56,954 MW = standalone 47,069 MW + co-located 9,885 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2025-08",
+          "date": "2025-08-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2025-08",
+          "publishedAt": "2026-06-18",
+          "value": 189328,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2025-08 total 189,328 MW = standalone 163,851 MW + co-located 25,477 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다.",
+            "2024-10~2025-07 월별 원문 차트값은 이 계열에서 미확보입니다. 공백을 보간하거나 이어 그리지 않습니다."
+          ],
+          "ratingModelVersion": null,
+          "breakBefore": true
+        },
+        {
+          "id": "ercot-tracked-2025-09",
+          "date": "2025-09-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2025-09",
+          "publishedAt": "2026-06-18",
+          "value": 195423,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽의 명시된 total 195,423 MW를 그대로 사용. standalone 168,009 MW + co-located 27,413 MW는 개별 반올림으로 total과 1 MW 차이; 합산해 원문 합계를 덮어쓰지 않았습니다.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2025-10",
+          "date": "2025-10-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2025-10",
+          "publishedAt": "2026-06-18",
+          "value": 212095,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽의 명시된 total 212,095 MW를 그대로 사용. standalone 180,187 MW + co-located 31,907 MW는 개별 반올림으로 total과 1 MW 차이; 합산해 원문 합계를 덮어쓰지 않았습니다.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2025-11",
+          "date": "2025-11-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2025-11",
+          "publishedAt": "2026-06-18",
+          "value": 230799,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2025-11 total 230,799 MW = standalone 198,649 MW + co-located 32,150 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다.",
+            "절차 전환 구간: PGRR115 공식 시행일 2025-11-03·2025-12-15. 초기 2년 내 접속 임시절차에서 정식 LLIS 체계로 전환해 장기 시점 간 동일 모집단을 보장하지 않습니다. https://www.ercot.com/mktrules/issues/PGRR115"
+          ],
+          "ratingModelVersion": null,
+          "breakBefore": true
+        },
+        {
+          "id": "ercot-tracked-2025-12",
+          "date": "2025-12-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2025-12",
+          "publishedAt": "2026-06-18",
+          "value": 237189,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2025-12 total 237,189 MW = standalone 202,475 MW + co-located 34,714 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2026-01",
+          "date": "2026-01-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2026-01",
+          "publishedAt": "2026-06-18",
+          "value": 233125,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2026-01 total 233,125 MW = standalone 204,448 MW + co-located 28,677 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2026-02",
+          "date": "2026-02-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2026-02",
+          "publishedAt": "2026-06-18",
+          "value": 241748,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2026-02 total 241,748 MW = standalone 213,105 MW + co-located 28,643 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2026-03",
+          "date": "2026-03-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2026-03",
+          "publishedAt": "2026-06-18",
+          "value": 418998,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2026-03 total 418,998 MW = standalone 372,459 MW + co-located 46,539 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2026-04",
+          "date": "2026-04-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2026-04",
+          "publishedAt": "2026-06-18",
+          "value": 438028,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2026-04 total 438,028 MW = standalone 384,803 MW + co-located 53,225 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2026-05",
+          "date": "2026-05-01",
+          "dateBasis": "source_as_of",
+          "datePrecision": "month",
+          "sourceAsOf": "2026-05",
+          "publishedAt": "2026-06-18",
+          "value": 471415,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2026-05 total 471,415 MW = standalone 405,274 MW + co-located 66,141 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "월만 공개된 과거 값은 그 달의 어느 날에 추출했는지 미공개입니다. date의 01은 차트 정렬용 기준이며 실제 관측일을 뜻하지 않습니다.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-tracked-2026-06",
+          "date": "2026-06-18",
+          "dateBasis": "source_as_of",
+          "datePrecision": "day",
+          "sourceAsOf": "2026-06-18",
+          "publishedAt": "2026-06-18",
+          "value": 466497,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 3쪽, Large Load Queue: 2026-06 total 466,497 MW = standalone 396,789 MW + co-located 69,708 MW.",
+            "공식 도표의 원문 지표: Tracked Large Load Projects (MW); 축 이름: Snapshot Date.",
+            "현재 자료에서 과거 신청일을 역산하지 않았습니다. 공식 과거 도표의 수치를 재수집한 회고 자료이며, 시스템이 그때 알고 있던 값이라는 뜻은 아닙니다.",
+            "이 MW 합계에는 프로젝트별 개수·진행단계 분모가 없으므로 프로젝트 동일가중 평균 점수는 계산하지 않습니다.",
+            "원문 2쪽: All data presented on the following slides is current as of June 18, 2026 unless otherwise noted. 발표일 6월19일, 웹 게시일 6월18일과 구별.",
+            "원문 2쪽: cancelled or duplicate LLI tickets were removed; tickets representing multiple stages of the same load request were combined into a single LLI number. 5월 대비 감소는 순수 프로젝트 취소/수요 감소로 단정할 수 없습니다.",
+            "이 466,497 MW는 보도자료의 >438,000 MW와 기준·범위 차이가 해소되지 않아 서로 같은 값으로 바꾸거나 같은 계열에 끼워 넣지 않습니다."
+          ],
+          "ratingModelVersion": null,
+          "breakBefore": true
+        }
+      ]
+    },
+    {
+      "id": "ercot-data-center-tracked-history",
+      "name": "ERCOT 데이터센터 분류 · 공개 시점별 추적 용량",
+      "region": "ERCOT",
+      "projectTypes": [
+        "load"
+      ],
+      "metric": "load_requests",
+      "unit": "MW",
+      "scope": "ERCOT 대규모 부하 추적 자료의 Data Center 분류. Crypto와 Data Center/Crypto 혼합 분류 제외. 연구미제출·승인·통전·가동이 함께 포함될 수 있으며 미통전 확정량이 아닙니다.",
+      "description": "공식 원문에 MW가 직접 표시된 데이터센터 분류를 선택한 3개 시점입니다. 2025년 9월 이전의 해당 분류를 다른 수용가 값으로 대체하지 않았습니다.",
+      "comparability": "동일 분류명이지만 보고 범위·LLIS 절차 전환·중복 정리가 있어 전기간을 동일 모집단으로 간주하지 않습니다. 2025년 이사회 2030년까지의 도표와 2026년 LLWG 전체 추적 구성은 범위 차이가 있을 수 있어 단절점을 표시합니다. ERCOT 부분이며 전국 데이터센터 전수 추적량이 아닙니다.",
+      "points": [
+        {
+          "id": "ercot-datacenter-tracked-2025-09-02",
+          "date": "2025-09-02",
+          "dateBasis": "source_as_of",
+          "datePrecision": "day",
+          "sourceAsOf": "2025-09-02",
+          "publishedAt": "2025-09-18",
+          "value": 130162,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Board Item 16.2: System Planning and Weatherization Update — September 2025",
+            "url": "https://www.ercot.com/files/docs/2025/09/18/16.2-System-Planning-and-Weatherization-Update-REVISED.pdf",
+            "retrievedAt": "2026-10-09T04:41:36.388190+00:00",
+            "sha256": "ed20e1b944d9614ad5a44723ddf1453a737d287a4145c6598aecc6019f6d3716"
+          },
+          "notes": [
+            "원문 2쪽 Large Loads by Project Type / Large Load Project Distribution by Type의 Data Center 라벨: 68.7% (130162 MW).",
+            "공시된 MW 라벨을 직접 사용했습니다. 반올림된 비율에 전체용량을 곱해 계산하지 않았습니다.",
+            "Crypto 및 Data Center/Crypto 혼합 분류는 별도 범주이므로 이 값에 합하지 않았습니다.",
+            "프로젝트별 전수 명부·개수·상태 분모가 없어 평균 점수는 계산하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ercot-datacenter-tracked-2025-11-18",
+          "date": "2025-11-18",
+          "dateBasis": "source_as_of",
+          "datePrecision": "day",
+          "sourceAsOf": "2025-11-18",
+          "publishedAt": "2025-12-02",
+          "value": 164191,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Board Item 16.2: System Planning and Weatherization Update — December 2025",
+            "url": "https://www.ercot.com/files/docs/2025/12/02/16.2-System-Planning-and-Weatherization-Update_Revised.pdf",
+            "retrievedAt": "2026-10-09T04:39:35.342142+00:00",
+            "sha256": "99da7eff620f4ee4ff5c8b890b82b57eacd10b62ceac15b545e505a7aca02d8b"
+          },
+          "notes": [
+            "원문 2쪽 Large Loads by Project Type / Large Load Project Distribution by Type의 Data Center 라벨: 72.9% (164191 MW).",
+            "공시된 MW 라벨을 직접 사용했습니다. 반올림된 비율에 전체용량을 곱해 계산하지 않았습니다.",
+            "Crypto 및 Data Center/Crypto 혼합 분류는 별도 범주이므로 이 값에 합하지 않았습니다.",
+            "프로젝트별 전수 명부·개수·상태 분모가 없어 평균 점수는 계산하지 않습니다.",
+            "2025-11~12 임시절차에서 정식 LLIS로 전환한 구간으로 모집단·보고범위의 완전한 동일성은 보장되지 않습니다."
+          ],
+          "ratingModelVersion": null,
+          "breakBefore": true
+        },
+        {
+          "id": "ercot-datacenter-tracked-2026-06-18",
+          "date": "2026-06-18",
+          "dateBasis": "source_as_of",
+          "datePrecision": "day",
+          "sourceAsOf": "2026-06-18",
+          "publishedAt": "2026-06-18",
+          "value": 420812,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "ERCOT Large Load Interconnection Status Update — June 19, 2026",
+            "url": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+            "retrievedAt": "2026-10-09T04:39:13.715932+00:00",
+            "sha256": "cdb778341b4392cb6235603dd87b1822655f27e7ac80ad1cd7dd0ba882d82db3"
+          },
+          "notes": [
+            "원문 14쪽 Large Loads by Project Type / Large Load Project Distribution by Type의 Data Center 라벨: 90.2% (420812 MW).",
+            "공시된 MW 라벨을 직접 사용했습니다. 반올림된 비율에 전체용량을 곱해 계산하지 않았습니다.",
+            "Crypto 및 Data Center/Crypto 혼합 분류는 별도 범주이므로 이 값에 합하지 않았습니다.",
+            "프로젝트별 전수 명부·개수·상태 분모가 없어 평균 점수는 계산하지 않습니다.",
+            "2026-06 원문은 5월 이후 중복·취소 티켓 제거와 동일 요청의 다중 티켓 통합을 명시합니다. 이전 이사회 자료의 2030년 가동연도 범위와 최신 LLWG 추적 범위가 다를 수 있어 선을 연결하지 않습니다."
+          ],
+          "ratingModelVersion": null,
+          "breakBefore": true
+        }
+      ]
+    },
+    {
+      "id": "pge-data-center-pipeline-original",
+      "name": "PG&E 데이터센터 파이프라인 · 기존 공시 기준",
+      "region": "CAISO",
+      "projectTypes": [
+        "load"
+      ],
+      "metric": "load_requests",
+      "unit": "MW",
+      "scope": "PG&E 서비스 구역 데이터센터 파이프라인. 2025년 이후 인용된 주석은 신규 20MW 이상 신청 범위를 명시합니다. 2024년 6월·2025년 2월 도표는 최소 용량 문턱을 별도로 명시하지 않습니다.",
+      "description": "당시 공시된 신청·예비설계·최종설계·공사 단계의 용량. 공시 사이를 보간하거나 현재 잔량으로 간주하지 않습니다.",
+      "comparability": "기존 공시 기준 안의 변화이며, 단계 이동·취소·통전 등에 따른 증감 원인을 총량만으로 구분할 수 없습니다. 2026년 2분기 강화 기준은 별도 시리즈입니다.",
+      "points": [
+        {
+          "id": "pge-data-center-pipeline-original:2024-06",
+          "date": "2024-06-01",
+          "datePrecision": "month",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2024-06",
+          "publishedAt": "2025-02-13",
+          "value": 3500,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q4 2024 Earnings Presentation, slide 9",
+            "url": "https://www.sec.gov/Archives/edgar/data/1004980/000100498025000008/q424earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:39:45.999Z",
+            "sha256": "14684758332613d899f39e648326b1e91fd4b427f5b990fc31776d5bb85c67d1"
+          },
+          "notes": [
+            "PG&E 서비스 구역 일부 집계이며 CAISO 전체 신청 총계가 아닙니다. 개별 사업의 점수나 전국 분모에 넣지 않습니다.",
+            "2026년 2분기부터 예비연구비·설계비 납부 요건이 강화됐으므로 새 기준 시리즈와 이어 붙이지 않습니다.",
+            "원문: Pipeline as of June 2024 3.5 GW. 도표의 2025–2035년 부하 램프를 관측시계열로 옮긴 것이 아니라, 2024년 6월 당시 파이프라인 총용량 3.5GW를 기록합니다. 2025년 2월 후속 발표에서 소급 공시한 값입니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "pge-data-center-pipeline-original:2025-02-04",
+          "date": "2025-02-04",
+          "datePrecision": "day",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-02-04",
+          "publishedAt": "2025-02-13",
+          "value": 5500,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q4 2024 Earnings Presentation, slide 9",
+            "url": "https://www.sec.gov/Archives/edgar/data/1004980/000100498025000008/q424earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:39:45.999Z",
+            "sha256": "14684758332613d899f39e648326b1e91fd4b427f5b990fc31776d5bb85c67d1"
+          },
+          "notes": [
+            "PG&E 서비스 구역 일부 집계이며 CAISO 전체 신청 총계가 아닙니다. 개별 사업의 점수나 전국 분모에 넣지 않습니다.",
+            "2026년 2분기부터 예비연구비·설계비 납부 요건이 강화됐으므로 새 기준 시리즈와 이어 붙이지 않습니다.",
+            "원문: As of 2/4/2025. Total 5,500 MW; Intake & Preliminary Engineering 4,050; Final Engineering 1,400; Construction 50."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "pge-data-center-pipeline-original:2025-03",
+          "date": "2025-03-01",
+          "datePrecision": "month",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-03",
+          "publishedAt": "2025-07-31",
+          "value": 8700,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q2 2025 Earnings Presentation, slide 7 and endnotes",
+            "url": "https://www.sec.gov/Archives/edgar/data/1004980/000100498025000131/q225earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:40:06.416Z",
+            "sha256": "89bef06b2c014b33b41bfb9b56681ee09b8752d80bfdcbd70352bd10e8de8c80"
+          },
+          "notes": [
+            "PG&E 서비스 구역 일부 집계이며 CAISO 전체 신청 총계가 아닙니다. 개별 사업의 점수나 전국 분모에 넣지 않습니다.",
+            "2026년 2분기부터 예비연구비·설계비 납부 요건이 강화됐으므로 새 기준 시리즈와 이어 붙이지 않습니다.",
+            "원문: March 2025 Total 8,700 MW. 신청·예비설계7,250 / 최종설계1,400 / 공사50MW."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "pge-data-center-pipeline-original:2025-06",
+          "date": "2025-06-01",
+          "datePrecision": "month",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-06",
+          "publishedAt": "2025-07-31",
+          "value": 10000,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q2 2025 Earnings Presentation, slide 7 and endnotes",
+            "url": "https://www.sec.gov/Archives/edgar/data/1004980/000100498025000131/q225earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:40:06.416Z",
+            "sha256": "89bef06b2c014b33b41bfb9b56681ee09b8752d80bfdcbd70352bd10e8de8c80"
+          },
+          "notes": [
+            "PG&E 서비스 구역 일부 집계이며 CAISO 전체 신청 총계가 아닙니다. 개별 사업의 점수나 전국 분모에 넣지 않습니다.",
+            "2026년 2분기부터 예비연구비·설계비 납부 요건이 강화됐으므로 새 기준 시리즈와 이어 붙이지 않습니다.",
+            "원문: June 2025 Total 10,000 MW. 신청·예비설계8,450 / 최종설계1,500 / 공사50MW."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "pge-data-center-pipeline-original:2025-09",
+          "date": "2025-09-01",
+          "datePrecision": "month",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-09",
+          "publishedAt": "2025-10-23",
+          "value": 9600,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q3 2025 Earnings Presentation, slide 7 and endnotes",
+            "url": "https://www.sec.gov/Archives/edgar/data/1004980/000100498025000147/q325earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:39:45.976Z",
+            "sha256": "4c7fbd958050b3533375000b4d6aaf8ea467d3baa8f3afeebb43762cac2e5518"
+          },
+          "notes": [
+            "PG&E 서비스 구역 일부 집계이며 CAISO 전체 신청 총계가 아닙니다. 개별 사업의 점수나 전국 분모에 넣지 않습니다.",
+            "2026년 2분기부터 예비연구비·설계비 납부 요건이 강화됐으므로 새 기준 시리즈와 이어 붙이지 않습니다.",
+            "원문: September 2025 Total 9,600 MW. 신청·예비설계7,950 / 최종설계1,600 / 공사50MW."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "pge-data-center-pipeline-original:2025-12",
+          "date": "2025-12-01",
+          "datePrecision": "month",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-12",
+          "publishedAt": "2026-02-12",
+          "value": 7250,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q4 2025 Earnings Presentation, slide 9 and endnotes",
+            "url": "https://www.sec.gov/Archives/edgar/data/1004980/000100498026000008/q425earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:39:45.290Z",
+            "sha256": "04f959ef30fb7ef3f1ddb891e34c838d6ce498a573890c34bed08009fd42cd9f"
+          },
+          "notes": [
+            "PG&E 서비스 구역 일부 집계이며 CAISO 전체 신청 총계가 아닙니다. 개별 사업의 점수나 전국 분모에 넣지 않습니다.",
+            "2026년 2분기부터 예비연구비·설계비 납부 요건이 강화됐으므로 새 기준 시리즈와 이어 붙이지 않습니다.",
+            "원문: December 2025 Total 7,250 MW. 신청·예비설계3,600 / 최종설계3,550 / 공사100MW."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "pge-data-center-pipeline-original:2026-03",
+          "date": "2026-03-01",
+          "datePrecision": "month",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2026-03",
+          "publishedAt": "2026-04-23",
+          "value": 5390,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q1 2026 Earnings Presentation, slide 7 and endnotes",
+            "url": "https://www.sec.gov/Archives/edgar/data/1004980/000100498026000032/q126earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:40:06.281Z",
+            "sha256": "6b513cba9fcfa47676eb2c7ab4b94d00b767fcb656cb3b38675c729482c862bb"
+          },
+          "notes": [
+            "PG&E 서비스 구역 일부 집계이며 CAISO 전체 신청 총계가 아닙니다. 개별 사업의 점수나 전국 분모에 넣지 않습니다.",
+            "2026년 2분기부터 예비연구비·설계비 납부 요건이 강화됐으므로 새 기준 시리즈와 이어 붙이지 않습니다.",
+            "원문 도표 이미지 직접 확인: March 2026 Total 5,390 MW. 신청·예비설계650 / 최종설계4,600 / 공사140MW. SEC HTML 숨김 텍스트의 최종설계3,550은 도표 이미지와 달라 이미지4,600을 확인했습니다. 이 총계는 새 기준의3월재작성5,090과 다릅니다."
+          ],
+          "ratingModelVersion": null
+        }
+      ]
+    },
+    {
+      "id": "pge-data-center-pipeline-paid-study",
+      "name": "PG&E 데이터센터 파이프라인 · 연구비 납부 강화 기준",
+      "region": "CAISO",
+      "projectTypes": [
+        "load"
+      ],
+      "metric": "load_requests",
+      "unit": "MW",
+      "scope": "PG&E 서비스 구역 신규 20MW 이상 데이터센터. 신청·예비설계는 연구비50만달러 납부, 최종설계는 WPA체결 및 총추정비10% 설계·조달비 납부를 요구합니다.",
+      "description": "2026년 2분기 강화된 기준으로 재작성한 3월 값과 6월 공시. 기존 공시와 별도 비교합니다.",
+      "comparability": "동일한 강화 기준으로 재작성한 3월과 6월만 비교 가능. 신청·예비설계, 최종설계, 접속공사계약, 공사를 합한 총량이며 통전 시 공사 단계에서 제외됩니다.",
+      "points": [
+        {
+          "id": "pge-data-center-pipeline-paid-study:2026-03",
+          "date": "2026-03-01",
+          "datePrecision": "month",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2026-03",
+          "publishedAt": "2026-07-23",
+          "value": 5090,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q2 2026 Earnings Presentation, slides 7 and 18",
+            "url": "https://www.sec.gov/Archives/edgar/data/75488/000100498026000047/q226earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:38:22.866Z",
+            "sha256": "59a1beeaf41f4853a3e9acbe933a12697e9d2a2a5f452e73ea10c9b6b7da27d9"
+          },
+          "notes": [
+            "원문: March 2026 results have been recast to reflect updated methodology. Total5,090; Application & Preliminary Engineering1,700; Final Engineering3,110; Interconnection Construction Agreement140; Construction140MW.",
+            "2026년7월23일 공시에서 재작성한 과거 값이며 3월 당시 시스템이 관측한 값이 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "pge-data-center-pipeline-paid-study:2026-06-30",
+          "date": "2026-06-30",
+          "datePrecision": "day",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2026-06-30",
+          "publishedAt": "2026-07-23",
+          "value": 12710,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PG&E Q2 2026 Earnings Presentation, slides 7 and 18",
+            "url": "https://www.sec.gov/Archives/edgar/data/75488/000100498026000047/q226earningspresentation.htm",
+            "retrievedAt": "2026-10-09T04:38:22.866Z",
+            "sha256": "59a1beeaf41f4853a3e9acbe933a12697e9d2a2a5f452e73ea10c9b6b7da27d9"
+          },
+          "notes": [
+            "원문: June 2026 Total12,710; Application & Preliminary Engineering8,200; Final Engineering3,880; Interconnection Construction Agreement490; Construction140MW. 도표와 단계별 건수 주석의 6/30/26 기준을 유지합니다.",
+            "공시 후 미확보 날짜를12,710MW로 이월하지 않습니다."
+          ],
+          "ratingModelVersion": null
+        }
+      ]
+    },
+    {
+      "id": "ppl-pa-signed-data-center-agreements",
+      "name": "PPL Pennsylvania 데이터센터 서명 계약용량",
+      "region": "PJM",
+      "projectTypes": [
+        "load"
+      ],
+      "metric": "load_contracts",
+      "unit": "MW",
+      "scope": "PPL Electric Utilities의 Pennsylvania 서비스 구역. 개발사와 서명한 계약이 있고 비용회수 의무가 있는 데이터센터 advanced stages의 용량. PJM 전체 접속요청과 구분합니다.",
+      "description": "PPL의 공식 분기별 서명 계약 총용량. ESA와 LOA를 포함하며, 초기 문의·미서명 요청을 더하지 않습니다.",
+      "comparability": "전체 누적 요청240GW와 다른 지표입니다. 분기 도표의 실제 계약 누계를 사용하며 향후 Requested Load In-Service Dates 램프 도표는 관측값으로 사용하지 않습니다. Q2 2026에는 일부 고객이 공급을 받기 시작했으므로 미통전 잔량으로 해석할 수 없습니다.",
+      "points": [
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2024-Q1",
+          "date": "2024-01-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2024-Q1",
+          "publishedAt": "2026-05-08",
+          "value": 3000,
+          "qualifier": "approximate",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2024-Q2",
+          "date": "2024-04-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2024-Q2",
+          "publishedAt": "2026-05-08",
+          "value": 5000,
+          "qualifier": "approximate",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2024-Q3",
+          "date": "2024-07-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2024-Q3",
+          "publishedAt": "2026-05-08",
+          "value": 8300,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2024-Q4",
+          "date": "2024-10-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2024-Q4",
+          "publishedAt": "2026-05-08",
+          "value": 8600,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2025-Q1",
+          "date": "2025-01-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-Q1",
+          "publishedAt": "2026-05-08",
+          "value": 10900,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2025-Q2",
+          "date": "2025-04-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-Q2",
+          "publishedAt": "2026-05-08",
+          "value": 14400,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2025-Q3",
+          "date": "2025-07-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-Q3",
+          "publishedAt": "2026-05-08",
+          "value": 20500,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2025-Q4",
+          "date": "2025-10-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2025-Q4",
+          "publishedAt": "2026-05-08",
+          "value": 25200,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2026-Q1",
+          "date": "2026-01-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2026-Q1",
+          "publishedAt": "2026-05-08",
+          "value": 28300,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q1 2026 Investor Update, slide 7",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q1_Investor+Update_FINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.926Z",
+            "sha256": "d1e0d6314a350ba0bac1989327da3973d554c304593c713389dda15fec18c36b"
+          },
+          "notes": [
+            "원문 도표: PPL Electric Utilities Signed Data Center Agreements (in GW). Q1’24≈3, Q2’24≈5, Q3’24 8.3, Q4’24 8.6, Q1’25 10.9, Q2’25 14.4, Q3’25 20.5, Q4’25 25.2, Q1’26 28.3.",
+            "원문은 분기 기준이며 정확한 일자는 미공개입니다. 차트의 분기 첫날은 표시 위치이고 실제 사건일이 아닙니다.",
+            "서명 계약의 비용회수·선납·신용보강·최소부하 보호조건을 주석에 명시합니다. 개별 프로젝트별 관측이나 과거 병목점수는 아닙니다."
+          ],
+          "ratingModelVersion": null
+        },
+        {
+          "id": "ppl-pa-signed-data-center-agreements:2026-Q2",
+          "date": "2026-04-01",
+          "datePrecision": "quarter",
+          "dateBasis": "source_as_of",
+          "sourceAsOf": "2026-Q2",
+          "publishedAt": "2026-08-07",
+          "value": 31800,
+          "qualifier": "exact",
+          "projectCount": null,
+          "ratedCount": null,
+          "unknownCount": null,
+          "source": {
+            "name": "PPL Q2 2026 Investor Update, slides 6 and 26",
+            "url": "https://investors.pplweb.com/download/PPL_2026_Q2_Investor_Update_vFINAL.pdf",
+            "retrievedAt": "2026-10-09T04:44:39.057Z",
+            "sha256": "715ee7a9e1f324d2963f51fae3b59cbe68a2a0b95203f2fa31e1ca10645495b2"
+          },
+          "notes": [
+            "원문: Signed data center agreements increased for the 10th consecutive quarter to 31.8GW. 전분기28.3GW와 대조.",
+            "서명 ESA11.1GW / 서명 LOA20.7GW이며 일부반올림가능. 전체31.8GW중6.5GW초과공사중. 2026년2분기2개데이터센터공급개시도명시하므로 미통전 잔량과 구분합니다.",
+            "원문은 Q2 2026 분기이며 차트의 분기 첫날은 표시 위치입니다."
+          ],
+          "ratingModelVersion": null
+        }
+      ]
+    }
+  ]
+}

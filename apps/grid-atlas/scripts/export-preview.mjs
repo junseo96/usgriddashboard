@@ -9,6 +9,7 @@ import { scoreProject, summarize } from '../shared/scoring.ts';
 import { STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
 import { calendarDayKst } from '../shared/time.ts';
 import { compareMarkets, isDemandDataset } from '../shared/market.ts';
+import { validateHistoricalDataset } from '../shared/history.ts';
 
 const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -39,7 +40,7 @@ async function getObservation() {
     return response.json();
   }
   const params = new URLSearchParams({ pageSize: '100', knownAt: exportedAt, asOf: calendarDayKst(exportedAt) });
-  const [first, health, runs, demand, pipeline] = await Promise.all([get(`/api/dashboard?${params}`), get('/api/health'), get('/api/runs?limit=100'), get('/api/demand'), get('/api/load-pipeline')]);
+  const [first, health, runs, demand, pipeline, historical] = await Promise.all([get(`/api/dashboard?${params}`), get('/api/health'), get('/api/runs?limit=100'), get('/api/demand'), get('/api/load-pipeline'), get('/api/historical')]);
   if (!first.available || !first.snapshot) throw new Error('A real initialized snapshot is required. Run seed:local first.');
   const pages = Math.ceil(first.total / 100);
   if (!Number.isInteger(first.total) || first.total < 1 || first.total > 100_000) throw new Error('Unexpected inventory size.');
@@ -65,7 +66,7 @@ async function getObservation() {
     projects: scores.map(score => score.project), sources: first.sources,
     summary: first.summary, limitations: first.limitations,
     originalHistoryCount: first.history.length, originalHistoryTruncated: first.historyTruncated,
-    health, runs, demand, pipeline,
+    health, runs, demand, pipeline, historical,
     comparison: compareMarkets(scores.map(score => score.project), first.snapshot.capturedAt),
     verification: { actualApiProjectCount: scores.length, assessedGateCount: 0, allGatesVerifiedUnknown: true },
   };
@@ -90,13 +91,15 @@ function validateObservation(data) {
   data.summary = reproduced;
   data.ratingMethodVersion = STAGE_ESTIMATE_VERSION;
   if (data.demand && !isDemandDataset(data.demand)) throw new Error('Invalid demand observations.');
+  if (data.historical !== undefined) validateHistoricalDataset(data.historical);
   if (data.comparison && stable(data.comparison) !== stable(compareMarkets(data.projects, data.snapshot.capturedAt))) throw new Error('Market comparison does not match the exported inventory.');
 }
 
 // Shares live API score functions and never writes. Pages mode may refresh the
 // public demand JSON from the same origin; offline exports stay self-contained.
 function installOffline(data, scoring, pagesMode) {
-  const { summarize, scoreProject, ratingPoint, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset } = scoring;
+  const { summarize, scoreProject, ratingPoint, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset,
+    filterHistoricalSeries, historicalCsv, parseHistoricalFilters } = scoring;
   const networkFetch = window.fetch.bind(window);
   let demand = data.demand;
   let demandCheckedAt = 0;
@@ -167,6 +170,14 @@ function installOffline(data, scoring, pagesMode) {
     try {
       if (path === '/api/demand') { const latest = await currentDemand(); return latest ? json(latest) : json({ error: '이 내보내기에 부하 자료가 없습니다.' }, 503); }
       if (path === '/api/load-pipeline') return data.pipeline ? json(data.pipeline) : json({ error: '이 내보내기에 수용가 파이프라인이 없습니다.' }, 503);
+      if (path === '/api/historical' || path === '/api/historical/export') {
+        if (!data.historical) return json({ error: '이 내보내기에 과거 공개자료가 없습니다.' }, 503);
+        const historyFilters = parseHistoricalFilters(url.searchParams);
+        if (path.endsWith('/export')) return new Response(historicalCsv(data.historical, historyFilters), {
+          headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-historical.csv"', 'Cache-Control': 'no-store' },
+        });
+        return json({ ...data.historical, series: filterHistoricalSeries(data.historical, historyFilters) });
+      }
       if (path === '/api/market-comparison') return data.comparison ? json(data.comparison) : json({ error: '이 내보내기에 권역별 비교 자료가 없습니다.' }, 503);
       if (path === '/api/health') return json({ ...data.health, lastSnapshotAt: data.snapshot.capturedAt, canWrite: false, schedule: { ...data.health.schedule, configured: false, cadence: '프로젝트 원장 자동 적재 미가동' }, offlinePreview: true, exportedAt: data.exportedAt });
       if (path === '/api/runs') {
@@ -242,7 +253,7 @@ for (const match of [...html.matchAll(/<link\b[^>]*rel=["'](?:icon|shortcut icon
   const href = /href=["']([^"']+)["']/i.exec(match[0])?.[1];
   if (href && !href.startsWith('data:')) html = html.replace(match[0], match[0].replace(href, await dataUrl(href)));
 }
-const runtime = await bundle(null, `import {scoreProject,summarize,ratingPoint} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,ratingPoint,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset}, ${JSON.stringify(!!options.pages)});`);
+const runtime = await bundle(null, `import {scoreProject,summarize,ratingPoint} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; import {filterHistoricalSeries,historicalCsv,parseHistoricalFilters} from ${JSON.stringify(resolve(appRoot, 'shared/history.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,ratingPoint,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset,filterHistoricalSeries,historicalCsv,parseHistoricalFilters}, ${JSON.stringify(!!options.pages)});`);
 const exportedKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.exportedAt));
 const snapshotKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.snapshot.capturedAt));
 // Keep encoding within the first 1024 bytes, before the large embedded dataset.

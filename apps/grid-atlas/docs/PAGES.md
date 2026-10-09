@@ -2,6 +2,8 @@
 
 공개 주소는 **https://junseo96.github.io/usgriddashboard/** 다. Cloudflare 계정 없이 GitHub Pages에서 공개 원장 검색·유형/권역 필터·상세·CSV·점수 계산 예시, 7개 ISO/RTO 부하 비교와 수용가 파이프라인을 제공한다. 평가 저장과 서버 API는 제공하지 않는다.
 
+**관측 시계열 → 공식 과거 자료**에는 2020년 이후 확보한 원장·공시의 점수·건수·용량 계열과 CSV를 포함한다. 이 자료는 실제 앱 관측 기록과 분리하며 반복 게시로 과거 관측을 만들지 않는다. [기간·출처와 비교 한계](HISTORY.md)를 함께 확인한다.
+
 ## 최초 게시
 
 1. 저장소 [Settings → Pages](https://github.com/junseo96/usgriddashboard/settings/pages)에서 **Build and deployment → Source → GitHub Actions**를 선택한다.

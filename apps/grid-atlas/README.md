@@ -37,6 +37,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - `scripts/`: 초기 적재, 검증된 공식 원문 수집, 배포 설정, 미리보기 내보내기.
 - `data/`: 출처와 날짜가 보존된 초기 정규화 원장. 합성 평가 없음.
 - `data/grid-demand.json`: 실제 ISO/RTO 관측과 시장 현지일 피크. `public/data/load-pipeline.json`: 신청·계약·공시·참고 자료 및 범위별 집계.
+- `data/history.json`: 검증한 과거 공식 원장의 점수·건수·용량 및 수용가 공시 계열. 앱 DB 관측과 별도로 Pages에도 포함한다.
 - `tests/`: 실제 SQL·모델·원문 파서 검증.
 - 저장소의 `.github/workflows/grid-atlas-*.yml`: 검사, 수동 배포, 명시적으로 활성화하는 주간/월간 수집.
 
@@ -48,7 +49,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 
 용량 가중 평균이 아니며, 미국 전체 물리 프로젝트의 전수 평균이라고 부르지 않는다. 동일 원장 ID의 발전·저장 하이브리드는 전체 집계에서 한 번만 세고 유형별 보기에는 중복될 수 있다.
 
-원장 관측, 상태 적용일, 근거를 확인한 시각, 시스템에 저장된 시각을 구분한다. `asOf`는 상태 기준일, `knownAt`은 그때까지 시스템이 알고 있던 근거의 범위다. 첫 관측 이전은 자료 없음이며 당시 원장이 없는 기간을 현재 자료로 채우지 않는다.
+원장 관측, 상태 적용일, 근거를 확인한 시각, 시스템에 저장된 시각을 구분한다. `asOf`는 상태 기준일, `knownAt`은 그때까지 시스템이 알고 있던 근거의 범위다. 앱의 첫 관측 이전은 자료 없음이며 당시 원장이 없는 기간을 현재 자료로 채우지 않는다. 별도 **관측 시계열 → 공식 과거 자료**에서는 실제 과거 원장·공시를 조회하고 당시 상태에 현재 모형을 적용한 점수를 확인한다. 앱 관측을 소급 생성하지 않는다.
 
 조회·평가의 날짜 단위는 KST(UTC+09:00)다. `asOf`는 해당 KST 날짜의 23:59:59.999까지 조회하며, 날짜만 있는 적용일·발행일·수집 확인일은 KST 달력 날짜로 비교한다. 정확한 확인·기록 시각과 `knownAt`은 UTC 타임스탬프로 보존한다. 원자료의 날짜 문자열과 공개 정밀도는 바꾸지 않으며, 날짜 경계 계산을 실제 사건 발생 시각으로 저장하지 않는다.
 
@@ -60,6 +61,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - [수용가 조사 자료·단위·중복](docs/LOAD_PIPELINE.md)
 - [ISO/RTO별 수용가 대표 지표와 전체 요청 공백](docs/REGIONAL_LOAD.md)
 - [원장 진행 상태·점수 평가·완료 사업의 현재 범위](docs/SCORE_COVERAGE.md)
+- [과거 시계열·출처·집계 기준과 재생성](docs/HISTORY.md)
 - [수집·정기 갱신과 복구](docs/OPERATIONS.md)
 - [데이터 출처·범위·미확보 항목](docs/DATA.md)
 - [오프라인 미리보기](docs/PREVIEW.md)

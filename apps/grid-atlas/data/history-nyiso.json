@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-09T04:43:17.927Z",
+  "modelVersion": "stage-proxy-v1",
+  "vintages": [
+    {
+      "id": "nyiso-archive-20231102050214",
+      "sourceAsOf": null,
+      "publishedAt": null,
+      "dateBasis": "archive_capture",
+      "archiveCapturedAt": "2023-11-02T05:02:14Z",
+      "source": {
+        "name": "Internet Archive에 보존된 NYISO 공식 원장",
+        "url": "https://web.archive.org/web/20231102050214id_/https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-09T04:40:22.707944+00:00",
+        "sha256": "f79645da43314bb57d096d09c7a1e9f0cfb4066b5f04b05b8089f9c8aec42c1e"
+      },
+      "notes": "Internet Archive 실제 캡처 당시의 공개 원장. 전체 원장 기준일·발행일은 미공개이며 캡처일은 그 대체값이 아닙니다. Interconnection Queue 탭의 Type/Fuel=L인 본토 활성 신청만 집계. 당시 S 상태를 현재 stage-proxy-v1 모형으로 재평가한 추정으로, 당시 발표된 공식 점수가 아닙니다. 용량은 구원장 SP(여름) MW이며 현재 Peak MW 정의와 차이가 있을 수 있습니다.",
+      "capacityDefinition": "summer_mw",
+      "capacityDefinitionLabel": "SP (MW) · 여름 용량",
+      "excludedCounts": {
+        "withdrawnSheet": 4,
+        "inServiceSheet": 3,
+        "ineligibleActiveSheet": 0
+      },
+      "statusCounts": {
+        "SRIS/SIS Approved": 3,
+        "SRIS/SIS Pending": 5,
+        "SRIS/SIS in Progress": 1,
+        "Under Construction": 1
+      },
+      "summaries": [
+        {
+          "region": "NYISO",
+          "type": "load",
+          "eligibleCount": 10,
+          "ratedCount": 10,
+          "unknownCount": 0,
+          "ratingMean": 75.5,
+          "loadMw": 1846.2,
+          "capacityUnknownCount": 0,
+          "winterMw": 1846.2
+        }
+      ]
+    },
+    {
+      "id": "nyiso-archive-20240916164516",
+      "sourceAsOf": null,
+      "publishedAt": null,
+      "dateBasis": "archive_capture",
+      "archiveCapturedAt": "2024-09-16T16:45:16Z",
+      "source": {
+        "name": "Internet Archive에 보존된 NYISO 공식 원장",
+        "url": "https://web.archive.org/web/20240916164516id_/https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-09T04:40:22.708528+00:00",
+        "sha256": "7ed3d29ad3a56ee4a751bc979b77c09ca2dacc3db7d714a912aa0e9f3bf44c39"
+      },
+      "notes": "Internet Archive 실제 캡처 당시의 공개 원장. 전체 원장 기준일·발행일은 미공개이며 캡처일은 그 대체값이 아닙니다. Interconnection Queue 탭의 Type/Fuel=L인 본토 활성 신청만 집계. 당시 S 상태를 현재 stage-proxy-v1 모형으로 재평가한 추정으로, 당시 발표된 공식 점수가 아닙니다. 용량은 구원장 SP(여름) MW이며 현재 Peak MW 정의와 차이가 있을 수 있습니다.",
+      "capacityDefinition": "summer_mw",
+      "capacityDefinitionLabel": "SP (MW) · 여름 용량",
+      "excludedCounts": {
+        "withdrawnSheet": 4,
+        "inServiceSheet": 3,
+        "ineligibleActiveSheet": 0
+      },
+      "statusCounts": {
+        "FS Pending": 2,
+        "SRIS/SIS Approved": 5,
+        "SRIS/SIS Pending": 5,
+        "SRIS/SIS in Progress": 5,
+        "Scoping Meeting Pending": 1,
+        "Under Construction": 1
+      },
+      "summaries": [
+        {
+          "region": "NYISO",
+          "type": "load",
+          "eligibleCount": 19,
+          "ratedCount": 19,
+          "unknownCount": 0,
+          "ratingMean": 77.63157894736842,
+          "loadMw": 3182.5,
+          "capacityUnknownCount": 0,
+          "winterMw": 3113.5
+        }
+      ]
+    },
+    {
+      "id": "nyiso-archive-20250831185450",
+      "sourceAsOf": null,
+      "publishedAt": null,
+      "dateBasis": "archive_capture",
+      "archiveCapturedAt": "2025-08-31T18:54:50Z",
+      "source": {
+        "name": "Internet Archive에 보존된 NYISO 공식 원장",
+        "url": "https://web.archive.org/web/20250831185450id_/https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-09T04:40:22.708902+00:00",
+        "sha256": "266eb6dfed9fd7314d05444f228799a0de04745d37633259e46a99a62ba212ac"
+      },
+      "notes": "Internet Archive 실제 캡처 당시의 공개 원장. 전체 원장 기준일·발행일은 미공개이며 캡처일은 그 대체값이 아닙니다. Interconnection Queue 탭의 Type/Fuel=L인 본토 활성 신청만 집계. 당시 S 상태를 현재 stage-proxy-v1 모형으로 재평가한 추정으로, 당시 발표된 공식 점수가 아닙니다. 용량은 구원장 SP(여름) MW이며 현재 Peak MW 정의와 차이가 있을 수 있습니다.",
+      "capacityDefinition": "summer_mw",
+      "capacityDefinitionLabel": "SP (MW) · 여름 용량",
+      "excludedCounts": {
+        "withdrawnSheet": 6,
+        "inServiceSheet": 3,
+        "ineligibleActiveSheet": 0
+      },
+      "statusCounts": {
+        "FS Pending": 2,
+        "SRIS/SIS Approved": 8,
+        "SRIS/SIS Pending": 11,
+        "SRIS/SIS in Progress": 9,
+        "Under Construction": 1
+      },
+      "summaries": [
+        {
+          "region": "NYISO",
+          "type": "load",
+          "eligibleCount": 31,
+          "ratedCount": 31,
+          "unknownCount": 0,
+          "ratingMean": 78.38709677419355,
+          "loadMw": 6805.1,
+          "capacityUnknownCount": 0,
+          "winterMw": 6736.1
+        }
+      ]
+    },
+    {
+      "id": "nyiso-archive-20260306153123",
+      "sourceAsOf": null,
+      "publishedAt": null,
+      "dateBasis": "archive_capture",
+      "archiveCapturedAt": "2026-03-06T15:31:23Z",
+      "source": {
+        "name": "Internet Archive에 보존된 NYISO 공식 원장",
+        "url": "https://web.archive.org/web/20260306153123id_/https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-09T04:40:22.709243+00:00",
+        "sha256": "b0ec2adb4d90df03ae326e57fc7cf31976250337f26f60fb79fb335990bdf176"
+      },
+      "notes": "Internet Archive 실제 캡처 당시의 공개 원장. 전체 원장 기준일·발행일은 미공개이며 캡처일은 그 대체값이 아닙니다. Interconnection Queue 탭의 Type/Fuel=L인 본토 활성 신청만 집계. 당시 S 상태를 현재 stage-proxy-v1 모형으로 재평가한 추정으로, 당시 발표된 공식 점수가 아닙니다. 용량은 구원장 SP(여름) MW이며 현재 Peak MW 정의와 차이가 있을 수 있습니다.",
+      "capacityDefinition": "summer_mw",
+      "capacityDefinitionLabel": "SP (MW) · 여름 용량",
+      "excludedCounts": {
+        "withdrawnSheet": 7,
+        "inServiceSheet": 3,
+        "ineligibleActiveSheet": 0
+      },
+      "statusCounts": {
+        "FS Pending": 2,
+        "SRIS/SIS Approved": 14,
+        "SRIS/SIS Pending": 19,
+        "SRIS/SIS in Progress": 11,
+        "Under Construction": 1
+      },
+      "summaries": [
+        {
+          "region": "NYISO",
+          "type": "load",
+          "eligibleCount": 47,
+          "ratedCount": 47,
+          "unknownCount": 0,
+          "ratingMean": 79.14893617021276,
+          "loadMw": 11756.1,
+          "capacityUnknownCount": 0,
+          "winterMw": 11687.1
+        }
+      ]
+    },
+    {
+      "id": "nyiso-observation-20261008T035918Z",
+      "dateBasis": "observation",
+      "observedAt": "2026-10-08T03:59:18.332Z",
+      "archiveCapturedAt": null,
+      "sourceAsOf": null,
+      "publishedAt": null,
+      "source": {
+        "name": "NYISO 공식 Load Projects 원장",
+        "url": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-08T03:59:18.332Z",
+        "sha256": "8158c0eb16ef93ce0a4f9f0dd8316d5680edbefbaeaab3758d7eded2e53c8e9b"
+      },
+      "notes": "2026-10-08 실제 취득·검증한 NYISO Load Projects 원장. 전체 원장 기준일 미공개이므로 실제 관측일로 표시합니다. 현재 상태를 과거 접수일로 소급하지 않습니다. 과거 Interconnection Queue의 SP(여름) MW와 현재 Peak MW는 정의가 다르며 원장 시트 구조도 변경됐습니다. 용량 추세는 이 지점에서 선을 끊어 비교하고 점수는 동일 stage-proxy-v1 모형의 단계 추정입니다.",
+      "capacityDefinition": "peak_mw",
+      "capacityDefinitionLabel": "Peak MW load · 최대 신청 부하",
+      "capacityBreakBefore": true,
+      "excludedCounts": {
+        "withdrawn": 17,
+        "operational": 4,
+        "ineligible": 21
+      },
+      "statusCounts": {
+        "Accepted Cost Allocation/IA in Progress": 4,
+        "FS Pending": 2,
+        "FS in Progress": 3,
+        "Rejected Cost Allocation/Next FS Pending": 1,
+        "SRIS/SIS Approved": 4,
+        "SRIS/SIS Pending": 16,
+        "SRIS/SIS in Progress": 16,
+        "Scoping Meeting Pending": 3,
+        "Under Construction": 4
+      },
+      "summaries": [
+        {
+          "region": "NYISO",
+          "type": "load",
+          "eligibleCount": 53,
+          "ratedCount": 52,
+          "unknownCount": 1,
+          "ratingMean": 75.38461538461539,
+          "loadMw": 14232.9,
+          "capacityUnknownCount": 0
+        }
+      ]
+    }
+  ]
+}

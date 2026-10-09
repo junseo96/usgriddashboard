@@ -7,6 +7,7 @@ import { STAGE_ESTIMATE_CATALOG } from '../shared/stage-estimate';
 import MarketPanel from './MarketPanel';
 import LoadPipelinePanel from './LoadPipelinePanel';
 import RegionalPipelinePanel from './RegionalPipelinePanel';
+import HistoricalPanel from './HistoricalPanel';
 import type { LoadPipelineDataset, MarketRegion } from '../shared/market-types';
 import type { MarketComparison } from '../shared/market';
 import './styles.css';
@@ -35,7 +36,7 @@ const GATE_DESCRIPTION: Record<Gate, Record<ProjectType, string>> = {
 };
 const STATUS_LABEL: Record<GateStatus, string> = { unknown: '미공개·미확인', not_started: '미진행 확인', in_progress: '진행 중', complete: '완료', not_applicable: '해당 없음' };
 const COVERAGE_LABEL: Record<Source['coverage'], string> = { full_register: '개별 원장', filtered_register: '범위 제한 원장', aggregate: '집계 자료', case: '개별 사례', not_reviewed: '검토 대기', access_failed: '접근 실패', not_public: '비공개' };
-const VIEW_DESCRIPTION: Record<View, string> = { overview: '발전·저장·수용가의 계통 연결, 진행의 근거를 한곳에서.', market: 'ISO·RTO의 공개 부하와 일 피크를 접속 신청 용량과 비교합니다.', pipeline: '공식 신청, 전력회사 자료, 계약·발표를 구분해 대형 수용가를 추적합니다.', projects: '공식 원장의 신청 단위와 요건별 평가 근거를 확인합니다.', history: '관측 당시의 데이터와 평가 변경을 시간의 흐름으로 확인합니다.', sources: '확보한 원장과 아직 관측하지 못한 범위를 함께 공개합니다.', method: '다섯 가지 접속 요건을 같은 기준으로 평가합니다.' };
+const VIEW_DESCRIPTION: Record<View, string> = { overview: '발전·저장·수용가의 계통 연결, 진행의 근거를 한곳에서.', market: 'ISO·RTO의 공개 부하와 일 피크를 접속 신청 용량과 비교합니다.', pipeline: '공식 신청, 전력회사 자료, 계약·발표를 구분해 대형 수용가를 추적합니다.', projects: '공식 원장의 신청 단위와 요건별 평가 근거를 확인합니다.', history: '과거 공식 자료의 신청 용량·건수·추정 점수와 이후 관측 기록을 확인합니다.', sources: '확보한 원장과 아직 관측하지 못한 범위를 함께 공개합니다.', method: '다섯 가지 접속 요건을 같은 기준으로 평가합니다.' };
 const nf = new Intl.NumberFormat('ko-KR');
 const number = (value: number) => nf.format(value);
 const decimal = (value: number, digits = 1) => value.toLocaleString('ko-KR', { maximumFractionDigits: digits });
@@ -59,6 +60,7 @@ async function request<T>(url: string, options?: RequestInit): Promise<T> {
 
 export default function App() {
   const [view, setView] = useState<View>('overview');
+  const [historyMode, setHistoryMode] = useState<'official' | 'app'>('official');
   const [type, setType] = useState<TypeFilter>('all');
   const [region, setRegion] = useState('');
   const [search, setSearch] = useState('');
@@ -137,13 +139,14 @@ export default function App() {
     <div className="main-shell">
       <header className="topbar"><div className="breadcrumb"><button className="icon-button menu-button" aria-label="메뉴 열기" onClick={() => setMobileOpen(true)}><Menu size={20} /></button><span>관측 워크스페이스</span><ChevronRight size={13} /><strong>{currentNav.label}</strong></div><div className="topbar-right"><span className="environment-badge"><span className={`status-dot ${health?.ok ? 'green' : 'amber'}`} />{offline ? '읽기 전용 대시보드' : health?.canWrite ? '로컬 작업공간' : '데이터 관측소'}</span><button className="icon-button" aria-label="데이터 새로 읽기" onClick={() => setRevision(v => v + 1)} disabled={loading}><RefreshCw size={17} className={loading ? 'spin' : ''} /></button><span className="avatar">GA</span></div></header>
       <main id="main" tabIndex={-1}>
-        <section className="page-heading"><div><div className="eyebrow"><span /> U.S. GRID CONNECTION INTELLIGENCE</div><h1>{view === 'overview' ? '미국 계통접속 관측소' : currentNav.label}<span className="heading-period">.</span></h1><p>{VIEW_DESCRIPTION[view]}</p></div>{view !== "market" && view !== "pipeline" && <div className="heading-date"><span>최근 관측</span><strong>{date(data?.snapshot?.capturedAt)}</strong><small>{data?.snapshot ? '원자료 기준일은 출처별 상이' : '관측 기록 확인 중'}</small></div>}</section>
-        {view !== 'method' && view !== 'market' && view !== 'pipeline' && <>
+        <section className="page-heading"><div><div className="eyebrow"><span /> U.S. GRID CONNECTION INTELLIGENCE</div><h1>{view === 'overview' ? '미국 계통접속 관측소' : currentNav.label}<span className="heading-period">.</span></h1><p>{VIEW_DESCRIPTION[view]}</p></div>{view !== "market" && view !== "pipeline" && !(view === "history" && historyMode === "official") && <div className="heading-date"><span>최근 관측</span><strong>{date(data?.snapshot?.capturedAt)}</strong><small>{data?.snapshot ? '원자료 기준일은 출처별 상이' : '관측 기록 확인 중'}</small></div>}</section>
+        {view !== 'method' && view !== 'market' && view !== 'pipeline' && !(view === 'history' && historyMode === 'official') && <>
           <div className="scope-toolbar"><div className="type-tabs" role="group" aria-label="프로젝트 유형">{TYPES.map(item => <button key={item.id} className={type === item.id ? 'selected' : ''} aria-pressed={type === item.id} onClick={() => setType(item.id)}><item.icon size={16} /><span>{item.label}</span>{item.id !== 'all' && data && <small>{number(data.summary.typeCounts[item.id])}</small>}</button>)}</div><button className={`button compact ${asOf || knownAt ? 'active-filter' : ''}`} aria-expanded={timeOpen} onClick={() => setTimeOpen(v => !v)}><CalendarDays size={15} />{asOf ? date(asOf) : '관측 시점'}<ChevronDown size={13} /></button></div>
           {timeOpen && <div className="temporal-panel"><div><strong>시점 기준 조회</strong><p>현재까지 확인한 근거로 과거를 재평가하거나, 당시 알려진 범위만 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
           <div className="disclosure"><CircleHelp size={16} /><span><strong>수집된 공개 원장 기준</strong> · 전국 전수 데이터가 아닙니다. 동일 출처 신청 ID로 집계하며, 원장 간 동일 실물 프로젝트의 중복 식별은 미완료입니다.</span><button onClick={() => navigate('sources')}>수집 범위 확인 <ArrowUpRight size={14} /></button></div>
         </>}
-        {view === 'market' ? <MarketPanel revision={revision} initialRegion={marketRegion} /> : view === 'pipeline' ? <LoadPipelinePanel revision={revision} onRegister={() => { setType('load'); setRegion(''); setSearch(''); setStatus('all'); setAsOf(''); setKnownAt(''); navigate('projects'); }} /> : error ? <div className="empty-state error-state"><Database size={34} /><h2>데이터를 불러오지 못했습니다</h2><p>{error}</p><button className="button primary" onClick={() => setRevision(v => v + 1)}><RefreshCw size={15} /> 다시 시도</button></div> : !data && loading ? <LoadingSkeleton /> : data && <>
+        {view === 'history' && <div className="historical-mode-tabs" role="group" aria-label="시계열 자료 구분"><button className={historyMode === 'official' ? 'selected' : ''} aria-pressed={historyMode === 'official'} onClick={() => setHistoryMode('official')}><History size={16} />공식 과거 자료</button><button className={historyMode === 'app' ? 'selected' : ''} aria-pressed={historyMode === 'app'} onClick={() => setHistoryMode('app')}><Database size={16} />앱 관측 기록</button></div>}
+        {view === 'history' ? historyMode === 'official' ? <HistoricalPanel revision={revision} /> : error ? <div className="market-error" role="alert">관측 기록 조회 실패: {error}</div> : !data ? <LoadingSkeleton /> : !data.available ? <div className="empty-state"><CalendarDays size={36} /><h2>이 날짜에 저장된 앱 관측이 없습니다</h2><p>서비스 시작 전의 자료는 ‘공식 과거 자료’에서 확인할 수 있습니다.</p><button className="button primary" onClick={() => setHistoryMode('official')}>공식 과거 자료 보기 <ArrowRight size={15} /></button></div> : <HistoryView data={data} capturing={capturing} canWrite={canWrite} onCapture={capture} /> : view === 'market' ? <MarketPanel revision={revision} initialRegion={marketRegion} /> : view === 'pipeline' ? <LoadPipelinePanel revision={revision} onRegister={() => { setType('load'); setRegion(''); setSearch(''); setStatus('all'); setAsOf(''); setKnownAt(''); navigate('projects'); }} /> : error ? <div className="empty-state error-state"><Database size={34} /><h2>데이터를 불러오지 못했습니다</h2><p>{error}</p><button className="button primary" onClick={() => setRevision(v => v + 1)}><RefreshCw size={15} /> 다시 시도</button></div> : !data && loading ? <LoadingSkeleton /> : data && <>
           {loading && <div className="loading-strip" role="status">선택한 조건을 불러오는 중…</div>}
           {view === 'method' ? <Methodology /> : !data.available ? <div className="empty-state"><CalendarDays size={36} /><h2>이 시점의 관측 자료가 없습니다</h2><p>첫 수집 이전의 진행 상태를 현재 데이터로 채우지 않습니다.<br />다른 기준일을 선택하거나 현재 관측으로 돌아가세요.</p><button className="button primary" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재 관측 보기 <ArrowRight size={15} /></button></div> : <>
             {view === 'overview' && <>
@@ -163,7 +166,6 @@ export default function App() {
             </>}
             {view === 'projects' && <ProjectTable data={data} region={region} setRegion={setRegion} search={search} setSearch={setSearch} status={status} setStatus={setStatus} page={page} setPage={setPage} onProject={setSelected} exportQuery={queryString} />}
             {view === 'sources' && <SourcesView sources={data.sources} type={type} health={health} revision={revision} />}
-            {view === 'history' && <HistoryView data={data} capturing={capturing} canWrite={canWrite} onCapture={capture} />}
           </>}
         </>}
         <footer className="page-footer"><span><Network size={14} /> GRID ATLAS <i /> 공개 근거 기반 계통접속 관측</span><span>기준 시각 Asia/Seoul · {MODEL_VERSION}</span></footer>
