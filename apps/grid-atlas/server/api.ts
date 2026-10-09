@@ -3,8 +3,9 @@ import { ratingPoint, scoreProject, summarize, validateAssessment } from '../sha
 import { STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
 import { calendarDayKst, endOfKstDay, isCalendarDay as date } from '../shared/time.ts';
 import { compareMarkets } from '../shared/market.ts';
-import { publicDemand, publicPipeline, publicHistorical } from './market-data.ts';
+import { publicDemand, publicPipeline, publicHistorical, publicLoadBottleneck } from './market-data.ts';
 import { filterHistoricalSeries, historicalCsv, parseHistoricalFilters } from '../shared/history.ts';
+import { loadBottleneckCsv, parseLoadBottleneckFilters } from '../shared/load-bottleneck.ts';
 import { captureSnapshot, inventoryRevisionGuard, listSnapshots, MAX_PROJECTS, readAssessments, readInventoryWithRevision, readSnapshot, recordCollectionRun, seedDatabase, sha256, sourceReplacementStatements, stableJson, type Inventory, type SqlDatabase } from './database.ts';
 
 export type { SqlDatabase, SqlStatement } from './database.ts';
@@ -158,6 +159,15 @@ export async function handleApi(request: Request, env: ApiEnvironment): Promise<
     if (request.method === 'POST' && !canWrite(request, env)) throw new ApiError(401, 'An administrator bearer token is required');
     if (path === '/api/demand' && request.method === 'GET') return json(publicDemand());
     if (path === '/api/load-pipeline' && request.method === 'GET') return json(publicPipeline());
+    if (path === '/api/load-bottleneck' && request.method === 'GET') return json(publicLoadBottleneck());
+    if (path === '/api/load-bottleneck/export' && request.method === 'GET') {
+      let filters;
+      try { filters = parseLoadBottleneckFilters(url.searchParams); }
+      catch { throw new ApiError(400, 'Invalid load bottleneck filters'); }
+      return new Response(loadBottleneckCsv(publicLoadBottleneck(), filters), {
+        headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-load-bottleneck.csv"', 'Cache-Control': 'no-store' },
+      });
+    }
     if ((path === '/api/historical' || path === '/api/historical/export') && request.method === 'GET') {
       let filters;
       try { filters = parseHistoricalFilters(url.searchParams); }

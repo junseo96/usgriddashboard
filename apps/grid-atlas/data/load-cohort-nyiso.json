@@ -1,0 +1,508 @@
+{
+  "generatedAt": "2026-10-09T05:17:16.454104+00:00",
+  "modelVersion": "stage-proxy-v1",
+  "scope": "Same seven NYISO load queue IDs active and stage-ratable at all five actually observed source vintages.",
+  "selectionBias": "Survivorship and stage-disclosure selection. Excludes completed/withdrawn projects and projects with any unknown stage; not all NYISO or US projects.",
+  "identityRule": "Decimal leading zeros removed only; 580=0580, 776=0776, 850=0850, 979=0979. Each vintage has no normalized-ID collisions. Names and original IDs retained.",
+  "notes": [
+    "Only actually captured historical statuses are scored; no application-date backcasting.",
+    "Active-queue means mix stage changes, new entries, exits, and unknown-stage exclusions.",
+    "Fixed cohort requires active status and model-known stage at all five vintages and therefore has survivorship bias.",
+    "Observation of a lower stage-proxy score does not measure waiting time, construction delays, or prove regional bottlenecks improved.",
+    "Future dates and forecast probabilities are not treated as achieved progress."
+  ],
+  "vintages": [
+    {
+      "date": "2023-11-02T05:02:14Z",
+      "source": {
+        "name": "Internet Archive에 보존된 NYISO 공식 원장",
+        "url": "https://web.archive.org/web/20231102050214id_/https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-09T04:40:22.707944+00:00",
+        "sha256": "f79645da43314bb57d096d09c7a1e9f0cfb4066b5f04b05b8089f9c8aec42c1e"
+      },
+      "projectCount": 7,
+      "mean": 71.42857142857143,
+      "queueIds": [
+        "1213",
+        "1484",
+        "1536",
+        "580",
+        "776",
+        "850",
+        "979"
+      ],
+      "rawStatusCounts": {
+        "SRIS/SIS Approved": 3,
+        "SRIS/SIS Pending": 2,
+        "SRIS/SIS in Progress": 1,
+        "Under Construction": 1
+      },
+      "projects": [
+        {
+          "queueId": "1213",
+          "linkedQueueId": "1213",
+          "name": "St Lawrence Data and Agricultural Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS in Progress",
+          "point": 80,
+          "loadMw": 200.0
+        },
+        {
+          "queueId": "1484",
+          "linkedQueueId": "1484",
+          "name": "580 STAMP load increase",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Pending",
+          "point": 85,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "1536",
+          "linkedQueueId": "1536",
+          "name": "White Pine Phase 1",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Pending",
+          "point": 85,
+          "loadMw": 480.0
+        },
+        {
+          "queueId": "580",
+          "linkedQueueId": "580",
+          "name": "WNY STAMP",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Under Construction",
+          "point": 25,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "776",
+          "linkedQueueId": "776",
+          "name": "Greenidge Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 60.0
+        },
+        {
+          "queueId": "850",
+          "linkedQueueId": "850",
+          "name": "Cayuga Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 50.0
+        },
+        {
+          "queueId": "979",
+          "linkedQueueId": "979",
+          "name": "North Country Data Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 176.0
+        }
+      ]
+    },
+    {
+      "date": "2024-09-16T16:45:16Z",
+      "source": {
+        "name": "Internet Archive에 보존된 NYISO 공식 원장",
+        "url": "https://web.archive.org/web/20240916164516id_/https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-09T04:40:22.708528+00:00",
+        "sha256": "7ed3d29ad3a56ee4a751bc979b77c09ca2dacc3db7d714a912aa0e9f3bf44c39"
+      },
+      "projectCount": 7,
+      "mean": 68.57142857142857,
+      "queueIds": [
+        "1213",
+        "1484",
+        "1536",
+        "580",
+        "776",
+        "850",
+        "979"
+      ],
+      "rawStatusCounts": {
+        "FS Pending": 2,
+        "SRIS/SIS Approved": 3,
+        "SRIS/SIS in Progress": 1,
+        "Under Construction": 1
+      },
+      "projects": [
+        {
+          "queueId": "1213",
+          "linkedQueueId": "1213",
+          "name": "St Lawrence Data and Agricultural Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 200.0
+        },
+        {
+          "queueId": "1484",
+          "linkedQueueId": "1484",
+          "name": "580 STAMP load increase",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "1536",
+          "linkedQueueId": "1536",
+          "name": "White Pine Phase 1",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS in Progress",
+          "point": 80,
+          "loadMw": 480.0
+        },
+        {
+          "queueId": "0580",
+          "linkedQueueId": "580",
+          "name": "WNY STAMP",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Under Construction",
+          "point": 25,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "0776",
+          "linkedQueueId": "776",
+          "name": "Greenidge Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "FS Pending",
+          "point": 75,
+          "loadMw": 60.0
+        },
+        {
+          "queueId": "0850",
+          "linkedQueueId": "850",
+          "name": "Cayuga Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "FS Pending",
+          "point": 75,
+          "loadMw": 50.0
+        },
+        {
+          "queueId": "0979",
+          "linkedQueueId": "979",
+          "name": "North Country Data Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 176.0
+        }
+      ]
+    },
+    {
+      "date": "2025-08-31T18:54:50Z",
+      "source": {
+        "name": "Internet Archive에 보존된 NYISO 공식 원장",
+        "url": "https://web.archive.org/web/20250831185450id_/https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-09T04:40:22.708902+00:00",
+        "sha256": "266eb6dfed9fd7314d05444f228799a0de04745d37633259e46a99a62ba212ac"
+      },
+      "projectCount": 7,
+      "mean": 67.85714285714286,
+      "queueIds": [
+        "1213",
+        "1484",
+        "1536",
+        "580",
+        "776",
+        "850",
+        "979"
+      ],
+      "rawStatusCounts": {
+        "FS Pending": 2,
+        "SRIS/SIS Approved": 4,
+        "Under Construction": 1
+      },
+      "projects": [
+        {
+          "queueId": "1213",
+          "linkedQueueId": "1213",
+          "name": "St Lawrence Data and Agricultural Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 200.0
+        },
+        {
+          "queueId": "1484",
+          "linkedQueueId": "1484",
+          "name": "580 STAMP load increase",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "1536",
+          "linkedQueueId": "1536",
+          "name": "White Pine Phase 1",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 480.0
+        },
+        {
+          "queueId": "0580",
+          "linkedQueueId": "580",
+          "name": "WNY STAMP",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Under Construction",
+          "point": 25,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "0776",
+          "linkedQueueId": "776",
+          "name": "Greenidge Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "FS Pending",
+          "point": 75,
+          "loadMw": 60.0
+        },
+        {
+          "queueId": "0850",
+          "linkedQueueId": "850",
+          "name": "Cayuga Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "FS Pending",
+          "point": 75,
+          "loadMw": 50.0
+        },
+        {
+          "queueId": "0979",
+          "linkedQueueId": "979",
+          "name": "North Country Data Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 176.0
+        }
+      ]
+    },
+    {
+      "date": "2026-03-06T15:31:23Z",
+      "source": {
+        "name": "Internet Archive에 보존된 NYISO 공식 원장",
+        "url": "https://web.archive.org/web/20260306153123id_/https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-09T04:40:22.709243+00:00",
+        "sha256": "b0ec2adb4d90df03ae326e57fc7cf31976250337f26f60fb79fb335990bdf176"
+      },
+      "projectCount": 7,
+      "mean": 67.85714285714286,
+      "queueIds": [
+        "1213",
+        "1484",
+        "1536",
+        "580",
+        "776",
+        "850",
+        "979"
+      ],
+      "rawStatusCounts": {
+        "FS Pending": 2,
+        "SRIS/SIS Approved": 4,
+        "Under Construction": 1
+      },
+      "projects": [
+        {
+          "queueId": "1213",
+          "linkedQueueId": "1213",
+          "name": "St Lawrence Data and Agricultural Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 200.0
+        },
+        {
+          "queueId": "1484",
+          "linkedQueueId": "1484",
+          "name": "580 STAMP load increase",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "1536",
+          "linkedQueueId": "1536",
+          "name": "White Pine Phase 1",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 480.0
+        },
+        {
+          "queueId": "0580",
+          "linkedQueueId": "580",
+          "name": "WNY STAMP",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Under Construction",
+          "point": 25,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "0776",
+          "linkedQueueId": "776",
+          "name": "Greenidge Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "FS Pending",
+          "point": 75,
+          "loadMw": 60.0
+        },
+        {
+          "queueId": "0850",
+          "linkedQueueId": "850",
+          "name": "Cayuga Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "FS Pending",
+          "point": 75,
+          "loadMw": 50.0
+        },
+        {
+          "queueId": "0979",
+          "linkedQueueId": "979",
+          "name": "North Country Data Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "SRIS/SIS Approved",
+          "point": 75,
+          "loadMw": 176.0
+        }
+      ]
+    },
+    {
+      "date": "2026-10-08T03:59:18.332Z",
+      "source": {
+        "name": "NYISO 공식 Load Projects 원장",
+        "url": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "originalUrl": "https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx",
+        "retrievedAt": "2026-10-08T03:59:18.332Z",
+        "sha256": "8158c0eb16ef93ce0a4f9f0dd8316d5680edbefbaeaab3758d7eded2e53c8e9b"
+      },
+      "projectCount": 7,
+      "mean": 43.57142857142857,
+      "queueIds": [
+        "1213",
+        "1484",
+        "1536",
+        "580",
+        "776",
+        "850",
+        "979"
+      ],
+      "rawStatusCounts": {
+        "Accepted Cost Allocation/IA in Progress": 1,
+        "FS Pending": 2,
+        "Under Construction": 4
+      },
+      "projects": [
+        {
+          "queueId": "1213",
+          "linkedQueueId": "1213",
+          "name": "St Lawrence Data and Agricultural Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Accepted Cost Allocation/IA in Progress",
+          "point": 55,
+          "loadMw": 200.0
+        },
+        {
+          "queueId": "1484",
+          "linkedQueueId": "1484",
+          "name": "580 STAMP load increase",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Under Construction",
+          "point": 25,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "1536",
+          "linkedQueueId": "1536",
+          "name": "White Pine Phase 1",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Under Construction",
+          "point": 25,
+          "loadMw": 480.0
+        },
+        {
+          "queueId": "0580",
+          "linkedQueueId": "580",
+          "name": "WNY STAMP",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Under Construction",
+          "point": 25,
+          "loadMw": 300.0
+        },
+        {
+          "queueId": "0776",
+          "linkedQueueId": "776",
+          "name": "Greenidge Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "FS Pending",
+          "point": 75,
+          "loadMw": 60.0
+        },
+        {
+          "queueId": "0850",
+          "linkedQueueId": "850",
+          "name": "Cayuga Load",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "FS Pending",
+          "point": 75,
+          "loadMw": 50.0
+        },
+        {
+          "queueId": "0979",
+          "linkedQueueId": "979",
+          "name": "North Country Data Center",
+          "eligible": true,
+          "status": "active",
+          "rawStatus": "Under Construction",
+          "point": 25,
+          "loadMw": 435.0
+        }
+      ]
+    }
+  ]
+}
