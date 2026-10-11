@@ -783,7 +783,7 @@
   {
     "id": "california-ladwp",
     "name": "서비스 설계 절차·항만 전기화 근거",
-    "region": "CAISO",
+    "region": "West",
     "types": [
       "load"
     ],
@@ -796,14 +796,15 @@
     "gaps": [
       "항만 213/306 MVA의 인프라 프로그램과 개별 고객 신청 구별; 중복·역률의 임의 변환 제외.",
       "LADWP 서비스 안내와 Port of Los Angeles ZEPEO 프로그램; 전체 고객 요청 원장 분모 미상.",
-      "별도 항만 안건일; LADWP 전체 고객 원장 기준일 아님."
+      "별도 항만 안건일; LADWP 전체 고객 원장 기준일 아님.",
+      "CAISO 공식 UDC 경계 목록에서 LADWP·SMUD는 ISO balancing authority 밖으로 명시되어 West로 정정했습니다. 경계 근거 확인 2026-10-11T23:16:42.634Z: https://www.caiso.com/generation-transmission/generation/distributed-energy-resources/list-utility-distribution-company-contacts . 기존 고객 자료를 다시 수집한 것은 아니며 기존 확인일을 유지합니다."
     ],
     "adapter": null
   },
   {
     "id": "california-smud",
     "name": "50 MW 초과 잠재 프로젝트 집계",
-    "region": "CAISO",
+    "region": "West",
     "types": [
       "load"
     ],
@@ -816,7 +817,8 @@
     "gaps": [
       "고객명·위치 비공개 및 NDA 설명; 전체 소매 서비스 신청 원장과 개별 MW 미확보.",
       "공식 페이지의 초기 잠재 프로젝트 2개; 승인된 대규모 부하 프로젝트 없음의 해당 페이지 설명 범위.",
-      "페이지의 정확 작성·집계 기준일 미명시; 2026-10-03 확인일."
+      "페이지의 정확 작성·집계 기준일 미명시; 2026-10-03 확인일.",
+      "CAISO 공식 UDC 경계 목록에서 LADWP·SMUD는 ISO balancing authority 밖으로 명시되어 West로 정정했습니다. 경계 근거 확인 2026-10-11T23:16:42.634Z: https://www.caiso.com/generation-transmission/generation/distributed-energy-resources/list-utility-distribution-company-contacts . 기존 고객 자료를 다시 수집한 것은 아니며 기존 확인일을 유지합니다."
     ],
     "adapter": null
   },

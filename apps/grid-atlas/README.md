@@ -39,6 +39,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - `data/grid-demand.json`: 실제 ISO/RTO 관측과 시장 현지일 피크. `public/data/load-pipeline.json`: 신청·계약·공시·참고 자료 및 범위별 집계.
 - `data/history.json`: 검증한 과거 공식 원장의 점수·건수·용량 및 수용가 공시 계열. 앱 DB 관측과 별도로 Pages에도 포함한다.
 - `data/load-bottleneck.json`: 권역별 수용가 단계 분포와 과거 점수. 프로젝트 수·MW 가중치와 추적군 참고지수를 구분한다.
+- `data/load-coverage.json`: 전국 EIA 신고기관 명부, ISO/RTO 공식 명부, 기관·고객별 근거와 아직 연결하지 못한 수집 범위.
 - `tests/`: 실제 SQL·모델·원문 파서 검증.
 - 저장소의 `.github/workflows/grid-atlas-*.yml`: 검사, 수동 배포, 명시적으로 활성화하는 주간/월간 수집.
 
@@ -50,7 +51,9 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 
 전국 개요의 원장 평균은 용량 가중 평균이 아니며, 미국 전체 물리 프로젝트의 전수 평균이라고 부르지 않는다. 동일 원장 ID의 발전·저장 하이브리드는 전체 집계에서 한 번만 세고 유형별 보기에는 중복될 수 있다.
 
-별도 **관측 시계열 → 수용가 권역 비교**에서는 7개 ISO/RTO와 West·Southeast의 공개된 일부 범위를 평가한다. 개별 신청은 동일 가중, 단계별 MW 집계는 용량 가중이며 서로 합산하지 않는다. NYISO 전체 원장과 동일 7건의 진척을 비교할 수 있고, 운영이 섞인 집단은 참고지수로 구분한다. [권역별 분모·배점·과거 비교의 한계](docs/LOAD_BOTTLENECK.md)를 참조한다.
+**관측 시계열 → 사업자·기관 수집범위**에서 EIA 2025년 전체 신고기관 3,421개, ISO/RTO 공식 구역·역할 명부, 권역 취합기관과 회사별 근거를 먼저 확인한다. PG&E·DTE·AES Ohio만으로 각 권역을 대표하지 않으며 CEC, MISO, PJM의 더 넓은 자료와 남은 공백을 함께 보여 준다. 명부 기관 수는 고객 신청 수가 아니고, 기관별 자료 연결은 프로젝트 전수 확보율이 아니다. [명부·출처·수집 공백](docs/LOAD_COVERAGE.md)을 참조한다.
+
+별도 **수용가 권역 비교**에서는 7개 ISO/RTO와 West·Southeast의 공개된 일부 범위를 평가한다. 개별 신청은 동일 가중, 단계별 MW 집계는 용량 가중이며 서로 합산하지 않는다. NYISO 전체 원장과 동일 7건의 진척을 비교할 수 있고, 운영이 섞인 집단은 참고지수로 구분한다. [권역별 분모·배점·과거 비교의 한계](docs/LOAD_BOTTLENECK.md)를 참조한다.
 
 원장 관측, 상태 적용일, 근거를 확인한 시각, 시스템에 저장된 시각을 구분한다. `asOf`는 상태 기준일, `knownAt`은 그때까지 시스템이 알고 있던 근거의 범위다. 앱의 첫 관측 이전은 자료 없음이며 당시 원장이 없는 기간을 현재 자료로 채우지 않는다. 별도 **관측 시계열 → 공식 과거 자료**에서는 실제 과거 원장·공시를 조회하고 당시 상태에 현재 모형을 적용한 점수를 확인한다. 앱 관측을 소급 생성하지 않는다.
 
@@ -63,6 +66,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - [부하 관측·일별 피크 산식](docs/DEMAND.md)
 - [수용가 조사 자료·단위·중복](docs/LOAD_PIPELINE.md)
 - [ISO/RTO별 수용가 대표 지표와 전체 요청 공백](docs/REGIONAL_LOAD.md)
+- [전국 신고기관·ISO/RTO 명부와 수용가 수집범위](docs/LOAD_COVERAGE.md)
 - [원장 진행 상태·점수 평가·완료 사업의 현재 범위](docs/SCORE_COVERAGE.md)
 - [수용가 권역별 진행 점수·가중치·동일 사업군 비교](docs/LOAD_BOTTLENECK.md)
 - [과거 시계열·출처·집계 기준과 재생성](docs/HISTORY.md)

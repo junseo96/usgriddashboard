@@ -11,6 +11,7 @@ import { calendarDayKst } from '../shared/time.ts';
 import { compareMarkets, isDemandDataset } from '../shared/market.ts';
 import { validateHistoricalDataset } from '../shared/history.ts';
 import { validateLoadBottleneckDataset } from '../shared/load-bottleneck.ts';
+import { validateLoadCoverageDataset } from '../shared/load-coverage.ts';
 
 const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -41,7 +42,7 @@ async function getObservation() {
     return response.json();
   }
   const params = new URLSearchParams({ pageSize: '100', knownAt: exportedAt, asOf: calendarDayKst(exportedAt) });
-  const [first, health, runs, demand, pipeline, historical, loadBottleneck] = await Promise.all([get(`/api/dashboard?${params}`), get('/api/health'), get('/api/runs?limit=100'), get('/api/demand'), get('/api/load-pipeline'), get('/api/historical'), get('/api/load-bottleneck')]);
+  const [first, health, runs, demand, pipeline, historical, loadBottleneck, loadCoverage] = await Promise.all([get(`/api/dashboard?${params}`), get('/api/health'), get('/api/runs?limit=100'), get('/api/demand'), get('/api/load-pipeline'), get('/api/historical'), get('/api/load-bottleneck'), get('/api/load-coverage')]);
   if (!first.available || !first.snapshot) throw new Error('A real initialized snapshot is required. Run seed:local first.');
   const pages = Math.ceil(first.total / 100);
   if (!Number.isInteger(first.total) || first.total < 1 || first.total > 100_000) throw new Error('Unexpected inventory size.');
@@ -67,7 +68,7 @@ async function getObservation() {
     projects: scores.map(score => score.project), sources: first.sources,
     summary: first.summary, limitations: first.limitations,
     originalHistoryCount: first.history.length, originalHistoryTruncated: first.historyTruncated,
-    health, runs, demand, pipeline, historical, loadBottleneck,
+    health, runs, demand, pipeline, historical, loadBottleneck, loadCoverage,
     comparison: compareMarkets(scores.map(score => score.project), first.snapshot.capturedAt),
     verification: { actualApiProjectCount: scores.length, assessedGateCount: 0, allGatesVerifiedUnknown: true },
   };
@@ -94,6 +95,7 @@ function validateObservation(data) {
   if (data.demand && !isDemandDataset(data.demand)) throw new Error('Invalid demand observations.');
   if (data.historical !== undefined) validateHistoricalDataset(data.historical);
   if (data.loadBottleneck !== undefined) validateLoadBottleneckDataset(data.loadBottleneck);
+  if (data.loadCoverage !== undefined) validateLoadCoverageDataset(data.loadCoverage, new Date(), data.loadBottleneck ? new Set(data.loadBottleneck.series.map(s => s.id)) : undefined);
   if (data.comparison && stable(data.comparison) !== stable(compareMarkets(data.projects, data.snapshot.capturedAt))) throw new Error('Market comparison does not match the exported inventory.');
 }
 
@@ -101,7 +103,7 @@ function validateObservation(data) {
 // public demand JSON from the same origin; offline exports stay self-contained.
 function installOffline(data, scoring, pagesMode) {
   const { summarize, scoreProject, ratingPoint, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset,
-    filterHistoricalSeries, historicalCsv, parseHistoricalFilters, loadBottleneckCsv, parseLoadBottleneckFilters } = scoring;
+    filterHistoricalSeries, historicalCsv, parseHistoricalFilters, loadBottleneckCsv, parseLoadBottleneckFilters, loadCoverageCsv, parseLoadCoverageFilters } = scoring;
   const networkFetch = window.fetch.bind(window);
   let demand = data.demand;
   let demandCheckedAt = 0;
@@ -172,6 +174,14 @@ function installOffline(data, scoring, pagesMode) {
     try {
       if (path === '/api/demand') { const latest = await currentDemand(); return latest ? json(latest) : json({ error: '이 내보내기에 부하 자료가 없습니다.' }, 503); }
       if (path === '/api/load-pipeline') return data.pipeline ? json(data.pipeline) : json({ error: '이 내보내기에 수용가 파이프라인이 없습니다.' }, 503);
+      if (path === '/api/load-coverage') return data.loadCoverage ? json(data.loadCoverage) : json({ error: '이 내보내기에 수용가 수집 범위 자료가 없습니다.' }, 503);
+      if (path === '/api/load-coverage/export') {
+        if (!data.loadCoverage) return json({ error: '이 내보내기에 수용가 수집 범위 자료가 없습니다.' }, 503);
+        const coverageFilters = parseLoadCoverageFilters(url.searchParams);
+        return new Response(loadCoverageCsv(data.loadCoverage, coverageFilters), {
+          headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-load-coverage.csv"', 'Cache-Control': 'no-store' },
+        });
+      }
       if (path === '/api/load-bottleneck') return data.loadBottleneck ? json(data.loadBottleneck) : json({ error: '이 내보내기에 권역별 수용가 병목 자료가 없습니다.' }, 503);
       if (path === '/api/load-bottleneck/export') {
         if (!data.loadBottleneck) return json({ error: '이 내보내기에 권역별 수용가 병목 자료가 없습니다.' }, 503);
@@ -263,7 +273,7 @@ for (const match of [...html.matchAll(/<link\b[^>]*rel=["'](?:icon|shortcut icon
   const href = /href=["']([^"']+)["']/i.exec(match[0])?.[1];
   if (href && !href.startsWith('data:')) html = html.replace(match[0], match[0].replace(href, await dataUrl(href)));
 }
-const runtime = await bundle(null, `import {scoreProject,summarize,ratingPoint} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; import {filterHistoricalSeries,historicalCsv,parseHistoricalFilters} from ${JSON.stringify(resolve(appRoot, 'shared/history.ts'))}; import {loadBottleneckCsv,parseLoadBottleneckFilters} from ${JSON.stringify(resolve(appRoot, 'shared/load-bottleneck.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,ratingPoint,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset,filterHistoricalSeries,historicalCsv,parseHistoricalFilters,loadBottleneckCsv,parseLoadBottleneckFilters}, ${JSON.stringify(!!options.pages)});`);
+const runtime = await bundle(null, `import {scoreProject,summarize,ratingPoint} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; import {filterHistoricalSeries,historicalCsv,parseHistoricalFilters} from ${JSON.stringify(resolve(appRoot, 'shared/history.ts'))}; import {loadBottleneckCsv,parseLoadBottleneckFilters} from ${JSON.stringify(resolve(appRoot, 'shared/load-bottleneck.ts'))}; import {loadCoverageCsv,parseLoadCoverageFilters} from ${JSON.stringify(resolve(appRoot, 'shared/load-coverage.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,ratingPoint,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset,filterHistoricalSeries,historicalCsv,parseHistoricalFilters,loadBottleneckCsv,parseLoadBottleneckFilters,loadCoverageCsv,parseLoadCoverageFilters}, ${JSON.stringify(!!options.pages)});`);
 const exportedKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.exportedAt));
 const snapshotKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.snapshot.capturedAt));
 // Keep encoding within the first 1024 bytes, before the large embedded dataset.

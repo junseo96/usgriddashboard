@@ -11,6 +11,10 @@ export interface ResolvedRegionalPipeline extends Omit<RegionalPipelineCoverage,
 const OPERATOR_REQUEST_HEADLINES: Partial<Record<MarketRegion, string>> = {
   ERCOT: 'disclosure:ERCOT_LARGE_LOAD_REQUESTS_20260618',
 };
+// A reviewed regulator publication can cover a region without being the ISO's
+// own request register. Its mixed inquiry/application/agreement scope is retained.
+const CEC_REGIONAL_HEADLINE = 'disclosure:CEC_CAISO_DC_REQUESTS_202512';
+const CEC_REGIONAL_URL = 'https://www.energy.ca.gov/sites/default/files/2026-08/Data_Center_Data_Collection_and_Forecasting_ada.pdf';
 
 function unavailable(region: MarketRegion): ResolvedRegionalPipeline {
   return { region, coverage: 'unavailable', headline: null, additional: [],
@@ -33,7 +37,7 @@ export function resolveRegionalPipelines(dataset: LoadPipelineDataset): Resolved
     const entries = rows.filter(row => row?.region === region);
     if (entries.length !== 1) return unavailable(region);
     const entry = entries[0];
-    if (!['operator_requests', 'partial_pipeline', 'register_only', 'unavailable'].includes(entry.coverage)
+    if (!['operator_requests', 'regional_aggregate', 'partial_pipeline', 'register_only', 'unavailable'].includes(entry.coverage)
       || !Array.isArray(entry.additionalAggregateIds)
       || ![entry.scopeLabel, entry.metricLabel, entry.explanation].every(readable)) return unavailable(region);
     if (entry.coverage === 'unavailable') {
@@ -50,6 +54,9 @@ export function resolveRegionalPipelines(dataset: LoadPipelineDataset): Resolved
     if (entry.coverage === 'operator_requests' && (OPERATOR_REQUEST_HEADLINES[region] !== headline.id
       || headline.capacityBasis !== 'requested_grid_mw' || headline.capacityMw === null
       || !officialErcotUrl(headline.sourceUrl))) return unavailable(region);
+    if (entry.coverage === 'regional_aggregate' && (region !== 'CAISO' || headline.id !== CEC_REGIONAL_HEADLINE
+      || headline.sourceUrl !== CEC_REGIONAL_URL || headline.capacityBasis !== 'mixed_mw'
+      || headline.capacityMw === null || !Number.isFinite(headline.capacityMw) || headline.capacityMw < 0)) return unavailable(region);
     if (entry.coverage === 'register_only' && (region !== 'NYISO' || headline.id !== 'register-summary:nyiso-active-load')) return unavailable(region);
     const { headlineAggregateId: _headline, additionalAggregateIds: _additional, ...metadata } = entry;
     // Return original evidence unchanged: lower bounds, unknown dates, units and

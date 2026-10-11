@@ -23,7 +23,7 @@ const scoreLabel = (rating: LoadBottleneckRating, series: LoadBottleneckSeries) 
 const ordered = (series: LoadBottleneckSeries) => [...series.points].sort((a, b) => a.date.localeCompare(b.date));
 const GATE_LABEL: Record<string, string> = { technical: '기술 검토', commercial: '계약·비용', permitting: '부지·인허가', construction: '설비·망 보강', energization: '통전 승인' };
 
-export default function LoadBottleneckPanel({ revision }: { revision: number }) {
+export default function LoadBottleneckPanel({ revision, onCoverage }: { revision: number; onCoverage?: () => void }) {
   const [dataset, setDataset] = useState<LoadBottleneckDataset | null>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
@@ -60,6 +60,7 @@ export default function LoadBottleneckPanel({ revision }: { revision: number }) 
   if (!dataset) return <div className="empty-state"><Factory size={30} /><h2>수용가 진행 자료 조회 실패</h2><p role="alert">{error}</p><button className="button primary" onClick={() => setRetry(value => value + 1)}>다시 불러오기<RefreshCw size={14} /></button></div>;
   return <div className="load-bottleneck-view">
     <section className="load-bottleneck-intro"><span><Factory size={24} /></span><div><span className="eyebrow">REGIONAL LOAD CONNECTION PROGRESS</span><h2>수용가 진행 단계, 권역별 근거</h2><p>ISO·RTO와 공개된 다른 권역의 단계 자료를 비교하고, 확보한 과거 시점의 변화를 확인합니다.</p></div></section>
+    <div className="coverage-score-link"><span>부분 사업자 점수의 조사 범위와 권역 전체 자료는 사업자·기관 명부에서 확인할 수 있습니다.</span>{onCoverage && <button className="text-button" onClick={onCoverage}>전체 사업자·수집범위 보기<ArrowRight size={14} /></button>}</div>
     <div className="load-bottleneck-note"><CircleHelp size={18} /><div><strong>같은 점수라도 집계 대상과 가중 방식이 다릅니다.</strong><p>개별 신청 평균, 용량 가중 점수, 운영을 포함한 추적군 참고지수를 구분합니다. 전력회사 일부 사업을 권역 전체로 확대하거나 서로 합산하지 않으며, 이 값만으로 권역 순위를 매기지 않습니다.</p></div></div>
     {error && <div className="market-error" role="alert">{error} 이전에 불러온 자료를 표시합니다.</div>}
     <section className="load-region-cards" aria-label="권역별 수용가 점수 범위">{dataset.regions.map(({ region: value }) => {

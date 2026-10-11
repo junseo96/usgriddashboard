@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "modelVersion": "load-stage-v1",
-  "generatedAt": "2026-10-09T05:32:28.428Z",
+  "generatedAt": "2026-10-11T23:25:49.916Z",
   "limitations": [
     "각 권역에서 확인한 공개 원장·전력회사·선별 사업의 지표입니다. 전체 권역 전수와 전국 동일 가중 수용가 평균이 확보된 것은 아닙니다.",
     "건수 가중 평균과 MW 가중 단계 지수는 분모가 다르므로 서로 합산하거나 권역 순위로 해석하지 않습니다.",
@@ -54,7 +54,7 @@
       "region": "PJM",
       "headlineSeriesId": "pjm-aes-ohio-selected-loads",
       "gaps": [
-        "AES Ohio 선별 8·9건의 부분집합입니다. PJM 전체 신청 원장과 분모는 공개되지 않았습니다.",
+        "AES Ohio 선별 8·9건과 Duquesne 기술검토 3건의 별도 부분집합입니다. Dominion·AEP 등을 포함한 전체 기관 자료는 사업자·기관 수집범위에서 확인하며, 운영 포함 계약·전망을 이 점수에 합치지 않습니다.",
         "PPL·Dominion 계약 총량은 운영 중 부하를 포함해 이 미운영 신청 평균에 합치지 않습니다."
       ]
     },
@@ -4376,6 +4376,59 @@
             "Main 단계분포 기술검토86+RFS10+CES22=118건. 표1 물리분포10+11+11=32건은 RFS·CES의 대체 분할이며 합계150건으로 만들지 않습니다.",
             "부분 통전 사업이 포함돼 활성 신청 분모는 미확정입니다. 혼합 추적군 참고지수만 제공하며 전국 평균에 합치지 않습니다.",
             "원문 ZIP SHA-256을 보존합니다. XLSX SHA-256 d5727a5b3c33cce6ab1e67c6b6f8ba671c15d3695be5adb7c174ce4a7dd92bcd; PDF SHA-256 7f5ba8f547dbbc24ebbf8182f783048e1e1d8e29a96a240dca3608336488be32."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pjm-duquesne-selected-load-studies",
+      "name": "PJM · Duquesne 선별 기술검토 3건",
+      "region": "PJM",
+      "scopeType": "selected_projects",
+      "population": "active_queue",
+      "weightBasis": "project_count",
+      "scope": "PJM 2027부하전망 조정을 위해 Duquesne Light가 제출한 DUQ-DUQ / DLCO 데이터센터 기술검토3건. 요청용량1,145MW이며 전체 초기문의·신청 전수는 아님.",
+      "comparability": "2026-09-29 공개 발표의 단일 관측입니다. 사업ID·개별 신청일은 미공개이며 예측 실현확률9.5~27.5%를 절차진행률로 변환하지 않습니다.",
+      "stageMappings": [
+        {
+          "rawStage": "Three data centers currently under study",
+          "stage": "technical_study",
+          "rationale": "원문이 해당3건을 currently under study로 명시해 기술검토 대표80점 적용. 다섯 요건별 가정은 실제 인허가·공사 완료의 직접 근거가 아닙니다."
+        }
+      ],
+      "points": [
+        {
+          "id": "pjm-duquesne-selected:2026-09-29",
+          "date": "2026-09-29",
+          "datePrecision": "day",
+          "dateBasis": "publication",
+          "sourceAsOf": null,
+          "publishedAt": "2026-09-29",
+          "source": {
+            "name": "Duquesne Light Company — PJM LAS 2026-09-29",
+            "url": "https://www.pjm.com/-/media/DotCom/committees-groups/subcommittees/las/2026/20260929/20260929-item-5g---duquesne.pdf",
+            "retrievedAt": "2026-10-11T23:15:50.525Z",
+            "sha256": "12acc619ac3f70a69bbc6e25970ea7cf1baae9d9635b2e3e81daf86453769367"
+          },
+          "bins": [
+            {
+              "id": "duquesne-selected-under-study",
+              "rawStage": "Three data centers currently under study",
+              "stage": "technical_study",
+              "membership": "active",
+              "weight": 3,
+              "notes": [
+                "원문 p2: three data centers currently under study. p4: cumulative capacity requested by the three projects is1,145 MW.",
+                "3건 집계만 공개되어 가상의 개별 ID를 만들지 않았습니다."
+              ]
+            }
+          ],
+          "totalWeight": 3,
+          "completePartition": true,
+          "notes": [
+            "전체 Duquesne·PJM 신청 전수가 아닌 공식 전망 선별3건의 평균. 요청1,145MW는 별도용량이며3건 동일가중 점수분모에 혼합하지 않음.",
+            "원문 p4 상업운전 실현확률9.5–27.5%는 병목점수 또는 실제진행률로 사용하지 않음.",
+            "완전분할은 공개선별3건 내에서만 성립."
           ]
         }
       ]

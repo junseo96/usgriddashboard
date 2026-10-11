@@ -2,11 +2,13 @@
 
 전국 발전 신청 1,303.58 GW와 NYISO 개별 수용가 원장 14.23 GW는 서로 다른 지역 범위다. 개요 화면은 이 둘을 전국 수급처럼 나란히 표시하지 않는다. 7개 ISO/RTO의 수용가 공개 지표를 해당 권역의 발전·저장 신청과 함께 표시하고, 각 행에 대상 지역·단계·원자료 기준일·확인 시각을 붙인다. 발전·저장 전국 원장 합계에는 ISO/RTO 밖의 서부·남동부도 포함된다.
 
-## 2026-10-08 확인한 대표 지표
+대표 규모와 병목점수의 출처 범위는 서로 다를 수 있다. **관측 시계열 → 사업자·기관 수집범위**에서 전체 신고기관 명부와 권역별 취합기관·회사 자료를 확인한다. [사업자 명부·출처 연결·남은 공백](LOAD_COVERAGE.md)은 PG&E·DTE·AES Ohio에 한정된 기존 단계 점수를 각 권역의 전수로 해석하지 않도록 범위를 따로 제시한다.
+
+## 검토한 대표 지표
 
 | 권역 | 표시 규모 | 범위와 기준 |
 | --- | ---: | --- |
-| CAISO | 12.710 GW | PG&E 구역의 20 MW 이상 신규 데이터센터. 신청·설계·공사 단계의 부분 파이프라인, 2026-06-30 기준. |
+| CAISO | 23.278 GW | CEC가 CAISO 권역 유틸리티에서 취합한 데이터센터 요청·문의. 2025년 12월 기준, 2026-08-12 공개. 신청 전 문의와 계약·일부 운영 진입 집단이 포함되어 현재 전체 정식 접속 대기량이 아님. |
 | ERCOT | **438 GW 초과** | 운영기관이 공식 추적하는 대규모 부하 접속 요청. 2026-06-18 발표, 정확 추출 기준일 미공개. |
 | ISO-NE | 0.285 GW | 공식 연구계약에 들어와 CELT 전망에 선별된 2건의 계획 용량. 2026-03-27 자료. 전체 접속 요청이 아니며 전망 감액 후 110 MW와 구별. |
 | MISO | 약 26.6 GW | MTEP26 권고 송전 포트폴리오가 지원하는 부하. 2026-10-07 발표, 사업 정보 2026-08-19 기준. 전체 고객 신청 큐가 아님. |
@@ -18,7 +20,8 @@
 
 원문:
 
-- [PG&E Q2 2026 발표 — SEC](https://www.sec.gov/Archives/edgar/data/75488/000100498026000047/q226earningspresentation.htm)
+- [CEC 데이터센터 자료 수집·전망, 2026-08-12](https://www.energy.ca.gov/sites/default/files/2026-08/Data_Center_Data_Collection_and_Forecasting_ada.pdf)
+- [PG&E Q2 2026 발표 — SEC, 별도 부분 단계 자료](https://www.sec.gov/Archives/edgar/data/75488/000100498026000047/q226earningspresentation.htm)
 - [ERCOT 2026-06-18 발표](https://www.ercot.com/news/release/06182026-puct-approves-ercots)
 - [ISO-NE 2026 대규모 부하 전망 검토](https://www.iso-ne.com/static-assets/documents/100033/fx2026_large_loads.pdf)
 - [MISO MTEP26 Report Review, 2026-10-07, p4](https://cdn.misoenergy.org/20261007%20PAC%20Item%2006%20MTEP26%20Report%20Review785938.pdf)
@@ -27,6 +30,10 @@
 - [Evergy 2026-08-06 발표](https://investors.evergy.com/static-files/73352465-a5e0-4dbf-ac4b-98692902443f)
 
 ## 전체 요청 총계의 공백
+
+CAISO 대표 자료를 CEC 취합으로 넓혀도 모든 유틸리티의 일반 산업 고객까지 포함한 개별 신청 원장을 확보한 것은 아니다. PG&E의 12.710 GW 부분 파이프라인과 CEC 자료는 대상·시점이 다르고 중복될 수 있어 합산하지 않는다. SCE·SDG&E·SVP 및 공식 사업자 명부의 근거·미확보 범위는 별도 수집범위 화면에서 확인한다. California 주와 CAISO BA 경계도 구별한다.
+
+MISO는 DTE 외에 권역 전체의 OMS-MISO 조사·EPR·MTEP, 회원 및 송전 제출기관 목록을 연결한다. PJM은 AES Ohio 외에 Dominion·AEP 등을 포함한 LAS 제출자료와 공식 전망구역 전체를 대조한다. 이 넓은 자료들은 송전 지원·전망·계약·누적 요청을 각각 설명하며, 곧바로 현재 전체 신청 큐의 용량이나 진행 점수가 되지는 않는다.
 
 - [PJM 공식 Large Load 페이지](https://www.pjm.com/markets-and-operations/large-load)는 통합 도구를 2027-02-01, zone/area 공개 집계를 2027-03 제공 예정으로 안내한다. 현재 PPL·FirstEnergy·Exelon·Dominion 지표는 별도 부분 범위이며 합계로 대체하지 않는다.
 - [SPP 2026-09-17 공식 Q&A](https://www.spp.org/documents/77803/Large%20Load%20Q&A-20260917%20Transcript.docx)는 모든 고객 요청을 공개하지 않으며, 주로 망보강·NTC 관련 연구가 공개된다고 설명한다. 과거 DPA 기록 수는 현재 고객 요청 수가 아니다.

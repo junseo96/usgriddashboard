@@ -1,0 +1,1138 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "method": "명시적 ID와 예상 EIA 법인명을 고정한 검토 교차표. 실행 시 유사문자열·소재주·그룹 전체 자회사 자동매칭을 수행하지 않음.",
+  "links": [
+    {
+      "evidenceId": "pjm-dominion-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:19876",
+          "expectedName": "Virginia Electric & Power Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5ai---dominion_energy",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-novec-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:13640",
+          "expectedName": "Northern Virginia Elec Coop"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5b---novec",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-rec-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:40228",
+          "expectedName": "Rappahannock Electric Coop"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5c---rappahannock",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-odec-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:40229",
+          "expectedName": "Old Dominion Electric Coop"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5d---odec",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-ppl-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:14715",
+          "expectedName": "PPL Electric Utilities Corp"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5e---ppl",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-aep-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:733",
+          "expectedName": "Appalachian Power Co"
+        },
+        {
+          "id": "eia861:9324",
+          "expectedName": "Indiana Michigan Power Co"
+        },
+        {
+          "id": "eia861:14006",
+          "expectedName": "Ohio Power Co"
+        },
+        {
+          "id": "eia861:22053",
+          "expectedName": "Kentucky Power Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5f---aep",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-duquesne-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:5487",
+          "expectedName": "Duquesne Light Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5g---duquesne",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-firstenergy-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:12796",
+          "expectedName": "Monongahela Power Co"
+        },
+        {
+          "id": "eia861:15263",
+          "expectedName": "The Potomac Edison Company"
+        },
+        {
+          "id": "eia861:3755",
+          "expectedName": "Cleveland Electric Illum Co"
+        },
+        {
+          "id": "eia861:13998",
+          "expectedName": "Ohio Edison Co"
+        },
+        {
+          "id": "eia861:18997",
+          "expectedName": "The Toledo Edison Co"
+        },
+        {
+          "id": "eia861:9726",
+          "expectedName": "Jersey Central Power & Lt Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5h---firstenergy",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-exelon-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:4110",
+          "expectedName": "Commonwealth Edison Co"
+        },
+        {
+          "id": "eia861:14940",
+          "expectedName": "PECO Energy Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5i---exelon",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-aes-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:4922",
+          "expectedName": "Dayton Power & Light Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5j---dayton_aes",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-duke-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:3542",
+          "expectedName": "Duke Energy Ohio Inc"
+        },
+        {
+          "id": "eia861:19446",
+          "expectedName": "Duke Energy Kentucky"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5k---duke",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-pseg-coverage-20260929",
+      "utilities": [
+        {
+          "id": "eia861:15477",
+          "expectedName": "Public Service Elec & Gas Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-20260929-item-5l---pseg",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 제출의 명시된 회사/운영회사와 EIA 공식 법인명을 대조했습니다. Dominion Energy Virginia는 Virginia Electric & Power, AES Ohio는 Dayton Power & Light입니다. 그룹의 미확인 자회사·동일권역 타사업자는 연결하지 않았습니다."
+    },
+    {
+      "evidenceId": "pjm-area-ae-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:963",
+          "expectedName": "Atlantic City Electric Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-aep-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:733",
+          "expectedName": "Appalachian Power Co"
+        },
+        {
+          "id": "eia861:9324",
+          "expectedName": "Indiana Michigan Power Co"
+        },
+        {
+          "id": "eia861:14006",
+          "expectedName": "Ohio Power Co"
+        },
+        {
+          "id": "eia861:22053",
+          "expectedName": "Kentucky Power Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-aps-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:12796",
+          "expectedName": "Monongahela Power Co"
+        },
+        {
+          "id": "eia861:15263",
+          "expectedName": "The Potomac Edison Company"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-atsi-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:56162",
+          "expectedName": "American Transmission Systems Inc"
+        },
+        {
+          "id": "eia861:3755",
+          "expectedName": "Cleveland Electric Illum Co"
+        },
+        {
+          "id": "eia861:13998",
+          "expectedName": "Ohio Edison Co"
+        },
+        {
+          "id": "eia861:18997",
+          "expectedName": "The Toledo Edison Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-bge-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:1167",
+          "expectedName": "Baltimore Gas & Electric Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-comed-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:4110",
+          "expectedName": "Commonwealth Edison Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-dayton-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:4922",
+          "expectedName": "Dayton Power & Light Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-deok-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:3542",
+          "expectedName": "Duke Energy Ohio Inc"
+        },
+        {
+          "id": "eia861:19446",
+          "expectedName": "Duke Energy Kentucky"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-dlco-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:5487",
+          "expectedName": "Duquesne Light Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-dom-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:19876",
+          "expectedName": "Virginia Electric & Power Co"
+        },
+        {
+          "id": "eia861:13640",
+          "expectedName": "Northern Virginia Elec Coop"
+        },
+        {
+          "id": "eia861:40228",
+          "expectedName": "Rappahannock Electric Coop"
+        },
+        {
+          "id": "eia861:40229",
+          "expectedName": "Old Dominion Electric Coop"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-dpl-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:5027",
+          "expectedName": "Delmarva Power"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-ekpc-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:5580",
+          "expectedName": "East Kentucky Power Coop, Inc"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-peco-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:14940",
+          "expectedName": "PECO Energy Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-pepco-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:15270",
+          "expectedName": "Potomac Electric Power Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-pl-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:14715",
+          "expectedName": "PPL Electric Utilities Corp"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-ps-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:15477",
+          "expectedName": "Public Service Elec & Gas Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-reco-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:16213",
+          "expectedName": "Rockland Electric Co"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "pjm-area-ugi-official-forecast-2026",
+      "utilities": [
+        {
+          "id": "eia861:19390",
+          "expectedName": "UGI Utilities, Inc"
+        }
+      ],
+      "sourceIds": [
+        "pjm-load-tables",
+        "pjm-load-forecast-report",
+        "eia861-2025-frame"
+      ],
+      "rationale": "PJM 공식 TO구역 정의 및 구역별 제출자의 명시적 연결을 EIA 기관명과 대조했습니다. 하위회사 일부만 연결된 구역에서도 해당 구역의 고객전수 확보를 뜻하지 않습니다. METED/PENLC의 현재 합병 법인, OVEC는 이 교차표에서 미연결입니다."
+    },
+    {
+      "evidenceId": "sce-datacenter-tracking-202507-evidence",
+      "utilities": [
+        {
+          "id": "eia861:17609",
+          "expectedName": "Southern California Edison Co"
+        }
+      ],
+      "sourceIds": [
+        "sce-datacenter-tracking-202507",
+        "eia861-2025-frame"
+      ],
+      "rationale": "공식 제출 회사와 EIA 법인명을 대조했습니다. Silicon Valley Power는 캘리포니아 City of Santa Clara이며 동명의 Utah 시영회사는 제외했습니다."
+    },
+    {
+      "evidenceId": "sce-cpuc-all-energization-202603",
+      "utilities": [
+        {
+          "id": "eia861:17609",
+          "expectedName": "Southern California Edison Co"
+        }
+      ],
+      "sourceIds": [
+        "sce-energization-report-202603",
+        "cpuc-energization-official-index",
+        "eia861-2025-frame"
+      ],
+      "rationale": "공식 제출 회사와 EIA 법인명을 대조했습니다. Silicon Valley Power는 캘리포니아 City of Santa Clara이며 동명의 Utah 시영회사는 제외했습니다."
+    },
+    {
+      "evidenceId": "sdge-cpuc-public-register-202509",
+      "utilities": [
+        {
+          "id": "eia861:16609",
+          "expectedName": "San Diego Gas & Electric Co"
+        }
+      ],
+      "sourceIds": [
+        "sdge-energization-workbook-202509",
+        "sdge-energization-report-202603",
+        "eia861-2025-frame"
+      ],
+      "rationale": "공식 제출 회사와 EIA 법인명을 대조했습니다. Silicon Valley Power는 캘리포니아 City of Santa Clara이며 동명의 Utah 시영회사는 제외했습니다."
+    },
+    {
+      "evidenceId": "sdge-upstream-upgrades-202603",
+      "utilities": [
+        {
+          "id": "eia861:16609",
+          "expectedName": "San Diego Gas & Electric Co"
+        }
+      ],
+      "sourceIds": [
+        "sdge-energization-report-202603",
+        "eia861-2025-frame"
+      ],
+      "rationale": "공식 제출 회사와 EIA 법인명을 대조했습니다. Silicon Valley Power는 캘리포니아 City of Santa Clara이며 동명의 Utah 시영회사는 제외했습니다."
+    },
+    {
+      "evidenceId": "svp-caiso-large-load-coordination",
+      "utilities": [
+        {
+          "id": "eia861:16655",
+          "expectedName": "City of Santa Clara - (CA)"
+        }
+      ],
+      "sourceIds": [
+        "svp-caiso-large-load-comments-20260303",
+        "eia861-2025-frame"
+      ],
+      "rationale": "공식 제출 회사와 EIA 법인명을 대조했습니다. Silicon Valley Power는 캘리포니아 City of Santa Clara이며 동명의 Utah 시영회사는 제외했습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-ameren-illinois",
+      "utilities": [
+        {
+          "id": "eia861:56697",
+          "expectedName": "Ameren Illinois Company"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-ameren-missouri",
+      "utilities": [
+        {
+          "id": "eia861:19436",
+          "expectedName": "Union Electric Co - (MO)"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-american-transmission-company",
+      "utilities": [
+        {
+          "id": "eia861:659",
+          "expectedName": "American Transmission Co"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-arkansas-electric-cooperative-corporation-aect",
+      "utilities": [
+        {
+          "id": "eia861:807",
+          "expectedName": "Arkansas Electric Coop Corp"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-cedar-falls-municipal-electric-utility",
+      "utilities": [
+        {
+          "id": "eia861:3203",
+          "expectedName": "Cedar Falls Utilities"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-citizens-electric-corporation-1",
+      "utilities": [
+        {
+          "id": "eia861:3600",
+          "expectedName": "Citizens Electric Corporation - (MO)"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-central-minnesota-municipal-power-agency",
+      "utilities": [
+        {
+          "id": "eia861:3519",
+          "expectedName": "Central Minnesota Municipal Power Agency"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-duke-energy-indiana-llc-cin",
+      "utilities": [
+        {
+          "id": "eia861:15470",
+          "expectedName": "Duke Energy Indiana, LLC"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-entergy-arkansas-llc-eato",
+      "utilities": [
+        {
+          "id": "eia861:814",
+          "expectedName": "Entergy Arkansas LLC"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-entergy-mississippi-llc-emto",
+      "utilities": [
+        {
+          "id": "eia861:12685",
+          "expectedName": "Entergy Mississippi LLC"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-great-river-energy",
+      "utilities": [
+        {
+          "id": "eia861:7570",
+          "expectedName": "Great River Energy"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-gridliance-heartland-llc",
+      "utilities": [
+        {
+          "id": "eia861:67251",
+          "expectedName": "GridLiance Heartland LLC"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-hoosier-energy",
+      "utilities": [
+        {
+          "id": "eia861:9267",
+          "expectedName": "Hoosier Energy R E C, Inc"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-indianapolis-power-light-company",
+      "utilities": [
+        {
+          "id": "eia861:9273",
+          "expectedName": "AES Indiana"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-itc",
+      "utilities": [
+        {
+          "id": "eia861:56068",
+          "expectedName": "International Transmission Company"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-itc-midwest",
+      "utilities": [
+        {
+          "id": "eia861:56161",
+          "expectedName": "ITC Midwest LLC"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-metc",
+      "utilities": [
+        {
+          "id": "eia861:56163",
+          "expectedName": "Michigan Electric Transmission Company,"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-midamerican-energy-co-mec",
+      "utilities": [
+        {
+          "id": "eia861:12341",
+          "expectedName": "MidAmerican Energy Co"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-minnkota-power-cooperative-inc-mpcn",
+      "utilities": [
+        {
+          "id": "eia861:12658",
+          "expectedName": "Minnkota Power Coop, Inc"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-montana-dakota-utilities-co-mdu",
+      "utilities": [
+        {
+          "id": "eia861:12199",
+          "expectedName": "Montana-Dakota Utilities Co"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-northern-indiana-public-service-company-llc-nips",
+      "utilities": [
+        {
+          "id": "eia861:13756",
+          "expectedName": "Northern Indiana Pub Serv Co"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-otter-tail-power-company-otp",
+      "utilities": [
+        {
+          "id": "eia861:14232",
+          "expectedName": "Otter Tail Power Co"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-prairie-power-inc-ppi",
+      "utilities": [
+        {
+          "id": "eia861:40307",
+          "expectedName": "Prairie Power, Inc"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-southern-indiana-gas-electric-company-d-b-a-centerpoint-energy-indiana-south",
+      "utilities": [
+        {
+          "id": "eia861:17633",
+          "expectedName": "Southern Indiana Gas & Elec Co"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-southern-minnesota-municipal-power-agency",
+      "utilities": [
+        {
+          "id": "eia861:40580",
+          "expectedName": "Southern Minnesota Mun P Agny"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-support-wabash-valley-power-association-inc",
+      "utilities": [
+        {
+          "id": "eia861:40211",
+          "expectedName": "Wabash Valley Power Assn, Inc"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-mtep-evaluation",
+        "miso-v3-mtep-approved",
+        "eia861-2025-frame"
+      ],
+      "rationale": "MISO 원문 TO 법인과 EIA 보고기관명을 대조했습니다. Ameren Missouri는 Union Electric(MO), Indianapolis Power & Light는 AES Indiana, ITC/METC는 해당 송전법인 자체이며 DTE·Consumers·Alliant 소매회사로 전환하지 않았습니다."
+    },
+    {
+      "evidenceId": "miso-v3-ameren-contracts",
+      "utilities": [
+        {
+          "id": "eia861:19436",
+          "expectedName": "Union Electric Co - (MO)"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-ameren-10q-q22026",
+        "eia861-2025-frame"
+      ],
+      "rationale": "Ameren Missouri 계약 공시는 Union Electric Co(MO)에만 연결합니다. Ameren Illinois 또는 송전자회사로 확대하지 않습니다."
+    },
+    {
+      "evidenceId": "miso-v3-dte-contracts",
+      "utilities": [
+        {
+          "id": "eia861:5109",
+          "expectedName": "DTE Electric Company"
+        }
+      ],
+      "sourceIds": [
+        "miso-v3-dte-sep2026",
+        "miso-v3-mpsc-google",
+        "eia861-2025-frame"
+      ],
+      "rationale": "DTE Electric 고객 계약을 동일 EIA 법인에 연결하며 DTE Energy Trading 또는 ITC 송전법인에 연결하지 않습니다."
+    },
+    {
+      "evidenceId": "stage-coverage-load-pge-original",
+      "utilities": [
+        {
+          "id": "eia861:14328",
+          "expectedName": "Pacific Gas & Electric Co."
+        }
+      ],
+      "sourceIds": [
+        "load-stage-source-6b513cba9fcfa47676eb",
+        "eia861-2025-frame"
+      ],
+      "rationale": "단계 자료의 명시된 동일 법인과 EIA 공식 명칭을 검토해 연결했습니다. 단계 자료의 선별집단·기준일·범위는 그대로이며 미공개 고객을 포함했다고 주장하지 않습니다."
+    },
+    {
+      "evidenceId": "stage-coverage-load-pge-paid-study",
+      "utilities": [
+        {
+          "id": "eia861:14328",
+          "expectedName": "Pacific Gas & Electric Co."
+        }
+      ],
+      "sourceIds": [
+        "load-stage-source-59a1beeaf41f4853a3e9",
+        "eia861-2025-frame"
+      ],
+      "rationale": "단계 자료의 명시된 동일 법인과 EIA 공식 명칭을 검토해 연결했습니다. 단계 자료의 선별집단·기준일·범위는 그대로이며 미공개 고객을 포함했다고 주장하지 않습니다."
+    },
+    {
+      "evidenceId": "stage-coverage-pjm-aes-ohio-selected-loads",
+      "utilities": [
+        {
+          "id": "eia861:4922",
+          "expectedName": "Dayton Power & Light Co"
+        }
+      ],
+      "sourceIds": [
+        "load-stage-source-5d47b7e83f641fbb047c",
+        "eia861-2025-frame"
+      ],
+      "rationale": "단계 자료의 명시된 동일 법인과 EIA 공식 명칭을 검토해 연결했습니다. 단계 자료의 선별집단·기준일·범위는 그대로이며 미공개 고객을 포함했다고 주장하지 않습니다."
+    },
+    {
+      "evidenceId": "stage-coverage-miso-dte-selected-load-projects",
+      "utilities": [
+        {
+          "id": "eia861:5109",
+          "expectedName": "DTE Electric Company"
+        }
+      ],
+      "sourceIds": [
+        "load-stage-source-4a1fed1725b97afd2506",
+        "load-stage-source-2840ec99f5119ba8c5dc",
+        "eia861-2025-frame"
+      ],
+      "rationale": "단계 자료의 명시된 동일 법인과 EIA 공식 명칭을 검토해 연결했습니다. 단계 자료의 선별집단·기준일·범위는 그대로이며 미공개 고객을 포함했다고 주장하지 않습니다."
+    },
+    {
+      "evidenceId": "stage-coverage-miso-ameren-electric-service-contract-subset",
+      "utilities": [
+        {
+          "id": "eia861:19436",
+          "expectedName": "Union Electric Co - (MO)"
+        }
+      ],
+      "sourceIds": [
+        "load-stage-source-ad7a1c07016ea7e902c1",
+        "eia861-2025-frame"
+      ],
+      "rationale": "단계 자료의 명시된 동일 법인과 EIA 공식 명칭을 검토해 연결했습니다. 단계 자료의 선별집단·기준일·범위는 그대로이며 미공개 고객을 포함했다고 주장하지 않습니다."
+    },
+    {
+      "evidenceId": "stage-coverage-bpa-explicit-mainland-loads",
+      "utilities": [
+        {
+          "id": "eia861:1738",
+          "expectedName": "Bonneville Power Administration"
+        }
+      ],
+      "sourceIds": [
+        "load-stage-source-4b53436995ea2943bdcb",
+        "eia861-2025-frame"
+      ],
+      "rationale": "단계 자료의 명시된 동일 법인과 EIA 공식 명칭을 검토해 연결했습니다. 단계 자료의 선별집단·기준일·범위는 그대로이며 미공개 고객을 포함했다고 주장하지 않습니다."
+    },
+    {
+      "evidenceId": "stage-coverage-gpc-large-load-stage-pool",
+      "utilities": [
+        {
+          "id": "eia861:7140",
+          "expectedName": "Georgia Power Co"
+        }
+      ],
+      "sourceIds": [
+        "load-stage-source-52f89780cef574bfa888",
+        "eia861-2025-frame"
+      ],
+      "rationale": "단계 자료의 명시된 동일 법인과 EIA 공식 명칭을 검토해 연결했습니다. 단계 자료의 선별집단·기준일·범위는 그대로이며 미공개 고객을 포함했다고 주장하지 않습니다."
+    },
+    {
+      "evidenceId": "stage-coverage-pjm-duquesne-selected-load-studies",
+      "utilities": [
+        {
+          "id": "eia861:5487",
+          "expectedName": "Duquesne Light Co"
+        }
+      ],
+      "sourceIds": [
+        "load-stage-source-12acc619ac3f70a69bbc",
+        "eia861-2025-frame"
+      ],
+      "rationale": "단계 자료의 명시된 동일 법인과 EIA 공식 명칭을 검토해 연결했습니다. 단계 자료의 선별집단·기준일·범위는 그대로이며 미공개 고객을 포함했다고 주장하지 않습니다."
+    }
+  ],
+  "notLinked": [
+    "FirstEnergy 합병 Pennsylvania법인과 METED/PENLC/WestPenn/PennsylvaniaPower의 현재 법인 범위는 추가검토 필요.",
+    "Evergy 모회사 집계를 모든 EIA 자회사에 자동배정하지 않음.",
+    "MISO Northern States Power 모호한 상위 표기 및 Ameren Transmission/Entergy Services/Missouri River 등 EIA 정합 미완료는 roster/source 근거만 보존."
+  ]
+}

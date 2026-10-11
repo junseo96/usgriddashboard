@@ -10,12 +10,44 @@ test('seven explicit selections preserve distinct geographic scope and electrica
   const data = fixture();
   const resolved = resolveRegionalPipelines(data);
   assert.deepEqual(resolved.map(row => row.region), [...MARKET_REGIONS]);
-  assert.deepEqual(resolved.map(row => row.coverage), ['partial_pipeline', 'operator_requests', 'partial_pipeline', 'partial_pipeline', 'register_only', 'partial_pipeline', 'partial_pipeline']);
+  assert.deepEqual(resolved.map(row => row.coverage), ['regional_aggregate', 'operator_requests', 'partial_pipeline', 'partial_pipeline', 'register_only', 'partial_pipeline', 'partial_pipeline']);
   assert.equal(resolved.find(row => row.region === 'ISO-NE')?.headline?.capacityMw, 285);
   assert.equal(resolved.find(row => row.region === 'MISO')?.headline?.capacityMw, 26600);
   assert.equal(resolved.find(row => row.region === 'NYISO')?.headline?.capacityMw, 14232.9);
   assert.equal(resolved.find(row => row.region === 'NYISO')?.headline?.projectCount, 53);
   assert.match(resolved.find(row => row.region === 'NYISO')!.explanation, /전국/);
+});
+
+test('CEC regional coverage preserves mixed stages, rounding and the separate PG&E disclosure', () => {
+  const caiso = resolveRegionalPipelines(fixture()).find(row => row.region === 'CAISO')!;
+  assert.equal(caiso.headline?.capacityMw, 23278);
+  assert.equal(caiso.headline?.capacityBasis, 'mixed_mw');
+  assert.equal(caiso.headline?.sourceAsOf, '2025-12');
+  assert.equal(caiso.headline?.publishedAt, '2026-08-12');
+  assert.equal(caiso.headline?.checkedAt, '2026-10-11T23:20:32.686Z');
+  assert.equal(caiso.headline?.sourceSha256, '3eba089b3020de5c1a7f9775e1f6cc7e7157f5b7247a1f857012dc5d17bafb73');
+  assert.deepEqual(caiso.additional.map(row => row.capacityMw), [5086, 9587, 8604, 12710]);
+  assert.equal(caiso.additional.slice(0, 3).reduce((sum, row) => sum + row.capacityMw!, 0), 23277);
+  assert.match(caiso.headline!.caveats.join(' '), /1 MW/);
+  assert.equal(caiso.additional[3].sourceAsOf, '2026-06-30');
+  assert.ok(!('totalMw' in caiso));
+});
+
+test('a utility or wrong-source quantity cannot become the reviewed regulator regional aggregate', () => {
+  for (const mutation of ['utility', 'wrong-region', 'wrong-url', 'wrong-path', 'credentials', 'requested-basis', 'missing-mw', 'nonfinite-mw'] as const) {
+    const data = fixture();
+    const caiso = data.regionalCoverage!.find(row => row.region === 'CAISO')!;
+    const headline = data.aggregates.find(row => row.id === caiso.headlineAggregateId)!;
+    if (mutation === 'utility') { caiso.headlineAggregateId = 'disclosure:WEST-PGE-20260630-DC-PIPELINE'; caiso.additionalAggregateIds = []; }
+    if (mutation === 'wrong-region') data.regionalCoverage!.find(row => row.region === 'PJM')!.coverage = 'regional_aggregate';
+    if (mutation === 'wrong-url') headline.sourceUrl = 'https://www.energy.ca.gov.example.org/source.pdf';
+    if (mutation === 'wrong-path') headline.sourceUrl = 'https://www.energy.ca.gov/unreviewed.pdf';
+    if (mutation === 'credentials') headline.sourceUrl = headline.sourceUrl.replace('https://', 'https://user@');
+    if (mutation === 'requested-basis') headline.capacityBasis = 'requested_grid_mw';
+    if (mutation === 'missing-mw') headline.capacityMw = null;
+    if (mutation === 'nonfinite-mw') headline.capacityMw = Number.NaN;
+    assert.equal(resolveRegionalPipelines(data).find(row => row.region === (mutation === 'wrong-region' ? 'PJM' : 'CAISO'))!.coverage, 'unavailable', mutation);
+  }
 });
 
 test('overlapping requests, contracts and planning references never become an implicit sum or maximum', () => {

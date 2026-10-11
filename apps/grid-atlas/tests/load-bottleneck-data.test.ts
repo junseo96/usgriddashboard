@@ -182,3 +182,18 @@ test('assembling a fixed cohort rejects invented identities and altered historic
   wrongSource.vintages[0].source.sha256 = '0'.repeat(64);
   assert.throws(() => assembleLoadBottleneck(reviewed, history, wrongSource, data.generatedAt), /Fixed cohort/);
 });
+
+
+test('Duquesne uses the disclosed three studies and keeps forecast likelihood separate from procedure progress', () => {
+  const duquesne = series('pjm-duquesne-selected-load-studies'), point = duquesne.points[0];
+  assert.equal(duquesne.scopeType, 'selected_projects');
+  assert.equal(duquesne.weightBasis, 'project_count');
+  assert.equal(point.sourceAsOf, null);
+  assert.equal(point.publishedAt, '2026-09-29');
+  assert.equal(point.bins.length, 1, 'Only an aggregate is disclosed, not invented per-project IDs');
+  assert.equal(point.totalWeight, 3);
+  assert.equal(rateLoadObservation(duquesne, point).point, 80);
+  assert.equal(rateLoadObservation(duquesne, point).ratedWeight, 3);
+  assert.match(duquesne.comparability, /실현확률/);
+  assert.match(point.notes.join(' '), /1,145MW/);
+});

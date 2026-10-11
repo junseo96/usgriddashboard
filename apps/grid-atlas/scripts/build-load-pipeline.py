@@ -41,6 +41,8 @@ REGISTER_SOURCES = {
 }
 MARKET_REGIONS = ('CAISO', 'ERCOT', 'ISO-NE', 'MISO', 'NYISO', 'PJM', 'SPP')
 OPERATOR_REQUEST_HEADLINES = {'ERCOT': 'disclosure:ERCOT_LARGE_LOAD_REQUESTS_20260618'}
+CEC_REGIONAL_HEADLINE = 'disclosure:CEC_CAISO_DC_REQUESTS_202512'
+CEC_REGIONAL_URL = 'https://www.energy.ca.gov/sites/default/files/2026-08/Data_Center_Data_Collection_and_Forecasting_ada.pdf'
 NON_ADDITIVE = '원장·계약·공시·유틸리티 집계 간 동일 사업 연결이 미완료이므로 다른 행·집계와 용량을 합산하지 않습니다.'
 
 
@@ -191,7 +193,7 @@ def validate_regional_coverage(dataset: dict) -> None:
         region = row['region']
         seen.add(region)
         coverage = row.get('coverage')
-        if coverage not in {'operator_requests', 'partial_pipeline', 'register_only', 'unavailable'}:
+        if coverage not in {'operator_requests', 'regional_aggregate', 'partial_pipeline', 'register_only', 'unavailable'}:
             raise ValueError('Unknown regional coverage category')
         if not all(isinstance(row.get(key), str) and row[key].strip() for key in ('scopeLabel', 'metricLabel', 'explanation')):
             raise ValueError('Missing regional scope labels')
@@ -216,6 +218,10 @@ def validate_regional_coverage(dataset: dict) -> None:
                 or headline['capacityBasis'] != 'requested_grid_mw' or headline['capacityMw'] is None
                 or urlparse(headline['sourceUrl']).hostname != 'www.ercot.com'):
             raise ValueError('Unsafe operator_requests coverage: reviewed operator-wide request publication required')
+        if coverage == 'regional_aggregate' and (region != 'CAISO' or head != CEC_REGIONAL_HEADLINE
+                or headline['sourceUrl'] != CEC_REGIONAL_URL or headline['capacityBasis'] != 'mixed_mw'
+                or headline['capacityMw'] is None):
+            raise ValueError('Unsafe regional_aggregate coverage: reviewed regulator publication and mixed scope required')
         if coverage == 'register_only' and (region != 'NYISO' or head != 'register-summary:nyiso-active-load'):
             raise ValueError('Unsafe register_only coverage: reviewed public register summary required')
 
@@ -269,6 +275,9 @@ def validate(dataset: dict) -> None:
                 raise ValueError(f'Invalid disclosed count: {p["id"]}')
             if collection == 'aggregates' and p.get('capacityQualifier', 'exact') not in {'exact', 'approximate', 'greater_than', 'at_least'}:
                 raise ValueError(f'Invalid capacity qualifier: {p["id"]}')
+            if collection == 'aggregates' and (not valid_date(p.get('publishedAt'))
+                    or ('sourceSha256' in p and not re.fullmatch(r'[a-f0-9]{64}', str(p['sourceSha256'])))):
+                raise ValueError(f'Invalid aggregate source provenance: {p["id"]}')
 
     validate_regional_coverage(dataset)
 
@@ -2363,6 +2372,98 @@ REVIEWED_EVIDENCE = json.loads(r'''{
       "id": "disclosure:MISO_MTEP26_RECOMMENDED_LOAD_20261007",
       "capacityBasis": "mixed_mw",
       "projectCount": null
+    },
+    {
+      "region": "CAISO",
+      "projectCount": null,
+      "sourceName": "California Energy Commission · Data Center Data Collection and Forecasting",
+      "sourceUrl": "https://www.energy.ca.gov/sites/default/files/2026-08/Data_Center_Data_Collection_and_Forecasting_ada.pdf",
+      "sourceAsOf": "2025-12",
+      "checkedAt": "2026-10-11T23:20:32.686Z",
+      "publishedAt": "2026-08-12",
+      "sourceSha256": "3eba089b3020de5c1a7f9775e1f6cc7e7157f5b7247a1f857012dc5d17bafb73",
+      "capacityQualifier": "exact",
+      "id": "disclosure:CEC_CAISO_DC_REQUESTS_202512",
+      "name": "CEC · CAISO 데이터센터 요청·문의 기관 집계",
+      "capacityMw": 23278,
+      "capacityBasis": "mixed_mw",
+      "scope": "CAISO 내 유틸리티가 CEC에 보고한 데이터센터 용량 요청·문의 총량입니다. Signed agreements, Active applications, Inquiries를 함께 포함합니다.",
+      "caveats": [
+        "공시 총계는 23,278 MW이고 공개 구간 합계 5,086 + 9,587 + 8,604는 23,277 MW입니다. 1 MW 반올림 차이를 임의 보정하지 않습니다.",
+        "2025년 12월 원자료를 2026년 8월 12일 발표한 자료입니다. 이번 확인일을 최신 신청 기준일로 바꾸지 않습니다.",
+        "공개 페이지 5의 CAISO에서 운영하는 utilities 집계이며 데이터센터 이외 공장·산업 수요는 포함하지 않습니다. 응답 사업자별 전수 분모와 개별 사업 ID는 공개되지 않았습니다.",
+        "PG&E의 회사별 공시 및 개별 사례와 겹칠 수 있습니다. 전체·내역·다른 회사 집계를 서로 더하지 않습니다.",
+        "문의·신청·계약 단계는 서로 다른 진행 범위를 묶습니다. 전체 활성 접속신청 또는 권역 전체 병목점수의 분모로 사용하지 않습니다."
+      ]
+    },
+    {
+      "region": "CAISO",
+      "projectCount": null,
+      "sourceName": "California Energy Commission · Data Center Data Collection and Forecasting",
+      "sourceUrl": "https://www.energy.ca.gov/sites/default/files/2026-08/Data_Center_Data_Collection_and_Forecasting_ada.pdf",
+      "sourceAsOf": "2025-12",
+      "checkedAt": "2026-10-11T23:20:32.686Z",
+      "publishedAt": "2026-08-12",
+      "sourceSha256": "3eba089b3020de5c1a7f9775e1f6cc7e7157f5b7247a1f857012dc5d17bafb73",
+      "capacityQualifier": "exact",
+      "id": "disclosure:CEC_CAISO_DC_SIGNED_202512",
+      "name": "CEC · 내역: Signed agreements",
+      "capacityMw": 5086,
+      "capacityBasis": "mixed_mw",
+      "scope": "위 CEC 총량에 이미 포함된 계약 구간입니다. 서비스계약·작업협약·공사·초기 통전·램프업이 포함되는 2025 IEPR Group 1입니다.",
+      "caveats": [
+        "계약 체결과 전량 통전 대기는 다릅니다. operating 부분을 분리할 수 없어 전부 계약단계 50점으로 평가하지 않습니다.",
+        "2025년 12월 원자료를 2026년 8월 12일 발표한 자료입니다. 이번 확인일을 최신 신청 기준일로 바꾸지 않습니다.",
+        "공개 페이지 5의 CAISO에서 운영하는 utilities 집계이며 데이터센터 이외 공장·산업 수요는 포함하지 않습니다. 응답 사업자별 전수 분모와 개별 사업 ID는 공개되지 않았습니다.",
+        "PG&E의 회사별 공시 및 개별 사례와 겹칠 수 있습니다. 전체·내역·다른 회사 집계를 서로 더하지 않습니다.",
+        "문의·신청·계약 단계는 서로 다른 진행 범위를 묶습니다. 전체 활성 접속신청 또는 권역 전체 병목점수의 분모로 사용하지 않습니다."
+      ]
+    },
+    {
+      "region": "CAISO",
+      "projectCount": null,
+      "sourceName": "California Energy Commission · Data Center Data Collection and Forecasting",
+      "sourceUrl": "https://www.energy.ca.gov/sites/default/files/2026-08/Data_Center_Data_Collection_and_Forecasting_ada.pdf",
+      "sourceAsOf": "2025-12",
+      "checkedAt": "2026-10-11T23:20:32.686Z",
+      "publishedAt": "2026-08-12",
+      "sourceSha256": "3eba089b3020de5c1a7f9775e1f6cc7e7157f5b7247a1f857012dc5d17bafb73",
+      "capacityQualifier": "exact",
+      "id": "disclosure:CEC_CAISO_DC_APPLICATIONS_202512",
+      "name": "CEC · 내역: Active applications",
+      "capacityMw": 9587,
+      "capacityBasis": "requested_grid_mw",
+      "scope": "위 CEC 총량에 이미 포함된 활성 신청 구간입니다. Application for Service부터 engineering study 진행·완료까지 포함하는 2025 IEPR Group 2입니다.",
+      "caveats": [
+        "신청만 한 사업과 기술검토 완료 사업의 MW·건수 분해가 없어 일괄 100점이나 80점을 부여하지 않습니다.",
+        "2025년 12월 원자료를 2026년 8월 12일 발표한 자료입니다. 이번 확인일을 최신 신청 기준일로 바꾸지 않습니다.",
+        "공개 페이지 5의 CAISO에서 운영하는 utilities 집계이며 데이터센터 이외 공장·산업 수요는 포함하지 않습니다. 응답 사업자별 전수 분모와 개별 사업 ID는 공개되지 않았습니다.",
+        "PG&E의 회사별 공시 및 개별 사례와 겹칠 수 있습니다. 전체·내역·다른 회사 집계를 서로 더하지 않습니다.",
+        "문의·신청·계약 단계는 서로 다른 진행 범위를 묶습니다. 전체 활성 접속신청 또는 권역 전체 병목점수의 분모로 사용하지 않습니다."
+      ]
+    },
+    {
+      "region": "CAISO",
+      "projectCount": null,
+      "sourceName": "California Energy Commission · Data Center Data Collection and Forecasting",
+      "sourceUrl": "https://www.energy.ca.gov/sites/default/files/2026-08/Data_Center_Data_Collection_and_Forecasting_ada.pdf",
+      "sourceAsOf": "2025-12",
+      "checkedAt": "2026-10-11T23:20:32.686Z",
+      "publishedAt": "2026-08-12",
+      "sourceSha256": "3eba089b3020de5c1a7f9775e1f6cc7e7157f5b7247a1f857012dc5d17bafb73",
+      "capacityQualifier": "exact",
+      "id": "disclosure:CEC_CAISO_DC_INQUIRIES_202512",
+      "name": "CEC · 내역: Inquiries",
+      "capacityMw": 8604,
+      "capacityBasis": "mixed_mw",
+      "scope": "위 CEC 총량에 이미 포함된 문의 구간입니다. 2025 IEPR Group 3으로 접속신청 이전 문의를 포함합니다.",
+      "caveats": [
+        "정식 접속신청량 또는 확인된 미진행 프로젝트 수로 바꾸지 않습니다.",
+        "2025년 12월 원자료를 2026년 8월 12일 발표한 자료입니다. 이번 확인일을 최신 신청 기준일로 바꾸지 않습니다.",
+        "공개 페이지 5의 CAISO에서 운영하는 utilities 집계이며 데이터센터 이외 공장·산업 수요는 포함하지 않습니다. 응답 사업자별 전수 분모와 개별 사업 ID는 공개되지 않았습니다.",
+        "PG&E의 회사별 공시 및 개별 사례와 겹칠 수 있습니다. 전체·내역·다른 회사 집계를 서로 더하지 않습니다.",
+        "문의·신청·계약 단계는 서로 다른 진행 범위를 묶습니다. 전체 활성 접속신청 또는 권역 전체 병목점수의 분모로 사용하지 않습니다."
+      ]
     }
   ]
 }''')

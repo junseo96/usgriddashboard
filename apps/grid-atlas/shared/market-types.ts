@@ -33,9 +33,10 @@ export interface PipelineAggregate {
   capacityBasis: CapacityBasis; sourceName: string; sourceUrl: string; sourceAsOf: string | null;
   checkedAt: string | null; scope: string; caveats: string[];
   capacityQualifier?: 'exact' | 'approximate' | 'greater_than' | 'at_least';
+  publishedAt?: string | null; sourceSha256?: string;
 }
 export interface RegionalPipelineCoverage {
-  region: MarketRegion; coverage: 'operator_requests' | 'partial_pipeline' | 'register_only' | 'unavailable';
+  region: MarketRegion; coverage: 'operator_requests' | 'regional_aggregate' | 'partial_pipeline' | 'register_only' | 'unavailable';
   headlineAggregateId: string | null; additionalAggregateIds: string[];
   scopeLabel: string; metricLabel: string; explanation: string;
 }

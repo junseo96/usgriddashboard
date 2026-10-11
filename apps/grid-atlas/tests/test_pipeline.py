@@ -161,12 +161,58 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(set(coverage), set(pipeline.MARKET_REGIONS))
         self.assertEqual(coverage['ERCOT']['coverage'], 'operator_requests')
         self.assertEqual(coverage['NYISO']['coverage'], 'register_only')
-        for region in ('CAISO', 'ISO-NE', 'MISO', 'PJM', 'SPP'):
+        self.assertEqual(coverage['CAISO']['coverage'], 'regional_aggregate')
+        for region in ('ISO-NE', 'MISO', 'PJM', 'SPP'):
             self.assertEqual(coverage[region]['coverage'], 'partial_pipeline')
         self.assertEqual(self.aggregates[coverage['MISO']['headlineAggregateId']]['capacityMw'], 26600)
         self.assertIn('disclosure:MISO_MTEP26_EPR_LOAD_20260817', coverage['MISO']['additionalAggregateIds'])
         self.assertEqual(self.aggregates[coverage['PJM']['headlineAggregateId']]['capacityQualifier'], 'greater_than')
         self.assertNotIn('totalMw', self.output)
+
+    def test_cec_mixed_scope_keeps_rounding_provenance_and_pge_separate(self):
+        row = next(item for item in self.output['regionalCoverage'] if item['region'] == 'CAISO')
+        head = self.aggregates[row['headlineAggregateId']]
+        parts = [self.aggregates[key] for key in row['additionalAggregateIds']]
+        self.assertEqual((head['capacityMw'], head['capacityBasis'], head['projectCount']), (23278, 'mixed_mw', None))
+        self.assertEqual((head['sourceAsOf'], head['publishedAt'], head['checkedAt']),
+                         ('2025-12', '2026-08-12', '2026-10-11T23:20:32.686Z'))
+        self.assertEqual(head['sourceSha256'], '3eba089b3020de5c1a7f9775e1f6cc7e7157f5b7247a1f857012dc5d17bafb73')
+        self.assertEqual([part['capacityMw'] for part in parts], [5086, 9587, 8604, 12710])
+        self.assertEqual(sum(part['capacityMw'] for part in parts[:3]), head['capacityMw'] - 1)
+        self.assertEqual(parts[3]['sourceAsOf'], '2026-06-30')
+        regenerated = pipeline.build(self.bootstrap, '2030-01-01T00:00:00Z')
+        self.assertEqual(next(item for item in regenerated['aggregates'] if item['id'] == head['id']), head)
+
+    def test_regulator_coverage_requires_reviewed_source_id_url_and_mixed_basis(self):
+        for mutation in ('utility', 'region', 'url', 'path', 'basis', 'missing_mw', 'source_hash'):
+            data = copy.deepcopy(self.output)
+            row = next(item for item in data['regionalCoverage'] if item['region'] == 'CAISO')
+            head = next(item for item in data['aggregates'] if item['id'] == row['headlineAggregateId'])
+            if mutation == 'utility':
+                row['headlineAggregateId'] = 'disclosure:WEST-PGE-20260630-DC-PIPELINE'
+                row['additionalAggregateIds'] = []
+            elif mutation == 'region': next(item for item in data['regionalCoverage'] if item['region'] == 'PJM')['coverage'] = 'regional_aggregate'
+            elif mutation == 'url': head['sourceUrl'] = 'https://www.energy.ca.gov.example.org/source.pdf'
+            elif mutation == 'path': head['sourceUrl'] = 'https://www.energy.ca.gov/unreviewed.pdf'
+            elif mutation == 'basis': head['capacityBasis'] = 'requested_grid_mw'
+            elif mutation == 'missing_mw': head['capacityMw'], head['capacityBasis'] = None, 'unknown'
+            elif mutation == 'source_hash': head['sourceSha256'] = 'unverified'
+            with self.subTest(mutation=mutation), self.assertRaises(ValueError):
+                pipeline.validate(data)
+
+    def test_caiso_boundary_correction_changes_source_scope_without_refreshing_customer_data(self):
+        registry = {row['id']: row for row in json.loads((APP / 'data/source-registry.json').read_text())}
+        sources = {row['id']: row for row in self.bootstrap['sources']}
+        corrections = {row['sourceId']: row for row in self.bootstrap['provenance']['sourceScopeCorrections']}
+        for sid in ('california-ladwp', 'california-smud'):
+            self.assertFalse(any(row['sourceId'] == sid for row in self.bootstrap['projects']))
+            self.assertEqual(sources[sid], registry[sid])
+            self.assertEqual(sources[sid]['region'], 'West')
+            self.assertEqual(sources[sid]['lastCheckedAt'], '2026-10-03')
+            self.assertEqual(corrections[sid]['scope'], 'source_metadata_only')
+            self.assertEqual(corrections[sid]['projectRowsChanged'], 0)
+            self.assertEqual(corrections[sid]['evidence']['retrievedAt'], '2026-10-11T23:16:42.634Z')
+            self.assertEqual(corrections[sid]['evidence']['sourceSha256'], '6a8af55292efc937c391843fa1d0600601a664dc00c196524fcb53e1a6099b57')
 
     def test_nyiso_summary_uses_only_eligible_active_public_register_and_original_provenance(self):
         summary = self.aggregates['register-summary:nyiso-active-load']
