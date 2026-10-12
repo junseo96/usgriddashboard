@@ -135,6 +135,28 @@ class FacilityCollectionTests(unittest.TestCase):
         self.assertEqual(collector.read(self.args.fragments / 'operators.json'), previous)
         self.assertIn('dropped 1 previous facilities', collector.read(self.args.report)['sourceGroups'][0]['error'])
 
+    def test_formally_approved_alias_can_disappear_when_canonical_survives(self):
+        self.args.source = 'operators'
+        previous = fragment('operators', extra=True)
+        collector.write(self.args.fragments / 'operators.json', previous)
+        decision = {'id': 'reviewed-merge', 'kind': 'same_entity',
+                    'facilityIds': ['LLF-operators-one', 'LLF-operators-two'],
+                    'sourceIds': ['operators-official'], 'reason': 'Exact facility identity reviewed'}
+        collector.write(self.root / 'data/large-load-facility-decisions.json',
+                        {'schemaVersion': 1, 'decisions': [decision]})
+        self.assertEqual(collector.collect(self.args, self.runner()), 0)
+        self.assertEqual(collector.read(self.args.fragments / 'operators.json'), fragment('operators'))
+
+    def test_unapproved_alias_or_missing_canonical_cannot_disappear(self):
+        previous = fragment('operators', extra=True)
+        candidate = fragment('operators')
+        candidate['facilities'][0]['aliases'] = ['LLF-operators-two']
+        for decisions in ([],
+                          [{'kind': 'possible_duplicate', 'facilityIds': ['LLF-operators-one', 'LLF-operators-two']}],
+                          [{'kind': 'same_entity', 'facilityIds': ['LLF-operators-absent', 'LLF-operators-two']}]):
+            with self.subTest(decisions=decisions), self.assertRaisesRegex(ValueError, 'dropped 1 previous facilities'):
+                collector.validate_fragment(candidate, 'operators', previous, decisions)
+
     def test_shared_builder_validation_failure_cannot_publish_any_candidate(self):
         paths = [self.args.output, self.args.observations, *self.args.fragments.glob('*.json')]
         before = {p: p.read_bytes() for p in paths}

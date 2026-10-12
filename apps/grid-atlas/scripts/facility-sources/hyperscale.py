@@ -366,6 +366,10 @@ def merge_previous(previous,current):
     for f in current:
         prior=old.get(f['id'])
         if prior:
+            # An undated refresh of the same status does not erase its last
+            # verified date. A changed lifecycle needs its own dated evidence.
+            if f.get('asOf') is None and f['lifecycle']==prior['lifecycle']:
+                f['asOf']=prior.get('asOf')
             # Prior dated evidence remains queryable; current lifecycle is the
             # newest successful parser's actual statement, not fetch chronology.
             for field in ['events','capacityFacts','gridEvidence']:

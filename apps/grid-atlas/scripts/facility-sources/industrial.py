@@ -453,6 +453,12 @@ def preserve(previous, current):
                 merged.update({item["id"]: item for item in record.get(field, [])}); record[field] = list(merged.values())
             if record["lifecycle"] == "unknown" and old.get("lifecycle") != "unknown":
                 record["lifecycle"] = old["lifecycle"]; record["asOf"] = old.get("asOf")
+                # A failed status-source refresh cannot undo its reviewed scope.
+                # Keep the fresh inventory label as provenance, not as a rename.
+                if record["name"] != old["name"]:
+                    record["aliases"] = list(dict.fromkeys(record["aliases"] + [record["name"]]))
+                record["name"] = old["name"]
+                record["identityKind"] = old["identityKind"]
         old_facilities[record["id"]] = record
     current["sources"] = sorted(old_sources.values(), key=lambda x: x["id"])
     current["facilities"] = sorted(old_facilities.values(), key=lambda x: x["id"])

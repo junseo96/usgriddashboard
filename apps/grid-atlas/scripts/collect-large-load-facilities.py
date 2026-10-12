@@ -69,7 +69,7 @@ def publish_checked(files):
             staged.unlink(missing_ok=True)
 
 
-def validate_fragment(fragment, group, previous=None):
+def validate_fragment(fragment, group, previous=None, decisions=()):
     """Reject empty/error pages, fabricated retrieval metadata, and silent deletions.
 
     The application builder performs the complete shared-schema validation too.
@@ -112,6 +112,14 @@ def validate_fragment(fragment, group, previous=None):
             raise ValueError('Facility has no exact source references')
     if previous:
         missing = {f['id'] for f in previous['facilities']} - ids
+        # Only a reviewed same-entity decision can remove an old row, and its
+        # canonical facility must survive in this candidate. Ordinary aliases,
+        # possible duplicates and missing canonical rows are not permission.
+        # The shared builder still validates every decision's source evidence.
+        for decision in decisions:
+            members = decision.get('facilityIds', [])
+            if decision.get('kind') == 'same_entity' and len(members) >= 2 and members[0] in ids:
+                missing.difference_update(members[1:])
         if missing:
             raise ValueError(f'Source parser dropped {len(missing)} previous facilities; retain and review absent rows')
 
@@ -213,7 +221,9 @@ def collect_locked(args, runner):
                 if result.returncode != 0 or not isinstance(parser_report, dict) or parser_report.get('status') not in ('success', 'partial'):
                     raise ValueError('Source parser reported failure; previous fragment retained')
                 candidate = read(destination)
-                validate_fragment(candidate, group, previous)
+                decisions_path = APP / 'data/large-load-facility-decisions.json'
+                decisions = read(decisions_path).get('decisions', []) if decisions_path.exists() else []
+                validate_fragment(candidate, group, previous, decisions)
                 changes = observed_changes(group, previous, candidate, now())
                 item.update(status=parser_report['status'], facilityCount=len(candidate['facilities']),
                             discoveredCount=sum(e['kind'] == 'facility_discovered' for e in changes),

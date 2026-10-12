@@ -40,6 +40,18 @@ def aspen_input():
 
 
 class IndustrialLineageTests(unittest.TestCase):
+    def test_partial_source_failure_preserves_reviewed_identity_and_status(self):
+        old = COLLECTOR.facility("reviewed-campus", "Manufacturer", "Phoenix", "AZ", "semiconductor", ["reviewed-proof"])
+        old.update(name="Reviewed manufacturing campus", identityKind="campus", lifecycle="construction", asOf="2026-06-30")
+        fresh = COLLECTOR.facility(old["id"], "Manufacturer", "Phoenix", "AZ", "semiconductor", ["inventory"])
+        fresh.update(name="Unreviewed investment announcement", identityKind="phase")
+        result = COLLECTOR.preserve({"sources": [], "facilities": [old]}, {"sources": [], "facilities": [fresh]})["facilities"][0]
+        self.assertEqual(result["name"], "Reviewed manufacturing campus")
+        self.assertEqual(result["identityKind"], "campus")
+        self.assertEqual((result["lifecycle"], result["asOf"]), ("construction", "2026-06-30"))
+        self.assertIn("Unreviewed investment announcement", result["aliases"])
+        self.assertEqual(result["sourceIds"], ["reviewed-proof", "inventory"])
+
     def test_repeated_refresh_preserves_identical_aliases_and_evidence(self):
         first = COLLECTOR.merge_reviewed_facilities(COLLECTOR.preserve({}, aspen_input()))
         second = COLLECTOR.merge_reviewed_facilities(COLLECTOR.preserve(copy.deepcopy(first), aspen_input()))

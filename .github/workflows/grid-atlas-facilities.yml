@@ -127,7 +127,7 @@ jobs:
           report = json.loads(path.read_text()) if path.exists() else None
           fresh = report and os.environ.get('COLLECTION_STARTED') and datetime.datetime.fromisoformat(report['startedAt'].replace('Z', '+00:00')).timestamp() >= int(os.environ['COLLECTION_STARTED'])
           if fresh:
-              lines += [f"수집: **{report['status']}** · 신규 시설 {report['discoveredCount']} · 생애주기 변경 관측 {report['lifecycleChangeCount']}", '']
+              lines += [f"수집: **{report['status']}** · 새 원문 시설 행 {report['discoveredCount']} · 생애주기 변경 관측 {report['lifecycleChangeCount']}", '', '원문 행에는 기존 시설의 별칭이 재등장할 수 있습니다. 최종 시설 수는 동일 사업·단계 중복 정리 후 원장을 기준으로 확인합니다.', '']
               for group in report['sourceGroups']:
                   lines += [f"- {group['id']}: {group['status']} · 보존/확보 시설 {group['facilityCount']}개"]
           else:

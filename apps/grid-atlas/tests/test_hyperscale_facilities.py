@@ -52,6 +52,17 @@ class HyperscaleTests(unittest.TestCase):
         missing=h.facility('missing','Temporarily absent page','Operator','OH')
         result=h.merge_previous({'facilities':[old,missing]},[current])
         self.assertEqual(len(result),2);self.assertEqual(len(result[0]['events']),2)
+    def test_merge_retains_dated_basis_only_for_unchanged_lifecycle(self):
+        old=h.facility('dated','Verified site','Operator','TX',status='construction',sources=['dated-source'])
+        old['asOf']='2026-08-04'
+        for status,date,expected in [('construction',None,'2026-08-04'),('operating',None,None),('construction','2026-09-01','2026-09-01')]:
+            with self.subTest(status=status,date=date):
+                current=h.facility('dated','Verified site','Operator','TX',status=status,sources=['current-source'])
+                current['asOf']=date
+                merged=h.merge_previous({'facilities':[old]},[current])[0]
+                self.assertEqual(merged['asOf'],expected)
+                self.assertEqual(merged['lifecycle'],status)
+                self.assertEqual(merged['sourceIds'],['dated-source','current-source'])
     def test_all_source_failure_keeps_exact_last_good_file(self):
         with tempfile.TemporaryDirectory() as td:
             p=pathlib.Path(td)/'output.json';p.write_text(json.dumps(self.data));before=p.read_bytes()
