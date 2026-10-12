@@ -144,7 +144,26 @@
       ],
       "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
       "id": "facility-observation:aec7314cd7d0dde060a34fba"
+    },
+    {
+      "sourceGroup": "industrial",
+      "facilityId": "LLF-ind-doe-aspen-aerogels-register-ga-cb09f390",
+      "observedAt": "2026-10-12T09:25:12.764Z",
+      "kind": "facility_discovered",
+      "changedFields": [
+        "facility"
+      ],
+      "previousLifecycle": null,
+      "lifecycle": "unknown",
+      "sourceAsOf": "2025-01-15",
+      "sourceIds": [
+        "industrial-doe-index-5c8b2a43b9a9",
+        "industrial-doe-manufacturing-2e3a37e911b2",
+        "industrial-doe-methodology-a47e1e3ed909"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:add5eae76911dbf9721b4e17"
     }
   ],
-  "generatedAt": "2026-10-12T09:22:41.329Z"
+  "generatedAt": "2026-10-12T09:25:13.539Z"
 }

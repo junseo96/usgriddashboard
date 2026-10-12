@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "industrial",
-  "generatedAt": "2026-10-12T09:22:40.674Z",
+  "generatedAt": "2026-10-12T09:25:12.725Z",
   "sources": [
     {
       "id": "industrial-doe-index-5c8b2a43b9a9",
@@ -114,6 +114,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-003dfb42d05e-b8ab9b3e695a",
+      "name": "Official manufacturing project source — Nokia",
+      "url": "https://www.nist.gov/chips/infinera-pennsylvania-bethlehem",
+      "retrievedAt": "2026-10-12T09:25:10.344Z",
+      "sha256": "b8ab9b3e695aff9f97d29d37beb22c93a4494f72219a0ced98114cec38d13d76",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Infinera up to $93 million in direct funding to support the construction of a new fab in San Jose, California, and a new advanced test and packaging facility in Bethlehem, Pennsylvania.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-08f0bb718a4a-d1745a5cae93",
       "name": "Official manufacturing project source — Lumentum",
       "url": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-New-U-S--Manufacturing-Facility-to-Produce-Advanced-Lasers-for-the-Worlds-Largest-AI-Data-Centers/default.aspx",
@@ -174,6 +184,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-13bfe9942906-d4105373a0b7",
+      "name": "Official manufacturing project source — Intel",
+      "url": "https://www.nist.gov/chips/intel-corporation-arizona-chandler",
+      "retrievedAt": "2026-10-12T09:25:10.447Z",
+      "sha256": "d4105373a0b75b77d9eaaf1cf1d025ed9f0da5d15cb0a5f57c737cf3c3b7f370",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Intel up to $7.865 billion in direct funding under the CHIPS and Science Act. This funding will support Intel’s expected U.S. investment of nearly $90 billion by the end of the decade, part of the company’s overall $100+ billion expansion plan, to expand capacity and capabilities at its sites in Arizona, New Mexico, Ohio, and Oregon. With this funding, Intel plans to develop a robust domestic semiconductor ecosystem, advancing U.S.-based leading-edge production. As previously announced and with the Department's support, Intel's overall expansion plan is estimated to support approximately 10,000 manufacturing jobs and 20,000 construction jobs across all four states.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-13bfe9942906-f329a024850b",
       "name": "Official manufacturing project source — Intel",
       "url": "https://www.nist.gov/chips/intel-corporation-arizona-chandler",
@@ -214,6 +234,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-23afcdeefec0-97e50e482052",
+      "name": "Official manufacturing project source — Absolics",
+      "url": "https://www.nist.gov/chips/absolics-georgia-covington",
+      "retrievedAt": "2026-10-12T09:25:08.854Z",
+      "sha256": "97e50e482052657a22f969721b693042989472cec4e8ac602a394deac47c9e24",
+      "publishedAt": null,
+      "excerpt": "The Department of Commerce awarded Absolics, a subsidiary of the Korea-based SKC, up to $75 million in direct funding which supports the construction of a 120,000 square-foot facility in Covington, Georgia, and the development of substrates technology for use in semiconductor advanced packaging. This investment in Absolics commercial facility will support the U.S. semiconductor supply chain by manufacturing a new advanced material.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-23afcdeefec0-a99f4bc61884",
       "name": "Official manufacturing project source — Absolics",
       "url": "https://www.nist.gov/chips/absolics-georgia-covington",
@@ -239,6 +269,16 @@
       "url": "https://www.nist.gov/chips/texas-instruments-utah-lehi",
       "retrievedAt": "2026-10-12T09:12:38.741Z",
       "sha256": "419c21d1df8fc9fb3c2c2ba7fb33a8c1828dd6427d3ddf0218e93815a0b047f3",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Texas Instruments (TI) up to $1.61 billion in direct funding under the CHIPS and Science Act to strengthen domestic supply chain resilience, advance our national security, and bolster U.S. competitiveness in current-generation and mature-node semiconductor production. The funding would support TI’s investment of more than $18 billion through the end of decade for the construction of three state-of-the-art fabrication facilities, including two in Texas and one in Utah. The projects are estimated to create more than 2,000 manufacturing jobs and over 20,000 construction jobs over time.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-35cebb2f5e64-4f36c453338d",
+      "name": "Official manufacturing project source — Texas Instruments",
+      "url": "https://www.nist.gov/chips/texas-instruments-utah-lehi",
+      "retrievedAt": "2026-10-12T09:25:11.509Z",
+      "sha256": "4f36c453338d5d9bcc62f0d82d36154c672001fd9ac3c05da8afd4a113927be5",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Texas Instruments (TI) up to $1.61 billion in direct funding under the CHIPS and Science Act to strengthen domestic supply chain resilience, advance our national security, and bolster U.S. competitiveness in current-generation and mature-node semiconductor production. The funding would support TI’s investment of more than $18 billion through the end of decade for the construction of three state-of-the-art fabrication facilities, including two in Texas and one in Utah. The projects are estimated to create more than 2,000 manufacturing jobs and over 20,000 construction jobs over time.",
       "sourceAsOf": null
@@ -294,6 +334,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-3752f9323c24-cbff173789d3",
+      "name": "Official manufacturing project source — X-FAB",
+      "url": "https://www.nist.gov/chips/x-fab-texas-lubbock",
+      "retrievedAt": "2026-10-12T09:25:11.542Z",
+      "sha256": "cbff173789d3ad7ee81702de285cb5f8bd165b208c6cd2b04369c3b10c5bb210",
+      "publishedAt": null,
+      "excerpt": "X-Fab (Texas) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/x-fab-texas-lubbock Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum information scienc",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-3752f9323c24-d48d76366049",
       "name": "Official manufacturing project source — X-FAB",
       "url": "https://www.nist.gov/chips/x-fab-texas-lubbock",
@@ -329,6 +379,16 @@
       "url": "https://www.nist.gov/chips/bae-systems-inc-new-hampshire-nashua",
       "retrievedAt": "2026-10-12T09:02:55.305Z",
       "sha256": "829ac057e37199eb9ea20cc555017dd962529a1ca5ea1fc056b49e45742410d8",
+      "publishedAt": null,
+      "excerpt": "The Department of Commerce awarded BAE Systems Electronic Systems, a business unit of BAE Systems, Inc., up to $35.5 million in direct funding to support the modernization of the company’s Microelectronics Center in Nashua, New Hampshire, which is designated as a Trusted Foundry by the U.S. Department of Defense. The investment will contribute to a more resilient semiconductor supply chain in the United States and bolster the company’s ability to serve mission-critical U.S. defense programs.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-3875a62b07d0-ccfc3be92815",
+      "name": "Official manufacturing project source — BAE Systems",
+      "url": "https://www.nist.gov/chips/bae-systems-inc-new-hampshire-nashua",
+      "retrievedAt": "2026-10-12T09:25:09.238Z",
+      "sha256": "ccfc3be9281510776e0285246375c878f736e3b967a1f4bfd07688392d7d326c",
       "publishedAt": null,
       "excerpt": "The Department of Commerce awarded BAE Systems Electronic Systems, a business unit of BAE Systems, Inc., up to $35.5 million in direct funding to support the modernization of the company’s Microelectronics Center in Nashua, New Hampshire, which is designated as a Trusted Foundry by the U.S. Department of Defense. The investment will contribute to a more resilient semiconductor supply chain in the United States and bolster the company’s ability to serve mission-critical U.S. defense programs.",
       "sourceAsOf": null
@@ -374,6 +434,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-44ec70b28d3e-cffa7052384b",
+      "name": "Official manufacturing project source — Rocket Lab (SolAero)",
+      "url": "https://www.nist.gov/chips/rocket-lab-new-mexico-albuquerque",
+      "retrievedAt": "2026-10-12T09:25:11.252Z",
+      "sha256": "cffa7052384bb310d51eb494ca203084631ef7bf149ed0868e20c71b8de63527",
+      "publishedAt": null,
+      "excerpt": "The Department of Commerce awarded Rocket Lab, the parent company of space power subsidiary provider SolAero Technologies Corp., up to $23.9 million in direct funding to create a more robust and resilient supply of space-grade solar cells that power spacecrafts and satellites. The investment will support a modernization and expansion of Rocket Lab’s solar cell facility in Albuquerque, New Mexico, to increase its production capacity by 50%.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-44ec70b28d3e-eb7eafb2b340",
       "name": "Official manufacturing project source — Rocket Lab (SolAero)",
       "url": "https://www.nist.gov/chips/rocket-lab-new-mexico-albuquerque",
@@ -389,6 +459,16 @@
       "url": "https://www.nist.gov/chips/globalfoundries-vermont-burlington",
       "retrievedAt": "2026-10-12T08:42:43.704Z",
       "sha256": "98585119fb5df601d916779e055d4c762e374d2f4b53f80c851b04eba9f8be10",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded GlobalFoundries (GF) up to $1.587 billion in direct funding under the CHIPS and Science Act. The award will bolster U.S. competitiveness in current-generation semiconductor production by supporting the company’s capital investment of approximately $14 billion over the next 10-plus years in its U.S. manufacturing sites in New York and Vermont. The investment includes a new state-of-the-art facility in New York, the capability and capacity expansion of an existing facility in New York, and the modernization of the company’s operations in Vermont. The projects will create approximately 9,000 construction and 1,100 manufacturing jobs across both sites.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-477b847cd8bd-b35fe46d7f6e",
+      "name": "Official manufacturing project source — GlobalFoundries",
+      "url": "https://www.nist.gov/chips/globalfoundries-vermont-burlington",
+      "retrievedAt": "2026-10-12T09:25:09.992Z",
+      "sha256": "b35fe46d7f6e26da5b828c3ce1320392ab4b948ab74970e18bb51292a0158a49",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded GlobalFoundries (GF) up to $1.587 billion in direct funding under the CHIPS and Science Act. The award will bolster U.S. competitiveness in current-generation semiconductor production by supporting the company’s capital investment of approximately $14 billion over the next 10-plus years in its U.S. manufacturing sites in New York and Vermont. The investment includes a new state-of-the-art facility in New York, the capability and capacity expansion of an existing facility in New York, and the modernization of the company’s operations in Vermont. The projects will create approximately 9,000 construction and 1,100 manufacturing jobs across both sites.",
       "sourceAsOf": null
@@ -454,6 +534,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-4837fc060a08-8dcac7fecc28",
+      "name": "Official manufacturing project source — MACOM",
+      "url": "https://www.nist.gov/chips/macom-massachusetts-lowell",
+      "retrievedAt": "2026-10-12T09:25:10.798Z",
+      "sha256": "8dcac7fecc28690096ec4ed18447335832ef1ae6bec04bdfa4fc9c668232bb5c",
+      "publishedAt": null,
+      "excerpt": "MACOM (Massachusetts) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/macom-massachusetts-lowell Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum inf",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-4837fc060a08-a42ce038af14",
       "name": "Official manufacturing project source — MACOM",
       "url": "https://www.nist.gov/chips/macom-massachusetts-lowell",
@@ -472,6 +562,16 @@
       "publishedAt": "2026-07-28",
       "excerpt": "Brandenburg performing well; shipments growing Q/Q",
       "sourceAsOf": "2026-07-28"
+    },
+    {
+      "id": "industrial-primary-491d233cc075-34d234806d22",
+      "name": "Official manufacturing project source — Rogue Valley Microdevices",
+      "url": "https://www.nist.gov/chips/rogue-valley-microdevices-florida-palm-bay",
+      "retrievedAt": "2026-10-12T09:25:11.309Z",
+      "sha256": "34d234806d222a79f5cd12813b448944e5a293cdff0e9c5e8e3b6ff978622c7b",
+      "publishedAt": null,
+      "excerpt": "Rogue Valley Microdevices (Florida) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/rogue-valley-microdevices-florida-palm-bay Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Phy",
+      "sourceAsOf": null
     },
     {
       "id": "industrial-primary-491d233cc075-56eb55433332",
@@ -564,6 +664,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-50ea577a0d3e-e72f9c053bc8",
+      "name": "Official manufacturing project source — Intel",
+      "url": "https://www.nist.gov/chips/intel-corporation-ohio-new-albany",
+      "retrievedAt": "2026-10-12T09:25:10.644Z",
+      "sha256": "e72f9c053bc8d3701c252dda340fba80734d9831275e415657faddc9ee2dfca2",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Intel up to $7.865 billion in direct funding under the CHIPS and Science Act. This funding will support Intel’s expected U.S. investment of nearly $90 billion by the end of the decade, part of the company’s overall $100+ billion expansion plan, to expand capacity and capabilities at its sites in Arizona, New Mexico, Ohio, and Oregon. With this funding, Intel plans to develop a robust domestic semiconductor ecosystem, advancing U.S.-based leading-edge production. As previously announced and with the Department's support, Intel's overall expansion plan is estimated to support approximately 10,000 manufacturing jobs and 20,000 construction jobs across all four states.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-50ea577a0d3e-fdc6f77f43e4",
       "name": "Official manufacturing project source — Intel",
       "url": "https://www.nist.gov/chips/intel-corporation-ohio-new-albany",
@@ -571,6 +681,16 @@
       "sha256": "fdc6f77f43e49aef6e931f8b6366fa6e52dbef74d785e2af6e99714c2202ee85",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Intel up to $7.865 billion in direct funding under the CHIPS and Science Act. This funding will support Intel’s expected U.S. investment of nearly $90 billion by the end of the decade, part of the company’s overall $100+ billion expansion plan, to expand capacity and capabilities at its sites in Arizona, New Mexico, Ohio, and Oregon. With this funding, Intel plans to develop a robust domestic semiconductor ecosystem, advancing U.S.-based leading-edge production. As previously announced and with the Department's support, Intel's overall expansion plan is estimated to support approximately 10,000 manufacturing jobs and 20,000 construction jobs across all four states.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-52ca0b0a770e-2f99781da553",
+      "name": "Official manufacturing project source — Edwards Vacuum",
+      "url": "https://www.nist.gov/chips/edwards-vacuum-new-york-genesee-county",
+      "retrievedAt": "2026-10-12T09:25:09.648Z",
+      "sha256": "2f99781da5530bb9ee4dc4cf4a03c16db182c8de9ea0a6ee9059b11f0608ff9a",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Edwards Vacuum up to $18 million in direct funding to support the construction of a greenfield state-of-the-art manufacturing facility in Genessee County, New York to produce dry vacuum pumps.",
       "sourceAsOf": null
     },
     {
@@ -624,6 +744,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-55a2aaad6860-6a87675be16f",
+      "name": "Official manufacturing project source — Micron",
+      "url": "https://www.nist.gov/chips/micron-idaho-boise",
+      "retrievedAt": "2026-10-12T09:25:11.078Z",
+      "sha256": "6a87675be16fd20aebbc75c14f5608c8d157e0cdc154bc2cb461142518f41987",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Micron Technology Inc. (“Micron”), through its subsidiaries, Micron Idaho Semiconductor Manufacturing (TRITON), LLC and Micron New York Semiconductor Manufacturing LLC, direct funding under the CHIPS and Science Act. This funding will support Micron’s two-decade vision to invest approximately $100 billion in New York and $50 billion in Idaho, which will help the U.S. grow its share of advanced memory manufacturing from less than 2% today to approximately 10% by calendar year 2035. With this funding, Micron plans to expand the development and production of the most advanced memory semiconductor technology in New York and Idaho, which is expected to create approximately 23,000 direct jobs.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-55a2aaad6860-88e5c6ca162f",
       "name": "Official manufacturing project source — Micron",
       "url": "https://www.nist.gov/chips/micron-idaho-boise",
@@ -659,6 +789,16 @@
       "url": "https://semiconductor.samsung.com/us/sas/company/taylor/",
       "retrievedAt": "2026-10-12T09:21:57.738Z",
       "sha256": "2f56e52bde0f62931a515d6c38fd0c1d0cb2a931540f8f46390980541324c7f1",
+      "publishedAt": null,
+      "excerpt": "Taylor | US Fab | Samsung Semiconductor Global Skip to content Select your country or region to find out what content fits your location Remember for next time? 언어를 선택해주세요 Global / English 한국 / 한국어 中国大陆 / 中文 日本 / 日本語 Continue Products Products Type Applications DRAM Overview DDR HBM GDDR LPDDR SSD Overview PC SSD Datacenter SSD Enterprise SSD Automotive SSD eStorage Overview UFS eMMC CXL Memory Overview CMM-D MCP Overview uMCP eMCP Processor Overview Mobile Processor Automotive Processor Wearable Processor Modem RF UWB Wi-Fi/Bluetooth Image Sensor Overview Mobile Image Sensor Automotive Image Sensor Global Shutter Sensor ToF Sensor Display IC Overview Mobile DDI Panel DDI Security Solution Overview Payment Biometric Card NFC eSE/eSIM/SIM Mobile & IoT SE Power IC Overview Mobile Power IC Accessory Power IC Memory Power IC Display AI Server Automotive Network Mobile Lifestyle Support Quali | The new facility we're building in Taylor, Texas",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-575d43dba768-483e397554cf",
+      "name": "Official manufacturing project source — status review",
+      "url": "https://semiconductor.samsung.com/us/sas/company/taylor/",
+      "retrievedAt": "2026-10-12T09:25:08.753Z",
+      "sha256": "483e397554cf0e4f0ff4a442d12cfa0a5201e7dc2767b19c4d2d39dd22e6b132",
       "publishedAt": null,
       "excerpt": "Taylor | US Fab | Samsung Semiconductor Global Skip to content Select your country or region to find out what content fits your location Remember for next time? 언어를 선택해주세요 Global / English 한국 / 한국어 中国大陆 / 中文 日本 / 日本語 Continue Products Products Type Applications DRAM Overview DDR HBM GDDR LPDDR SSD Overview PC SSD Datacenter SSD Enterprise SSD Automotive SSD eStorage Overview UFS eMMC CXL Memory Overview CMM-D MCP Overview uMCP eMCP Processor Overview Mobile Processor Automotive Processor Wearable Processor Modem RF UWB Wi-Fi/Bluetooth Image Sensor Overview Mobile Image Sensor Automotive Image Sensor Global Shutter Sensor ToF Sensor Display IC Overview Mobile DDI Panel DDI Security Solution Overview Payment Biometric Card NFC eSE/eSIM/SIM Mobile & IoT SE Power IC Overview Mobile Power IC Accessory Power IC Memory Power IC Display AI Server Automotive Network Mobile Lifestyle Support Quali | The new facility we're building in Taylor, Texas",
       "sourceAsOf": null
@@ -744,6 +884,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-5a3390455939-8811559ae00f",
+      "name": "Official manufacturing project source — Corning",
+      "url": "https://www.nist.gov/chips/corning-new-york-canton",
+      "retrievedAt": "2026-10-12T09:25:09.452Z",
+      "sha256": "8811559ae00f5d870c2bf09a23402038d1db19e8ccb2222da6efcf49b5952008",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce has awarded Corning up to $32 million in direct funding to support the company’s expansion of its existing manufacturing facility in Canton, New York.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-661ae75792f2-1bfcb1198df1",
       "name": "Official manufacturing project source — MACOM",
       "url": "https://www.nist.gov/chips/macom-north-carolina-durham",
@@ -769,6 +919,16 @@
       "url": "https://www.nist.gov/chips/macom-north-carolina-durham",
       "retrievedAt": "2026-10-12T08:42:45.024Z",
       "sha256": "a094b5232ec3332644aa1f13814611c67ad2e4436b3494dcdc605983abf346b8",
+      "publishedAt": null,
+      "excerpt": "MACOM (North Carolina) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/macom-north-carolina-durham Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum i",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-661ae75792f2-a09cd38b75cd",
+      "name": "Official manufacturing project source — MACOM",
+      "url": "https://www.nist.gov/chips/macom-north-carolina-durham",
+      "retrievedAt": "2026-10-12T09:25:10.813Z",
+      "sha256": "a09cd38b75cdb0172945eb844ae6c95c03fe05b76fd16749e26d7f3f69d5f9ce",
       "publishedAt": null,
       "excerpt": "MACOM (North Carolina) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/macom-north-carolina-durham Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum i",
       "sourceAsOf": null
@@ -824,6 +984,16 @@
       "sourceAsOf": "2026-09-28"
     },
     {
+      "id": "industrial-primary-692bef705631-e384c174bd37",
+      "name": "Official manufacturing project source — status review",
+      "url": "https://www.ultiumcell.com/newsroom/latest-news/2026/09/28/Ultium-Cells-to-Upgrade-Spring-Hill-Operations-to-Produce-Lithium-Manganese-Rich-LMR-Prismatic-Battery-Cells--",
+      "retrievedAt": "2026-10-12T09:25:11.759Z",
+      "sha256": "e384c174bd3785d5890d3c3b6af8671c88226c7c32cb22eb1548fcf6c7c4c802",
+      "publishedAt": "2026-09-28",
+      "excerpt": "Ultium Cells to Upgrade Spring Hill Op... | Ultium Cells LLC LG Energy Solution | General Motors About Us One Ultium Team Our Values Policies Our Locations Warren, Ohio Spring Hill, Tennessee Newsroom Latest News Image Gallery Video Gallery Careers Contact Us Latest News Ultium Cells to Upgrade Spring Hill Operations to Produce Lithium Manganese Rich (LMR) Prismatic Battery Cells SPRING HILL, Tenn. – Ultium Cells LLC, a joint venture between General Motors and LG Energy Solution, today announced it will upgrade its battery cell manufacturing facility in Spring Hill, Tennessee, to produce lithium manganese rich (LMR) battery cells for future GM electric vehicles, further strengthening Ultium Cells’ ability to produce multiple battery chemistries and form factors under one roof. The Spring Hill facility is expected to be the first in the world to mass produce prismatic LMR battery cells, a | This latest upgrade builds on Ultium Cells’ production of LFP cells for energy storage systems (ESS) for LG Energy Solution Vertech customers, which began in June, 2026.",
+      "sourceAsOf": "2026-09-28"
+    },
+    {
       "id": "industrial-primary-6b41c516f88c-cebfcab8de0d",
       "name": "Official manufacturing project source — Amkor",
       "url": "https://ir.amkor.com/news-releases/news-release-details/amkor-technology-breaks-ground-new-semiconductor-advanced",
@@ -874,6 +1044,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-6b9d1ab5e0c3-fcaaa0f747c1",
+      "name": "Official manufacturing project source — Entegris",
+      "url": "https://www.nist.gov/chips/entegris-colorado-colorado-springs",
+      "retrievedAt": "2026-10-12T09:25:09.941Z",
+      "sha256": "fcaaa0f747c132f3e4948050fccacc720599e35638be338457877344f6e14522",
+      "publishedAt": null,
+      "excerpt": "The Department of Commerce awarded Entegris up to $77 million in direct funding to support the construction of a state-of-the-art manufacturing center in Colorado Springs, Colorado. The center is being built in multiple phases: the first phase will support the production of Front Opening Unified Pods (FOUPs) and liquid filter membranes, and the second phase is expected to support the production of advanced liquid filters and fluid handling solutions. In addition to the manufacturing center, Entegris is committed to further expanding its R&D capabilities in the United States by the end of the decade. This investment will onshore critical semiconductor supply chain materials and solutions for leading-edge chip production.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-6db62a5ec909-184b4195ec7a",
       "name": "Official manufacturing project source — status review",
       "url": "https://investors.micron.com/news-releases/news-release-details/micron-and-trump-administration-announce-expanded-us-investments",
@@ -894,11 +1074,31 @@
       "sourceAsOf": "2025-06-12"
     },
     {
+      "id": "industrial-primary-6db62a5ec909-f5bb4ddd7800",
+      "name": "Official manufacturing project source — status review",
+      "url": "https://investors.micron.com/news-releases/news-release-details/micron-and-trump-administration-announce-expanded-us-investments",
+      "retrievedAt": "2026-10-12T09:25:08.672Z",
+      "sha256": "f5bb4ddd7800471aa106ea8ab03871918b8d97312020b2910cf5d0716bfc0735",
+      "publishedAt": "2025-06-12",
+      "excerpt": "Micron Technology, Inc. - Micron and Trump Administration Announce Expanded U.S. Investments in Leading-Edge DRAM Manufacturing and R&D Skip to main content AI Design Tools Blog Investors Careers language clear menu clear Products Market & Industries Partners Sales & Support About Investors Search Micron Technology search search Suggested Search See all Recent Search search Products Memory HBM DRAM components DRAM modules LPDDR components LPDDR modules CXL GDDR Data center Storage Data center SSDs Client SSD Automotive and industrial SSD All SSDs Managed NAND NAND flash NOR flash Memory cards Multichip packages e.MMC-based MCP uMCP NAND-based MCP Technology leadership 1γ DRAM technology G9 NAND technology Design tools FBGA and part decoder DRAM power calculators NAND power calculator Simulation models Chipset compatibility guide Serial presence-detect tool Cross-reference tools UFSparm S | Micron has already achieved key construction milestones on its first Idaho fab",
+      "sourceAsOf": "2025-06-12"
+    },
+    {
       "id": "industrial-primary-75dc123fa557-2723dccae8af",
       "name": "Official manufacturing project source — Intel",
       "url": "https://www.nist.gov/chips/intel-corporation-oregon-hillsboro",
       "retrievedAt": "2026-10-12T09:22:11.344Z",
       "sha256": "2723dccae8afe67f93146a2336bb73ed781e9cfbbdcb1d572f513b6bd051b58c",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Intel up to $7.865 billion in direct funding under the CHIPS and Science Act. This funding will support Intel’s expected U.S. investment of nearly $90 billion by the end of the decade, part of the company’s overall $100+ billion expansion plan, to expand capacity and capabilities at its sites in Arizona, New Mexico, Ohio, and Oregon. With this funding, Intel plans to develop a robust domestic semiconductor ecosystem, advancing U.S.-based leading-edge production. As previously announced and with the Department's support, Intel's overall expansion plan is estimated to support approximately 10,000 manufacturing jobs and 20,000 construction jobs across all four states.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-75dc123fa557-38229f410c52",
+      "name": "Official manufacturing project source — Intel",
+      "url": "https://www.nist.gov/chips/intel-corporation-oregon-hillsboro",
+      "retrievedAt": "2026-10-12T09:25:10.730Z",
+      "sha256": "38229f410c525d32925f896565c9f40919429f1ca20d6b7da68894e17b80c1c6",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Intel up to $7.865 billion in direct funding under the CHIPS and Science Act. This funding will support Intel’s expected U.S. investment of nearly $90 billion by the end of the decade, part of the company’s overall $100+ billion expansion plan, to expand capacity and capabilities at its sites in Arizona, New Mexico, Ohio, and Oregon. With this funding, Intel plans to develop a robust domestic semiconductor ecosystem, advancing U.S.-based leading-edge production. As previously announced and with the Department's support, Intel's overall expansion plan is estimated to support approximately 10,000 manufacturing jobs and 20,000 construction jobs across all four states.",
       "sourceAsOf": null
@@ -964,6 +1164,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-77371b694eaf-d0d915a87a02",
+      "name": "Official manufacturing project source — Nokia",
+      "url": "https://www.nist.gov/chips/infinera-california-san-jose",
+      "retrievedAt": "2026-10-12T09:25:10.206Z",
+      "sha256": "d0d915a87a027cafbbbedd7a33918367dd214489bcae1475e619a5c2e02f9826",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Infinera up to $93 million in direct funding to support the construction of a new fab in San Jose, California, and a new advanced test and packaging facility in Bethlehem, Pennsylvania.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-77371b694eaf-d93932a0513a",
       "name": "Official manufacturing project source — Nokia",
       "url": "https://www.nist.gov/chips/infinera-california-san-jose",
@@ -989,6 +1199,16 @@
       "url": "https://www.nist.gov/chips/sk-hynix-indiana-west-lafayette",
       "retrievedAt": "2026-10-12T09:22:29.753Z",
       "sha256": "5a49c2cadb059e42b3057a5e5bc5dd198a43a21c6a9467b188b1bdc3e62d41ea",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded SK hynix up to $458 million in direct funding under the CHIPS and Science Act to establish a high-bandwidth memory (HBM) advanced packaging fabrication and research and development (R&D) facility. This funding will support and build upon SK hynix’s investment of approximately $3.87 billion in West Lafayette, Indiana, to build a memory packaging plant for artificial intelligence (AI) products and an advanced packaging R&D facility.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-7866a15332df-71b171cda85f",
+      "name": "Official manufacturing project source — SK hynix",
+      "url": "https://www.nist.gov/chips/sk-hynix-indiana-west-lafayette",
+      "retrievedAt": "2026-10-12T09:25:11.467Z",
+      "sha256": "71b171cda85f82ecec23e50f45a3b351fefb7d0cdd89421589a9cf4803f5acb1",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded SK hynix up to $458 million in direct funding under the CHIPS and Science Act to establish a high-bandwidth memory (HBM) advanced packaging fabrication and research and development (R&D) facility. This funding will support and build upon SK hynix’s investment of approximately $3.87 billion in West Lafayette, Indiana, to build a memory packaging plant for artificial intelligence (AI) products and an advanced packaging R&D facility.",
       "sourceAsOf": null
@@ -1034,6 +1254,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-7bcef72c4892-e11c43d1e606",
+      "name": "Official manufacturing project source — SkyWater",
+      "url": "https://www.nist.gov/chips/skywater-technology-minnesota-bloomington",
+      "retrievedAt": "2026-10-12T09:25:11.483Z",
+      "sha256": "e11c43d1e6069ba9c694630d89b8278b9bb42e10c377c24adeec96c6abd3bd8e",
+      "publishedAt": null,
+      "excerpt": "SkyWater Technology (Minnesota) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/skywater-technology-minnesota-bloomington Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-7bcef72c4892-e20afc4a1587",
       "name": "Official manufacturing project source — SkyWater",
       "url": "https://www.nist.gov/chips/skywater-technology-minnesota-bloomington",
@@ -1069,6 +1299,16 @@
       "url": "https://www.nist.gov/chips/samsung-electronics-texas-taylor",
       "retrievedAt": "2026-10-12T09:22:27.299Z",
       "sha256": "132d8ce049411eb22540c1b88a2b41576c4a4b2dd0dad856a357a61594aff54d",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Samsung Austin Semiconductor, LLC, a subsidiary of Samsung Electronics (Samsung), up to $4.745 billion in direct funding under the CHIPS and Science Act to strengthen the resilience of the U.S. semiconductor supply chain, advance U.S. technology leadership, and fuel U.S. global competitiveness. Samsung – the only leading-edge semiconductor company that is a leader in both advanced memory and advanced logic technologies – is expected to invest over $37 billion dollars in the region in the coming years, and the investment would support the creation of over 15,000 jobs.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-7fa761515026-6cf5f68f8da0",
+      "name": "Official manufacturing project source — Samsung",
+      "url": "https://www.nist.gov/chips/samsung-electronics-texas-taylor",
+      "retrievedAt": "2026-10-12T09:25:11.394Z",
+      "sha256": "6cf5f68f8da02013c9bdc7beb8945a6db79c7fe3d2ad4f46944c7845b6b53a5e",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Samsung Austin Semiconductor, LLC, a subsidiary of Samsung Electronics (Samsung), up to $4.745 billion in direct funding under the CHIPS and Science Act to strengthen the resilience of the U.S. semiconductor supply chain, advance U.S. technology leadership, and fuel U.S. global competitiveness. Samsung – the only leading-edge semiconductor company that is a leader in both advanced memory and advanced logic technologies – is expected to invest over $37 billion dollars in the region in the coming years, and the investment would support the creation of over 15,000 jobs.",
       "sourceAsOf": null
@@ -1129,6 +1369,16 @@
       "url": "https://www.nist.gov/chips/micron-virginia-manassas",
       "retrievedAt": "2026-10-12T08:42:45.238Z",
       "sha256": "0fd1cdae1dd219facdb6ab8da6a5bde43461f2b63c1999992f78959e85f28b69",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce has awarded Micron Virginia Semiconductor Manufacturing LLC, a wholly-owned subsidiary of Micron Technology Inc. (“Micron”) direct funding under the CHIPS and Science Act. This funding will enable Micron to expand and modernize its existing chip fabrication facility in Manassas, Virginia to onshore Micron’s 1-alpha DRAM technology. This project will greatly improve supply chain resiliency for automotive and industrial markets, as well as secure capacity of critical legacy memory for aerospace and defense.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-90f63283a206-73bf98d6f76d",
+      "name": "Official manufacturing project source — Micron",
+      "url": "https://www.nist.gov/chips/micron-virginia-manassas",
+      "retrievedAt": "2026-10-12T09:25:11.149Z",
+      "sha256": "73bf98d6f76d759e4d051d38e081cac6803a5f35e69cb184ca025926927b2c25",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce has awarded Micron Virginia Semiconductor Manufacturing LLC, a wholly-owned subsidiary of Micron Technology Inc. (“Micron”) direct funding under the CHIPS and Science Act. This funding will enable Micron to expand and modernize its existing chip fabrication facility in Manassas, Virginia to onshore Micron’s 1-alpha DRAM technology. This project will greatly improve supply chain resiliency for automotive and industrial markets, as well as secure capacity of critical legacy memory for aerospace and defense.",
       "sourceAsOf": null
@@ -1224,11 +1474,31 @@
       "sourceAsOf": "2026-06-02"
     },
     {
+      "id": "industrial-primary-a3a7bba5b738-e4f636c3515e",
+      "name": "Official manufacturing project source — status review",
+      "url": "https://www.hmgma.com/2026/06/03/hmgma-and-kia-america-celebrate-production-of-kia-sportage-hybrid/",
+      "retrievedAt": "2026-10-12T09:25:08.827Z",
+      "sha256": "e4f636c3515e4ba4b3f7305d2de55957f2c1fe4db109c9fe276304e08d29f272",
+      "publishedAt": "2026-06-03",
+      "excerpt": "HMGMA and Kia America Celebrate Production of Kia Sportage Hybrid - HMGMA Skip to main content HMGMA Careers Search Home About Us Leadership Who We Are Mission and Vision Our Products HMGMA Careers HMGMA Careers Equipment Maintenance Apprenticeship HMGMA Internship Opportunities Preferred Pathway to Employment News Tours Contact Us HMGMA and Kia America Celebrate Production of Kia Sportage Hybrid Ellabell, GA | June 2, 2026 June 3, 2026 | General , News , Press Releases HMGMA and Kia America Celebrate Production of Kia Sportage Hybrid ELLABELL, GA — Today Hyundai Motor Group Metaplant America (HMGMA) and Kia America (KUS) celebrated the start of production for its newest vehicle, marking three major milestones for the advanced manufacturing facility: the first Kia model, the first hybrid electric vehicle (HEV), and the third vehicle to be produced at the site. The Kia Sportage Hybrid now",
+      "sourceAsOf": "2026-06-02"
+    },
+    {
       "id": "industrial-primary-a4cb47e564fc-39425b308344",
       "name": "Official manufacturing project source — Anderon",
       "url": "https://newsroom.ibm.com/2026-09-16-anderon,-an-ibm-company,-finalizes-agreement-with-the-u-s-department-of-commerce-for-a-1-billion-chips-award-to-accelerate-r-d-for-u-s-based-pure-play-quantum-foundry",
       "retrievedAt": "2026-10-12T08:42:40.330Z",
       "sha256": "39425b308344af26b30ed2720311768838376a0ad71c42a96782b036bcb17876",
+      "publishedAt": "2026-09-16",
+      "excerpt": "Anderon, an IBM Company, Finalizes Agreement with the U.S. Department of Commerce for a $1 Billion CHIPS Award to Accelerate R&D for U.S.-Based Pure-Play Quantum Foundry IBM Logo Submit IBM Newsroom News All press releases IBM Think 2026 Artificial intelligence Hybrid cloud Research and innovation Corporate Social impact Mergers & acquisitions Media resources Asset gallery B-roll gallery Media contact Global newsrooms Inside IBM Leadership IBM boilerplate Investor relations Annual report Analyst reports CSR IBM policy Awards Blog IBM blog IBM Research blog securityintelligence.com Subscribe All press releases Anderon, an IBM Company, Finalizes Agreement with the U.S. Department of Commerce for a $1 Billion CHIPS Award to Accelerate R&D for U.S.-Based Pure-Play Quantum Foundry Funding for Anderon to help scale and expand access to quantum wafer technology Sep 16, 2026 ALBANY, NY, Septembe | the first quantum wafers now running through its manufacturing facility",
+      "sourceAsOf": "2026-09-16"
+    },
+    {
+      "id": "industrial-primary-a4cb47e564fc-6f9d0cffe3b6",
+      "name": "Official manufacturing project source — Anderon",
+      "url": "https://newsroom.ibm.com/2026-09-16-anderon,-an-ibm-company,-finalizes-agreement-with-the-u-s-department-of-commerce-for-a-1-billion-chips-award-to-accelerate-r-d-for-u-s-based-pure-play-quantum-foundry",
+      "retrievedAt": "2026-10-12T09:25:08.673Z",
+      "sha256": "6f9d0cffe3b6802c50125df92db7b1001f7c20600660722a3acc73d5112edd32",
       "publishedAt": "2026-09-16",
       "excerpt": "Anderon, an IBM Company, Finalizes Agreement with the U.S. Department of Commerce for a $1 Billion CHIPS Award to Accelerate R&D for U.S.-Based Pure-Play Quantum Foundry IBM Logo Submit IBM Newsroom News All press releases IBM Think 2026 Artificial intelligence Hybrid cloud Research and innovation Corporate Social impact Mergers & acquisitions Media resources Asset gallery B-roll gallery Media contact Global newsrooms Inside IBM Leadership IBM boilerplate Investor relations Annual report Analyst reports CSR IBM policy Awards Blog IBM blog IBM Research blog securityintelligence.com Subscribe All press releases Anderon, an IBM Company, Finalizes Agreement with the U.S. Department of Commerce for a $1 Billion CHIPS Award to Accelerate R&D for U.S.-Based Pure-Play Quantum Foundry Funding for Anderon to help scale and expand access to quantum wafer technology Sep 16, 2026 ALBANY, NY, Septembe | the first quantum wafers now running through its manufacturing facility",
       "sourceAsOf": "2026-09-16"
@@ -1284,11 +1554,31 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-a68fd76d83ea-cbca87942bd0",
+      "name": "Official manufacturing project source — Micron",
+      "url": "https://www.nist.gov/chips/micron-new-york-clay",
+      "retrievedAt": "2026-10-12T09:25:11.121Z",
+      "sha256": "cbca87942bd023f7eef8229afa31aa7d3466aeb433a9c84922054d2addb46992",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Micron Technology Inc. (“Micron”), through its subsidiaries, Micron Idaho Semiconductor Manufacturing (TRITON) LLC and Micron New York Semiconductor Manufacturing LLC, direct funding under the CHIPS and Science Act. This funding will support Micron’s two-decade vision to invest approximately $100 billion in New York and $50 billion in Idaho, which will help the U.S. grow its share of advanced memory manufacturing from less than 2% today to approximately 10% by calendar year 2035. With this funding, Micron plans to expand the development and production of the most advanced memory semiconductor technology in New York and Idaho, which is expected to create approximately 23,000 direct jobs.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-a9a7ed092782-0c845b0a1d10",
       "name": "Official manufacturing project source — Intel",
       "url": "https://www.nist.gov/chips/intel-corporation-new-mexico-rio-rancho",
       "retrievedAt": "2026-10-12T09:12:37.336Z",
       "sha256": "0c845b0a1d1018bc7fd98d95cf1f99c5a6be54a51cf4a8710cbe8b61793abcb1",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Intel up to $7.865 billion in direct funding under the CHIPS and Science Act. This funding will support Intel’s expected U.S. investment of nearly $90 billion by the end of the decade, part of the company’s overall $100+ billion expansion plan, to expand capacity and capabilities at its sites in Arizona, New Mexico, Ohio, and Oregon. With this funding, Intel plans to develop a robust domestic semiconductor ecosystem, advancing U.S.-based leading-edge production. As previously announced and with the Department's support, Intel's overall expansion plan is estimated to support approximately 10,000 manufacturing jobs and 20,000 construction jobs across all four states.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-a9a7ed092782-4698d879ca6e",
+      "name": "Official manufacturing project source — Intel",
+      "url": "https://www.nist.gov/chips/intel-corporation-new-mexico-rio-rancho",
+      "retrievedAt": "2026-10-12T09:25:10.507Z",
+      "sha256": "4698d879ca6e54e5b0da57bbb4a66f81eb02b415474b3470d53d738d4a483960",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Intel up to $7.865 billion in direct funding under the CHIPS and Science Act. This funding will support Intel’s expected U.S. investment of nearly $90 billion by the end of the decade, part of the company’s overall $100+ billion expansion plan, to expand capacity and capabilities at its sites in Arizona, New Mexico, Ohio, and Oregon. With this funding, Intel plans to develop a robust domestic semiconductor ecosystem, advancing U.S.-based leading-edge production. As previously announced and with the Department's support, Intel's overall expansion plan is estimated to support approximately 10,000 manufacturing jobs and 20,000 construction jobs across all four states.",
       "sourceAsOf": null
@@ -1321,6 +1611,16 @@
       "sha256": "afe18ff31d943ec06b1a20912c175c37d71920f47fee523d0aac7d7556f36450",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Intel up to $7.865 billion in direct funding under the CHIPS and Science Act. This funding will support Intel’s expected U.S. investment of nearly $90 billion by the end of the decade, part of the company’s overall $100+ billion expansion plan, to expand capacity and capabilities at its sites in Arizona, New Mexico, Ohio, and Oregon. With this funding, Intel plans to develop a robust domestic semiconductor ecosystem, advancing U.S.-based leading-edge production. As previously announced and with the Department's support, Intel's overall expansion plan is estimated to support approximately 10,000 manufacturing jobs and 20,000 construction jobs across all four states.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-aae88cd88fbe-2027523d1c54",
+      "name": "Official manufacturing project source — HP",
+      "url": "https://www.nist.gov/chips/hp-inc-oregon-corvallis",
+      "retrievedAt": "2026-10-12T09:25:10.191Z",
+      "sha256": "2027523d1c548398e9045a97014c0dab14c215ef200fbd47b815c5b19ad1d3cf",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded up to $53 million in direct funding to HPI Federal LLC under the CHIPS and Science Act to support the expansion and modernization of the existing facility of HP Inc. (“HP”) in Corvallis, Oregon, which is part of HP’s “lab-to-fab” ecosystem in the region that spans from research and development (“R&D”) activities to commercial manufacturing operations. Through this investment, the Department will help enhance U.S. technological leadership by driving innovation of groundbreaking semiconductor technologies that serve important end markets, notably including life sciences.",
       "sourceAsOf": null
     },
     {
@@ -1379,6 +1679,16 @@
       "url": "https://www.nist.gov/chips/microchip-technology-inc-oregon-gresham",
       "retrievedAt": "2026-10-12T09:22:22.072Z",
       "sha256": "6265ce5e6f8a09e28dc94f959d345b898dbbfec8f895b90a1df49ab121b17ee2",
+      "publishedAt": null,
+      "excerpt": "Microchip Technology, Inc. (Oregon) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/microchip-technology-inc-oregon-gresham Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physic",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-afa4f0e45ff5-8bb47fe90b88",
+      "name": "Official manufacturing project source — Microchip Technology",
+      "url": "https://www.nist.gov/chips/microchip-technology-inc-oregon-gresham",
+      "retrievedAt": "2026-10-12T09:25:11.070Z",
+      "sha256": "8bb47fe90b8885fdfa61c3b0345c52466fe9d814d4a9062227f1cab92ea1b069",
       "publishedAt": null,
       "excerpt": "Microchip Technology, Inc. (Oregon) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/microchip-technology-inc-oregon-gresham Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physic",
       "sourceAsOf": null
@@ -1444,6 +1754,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-b307a529111b-ef3140391188",
+      "name": "Official manufacturing project source — Bosch",
+      "url": "https://www.nist.gov/chips/bosch-california-roseville",
+      "retrievedAt": "2026-10-12T09:25:09.247Z",
+      "sha256": "ef3140391188f82f81ca15dbb10317d1aafc1fa92835e2de6d879d1f051e3aea",
+      "publishedAt": null,
+      "excerpt": "Bosch (California) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/bosch-california-roseville Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum inform",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-b36075c749bb-135ab0d08f62",
       "name": "Official manufacturing project source — GlobalWafers",
       "url": "https://www.nist.gov/chips/globalwafers-missouri-st-peters",
@@ -1459,6 +1779,16 @@
       "url": "https://www.nist.gov/chips/globalwafers-missouri-st-peters",
       "retrievedAt": "2026-10-12T08:42:43.800Z",
       "sha256": "af4a9fbf8dcb3a3de79da7c4eb4fd62fc0caac49688ba51fdf20a931b1b95bb7",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce made direct funding awards to GlobalWafers America, LLC (GWA) and MEMC LLC (MEMC), subsidiaries of GlobalWafers Co., Ltd. (GlobalWafers), of up to $406 million to support the construction of new wafer manufacturing facilities in Sherman, Texas and St. Peters, Missouri. Economic And National Security Impact Silicon wafers, which will be produced by GWA in Sherman, Texas, are foundational components in the semiconductor ecosystems, serving as essential inputs for all chips, including leading-edge, mature-node, and memory chips. Approximately 90% of silicon wafers are sourced from East Asia today, with five corporations managing the majority of global supply – GlobalWafers is one of the five global leaders in this market. Accordingly, by supporting this facility, the U.S. is taking a meaningful step to strengthen supply chain resilience and help support a re",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-b36075c749bb-b42a7d902773",
+      "name": "Official manufacturing project source — GlobalWafers",
+      "url": "https://www.nist.gov/chips/globalwafers-missouri-st-peters",
+      "retrievedAt": "2026-10-12T09:25:10.008Z",
+      "sha256": "b42a7d902773482c92e2c9f045a8e8a36598bbf555f33602343269928d59b534",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce made direct funding awards to GlobalWafers America, LLC (GWA) and MEMC LLC (MEMC), subsidiaries of GlobalWafers Co., Ltd. (GlobalWafers), of up to $406 million to support the construction of new wafer manufacturing facilities in Sherman, Texas and St. Peters, Missouri. Economic And National Security Impact Silicon wafers, which will be produced by GWA in Sherman, Texas, are foundational components in the semiconductor ecosystems, serving as essential inputs for all chips, including leading-edge, mature-node, and memory chips. Approximately 90% of silicon wafers are sourced from East Asia today, with five corporations managing the majority of global supply – GlobalWafers is one of the five global leaders in this market. Accordingly, by supporting this facility, the U.S. is taking a meaningful step to strengthen supply chain resilience and help support a re",
       "sourceAsOf": null
@@ -1499,6 +1829,16 @@
       "url": "https://www.nist.gov/chips/sumika-texas-baytown",
       "retrievedAt": "2026-10-12T08:42:45.753Z",
       "sha256": "0693688519142d335672c3236d022bfa2a71969a875f91713c5fe29b7eea8795",
+      "publishedAt": null,
+      "excerpt": "Sumika (Texas) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/sumika-texas-baytown Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum information scie",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-c100861a50a7-a8c9ea2bda81",
+      "name": "Official manufacturing project source — Sumika (Sumitomo Chemical)",
+      "url": "https://www.nist.gov/chips/sumika-texas-baytown",
+      "retrievedAt": "2026-10-12T09:25:11.499Z",
+      "sha256": "a8c9ea2bda814aa7519ad0be2b5161bb5133c544f37e549405d68f931909d4b3",
       "publishedAt": null,
       "excerpt": "Sumika (Texas) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/sumika-texas-baytown Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum information scie",
       "sourceAsOf": null
@@ -1554,6 +1894,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-c2d30d40ea94-8fe49a2a4d1f",
+      "name": "Official manufacturing project source — Analog Devices",
+      "url": "https://www.nist.gov/chips/analog-devices-inc-washington-camas",
+      "retrievedAt": "2026-10-12T09:25:09.026Z",
+      "sha256": "8fe49a2a4d1f91c8812a3c03d034078a3efbe1bb737d921b5b749b29bef11b5f",
+      "publishedAt": null,
+      "excerpt": "Analog Devices Inc. (Washington) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/analog-devices-inc-washington-camas Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Publi",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-c2d30d40ea94-a6d377964571",
       "name": "Official manufacturing project source — Analog Devices",
       "url": "https://www.nist.gov/chips/analog-devices-inc-washington-camas",
@@ -1589,6 +1939,16 @@
       "url": "https://www.nist.gov/chips/hemlock-semiconductor-michigan-hemlock",
       "retrievedAt": "2026-10-12T09:02:57.250Z",
       "sha256": "69d3e029064c9f29f6236fba873e50424fd9484f0d22d5ea6fb1a44db41a82c2",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Hemlock Semiconductor (HSC) up to $325 million in direct funding to support the construction of a new manufacturing facility on HSC’s existing campus in Hemlock, Michigan, dedicated to the production of hyper-pure semiconductor-grade polysilicon.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-c83a9adf8ca8-ac7755e2dce4",
+      "name": "Official manufacturing project source — Hemlock",
+      "url": "https://www.nist.gov/chips/hemlock-semiconductor-michigan-hemlock",
+      "retrievedAt": "2026-10-12T09:25:10.167Z",
+      "sha256": "ac7755e2dce4422c158140329bc9d11e8db68fd5e1cbaf2ccc062f3e850e6ade",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Hemlock Semiconductor (HSC) up to $325 million in direct funding to support the construction of a new manufacturing facility on HSC’s existing campus in Hemlock, Michigan, dedicated to the production of hyper-pure semiconductor-grade polysilicon.",
       "sourceAsOf": null
@@ -1644,6 +2004,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-d47d7667ec08-b2d770b03951",
+      "name": "Official manufacturing project source — Wolfspeed",
+      "url": "https://www.nist.gov/chips/wolfspeed-north-carolina-siler-city",
+      "retrievedAt": "2026-10-12T09:25:11.533Z",
+      "sha256": "b2d770b03951e4b0f32d9188aa7622357cd51912551b33167d38f27687217ce7",
+      "publishedAt": null,
+      "excerpt": "Wolfspeed (North Carolina) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/wolfspeed-north-carolina-siler-city Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safe",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-d47d7667ec08-c38f795e8fd4",
       "name": "Official manufacturing project source — Wolfspeed",
       "url": "https://www.nist.gov/chips/wolfspeed-north-carolina-siler-city",
@@ -1651,6 +2021,16 @@
       "sha256": "c38f795e8fd4ead489d4a96a2c74eb5f0ac90cd67601546c2192b015abce8647",
       "publishedAt": null,
       "excerpt": "Wolfspeed (North Carolina) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/wolfspeed-north-carolina-siler-city Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safe",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-db3a0178ffa7-0d64f3e498ae",
+      "name": "Official manufacturing project source — Coherent",
+      "url": "https://www.nist.gov/chips/coherent-pennsylvania-easton",
+      "retrievedAt": "2026-10-12T09:25:09.384Z",
+      "sha256": "0d64f3e498aefe1f80166898afd7f3d2df56064b3fec95e44ba2663942678678",
+      "publishedAt": null,
+      "excerpt": "Coherent (Pennsylvania) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/coherent-pennsylvania-easton Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum",
       "sourceAsOf": null
     },
     {
@@ -1734,11 +2114,31 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-de3637530ea0-e8b15bb2ff66",
+      "name": "Official manufacturing project source — Powerex",
+      "url": "https://www.nist.gov/chips/powerex-pennsylvania-youngwood",
+      "retrievedAt": "2026-10-12T09:25:11.199Z",
+      "sha256": "e8b15bb2ff66c888e16f74d08c3a401ef67aa860495c30479525df7c9c4695c7",
+      "publishedAt": null,
+      "excerpt": "Powerex (Pennsylvania) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/powerex-pennsylvania-youngwood Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantu",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-dfa177cf9614-2d34d008358d",
       "name": "Official manufacturing project source — Samsung",
       "url": "https://www.nist.gov/chips/samsung-electronics-texas-austin",
       "retrievedAt": "2026-10-12T09:02:59.873Z",
       "sha256": "2d34d008358d369b1dd2d288a18af824e0474b635bb90b20c1ce980243c3c4a4",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Samsung Austin Semiconductor, LLC, a subsidiary of Samsung Electronics (Samsung), up to $4.745 billion in direct funding under the CHIPS and Science Act to strengthen the resilience of the U.S. semiconductor supply chain, advance U.S. technology leadership, and fuel U.S. global competitiveness. Samsung – the only leading-edge semiconductor company that is a leader in both advanced memory and advanced logic technologies – is expected to invest over $37 billion dollars in the region in the coming years, and the investment would support the creation of over 15,000 jobs.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-dfa177cf9614-3eaf2bda2fc2",
+      "name": "Official manufacturing project source — Samsung",
+      "url": "https://www.nist.gov/chips/samsung-electronics-texas-austin",
+      "retrievedAt": "2026-10-12T09:25:11.332Z",
+      "sha256": "3eaf2bda2fc2b75c4a5eed89616a69cee0001c242e29c797759fc56bb80bb6ff",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Samsung Austin Semiconductor, LLC, a subsidiary of Samsung Electronics (Samsung), up to $4.745 billion in direct funding under the CHIPS and Science Act to strengthen the resilience of the U.S. semiconductor supply chain, advance U.S. technology leadership, and fuel U.S. global competitiveness. Samsung – the only leading-edge semiconductor company that is a leader in both advanced memory and advanced logic technologies – is expected to invest over $37 billion dollars in the region in the coming years, and the investment would support the creation of over 15,000 jobs.",
       "sourceAsOf": null
@@ -1792,6 +2192,16 @@
       "publishedAt": "2025-01-21",
       "excerpt": "goev-20250117 0001750153 false 0001750153 2025-01-17 2025-01-17 0001750153 us-gaap:CommonStockMember 2025-01-17 2025-01-17 0001750153 us-gaap:WarrantMember 2025-01-17 2025-01-17 UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549 FORM 8-K CURRENT REPORT Pursuant to Section 13 or 15(d) of the Securities Exchange Act of 1934 Date of Report (Date of earliest event reported): January 17, 2025 CANOO INC . (Exact name of registrant as specified in its charter) Delaware 001-38824 83-1476189 (State or Other Jurisdiction of Incorporation) (Commission File Number) (I.R.S. Employer Identification No.) 19951 Mariner Avenue Torrance , California 90503 (Address of principal executive offices) (Zip Code) ( 424 ) 271-2144 (Registrant’s telephone number, including area code) N/A (Former name or former address, if changed since last report.) Check the appropriate box below if the Form | filed for liquidation under Chapter 7",
       "sourceAsOf": "2025-01-17"
+    },
+    {
+      "id": "industrial-primary-ef525b9dd4ce-575c66167d1d",
+      "name": "Official manufacturing project source — Analog Devices",
+      "url": "https://www.nist.gov/chips/analog-devices-inc-oregon-beaverton",
+      "retrievedAt": "2026-10-12T09:25:08.981Z",
+      "sha256": "575c66167d1d67f88cd466d4c50a5dd77c067ea02355baefd0b52df850049e21",
+      "publishedAt": null,
+      "excerpt": "Analog Devices Inc. (Oregon) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/analog-devices-inc-oregon-beaverton Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public sa",
+      "sourceAsOf": null
     },
     {
       "id": "industrial-primary-ef525b9dd4ce-9fd860b0f9a7",
@@ -1864,6 +2274,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-f21f6689ad04-b6d0a60997c4",
+      "name": "Official manufacturing project source — Wolfspeed",
+      "url": "https://www.nist.gov/chips/wolfspeed-new-york-marcy",
+      "retrievedAt": "2026-10-12T09:25:11.530Z",
+      "sha256": "b6d0a60997c40e0d51dab001d6e0f68b6e010632b2cc003d158318935bd94b9d",
+      "publishedAt": null,
+      "excerpt": "Wolfspeed (New York) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/wolfspeed-new-york-marcy Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum inform",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-f21f6689ad04-ec9c8504949c",
       "name": "Official manufacturing project source — Wolfspeed",
       "url": "https://www.nist.gov/chips/wolfspeed-new-york-marcy",
@@ -1904,6 +2324,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-f586b33ebaa2-415ed0299832",
+      "name": "Official manufacturing project source — Polar",
+      "url": "https://www.nist.gov/chips/polar-semiconductor-minnesota-bloomington",
+      "retrievedAt": "2026-10-12T09:25:11.165Z",
+      "sha256": "415ed0299832d8673f496c790cfcf97cd69c59c5573e235c81a424588ca62837",
+      "publishedAt": null,
+      "excerpt": "The U.S. Department of Commerce awarded Polar Semiconductor (Polar) up to $123 million in total direct funding under the CHIPS and Science Act to expand and modernize the company’s manufacturing facility in Bloomington, Minnesota, which is expected to almost double its U.S. production capacity of sensor and power chips within two years. The CHIPS incentive award catalyzes an investment of more than $525 million from private, state, and federal sources to transform Polar from a majority foreign-owned in-house manufacturer to a majority U.S.-owned commercial foundry, expanding opportunities for U.S. chip designers to innovate and produce technologies domestically. Through Polar’s semiconductor manufacturing operations, the investment is expected to create over 160 manufacturing and construction jobs in Minnesota.",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-f586b33ebaa2-4e0c71d855c3",
       "name": "Official manufacturing project source — Polar",
       "url": "https://www.nist.gov/chips/polar-semiconductor-minnesota-bloomington",
@@ -1921,6 +2351,16 @@
       "sha256": "76cd7fcd3a470bad71476bb9b24b64491369bc606c95f3dc96b3597c743d7d64",
       "publishedAt": null,
       "excerpt": "The U.S. Department of Commerce awarded Polar Semiconductor (Polar) up to $123 million in total direct funding under the CHIPS and Science Act to expand and modernize the company’s manufacturing facility in Bloomington, Minnesota, which is expected to almost double its U.S. production capacity of sensor and power chips within two years. The CHIPS incentive award catalyzes an investment of more than $525 million from private, state, and federal sources to transform Polar from a majority foreign-owned in-house manufacturer to a majority U.S.-owned commercial foundry, expanding opportunities for U.S. chip designers to innovate and produce technologies domestically. Through Polar’s semiconductor manufacturing operations, the investment is expected to create over 160 manufacturing and construction jobs in Minnesota.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-f6536e389732-0928f33bdfb8",
+      "name": "Official manufacturing project source — Coherent",
+      "url": "https://www.nist.gov/chips/coherent-texas-sherman",
+      "retrievedAt": "2026-10-12T09:25:09.435Z",
+      "sha256": "0928f33bdfb8ae640d1ab1bdfdd2127ac70a34fb1ee4e2e2f488dcd81c1e8d9c",
+      "publishedAt": null,
+      "excerpt": "Coherent (Texas) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/coherent-texas-sherman Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum information",
       "sourceAsOf": null
     },
     {
@@ -1979,6 +2419,16 @@
       "url": "https://www.nist.gov/chips/microchip-technology-inc-colorado-colorado-springs",
       "retrievedAt": "2026-10-12T09:22:18.383Z",
       "sha256": "5e7d48c2b638a8e03e8d4119a5f347a74956d0e3d21643dc838863bd97ccf129",
+      "publishedAt": null,
+      "excerpt": "Microchip Technology, Inc. (Colorado) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/microchip-technology-inc-colorado-colorado-springs Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance exce",
+      "sourceAsOf": null
+    },
+    {
+      "id": "industrial-primary-f6f816cb7871-60ef6caa19e0",
+      "name": "Official manufacturing project source — Microchip Technology",
+      "url": "https://www.nist.gov/chips/microchip-technology-inc-colorado-colorado-springs",
+      "retrievedAt": "2026-10-12T09:25:10.915Z",
+      "sha256": "60ef6caa19e04c6e0379635089adbee16237e7db69fd46cb12a349e13ac78a75",
       "publishedAt": null,
       "excerpt": "Microchip Technology, Inc. (Colorado) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/microchip-technology-inc-colorado-colorado-springs Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance exce",
       "sourceAsOf": null
@@ -2044,6 +2494,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-f77c17523a5d-a4c06ce2b643",
+      "name": "Official manufacturing project source — IntelliEPI",
+      "url": "https://www.nist.gov/chips/intelliepi-texas-allen",
+      "retrievedAt": "2026-10-12T09:25:10.740Z",
+      "sha256": "a4c06ce2b643dcf7ce746973d055076c05dba3bce1f98291da734ddc6fc0ee7e",
+      "publishedAt": null,
+      "excerpt": "IntelliEPI (Texas) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/intelliepi-texas-allen Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Physics Public safety Quantum informatio",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-f8a5eeae477d-33e866a1bdbb",
       "name": "Official manufacturing project source — Analog Devices",
       "url": "https://www.nist.gov/chips/analog-devices-inc-massachusetts-chelmsford",
@@ -2084,11 +2544,31 @@
       "sourceAsOf": null
     },
     {
+      "id": "industrial-primary-f8a5eeae477d-f0a4f5b9c50b",
+      "name": "Official manufacturing project source — Analog Devices",
+      "url": "https://www.nist.gov/chips/analog-devices-inc-massachusetts-chelmsford",
+      "retrievedAt": "2026-10-12T09:25:08.929Z",
+      "sha256": "f0a4f5b9c50b9af3a29563a3840fae9f3c5182a1c33ddb187740fc119f1d7065",
+      "publishedAt": null,
+      "excerpt": "Analog Devices Inc. (Massachusetts) | NIST Skip to main content An official website of the United States government Here’s how you know Here’s how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. https://www.nist.gov/chips/analog-devices-inc-massachusetts-chelmsford Search NIST Menu Close Publications What We Do All Topics Advanced communications Bioscience Buildings and construction Chemistry Cybersecurity and Privacy Electronics Energy Environment Fire Forensic science Health Information technology Infrastructure Manufacturing Materials Mathematics and statistics Metrology Nanotechnology Neutron research Performance excellence Ph",
+      "sourceAsOf": null
+    },
+    {
       "id": "industrial-primary-fb663af270b5-15d1a4251e75",
       "name": "Official manufacturing project source — status review",
       "url": "https://pressroom.toyota.com/toyota-charges-into-u-s-battery-manufacturing/",
       "retrievedAt": "2026-10-12T09:12:35.670Z",
       "sha256": "15d1a4251e757c902a38ab72f027f962fdae1d8cb22c53eacd87263b3ffc1456",
+      "publishedAt": "2025-11-12",
+      "excerpt": "Toyota Charges into U.S. Battery Manufacturing - Toyota USA Newsroom Product Cars & Minivans Camry Corolla Gas Hybrid Hatchback Crown Mirai Prius Hybrid Plug-in Hybrid Sienna Trucks Tacoma Gas Hybrid Tundra Gas Hybrid Crossovers & SUVs 4Runner b Z b Z Woodland C-HR Corolla Cross Gas Hybrid Crown Signia Grand Highlander Highlander Land Cruiser RAV4 Hybrid Plug-in Hybrid Sequoia Sports Cars GR86 GR Corolla GR Supra Electrified Cars & Minivans Camry Corolla Hybrid Crown Mirai Prius Hybrid Plug-in Hybrid Sienna Trucks Tacoma i -FORCE MAX Tundra i -FORCE MAX Crossovers & SUVs 4Runner b Z b Z Woodland C-HR Corolla Cross Hybrid Crown Signia Grand Highlander Highlander Land Cruiser RAV4 Hybrid Plug-in Hybrid Sequoia Concept Vehicles Historic Vehicles Auto Shows & Events New Product Showcase U.S. Shows CES Chicago Detroit Los Angeles New York SEMA Global Shows What’s New What’s New for 2028 What’ | Toyota supercharged its multi-pathway approach to global vehicle electrification with the highly anticipated start of production at its all-new battery plant in Liberty, North Carolina.",
+      "sourceAsOf": "2025-11-12"
+    },
+    {
+      "id": "industrial-primary-fb663af270b5-3ba3a637d1cf",
+      "name": "Official manufacturing project source — status review",
+      "url": "https://pressroom.toyota.com/toyota-charges-into-u-s-battery-manufacturing/",
+      "retrievedAt": "2026-10-12T09:25:08.674Z",
+      "sha256": "3ba3a637d1cf197f72ae82e51f00b5242c7bd2df7574519b5229bf42d9648534",
       "publishedAt": "2025-11-12",
       "excerpt": "Toyota Charges into U.S. Battery Manufacturing - Toyota USA Newsroom Product Cars & Minivans Camry Corolla Gas Hybrid Hatchback Crown Mirai Prius Hybrid Plug-in Hybrid Sienna Trucks Tacoma Gas Hybrid Tundra Gas Hybrid Crossovers & SUVs 4Runner b Z b Z Woodland C-HR Corolla Cross Gas Hybrid Crown Signia Grand Highlander Highlander Land Cruiser RAV4 Hybrid Plug-in Hybrid Sequoia Sports Cars GR86 GR Corolla GR Supra Electrified Cars & Minivans Camry Corolla Hybrid Crown Mirai Prius Hybrid Plug-in Hybrid Sienna Trucks Tacoma i -FORCE MAX Tundra i -FORCE MAX Crossovers & SUVs 4Runner b Z b Z Woodland C-HR Corolla Cross Hybrid Crown Signia Grand Highlander Highlander Land Cruiser RAV4 Hybrid Plug-in Hybrid Sequoia Concept Vehicles Historic Vehicles Auto Shows & Events New Product Showcase U.S. Shows CES Chicago Detroit Los Angeles New York SEMA Global Shows What’s New What’s New for 2028 What’ | Toyota supercharged its multi-pathway approach to global vehicle electrification with the highly anticipated start of production at its all-new battery plant in Liberty, North Carolina.",
       "sourceAsOf": "2025-11-12"
@@ -2199,6 +2679,16 @@
       "url": "https://www.semiconductors.org/chip-supply-chain-investments/",
       "retrievedAt": "2026-10-12T09:02:47.494Z",
       "sha256": "71874bb9abd436e7b9f0d0958669ad59fa1d8b8312f305e3506d6127a2993e24",
+      "publishedAt": null,
+      "excerpt": "Last updated September 22, 2026",
+      "sourceAsOf": "2026-09-22"
+    },
+    {
+      "id": "industrial-sia-index-f9746439d782",
+      "name": "SIA semiconductor supply chain investment tracker",
+      "url": "https://www.semiconductors.org/chip-supply-chain-investments/",
+      "retrievedAt": "2026-10-12T09:25:05.866Z",
+      "sha256": "f9746439d78219a89d7eb5f7f02e2aec93143913576f2645c2824e5da55d4207",
       "publishedAt": null,
       "excerpt": "Last updated September 22, 2026",
       "sourceAsOf": "2026-09-22"
@@ -2632,7 +3122,8 @@
       "gridEvidence": [],
       "aliases": [
         "LLF-ind-doe-aspen-aerogels-register-ga-cb09f390",
-        "Aspen Aerogels — Register, GA — 투자 발표 $325,000,000 (Electric Vehicles)"
+        "Aspen Aerogels — Register, GA — 투자 발표 $325,000,000 (Electric Vehicles)",
+        "Aspen Aerogels — Register, GA — 투자 발표 $671,000,000 (Electric Vehicles)"
       ],
       "legacyProjectIds": [],
       "notes": [
@@ -2647,7 +3138,48 @@
         "DOE의 3.25억·6.71억 달러 Register 투자 발표는 SEC 공시가 단일 Statesboro aerogel manufacturing facility로 지칭한 사업으로 병합했습니다. 두 발표 금액을 전력 용량이나 별도 공장 수로 합산하지 않습니다.",
         "검토된 상태 근거를 이번 실행에서 재확인하지 못했습니다. 기존 상태 이력은 보존하며 새 단계로 추정하지 않습니다."
       ],
-      "possibleDuplicateIds": [],
+      "possibleDuplicateIds": [
+        "LLF-ind-doe-aspen-aerogels-register-ga-cb09f390"
+      ],
+      "regionBasis": "geographic_estimate"
+    },
+    {
+      "id": "LLF-ind-doe-aspen-aerogels-register-ga-cb09f390",
+      "name": "Aspen Aerogels — Register, GA — 투자 발표 $325,000,000 (Electric Vehicles)",
+      "operator": "Aspen Aerogels",
+      "sector": "vehicle",
+      "region": "Southeast",
+      "state": "GA",
+      "county": null,
+      "city": "Register",
+      "lat": 32.28,
+      "lon": -81.9,
+      "identityKind": "phase",
+      "parentId": null,
+      "lifecycle": "unknown",
+      "asOf": "2025-01-15",
+      "sourceIds": [
+        "industrial-doe-index-5c8b2a43b9a9",
+        "industrial-doe-manufacturing-2e3a37e911b2",
+        "industrial-doe-methodology-a47e1e3ed909"
+      ],
+      "capacityFacts": [],
+      "events": [],
+      "gridEvidence": [],
+      "aliases": [],
+      "legacyProjectIds": [],
+      "notes": [
+        "DOE 발표행 356: Aspen Aerogels; Register, Georgia; Electric Vehicles; 민간 투자 $325,000,000.",
+        "2025-01-15 기준의 조건부 투자 발표 원장입니다. 현재 공사·운영·취소 여부는 별도 자료가 없으면 미확인입니다. 기준일을 사업 발표일로 사용하지 않습니다.",
+        "1억 달러 이상 신설·증설 투자 발표를 우선 수집했습니다. 투자금은 시설의 실제 MW를 뜻하지 않으며 생산량·배터리 GWh를 전력 MW로 변환하지 않습니다.",
+        "DOE 지도 좌표는 근사 위치이며 공급 유틸리티 또는 개별 계통 접속을 입증하지 않습니다.",
+        "중복 가능성: 같은 기업·도시의 다른 투자 발표행이 있습니다. 원장에 부지 주소·동일 사업 식별자가 없어 별도 증설인지 중복 발표인지 미확정입니다. 물리 시설 전수나 독립 사업 수로 해석하지 마세요.",
+        "검토된 상태 근거를 이번 실행에서 재확인하지 못했습니다. 기존 상태 이력은 보존하며 새 단계로 추정하지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다."
+      ],
+      "possibleDuplicateIds": [
+        "LLF-ind-doe-aspen-aerogels-register-ga-8b7d09c8"
+      ],
       "regionBasis": "geographic_estimate"
     },
     {
@@ -5901,7 +6433,8 @@
         "industrial-primary-a3a7bba5b738-dfb5d6820306",
         "industrial-doe-index-be45400a3fa3",
         "industrial-doe-methodology-489ae07468a2",
-        "industrial-primary-a3a7bba5b738-cb2c6df3ccee"
+        "industrial-primary-a3a7bba5b738-cb2c6df3ccee",
+        "industrial-primary-a3a7bba5b738-e4f636c3515e"
       ],
       "capacityFacts": [],
       "events": [
@@ -5910,7 +6443,7 @@
           "date": "2026-06-02",
           "status": "operating",
           "sourceIds": [
-            "industrial-primary-a3a7bba5b738-dfb5d6820306"
+            "industrial-primary-a3a7bba5b738-e4f636c3515e"
           ],
           "note": "실제 공장은 Savannah 권역 Ellabell의 HMGMA입니다. 차량 3종 생산을 확인하며 별도 Hyundai / LG Energy 배터리 JV에 차량 가동 상태를 적용하지 않습니다."
         }
@@ -9040,7 +9573,8 @@
         "industrial-doe-index-be45400a3fa3",
         "industrial-doe-methodology-489ae07468a2",
         "industrial-primary-fb663af270b5-15d1a4251e75",
-        "industrial-primary-fb663af270b5-bc97dcfe46d2"
+        "industrial-primary-fb663af270b5-bc97dcfe46d2",
+        "industrial-primary-fb663af270b5-3ba3a637d1cf"
       ],
       "capacityFacts": [],
       "events": [],
@@ -9085,7 +9619,8 @@
         "industrial-doe-index-be45400a3fa3",
         "industrial-doe-methodology-489ae07468a2",
         "industrial-primary-fb663af270b5-15d1a4251e75",
-        "industrial-primary-fb663af270b5-bc97dcfe46d2"
+        "industrial-primary-fb663af270b5-bc97dcfe46d2",
+        "industrial-primary-fb663af270b5-3ba3a637d1cf"
       ],
       "capacityFacts": [],
       "events": [
@@ -9094,7 +9629,7 @@
           "date": "2025-11-12",
           "status": "operating",
           "sourceIds": [
-            "industrial-primary-fb663af270b5-bc97dcfe46d2"
+            "industrial-primary-fb663af270b5-3ba3a637d1cf"
           ],
           "note": "초기 Liberty 배터리 생산시설의 실제 가동 확인입니다. DOE 후속 126.1억 달러 투자행이나 2030년까지의 추가 라인 전부를 가동 완료로 평가하지 않습니다. 동일 캠퍼스 복수 투자행 중 초기 시설 범위에만 적용합니다."
         }
@@ -9331,7 +9866,8 @@
         "industrial-doe-index-be45400a3fa3",
         "industrial-doe-methodology-489ae07468a2",
         "industrial-primary-692bef705631-97ac1354cd29",
-        "industrial-primary-692bef705631-8710b37c09df"
+        "industrial-primary-692bef705631-8710b37c09df",
+        "industrial-primary-692bef705631-e384c174bd37"
       ],
       "capacityFacts": [],
       "events": [
@@ -9340,7 +9876,7 @@
           "date": "2026-09-28",
           "status": "operating",
           "sourceIds": [
-            "industrial-primary-692bef705631-8710b37c09df"
+            "industrial-primary-692bef705631-e384c174bd37"
           ],
           "note": "기존 Spring Hill 공장의 LFP 배터리 생산이 확인됩니다. 2026년 말 개조 착수·2028년 완료 목표인 별도 LMR 후속 증설은 이 운영 범위에 포함하지 않습니다."
         }
@@ -10055,7 +10591,9 @@
         "industrial-primary-23afcdeefec0-0b542667f19d",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-23afcdeefec0-372866eed94e",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-23afcdeefec0-97e50e482052",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10094,7 +10632,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10133,7 +10672,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10175,7 +10715,8 @@
         "industrial-primary-001648378834-fba4916bdc75",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [
@@ -10227,7 +10768,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10270,7 +10812,9 @@
         "industrial-primary-ef525b9dd4ce-9fd860b0f9a7",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-ef525b9dd4ce-c171e030a586",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-ef525b9dd4ce-575c66167d1d",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10313,7 +10857,9 @@
         "industrial-primary-c2d30d40ea94-8ddde8e3b788",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-c2d30d40ea94-a6d377964571",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-c2d30d40ea94-8fe49a2a4d1f",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10356,7 +10902,9 @@
         "industrial-primary-f8a5eeae477d-db416ae1174a",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-f8a5eeae477d-ec33e5a21d32",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-f8a5eeae477d-f0a4f5b9c50b",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10397,7 +10945,9 @@
         "industrial-sia-index-71874bb9abd4",
         "industrial-primary-a4cb47e564fc-a9872b9ed585",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-a4cb47e564fc-6f9d0cffe3b6",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [
@@ -10406,7 +10956,7 @@
           "date": "2026-09-16",
           "status": "operating",
           "sourceIds": [
-            "industrial-primary-a4cb47e564fc-39425b308344"
+            "industrial-primary-a4cb47e564fc-6f9d0cffe3b6"
           ],
           "note": "첫 양자 웨이퍼 제조가 실제 시작됐다는 기업 확인입니다. 투자 확대 전부가 완공됐다는 뜻은 아닙니다."
         }
@@ -10447,7 +10997,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10490,7 +11041,9 @@
         "industrial-primary-3875a62b07d0-2480fcee46b4",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-3875a62b07d0-d4508313921a",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-3875a62b07d0-ccfc3be92815",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10538,7 +11091,9 @@
         "industrial-primary-b307a529111b-42c2b8e1e780",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-b307a529111b-337d01bda239",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-b307a529111b-ef3140391188",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10578,7 +11133,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10617,7 +11173,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10660,7 +11217,9 @@
         "industrial-primary-db3a0178ffa7-148117cdcc46",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-db3a0178ffa7-2a28ba91bf8e",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-db3a0178ffa7-0d64f3e498ae",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10703,7 +11262,9 @@
         "industrial-primary-f6536e389732-97f456b737b4",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-f6536e389732-b273dfc7f96f",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-f6536e389732-0928f33bdfb8",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10747,7 +11308,9 @@
         "industrial-primary-5a3390455939-7814f46ead67",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-5a3390455939-6e68b4d3e794",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-5a3390455939-8811559ae00f",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10786,7 +11349,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10825,7 +11389,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10864,7 +11429,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10907,7 +11473,9 @@
         "industrial-primary-52ca0b0a770e-a1e371d76d77",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-52ca0b0a770e-7be774f7c523",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-52ca0b0a770e-2f99781da553",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10946,7 +11514,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -10985,7 +11554,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11028,7 +11598,9 @@
         "industrial-primary-6b9d1ab5e0c3-bbe350ca9131",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-6b9d1ab5e0c3-f4dd5ec1f417",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-6b9d1ab5e0c3-fcaaa0f747c1",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11068,7 +11640,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11111,7 +11684,9 @@
         "industrial-primary-477b847cd8bd-c72fe990a768",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-477b847cd8bd-c4272d8fdf6f",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-477b847cd8bd-b35fe46d7f6e",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11150,7 +11725,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11189,7 +11765,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11228,7 +11805,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11271,7 +11849,9 @@
         "industrial-primary-b36075c749bb-fa91223157e7",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-b36075c749bb-135ab0d08f62",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-b36075c749bb-b42a7d902773",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11314,7 +11894,9 @@
         "industrial-primary-c83a9adf8ca8-fbe2700ff8a1",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-c83a9adf8ca8-2a4d63db69e5",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-c83a9adf8ca8-ac7755e2dce4",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11357,7 +11939,9 @@
         "industrial-primary-aae88cd88fbe-985aaff0714c",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-aae88cd88fbe-51d985cedc71",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-aae88cd88fbe-2027523d1c54",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11396,7 +11980,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11435,7 +12020,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11478,7 +12064,9 @@
         "industrial-primary-13bfe9942906-39688457728f",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-13bfe9942906-b4dd0e892dbc",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-13bfe9942906-d4105373a0b7",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11521,7 +12109,9 @@
         "industrial-primary-75dc123fa557-45e536ab1e79",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-75dc123fa557-2723dccae8af",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-75dc123fa557-38229f410c52",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11564,7 +12154,9 @@
         "industrial-primary-50ea577a0d3e-0f195d8fa0d2",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-50ea577a0d3e-79e9ca06c59c",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-50ea577a0d3e-e72f9c053bc8",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11608,7 +12200,9 @@
         "industrial-primary-a9a7ed092782-0c845b0a1d10",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-a9a7ed092782-afe18ff31d94",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-a9a7ed092782-4698d879ca6e",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [
@@ -11664,7 +12258,9 @@
         "industrial-primary-f77c17523a5d-1f01074752b3",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-f77c17523a5d-7eaad9f95915",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-f77c17523a5d-a4c06ce2b643",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11703,7 +12299,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11745,7 +12342,8 @@
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-86141a896bf1-8a1074ee4eb9",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [
@@ -11796,7 +12394,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11835,7 +12434,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11874,7 +12474,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -11914,7 +12515,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [
@@ -11968,7 +12570,9 @@
         "industrial-primary-4837fc060a08-13de10e36597",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-4837fc060a08-5f13bba1218a",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-4837fc060a08-8dcac7fecc28",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12011,7 +12615,9 @@
         "industrial-primary-661ae75792f2-cc3db15b09ec",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-661ae75792f2-64614644f4f1",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-661ae75792f2-a09cd38b75cd",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12050,7 +12656,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12089,7 +12696,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12128,7 +12736,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12171,7 +12780,9 @@
         "industrial-primary-f6f816cb7871-6b71bab9ac1b",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-f6f816cb7871-5e7d48c2b638",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-f6f816cb7871-60ef6caa19e0",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12214,7 +12825,9 @@
         "industrial-primary-afa4f0e45ff5-f58d1ffccdc5",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-afa4f0e45ff5-6265ce5e6f8a",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-afa4f0e45ff5-8bb47fe90b88",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12259,7 +12872,10 @@
         "industrial-primary-6db62a5ec909-184b4195ec7a",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-55a2aaad6860-93cc7b7b069b",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-55a2aaad6860-6a87675be16f",
+        "industrial-primary-6db62a5ec909-f5bb4ddd7800",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [
@@ -12268,7 +12884,7 @@
           "date": "2025-06-12",
           "status": "construction",
           "sourceIds": [
-            "industrial-primary-6db62a5ec909-c5d5dfcb2fd4"
+            "industrial-primary-6db62a5ec909-f5bb4ddd7800"
           ],
           "note": "첫 Idaho Fab의 실제 건설 공정 달성이 확인됩니다. 두 번째 Fab 추가 계획과 2027년 생산 목표를 현재 완료로 해석하지 않습니다. 이 상태 근거의 날짜는 2025년 6월입니다."
         }
@@ -12313,7 +12929,9 @@
         "industrial-primary-a68fd76d83ea-5561404ecede",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-a68fd76d83ea-8f3b4abdd535",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-a68fd76d83ea-cbca87942bd0",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12356,7 +12974,9 @@
         "industrial-primary-90f63283a206-b254c8d48f66",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-90f63283a206-ab47fff28db2",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-90f63283a206-73bf98d6f76d",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12395,7 +13015,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12434,7 +13055,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12473,7 +13095,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12516,7 +13139,9 @@
         "industrial-primary-003dfb42d05e-2fa6db8d9a9a",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-003dfb42d05e-93a571f2f3d8",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-003dfb42d05e-b8ab9b3e695a",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12559,7 +13184,9 @@
         "industrial-primary-77371b694eaf-d93932a0513a",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-77371b694eaf-af4da3ef1b9f",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-77371b694eaf-d0d915a87a02",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12601,7 +13228,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12644,7 +13272,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12683,7 +13312,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12722,7 +13352,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12761,7 +13392,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12804,7 +13436,9 @@
         "industrial-primary-f586b33ebaa2-4e0c71d855c3",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-f586b33ebaa2-0f3abec3b44a",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-f586b33ebaa2-415ed0299832",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12847,7 +13481,9 @@
         "industrial-primary-de3637530ea0-6ec007c788b1",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-de3637530ea0-642808bc359a",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-de3637530ea0-e8b15bb2ff66",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12886,7 +13522,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12929,7 +13566,9 @@
         "industrial-primary-44ec70b28d3e-6f6d40db630a",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-44ec70b28d3e-eb7eafb2b340",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-44ec70b28d3e-cffa7052384b",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -12968,7 +13607,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13011,7 +13651,9 @@
         "industrial-primary-491d233cc075-56eb55433332",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-491d233cc075-72d960b2cc06",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-491d233cc075-34d234806d22",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13050,7 +13692,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13093,7 +13736,9 @@
         "industrial-primary-dfa177cf9614-8770204f45d1",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-dfa177cf9614-5af172a1fbc0",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-dfa177cf9614-3eaf2bda2fc2",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13140,7 +13785,10 @@
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-575d43dba768-2f56e52bde0f",
         "industrial-primary-7fa761515026-132d8ce04941",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-575d43dba768-483e397554cf",
+        "industrial-primary-7fa761515026-6cf5f68f8da0",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13180,7 +13828,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13219,7 +13868,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13262,7 +13912,9 @@
         "industrial-primary-7866a15332df-caf43bd1b85e",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-7866a15332df-5a49c2cadb05",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-7866a15332df-71b171cda85f",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13301,7 +13953,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13344,7 +13997,9 @@
         "industrial-primary-7bcef72c4892-f954ac9f232d",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-7bcef72c4892-0dbee13132e5",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-7bcef72c4892-e11c43d1e606",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13383,7 +14038,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13422,7 +14078,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13461,7 +14118,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13500,7 +14158,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13539,7 +14198,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13582,7 +14242,9 @@
         "industrial-primary-c100861a50a7-cc356dbcb682",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-c100861a50a7-c33eab8eec8e",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-c100861a50a7-a8c9ea2bda81",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13621,7 +14283,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13660,7 +14323,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13699,7 +14363,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13738,7 +14403,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13782,7 +14448,9 @@
         "industrial-primary-35cebb2f5e64-419c21d1df8f",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-35cebb2f5e64-10b470a102c9",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-35cebb2f5e64-4f36c453338d",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13823,7 +14491,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13865,7 +14534,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13905,7 +14575,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13944,7 +14615,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -13985,7 +14657,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -14026,7 +14699,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -14065,7 +14739,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -14104,7 +14779,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -14143,7 +14819,8 @@
         "industrial-sia-investments-413b62862a98",
         "industrial-sia-index-71874bb9abd4",
         "industrial-sia-index-5ea931fe93ce",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -14186,7 +14863,9 @@
         "industrial-primary-f21f6689ad04-1d66ce9fef6e",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-f21f6689ad04-3d7c6b8ddf5a",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-f21f6689ad04-b6d0a60997c4",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -14234,7 +14913,9 @@
         "industrial-primary-d47d7667ec08-c38f795e8fd4",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-d47d7667ec08-27a65672691c",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-d47d7667ec08-b2d770b03951",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
@@ -14278,7 +14959,9 @@
         "industrial-primary-3752f9323c24-d48d76366049",
         "industrial-sia-index-5ea931fe93ce",
         "industrial-primary-3752f9323c24-a6db572dbd02",
-        "industrial-sia-index-190dc688d921"
+        "industrial-sia-index-190dc688d921",
+        "industrial-primary-3752f9323c24-cbff173789d3",
+        "industrial-sia-index-f9746439d782"
       ],
       "capacityFacts": [],
       "events": [],
