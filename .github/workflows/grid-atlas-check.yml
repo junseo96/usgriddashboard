@@ -42,6 +42,7 @@ jobs:
       - run: npm run data:reviewed:check
       - run: npm run data:status:check
       - run: npm run data:inferences:check
+      - run: npm run data:facilities:check
       - run: npm test
       - run: npm run test:python
       - run: npm run build

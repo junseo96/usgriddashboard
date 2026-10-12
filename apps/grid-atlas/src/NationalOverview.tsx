@@ -1,5 +1,5 @@
 import { useEffect, useId, useMemo, useState } from 'react';
-import { Activity, ArrowRight, ArrowUpRight, BatteryCharging, BookOpen, CircleHelp, Database, Factory, History, Layers3, RefreshCw, Sun } from 'lucide-react';
+import { Activity, ArrowRight, ArrowUpRight, BatteryCharging, BookOpen, CircleHelp, Database, History, Layers3, RefreshCw, Sun } from 'lucide-react';
 import type { DashboardResponse, HistoryPoint, ProjectType } from '../shared/types';
 import { isHistoricalDataset, type HistoricalDataset, type HistoricalPoint, type HistoricalSeries } from '../shared/history';
 import { MARKET_REGIONS, type DemandDataset, type LoadPipelineDataset, type MarketRegion, type RegionDemand } from '../shared/market-types';
@@ -7,6 +7,7 @@ import { isDemandDataset, type MarketComparison } from '../shared/market';
 import { resolveRegionalPipelines, type ResolvedRegionalPipeline } from '../shared/regional-pipeline';
 import { externalUrl, formatGw, marketDate, marketNumber, qualifiedGw } from './market-format';
 import './national-overview.css';
+import { LargeLoadSummary, LargeLoadKpi } from './LargeLoadFacilities';
 
 interface Props {
   data: DashboardResponse;
@@ -71,7 +72,7 @@ export default function NationalOverview({ data, revision, onProjects, onScores,
     <div className="no-context"><span><i />미국 본토 · 공개 접속 자료</span><span>원장 관측 {marketDate(data.snapshot?.capturedAt)} KST</span></div>
     <section className="no-kpis" aria-label="전국 핵심 지표">
       <article className="no-kpi no-kpi-score">
-        <div className="no-kpi-label"><Activity size={17} /><span>평균 병목점수</span><button type="button" onClick={onScores} aria-label="병목점수 계산과 평가 범위 보기"><ArrowUpRight size={17} /></button></div>
+        <div className="no-kpi-label"><Activity size={17} /><span>접속 원장 평균</span><button type="button" onClick={onScores} aria-label="병목점수 계산과 평가 범위 보기"><ArrowUpRight size={17} /></button></div>
         <div className="no-kpi-value">{score(summary.ratingMean)}{summary.ratingMean !== null && <small>/ 100</small>}</div>
         <p>평가 가능한 공개 신청의 동일 가중 평균</p>
         <div className="no-score-meter" aria-hidden="true"><span style={{ width: `${summary.ratingMean ?? 0}%` }} /></div>
@@ -79,10 +80,11 @@ export default function NationalOverview({ data, revision, onProjects, onScores,
       </article>
       <CapacityCard icon="generation" title="발전 접속 신청" value={summary.knownCapacityCounts.generation ? summary.generationMw : null} count={summary.typeCounts.generation} date={lbnl?.sourceAsOf} onClick={() => onProjects(undefined, 'generation')} />
       <CapacityCard icon="storage" title="저장 접속 신청" value={summary.knownCapacityCounts.storage ? summary.storageMw : null} count={summary.typeCounts.storage} date={lbnl?.sourceAsOf} onClick={() => onProjects(undefined, 'storage')} />
-      <article className="no-kpi no-kpi-load"><div className="no-kpi-label"><Factory size={17} /><span>수용가 접속 요청</span></div><div className="no-load-unavailable">전국 합계 미확보</div><p>권역 기관 집계와 유틸리티별<br />요청·계약·계획을 구분해 확인합니다.</p><button className="no-card-link" type="button" onClick={() => document.getElementById('national-regional-comparison')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })}>7개 권역 공개 규모 <ArrowRight size={15} /></button></article>
+      <LargeLoadKpi onOpen={() => onProjects('', 'load')} />
     </section>
     <p className="no-kpi-caption">공개 원장 범위의 지표입니다. 복합 발전·저장 신청은 유형별로 겹치며, 용량은 실제 소비·공급 전망이 아닙니다.</p>
 
+    <LargeLoadSummary onOpen={() => onProjects('', 'load')} />
     <div className="no-insight-grid">
       <section className="no-panel no-history-panel" aria-labelledby="national-history-heading">
         <div className="no-panel-heading"><div><span className="no-eyebrow">HISTORICAL VIEW</span><h2 id="national-history-heading">병목점수의 변화</h2></div><button className="no-text-link" type="button" onClick={onTimeline}>시계열 전체 <ArrowUpRight size={15} /></button></div>
@@ -92,7 +94,7 @@ export default function NationalOverview({ data, revision, onProjects, onScores,
         <p className="no-chart-note">{historyMode === 'long-term' ? '연도마다 신청 구성·단계 공개율이 달라집니다. 위의 발전·저장·수용가 평균과는 별도 계열입니다.' : '실제 관측한 시점만 표시합니다. 첫 관측 이전의 전체 평균을 과거 발전·저장 점수로 채우지 않습니다.'}</p>
       </section>
       <section className="no-panel no-coverage-panel" aria-labelledby="national-coverage-heading">
-        <div className="no-panel-heading"><div><span className="no-eyebrow">ASSESSMENT SCOPE</span><h2 id="national-coverage-heading">평가한 범위</h2></div><Layers3 size={19} /></div>
+        <div className="no-panel-heading"><div><span className="no-eyebrow">ASSESSMENT SCOPE</span><h2 id="national-coverage-heading">평가한 접속 원장 범위</h2></div><Layers3 size={19} /></div>
         <div className="no-coverage-number"><strong>{marketNumber(summary.ratedCount)}</strong><span>/ {marketNumber(summary.eligibleCount)}건</span><b>{marketNumber(fraction)}%</b></div>
         <div className="no-coverage-track" role="img" aria-label={`공개 활성 신청 ${marketNumber(summary.eligibleCount)}건 중 ${marketNumber(summary.ratedCount)}건 평가, ${marketNumber(summary.ratingUnknownCount)}건 미산출`}><span style={{ width: `${fraction}%` }} /></div>
         <div className="no-coverage-key"><span><i />평가 가능</span><span><i />진행 근거 미확인</span></div>

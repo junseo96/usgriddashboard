@@ -18,10 +18,12 @@ import './styles.css';
 import './workspace.css';
 import { InferenceEvidence } from './StageInferenceWorkspace';
 import { PROJECT_STAGE_INFERENCE_CATALOG } from '../shared/project-stage-inference';
+import LargeLoadFacilities from './LargeLoadFacilities';
 
 type View = 'overview' | 'projects' | 'scores' | 'history';
 type ProjectMode = 'register' | 'pipeline' | 'market' | 'coverage' | 'sources';
 type TypeFilter = ProjectType | 'all';
+type LoadRegisterMode = 'facilities' | 'census' | 'scoring';
 type Detail = { available: boolean; score: ProjectScore | null; assessments: Assessment[]; assessmentsTruncated: boolean; totalAssessments: number };
 const NAV = [
   { id: 'overview', label: '전국 개요', caption: '전력망 현황 한눈에', icon: Globe2 },
@@ -36,15 +38,16 @@ const PROJECT_MODES = [
   { id: 'coverage', label: '사업자·기관 수집범위', icon: Database },
   { id: 'sources', label: '출처·갱신 상태', icon: FileText },
 ] as const;
-const readRoute = (): { view: View; mode: ProjectMode; scoreTab: ScoreTab; scoreType: TypeFilter; scoreRegion: string } => {
-  const [view, mode, scope, projectRegion] = window.location.hash.slice(1).split('/');
-  const region = mode === 'regional' ? scope : mode === 'projects' || mode === 'inferences' || mode === 'register' ? projectRegion : '';
+const readRoute = (): { view: View; mode: ProjectMode; scoreTab: ScoreTab; scoreType: TypeFilter; scoreRegion: string; loadMode: LoadRegisterMode } => {
+  const [view, mode, scope, projectRegion, loadMode] = window.location.hash.slice(1).split('?')[0].split('/');
+  const region = mode === 'regional' ? scope : mode === 'projects' || mode === 'inferences' || mode === 'facilities' || mode === 'register' ? projectRegion : '';
   return {
     view: NAV.some(item => item.id === view) ? view as View : 'overview',
     mode: PROJECT_MODES.some(item => item.id === mode) ? mode as ProjectMode : 'register',
-    scoreTab: view === 'scores' && (mode === 'regional' || mode === 'inferences' || mode === 'methodology') ? mode : 'projects',
-    scoreType: view === 'scores' && mode === 'regional' ? 'load' : (view === 'scores' && (mode === 'projects' || mode === 'inferences') || view === 'projects' && mode === 'register') && (scope === 'generation' || scope === 'storage' || scope === 'load') ? scope : 'all',
-    scoreRegion: (view === 'scores' || view === 'projects' && mode === 'register') && LOAD_REGIONS.some(value => value === region) ? region : '',
+    scoreTab: view === 'scores' && (mode === 'regional' || mode === 'inferences' || mode === 'facilities' || mode === 'methodology') ? mode : 'projects',
+    scoreType: view === 'scores' && (mode === 'regional' || mode === 'facilities') ? 'load' : (view === 'scores' && (mode === 'projects' || mode === 'inferences') || view === 'projects' && mode === 'register') && (scope === 'generation' || scope === 'storage' || scope === 'load') ? scope : 'all',
+    scoreRegion: (view === 'scores' || view === 'projects' && mode === 'register') && (LOAD_REGIONS.some(value => value === region) || region === 'Unknown') ? region : '',
+    loadMode: loadMode === 'census' || loadMode === 'scoring' ? loadMode : 'facilities',
   };
 };
 const TYPES = [{ id: 'all', label: '전체 프로젝트', icon: Layers3 }, { id: 'generation', label: '발전원', icon: Sun }, { id: 'storage', label: '저장전원', icon: BatteryCharging }, { id: 'load', label: '수용가', icon: Factory }] as const;
@@ -92,7 +95,7 @@ export default function App() {
   const [scoreTab, setScoreTab] = useState<ScoreTab>(() => readRoute().scoreTab);
   const [type, setType] = useState<TypeFilter>(() => readRoute().scoreType);
   const [region, setRegion] = useState(() => readRoute().scoreRegion);
-  const [loadRegisterMode, setLoadRegisterMode] = useState<'census' | 'scoring'>('census');
+  const [loadRegisterMode, setLoadRegisterMode] = useState<LoadRegisterMode>(() => readRoute().loadMode);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState(() => readRoute().view === 'scores' ? 'scored' : readRoute().scoreType === 'load' ? 'eligible' : 'all');
@@ -112,7 +115,8 @@ export default function App() {
   const [adminOpen, setAdminOpen] = useState(false);
   const [capturing, setCapturing] = useState(false);
   const [notice, setNotice] = useState('');
-  const scoped = (view === 'scores' && scoreTab === 'projects') || (view === 'projects' && projectMode === 'register');
+  const scoped = (view === 'scores' && scoreTab === 'projects') || (view === 'projects' && projectMode === 'register' && (type !== 'load' || loadRegisterMode === 'scoring'));
+  const facilitiesActive = view === 'projects' && projectMode === 'register' && type === 'load' && loadRegisterMode === 'facilities';
   const censusActive = view === 'projects' && projectMode === 'register' && type === 'load' && loadRegisterMode === 'census';
   const regionalScores = view === 'scores' && scoreTab === 'regional';
   useEffect(() => { const timer = setTimeout(() => { setQuery(search); setPage(1); }, 280); return () => clearTimeout(timer); }, [search]);
@@ -121,7 +125,7 @@ export default function App() {
     const onHash = () => {
       const route = readRoute(); setView(route.view); setProjectMode(route.mode); setScoreTab(route.scoreTab); setMobileOpen(false);
       if (route.view === 'scores' && route.scoreTab !== 'methodology') { setType(route.scoreType); setRegion(route.scoreRegion); }
-      if (route.view === 'projects' && route.mode === 'register') { setType(route.scoreType); setRegion(route.scoreRegion); }
+      if (route.view === 'projects' && route.mode === 'register') { setType(route.scoreType); setRegion(route.scoreRegion); setLoadRegisterMode(route.loadMode); }
     };
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
@@ -141,27 +145,30 @@ export default function App() {
   }, [queryString, revision]);
   useEffect(() => { request<HealthResponse>('/api/health').then(setHealth).catch(() => setHealth(null)); }, [revision]);
   useEffect(() => { if (!notice) return; const timer = setTimeout(() => setNotice(''), 7000); return () => clearTimeout(timer); }, [notice]);
-  const navigate = (next: View, mode: ProjectMode = 'register', nextType = type, nextRegion = region) => {
+  const navigate = (next: View, mode: ProjectMode = 'register', nextType = type, nextRegion = region, nextLoadMode: LoadRegisterMode = loadRegisterMode) => {
     setView(next); setProjectMode(mode); setMobileOpen(false);
-    const hash = next === 'projects' ? mode !== 'register' ? `${next}/${mode}` : nextType !== 'all' || nextRegion ? `projects/register/${nextType}${nextRegion ? `/${nextRegion}` : ''}` : next : next;
+    const hash = next === 'projects' ? mode !== 'register' ? `${next}/${mode}` : nextType === 'load' && nextLoadMode !== 'facilities' ? `projects/register/load/${nextRegion || 'all'}/${nextLoadMode}` : nextType !== 'all' || nextRegion ? `projects/register/${nextType}${nextRegion ? `/${nextRegion}` : ''}` : next : next;
     if (window.location.hash !== `#${hash}`) window.location.hash = hash;
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
-  const showProjects = (nextRegion = '', nextType: TypeFilter = 'all') => { setRegion(nextRegion); setType(nextType); setSearch(''); setQuery(''); setStatus(nextType === 'load' ? 'eligible' : 'all'); setAsOf(''); setKnownAt(''); setPage(1); navigate('projects', 'register', nextType, nextRegion); };
+  const showProjects = (nextRegion = '', nextType: TypeFilter = 'all') => { setRegion(nextRegion); setType(nextType); setLoadRegisterMode('facilities'); setSearch(''); setQuery(''); setStatus(nextType === 'load' ? 'eligible' : 'all'); setAsOf(''); setKnownAt(''); setPage(1); navigate('projects', 'register', nextType, nextRegion, 'facilities'); };
+  const selectLoadRegisterMode = (next: LoadRegisterMode) => { setLoadRegisterMode(next); navigate('projects', 'register', 'load', region, next); };
+  const showCensus = () => { setType('load'); setRegion(''); setLoadRegisterMode('census'); navigate('projects', 'register', 'load', '', 'census'); };
   const showScores = () => { setScoreTab('projects'); setType('all'); setRegion(''); setSearch(''); setQuery(''); setStatus('scored'); setAsOf(''); setKnownAt(''); setPage(1); navigate('scores'); };
   const selectScoreTab = (tab: ScoreTab, nextRegion = region, nextType: TypeFilter = type) => {
     setScoreTab(tab);
-    setType(tab === 'regional' ? 'load' : nextType); setRegion(nextRegion);
-    const hash = tab === 'projects' || tab === 'inferences'
-      ? tab === 'projects' && nextType === 'all' && !nextRegion ? 'scores' : `scores/${tab}/${nextType}${nextRegion ? `/${nextRegion}` : ''}`
+    const selectedType = tab === 'regional' || tab === 'facilities' ? 'load' : nextType;
+    setType(selectedType); setRegion(nextRegion);
+    const hash = tab === 'projects' || tab === 'inferences' || tab === 'facilities'
+      ? tab === 'projects' && selectedType === 'all' && !nextRegion ? 'scores' : `scores/${tab}/${selectedType}${nextRegion ? `/${nextRegion}` : ''}`
       : `scores/${tab}${tab === 'regional' && nextRegion ? `/${nextRegion}` : ''}`;
     if (window.location.hash !== `#${hash}`) window.location.hash = hash;
   };
   const selectType = (next: TypeFilter) => {
     setType(next);
-    if (view === 'projects' && next === 'load') setStatus('eligible');
-    if (view === 'scores') selectScoreTab(scoreTab === 'inferences' ? 'inferences' : next === 'load' ? 'regional' : 'projects', region, next);
-    if (view === 'projects') navigate('projects', 'register', next, region);
+    if (view === 'projects' && next === 'load') { setStatus('eligible'); setLoadRegisterMode('facilities'); }
+    if (view === 'scores') selectScoreTab(next === 'load' ? 'facilities' : scoreTab === 'inferences' ? 'inferences' : 'projects', region, next);
+    if (view === 'projects') navigate('projects', 'register', next, region, next === 'load' ? 'facilities' : loadRegisterMode);
   };
   const selectRegion = (next: string) => {
     setRegion(next);
@@ -200,23 +207,24 @@ export default function App() {
       <main id="main" tabIndex={-1}>
         <section className="page-heading"><div><div className="eyebrow"><span /> U.S. GRID ATLAS <i>/</i> {String(NAV.findIndex(item => item.id === view) + 1).padStart(2, '0')}</div><h1>{currentNav.label}<span className="heading-period">.</span></h1><p>{VIEW_DESCRIPTION[view]}</p></div>{view === 'overview' && <div className="heading-date"><span>원장 최근 관측</span><strong>{date(readyData?.snapshot?.capturedAt)}</strong><small>부하 시각·원자료 기준일은 별도</small></div>}</section>
         {view === 'projects' && <div className="workspace-tabs" role="group" aria-label="권역별 상세 자료">{PROJECT_MODES.map(item => <button key={item.id} className={projectMode === item.id ? 'selected' : ''} aria-pressed={projectMode === item.id} onClick={() => navigate('projects', item.id)}><item.icon size={16} />{item.label}</button>)}</div>}
-        {(scoped || regionalScores || view === 'scores' && scoreTab === 'inferences') && <section className="workspace-filter-panel" aria-label={regionalScores ? '수용가 평가 조회 조건' : '원장 조회 조건'}>
+        {(scoped || censusActive || facilitiesActive || regionalScores || view === 'scores' && (scoreTab === 'inferences' || scoreTab === 'facilities')) && <section className="workspace-filter-panel" aria-label={regionalScores ? '수용가 평가 조회 조건' : '원장 조회 조건'}>
           <div className="scope-toolbar"><div className="type-tabs" role="group" aria-label="프로젝트 유형">{TYPES.map(item => <button key={item.id} className={type === item.id ? 'selected' : ''} aria-pressed={type === item.id} onClick={() => selectType(item.id)}><item.icon size={16} /><span>{item.label}</span></button>)}</div>{scoped && !censusActive && <button className={`button compact ${asOf || knownAt ? 'active-filter' : ''}`} aria-expanded={timeOpen} onClick={() => setTimeOpen(v => !v)}><CalendarDays size={15} />{asOf ? date(asOf) : '관측 시점'}<ChevronDown size={13} /></button>}</div>
-          <div className="workspace-region-pills" role="group" aria-label="프로젝트 권역 선택"><button className={!region ? 'selected' : ''} aria-pressed={!region} onClick={() => selectRegion('')}>{regionalScores ? '전체 권역 자료' : type === 'load' ? '확보한 수용가 전체' : '확보한 공개 원장 전체'}</button>{(regionalScores ? LOAD_REGIONS : data?.regions ?? LOAD_REGIONS).map(r => <button key={r} className={region === r ? 'selected' : ''} aria-pressed={region === r} onClick={() => selectRegion(r)}>{r}</button>)}</div>
+          <div className="workspace-region-pills" role="group" aria-label="프로젝트 권역 선택"><button className={!region ? 'selected' : ''} aria-pressed={!region} onClick={() => selectRegion('')}>{regionalScores ? '전체 권역 자료' : type === 'load' ? '확보한 수용가 전체' : '확보한 공개 원장 전체'}</button>{(facilitiesActive || view === 'scores' && scoreTab === 'facilities' ? [...LOAD_REGIONS, 'Unknown'] : regionalScores ? LOAD_REGIONS : data?.regions ?? LOAD_REGIONS).map(r => <button key={r} className={region === r ? 'selected' : ''} aria-pressed={region === r} onClick={() => selectRegion(r)}>{r === 'Unknown' ? '권역 미확인' : r}</button>)}</div>
           {scoped && !censusActive && timeOpen && <div className="temporal-panel"><div><strong>저장된 앱 관측의 조회 시점</strong><p>더 오래된 공식 원장과 점수는 통합 시계열에서 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
         </section>}
-        {view === 'projects' && projectMode === 'register' && type === 'load' && <div className="workspace-tabs" role="group" aria-label="수용가 원장 범위"><button className={loadRegisterMode === 'census' ? 'selected' : ''} aria-pressed={loadRegisterMode === 'census'} onClick={() => setLoadRegisterMode('census')}>통합 조사 원장 · 전체 진행상태</button><button className={loadRegisterMode === 'scoring' ? 'selected' : ''} aria-pressed={loadRegisterMode === 'scoring'} onClick={() => setLoadRegisterMode('scoring')}>개별 평가 원장</button></div>}
-        {error && !censusActive && (view !== 'scores' || scoped) && <div className="error-banner" role="alert"><CircleHelp size={18} /><span>프로젝트 원장 조회 실패: {error}</span><button className="text-button" onClick={() => setRevision(v => v + 1)}>다시 읽기</button></div>}
+        {view === 'projects' && projectMode === 'register' && type === 'load' && <div className="workspace-tabs" role="group" aria-label="수용가 원장 범위"><button className={loadRegisterMode === 'facilities' ? 'selected' : ''} aria-pressed={loadRegisterMode === 'facilities'} onClick={() => selectLoadRegisterMode('facilities')}>전국 시설·개발 원장</button><button className={loadRegisterMode === 'census' ? 'selected' : ''} aria-pressed={loadRegisterMode === 'census'} onClick={() => selectLoadRegisterMode('census')}>기존 신청·교차 조사 원장</button><button className={loadRegisterMode === 'scoring' ? 'selected' : ''} aria-pressed={loadRegisterMode === 'scoring'} onClick={() => selectLoadRegisterMode('scoring')}>기존 개별 평가 원장</button></div>}
+        {error && !censusActive && !facilitiesActive && (view !== 'scores' || scoped) && <div className="error-banner" role="alert"><CircleHelp size={18} /><span>프로젝트 원장 조회 실패: {error}</span><button className="text-button" onClick={() => setRevision(v => v + 1)}>다시 읽기</button></div>}
         {view === 'history' ? <TimelineWorkspace revision={revision} observationContent={readyData?.available ? <><p className="workspace-caption">전국 공개 원장 · 모든 유형 · 실제 저장한 관측 범위</p><HistoryView data={readyData} capturing={capturing} canWrite={canWrite} onCapture={capture} /></> : <p className="workspace-caption">{error || '저장된 앱 관측 기록을 불러오는 중입니다.'}</p>} />
+          : facilitiesActive ? <LargeLoadFacilities region={region} onRegion={selectRegion} onProject={id => { setAsOf(''); setKnownAt(''); setSelected(id); }} />
           : censusActive ? <LoadProjectCensus region={region} onRegion={selectRegion} onScore={id => { setAsOf(''); setKnownAt(''); setSelected(id); }} />
           : view === 'projects' && projectMode === 'pipeline' ? <LoadPipelinePanel revision={revision} initialRegion={region} onRegister={() => showProjects(region, 'load')} />
           : view === 'projects' && projectMode === 'market' ? <MarketPanel revision={revision} initialRegion={selectedMarket} />
-          : view === 'projects' && projectMode === 'coverage' ? <><CensusOverviewLink onOpen={() => { setLoadRegisterMode('census'); showProjects('', 'load'); }} /><p className="workspace-caption">새 교차 조사의 사업자별 실제 조회 기록은 통합 조사 원장의 ‘조사 현황’에서 확인할 수 있습니다. 아래는 기존 기관·집계 출처의 범위입니다.</p><LoadCoveragePanel revision={revision} onScores={showScores} /></>
+          : view === 'projects' && projectMode === 'coverage' ? <><CensusOverviewLink onOpen={showCensus} /><p className="workspace-caption">새 교차 조사의 사업자별 실제 조회 기록은 통합 조사 원장의 ‘조사 현황’에서 확인할 수 있습니다. 아래는 기존 기관·집계 출처의 범위입니다.</p><LoadCoveragePanel revision={revision} onScores={showScores} /></>
           : view === 'scores' ? <BottleneckWorkspace data={readyData} revision={revision} tab={scoreTab} onTabChange={next => selectScoreTab(next)} selectedType={type} selectedRegion={region} onRegionChange={selectRegion} onOpenRegional={next => selectScoreTab('regional', next)} projectFallback={readyData ? unavailable : error ? <p className="workspace-caption">원장 조회를 다시 시도하거나 수용가 권역별 평가를 선택해 주세요.</p> : <LoadingSkeleton />} onProject={setSelected} projectTable={register} projectControls={projectControls} methodology={<Methodology />} onCoverage={() => navigate('projects', 'coverage')} />
           : !readyData ? !error && <LoadingSkeleton />
           : view === 'projects' && projectMode === 'sources' ? <SourcesView sources={readyData.sources} type="all" health={health} revision={revision} />
           : !readyData.available ? unavailable
-          : view === 'overview' ? <><CensusOverviewLink onOpen={() => { setLoadRegisterMode('census'); showProjects('', 'load'); }} /><NationalOverview data={readyData} revision={revision} onProjects={showProjects} onScores={showScores} onTimeline={() => navigate('history')} /></>
+          : view === 'overview' ? <><NationalOverview data={readyData} revision={revision} onProjects={showProjects} onScores={showScores} onTimeline={() => navigate('history')} /></>
           : <><ProjectSummary data={readyData} region={region} type={type} onPipeline={() => navigate('projects', 'pipeline')} />{register}{(type === 'load' || type === 'all') && <ReviewedLoadScope region={region} onProject={setSelected} />}<div className="workspace-bottom-link"><span>개별 신청 외에 전력회사 집계·계약·발표 자료도 확인할 수 있습니다.</span><button className="text-button" onClick={() => navigate('projects', 'pipeline')}>수용가 파이프라인 <ArrowRight size={15} /></button></div></>}
         <footer className="page-footer"><span><Network size={14} /> GRID ATLAS <i /> 공개 근거 기반 계통접속 관측</span><button className="text-button" onClick={() => navigate('projects', 'sources')}>출처·갱신 상태 <ArrowUpRight size={12} /></button></footer>
       </main>

@@ -1,0 +1,146 @@
+name: Grid Atlas facility discovery
+
+on:
+  schedule:
+    # Monday 10:10 Korea Standard Time.
+    - cron: '10 1 * * 1'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'Official facility source group to discover and refresh'
+        type: choice
+        options: [all, operators, hyperscale, industrial]
+        default: all
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: grid-atlas-facility-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    defaults:
+      run:
+        working-directory: apps/grid-atlas
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/grid-atlas/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the official PDF text extraction dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - run: npm ci
+      - name: Discover facilities and changed source facts
+        id: collection
+        env:
+          FACILITY_SOURCE: ${{ github.event_name == 'workflow_dispatch' && inputs.source || 'all' }}
+        run: |
+          printf 'started_epoch=%s\n' "$(date -u +%s)" >> "$GITHUB_OUTPUT"
+          set +e
+          python3 scripts/collect-large-load-facilities.py --source "$FACILITY_SOURCE"
+          result=$?
+          printf 'exit_code=%s\n' "$result" >> "$GITHUB_OUTPUT"
+          # Exit 1 preserves a complete failure report and the previous inventory.
+          # Unexpected failures must stop before any commit.
+          if [ "$result" -ne 0 ] && [ "$result" -ne 1 ]; then exit "$result"; fi
+      - name: Preserve acquisition evidence and source-level outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: facility-discovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            apps/grid-atlas/.local/facility-collection/runs/**
+            apps/grid-atlas/data/large-load-facility-collection.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Validate the complete staged public inventory
+        run: |
+          node scripts/build-large-load-facilities.ts --validate data/large-load-facilities.json
+          npm run typecheck
+          npm test
+          npm run test:python
+          npm run build
+      - name: Commit only validated facility data
+        id: publish
+        env:
+          COLLECTION_EXIT: ${{ steps.collection.outputs.exit_code }}
+          COLLECTION_STARTED: ${{ steps.collection.outputs.started_epoch }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os
+          from pathlib import Path
+          report = json.loads(Path('data/large-load-facility-collection.json').read_text())
+          if datetime.datetime.fromisoformat(report['startedAt'].replace('Z', '+00:00')).timestamp() < int(os.environ['COLLECTION_STARTED']):
+              raise SystemExit('No report from this collection attempt; publication refused.')
+          expected = {'0': ('success', 'partial'), '1': ('failed',)}
+          if report['status'] not in expected.get(os.environ['COLLECTION_EXIT'], ()):
+              raise SystemExit('Collector exit and report disagree; publication refused.')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data/large-load-facility-fragments/*.json data/large-load-facilities.json data/large-load-facility-collection.json
+          if [ -f data/large-load-facility-observations.json ]; then
+            git add -- data/large-load-facility-observations.json
+          fi
+          if git diff --cached --quiet; then
+            printf 'changed=false\n' >> "$GITHUB_OUTPUT"
+          else
+            git commit -m 'data: refresh official large-load facility observations'
+            # A concurrent main update makes this fail safely; no forced push or
+            # unvalidated merge of generated data is attempted.
+            git push origin HEAD:main
+            printf 'changed=true\n' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish the updated dashboard
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run grid-atlas-pages.yml --ref main
+      - name: Summarize actual acquisition and publication separately
+        if: always()
+        env:
+          DATA_COMMITTED: ${{ steps.publish.outputs.changed }}
+          COLLECTION_STARTED: ${{ steps.collection.outputs.started_epoch }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os
+          from pathlib import Path
+          path = Path('data/large-load-facility-collection.json')
+          lines = ['### 공식 대형 수용가 시설 발굴', '']
+          report = json.loads(path.read_text()) if path.exists() else None
+          fresh = report and os.environ.get('COLLECTION_STARTED') and datetime.datetime.fromisoformat(report['startedAt'].replace('Z', '+00:00')).timestamp() >= int(os.environ['COLLECTION_STARTED'])
+          if fresh:
+              lines += [f"수집: **{report['status']}** · 신규 시설 {report['discoveredCount']} · 생애주기 변경 관측 {report['lifecycleChangeCount']}", '']
+              for group in report['sourceGroups']:
+                  lines += [f"- {group['id']}: {group['status']} · 보존/확보 시설 {group['facilityCount']}개"]
+          else:
+              lines += ['이번 실행의 수집 보고서를 만들지 못했습니다.']
+          lines += ['', '공식 목록을 다시 파싱하여 신규 항목을 찾습니다. 시설 등재는 접속신청 확인을 뜻하지 않습니다.',
+                    '실패한 출처의 이전 자료는 유지합니다. 관측일을 착공·통전일로 사용하지 않습니다.',
+                    '데이터 커밋: ' + os.environ.get('DATA_COMMITTED', ''),
+                    'Pages 재배포는 별도 workflow 실행 결과를 확인해야 합니다.']
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
+              output.write('\n'.join(lines) + '\n')
+          PY
+      - name: Mark total acquisition failure explicitly
+        if: steps.collection.outputs.exit_code == '1'
+        run: |
+          echo 'All requested source groups failed or failed validation. Previous facility data was preserved; inspect the report artifact.'
+          exit 1

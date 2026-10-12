@@ -29,7 +29,10 @@
     "cf:check": "wrangler deploy --config wrangler.jsonc --dry-run --outdir .state/worker-check",
     "collect": "python3 scripts/collect.py",
     "data:census:promote": "node scripts/promote-load-census.ts",
-    "data:census:promote:check": "node scripts/promote-load-census.ts --check"
+    "data:census:promote:check": "node scripts/promote-load-census.ts --check",
+    "data:facilities": "node scripts/build-large-load-facilities.ts",
+    "data:facilities:check": "node scripts/build-large-load-facilities.ts --check",
+    "collect:facilities": "python3 scripts/collect-large-load-facilities.py"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

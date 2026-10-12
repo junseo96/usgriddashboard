@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-12T08:50:13Z",
+  "decisions": [
+    {
+      "id": "identity-nucor-brandenburg-doe-city-correction-20261012",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-ind-doe-nucor-brandenburg-ky-24aaf65b",
+        "LLF-ind-doe-nucor-bradenburg-ky-bc515d6c"
+      ],
+      "sourceIds": [
+        "industrial-doe-manufacturing-2e3a37e911b2",
+        "industrial-primary-48b5c0414f63-3c8973343f59"
+      ],
+      "reason": "DOE 원장의 동일 회사·투자액·좌표 행에서 도시명 Bradenburg를 Brandenburg로 정정했습니다. 기업 원문으로 같은 Kentucky 후판 공장을 대조했으며 이전 ID와 관측 이력을 보존합니다."
+    },
+    {
+      "id": "identity-aspen-register-doe-investment-rows-20261012",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-ind-doe-aspen-aerogels-register-ga-8b7d09c8",
+        "LLF-ind-doe-aspen-aerogels-register-ga-cb09f390"
+      ],
+      "sourceIds": [
+        "industrial-doe-manufacturing-2e3a37e911b2",
+        "industrial-primary-e78348480015-b0ff4f334563"
+      ],
+      "reason": "DOE의 Georgia Register 투자 발표 두 행을 SEC 2026년 2분기 공시의 단일 Statesboro 공장과 대조했습니다. 같은 공장의 투자 발표를 별도 시설로 세지 않도록 병합하고, 건설 중단·자산 매각 근거 및 이전 ID의 관측 이력을 보존합니다."
+    }
+  ],
+  "limitations": [
+    "명칭 유사성만으로 병합하지 않습니다. 복수 도시로 발표된 Nokia 증설과 San Jose 단일 공장은 동일 부지임이 확인되지 않아 별도 행과 중복 가능성 표시를 유지합니다."
+  ]
+}

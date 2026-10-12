@@ -47,6 +47,17 @@ CEC_REGIONAL_URL = 'https://www.energy.ca.gov/sites/default/files/2026-08/Data_C
 NON_ADDITIVE = '원장·계약·공시·유틸리티 집계 간 동일 사업 연결이 미완료이므로 다른 행·집계와 용량을 합산하지 않습니다.'
 
 
+def classify_explicit_facility_name(project: dict) -> dict:
+    """Recover an explicitly named sector without inferring from its owner.
+
+    This classifies an existing evidence row, not a new acquisition or a proof of
+    grid connection. Existing reviewed sectors and all source dates stay intact.
+    """
+    if project.get('sector') == 'undisclosed' and re.search(r'\bdata[\s-]*cent(?:er|re)s?\b', project['name'], re.IGNORECASE):
+        return {**project, 'sector': 'data_center'}
+    return project
+
+
 def record_status(project: dict, source_id: str) -> str:
     """Do not equate a transmission milestone or a closed service ticket to operation."""
     raw = (project.get('rawStatus') or '').strip().lower().rstrip('.')
@@ -352,6 +363,7 @@ def build(bootstrap: dict, generated_at: str, regional_coverage: list | None = N
                    sourceAsOf=project['sourceAsOf'], checkedAt=max(e['retrievedAt'] for e in review['sourceEvidence']),
                    evidence=project['rawStatus'] + ' · ' + review['stageRationale'],
                    caveats=[*review['limitations'], NON_ADDITIVE], linkedProjectId=project['id'])
+    projects = [classify_explicit_facility_name(project) for project in projects]
     # Named cases first; this is a discovery index, not a queue-size leaderboard.
     projects.sort(key=lambda p: (p['linkedProjectId'] is not None, p['region'], p['name'], p['id']))
     result = {

@@ -72,6 +72,25 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(sum(p['eligible'] for p in originals), 53)
         self.assertTrue(any(self.by_id['register:' + p['id']]['status'] == 'withdrawn' for p in originals))
 
+    def test_explicit_datacenter_name_recovers_sector_without_inventing_status_capacity_or_dates(self):
+        base = {'name': 'Hudson Valley Data Center', 'sector': 'undisclosed',
+                'classification': 'application', 'status': 'unknown', 'capacityMw': None,
+                'capacityBasis': 'unknown', 'sourceAsOf': '2025-12', 'checkedAt': '2026-10-03'}
+        for name in ['Hudson Valley Data Center', 'Proposed Datacenters at 450 Broadway',
+                     'Meta Beaver Dam Data Center', 'New data-center phase 2']:
+            with self.subTest(name=name):
+                original = {**base, 'name': name}
+                result = pipeline.classify_explicit_facility_name(original)
+                self.assertEqual(result, {**original, 'sector': 'data_center'})
+                self.assertEqual(original['sector'], 'undisclosed')
+        for name in ['Google Pine Island', 'Amazon distribution warehouse', 'Meta land acquisition',
+                     'Microsoft manufacturing campus', 'NVIDIA regional office', 'Database center']:
+            with self.subTest(name=name):
+                original = {**base, 'name': name}
+                self.assertEqual(pipeline.classify_explicit_facility_name(original), original)
+        reviewed_factory = {**base, 'name': 'Data Center Equipment Factory', 'sector': 'manufacturing'}
+        self.assertEqual(pipeline.classify_explicit_facility_name(reviewed_factory), reviewed_factory)
+
     def test_closed_screens_and_transmission_milestones_are_not_operations(self):
         p = {'rawStatus': 'Tariff Closed', 'status': 'reference'}
         self.assertEqual(pipeline.record_status(p, 'california-sdge-register'), 'unknown')

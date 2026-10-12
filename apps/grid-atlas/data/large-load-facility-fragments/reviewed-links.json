@@ -1,0 +1,1875 @@
+{
+  "schemaVersion": 1,
+  "id": "reviewed-links",
+  "generatedAt": "2026-10-12T08:35:25.918Z",
+  "sources": [
+    {
+      "id": "reviewed-facility-ac5cfd1e0ecee15e",
+      "name": "MPSC: DTE–Google 특별 전력공급계약 승인",
+      "url": "https://www.michigan.gov/mpsc/commission/news-releases/2026/10/01/mpsc-approves-dte-electric-google-data-center-and-contracts-protects-customers-from-project-cost",
+      "retrievedAt": "2026-10-12T04:44:45.522Z",
+      "sha256": "ebf2486b86a96e68198f9efd3679a6d11e8a5665ce7691c3ba6355fe901cd03b",
+      "publishedAt": "2026-10-01",
+      "sourceAsOf": null,
+      "excerpt": "The Michigan Public Service Commission today approved special contracts between DTE Electric Co. and Google LLC for the utility to provide electricity for a data center in Wayne County’s Van Buren Township, conditioned on mandatory protections to prevent other customers from having to bear any costs associated with the project\n[…]\nThe Commission approved a primary supply agreement (PSA) governing the terms of electric service to the data center and a clean capacity accelerator agreement (CCAA) providing for new clean energy resources and energy storage to help power the facility\n[…]\nAccording to DTE Electric, the data center is expected to begin taking service in December 2027 with a maximum load achieved by December 2028."
+    },
+    {
+      "id": "reviewed-facility-d976d45284c0a695",
+      "name": "DTE SEC 공시: 2026-09-28 사업 업데이트",
+      "url": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000159/dtebusinessupdate92826fi.htm",
+      "retrievedAt": "2026-10-09T05:14:05.647Z",
+      "sha256": "2840ec99f5119ba8c5dca1be6ab551a8c9f96e3f3c634760d1651caf6c2f6c66",
+      "publishedAt": "2026-09-28",
+      "sourceAsOf": null,
+      "excerpt": "2.4 GW of executed agreements today\n[…]\n1 GW Google agreement in MPSC approval process"
+    },
+    {
+      "id": "reviewed-facility-ee4461740e092de7",
+      "name": "MPSC: DTE–Google 특별 전력공급계약 승인",
+      "url": "https://www.michigan.gov/mpsc/commission/news-releases/2026/10/01/mpsc-approves-dte-electric-google-data-center-and-contracts-protects-customers-from-project-cost",
+      "retrievedAt": "2026-10-12T04:44:45.522Z",
+      "sha256": "ebf2486b86a96e68198f9efd3679a6d11e8a5665ce7691c3ba6355fe901cd03b",
+      "publishedAt": "2026-10-01",
+      "sourceAsOf": null,
+      "excerpt": "The Michigan Public Service Commission today approved special contracts between DTE Electric Co. and Google LLC for the utility to provide electricity for a data center in Wayne County’s Van Buren Township, conditioned on mandatory protections to prevent other customers from having to bear any costs associated with the project\n[…]\nThe Commission approved a primary supply agreement (PSA) governing the terms of electric service to the data center and a clean capacity accelerator agreement (CCAA) providing for new clean energy resources and energy storage to help power the facility\n[…]\nAccording to DTE Electric, the data center is expected to begin taking service in December 2027 with a maximum load achieved by December 2028."
+    },
+    {
+      "id": "reviewed-facility-9a7ddaeaee8684ff",
+      "name": "DTE SEC 공시: 2026-09-28 사업 업데이트",
+      "url": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000159/dtebusinessupdate92826fi.htm",
+      "retrievedAt": "2026-10-09T05:14:05.647Z",
+      "sha256": "2840ec99f5119ba8c5dca1be6ab551a8c9f96e3f3c634760d1651caf6c2f6c66",
+      "publishedAt": "2026-09-28",
+      "sourceAsOf": null,
+      "excerpt": "2.4 GW of executed agreements today\n[…]\n1 GW Google agreement in MPSC approval process"
+    },
+    {
+      "id": "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+      "name": "Google 공식 전체 데이터센터 위치 목록",
+      "url": "https://datacenters.google/locations/",
+      "retrievedAt": "2026-10-12T08:34:00.271Z",
+      "sha256": "1eeae940ed2faacab9638a80c1137a67f98b72ddb09bd67259bc4946cc3fe265",
+      "publishedAt": null,
+      "excerpt": "We own and operate data centers around the world; structured location / inDevelopment fields.\n{\"location\": \"Armstrong County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Cedar Rapids, Iowa\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/iowa/\"}\n{\"location\": \"Chesterfield County, Virginia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Columbia County, Georgia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Columbus, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"Council Bluffs, Iowa\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/iowa/\"}\n{\"location\": \"The Dalles, Oregon\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/oregon/\"}\n{\"location\": \"Douglas County, Georgia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Fort Wayne, Indiana\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/indiana/\"}\n{\"location\": \"Haskell County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Henderson, Nevada\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/henderson-nevada/\"}\n{\"location\": \"Hermantown, Minnesota\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Jackson County, Alabama\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/alabama/\"}\n{\"location\": \"Kansas City, Missouri\", \"inDevelopment\": true, \"detailPage\": \"./../../kansas-city-missouri/\"}\n{\"location\": \"LaGrange, Georgia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Lancaster, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"Lenoir, North Carolina\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/north-carolina/\"}\n{\"location\": \"Lincoln, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Loudoun County, Virginia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Mesa, Arizona\", \"inDevelopment\": false, \"detailPage\": \"\"}\n{\"location\": \"Michigan City, Indiana\", \"inDevelopment\": true, \"detailPage\": \"./../../michigan-city-indiana/\"}\n{\"location\": \"Midlothian, Texas\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Montgomery County, Tennessee\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/tennessee/\"}\n{\"location\": \"Morgan County, Indiana\", \"inDevelopment\": true, \"detailPage\": \"./../../morgan-county-indiana/\"}\n{\"location\": \"Muskogee County, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"New Albany, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"New Florence, Missouri\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Omaha, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Pampa, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Papillion, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Pine Island, Minnesota\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Prince William County, Virginia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Pryor, Mayes County, Oklahoma\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Red Oak, Texas\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Stillwater, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Storey County, Nevada\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/storey-county-nevada/\"}\n{\"location\": \"Tulsa, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Van Buren Township, Michigan\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"West Memphis, Arkansas\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Wilbarger County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-b960ff7beab6-5e3c2829661b",
+      "name": "Google 공식 전체 데이터센터 위치 목록",
+      "url": "https://datacenters.google/locations/",
+      "retrievedAt": "2026-10-12T08:18:41.878Z",
+      "sha256": "5e3c2829661b32c980a51ad60917346ed54a0968f1b570c1e5972a3eafe68a12",
+      "publishedAt": null,
+      "excerpt": "We own and operate data centers around the world; structured location / inDevelopment fields.\n{\"location\": \"Armstrong County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Cedar Rapids, Iowa\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/iowa/\"}\n{\"location\": \"Chesterfield County, Virginia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Columbia County, Georgia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Columbus, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"Council Bluffs, Iowa\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/iowa/\"}\n{\"location\": \"The Dalles, Oregon\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/oregon/\"}\n{\"location\": \"Douglas County, Georgia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Fort Wayne, Indiana\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/indiana/\"}\n{\"location\": \"Haskell County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Henderson, Nevada\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/henderson-nevada/\"}\n{\"location\": \"Hermantown, Minnesota\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Jackson County, Alabama\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/alabama/\"}\n{\"location\": \"Kansas City, Missouri\", \"inDevelopment\": true, \"detailPage\": \"./../../kansas-city-missouri/\"}\n{\"location\": \"LaGrange, Georgia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Lancaster, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"Lenoir, North Carolina\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/north-carolina/\"}\n{\"location\": \"Lincoln, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Loudoun County, Virginia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Mesa, Arizona\", \"inDevelopment\": false, \"detailPage\": \"\"}\n{\"location\": \"Michigan City, Indiana\", \"inDevelopment\": true, \"detailPage\": \"./../../michigan-city-indiana/\"}\n{\"location\": \"Midlothian, Texas\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Montgomery County, Tennessee\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/tennessee/\"}\n{\"location\": \"Morgan County, Indiana\", \"inDevelopment\": true, \"detailPage\": \"./../../morgan-county-indiana/\"}\n{\"location\": \"Muskogee County, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"New Albany, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"New Florence, Missouri\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Omaha, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Pampa, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Papillion, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Pine Island, Minnesota\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Prince William County, Virginia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Pryor, Mayes County, Oklahoma\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Red Oak, Texas\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Stillwater, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Storey County, Nevada\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/storey-county-nevada/\"}\n{\"location\": \"Tulsa, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Van Buren Township, Michigan\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"West Memphis, Arkansas\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Wilbarger County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}",
+      "sourceAsOf": null
+    },
+    {
+      "id": "reviewed-facility-6f2e979adf3df9b8",
+      "name": "Xcel Energy / Northern States Power — xcel google pine island",
+      "url": "https://newsroom.xcelenergy.com/news/xcel-energy-to-power-new-google-data-center-in-minnesota",
+      "retrievedAt": "2026-10-12T05:53:44.134Z",
+      "sha256": "369d4c4c877b02944d77f7edf3e46418de4375ff798e2afd0213d56ef9bbe216",
+      "publishedAt": "2026-02-24",
+      "sourceAsOf": "2026-02-24",
+      "excerpt": "Xcel Energy recently signed an agreement to supply power for the Google data center that will support core services — including Workspace, Search, YouTube and Maps — that people, communities and businesses use every day.\n\nThe Electric Service Agreement will be filed for review with the Minnesota Public Utilities Commission in the coming weeks. The MPUC must formally approve the agreement between Xcel Energy and Google to supply power to the site."
+    },
+    {
+      "id": "reviewed-facility-2f4073aed321d0a0",
+      "name": "Xcel Energy / Northern States Power — xcel google pine island",
+      "url": "https://newsroom.xcelenergy.com/news/xcel-energy-to-power-new-google-data-center-in-minnesota",
+      "retrievedAt": "2026-10-12T05:53:44.134Z",
+      "sha256": "369d4c4c877b02944d77f7edf3e46418de4375ff798e2afd0213d56ef9bbe216",
+      "publishedAt": "2026-02-24",
+      "sourceAsOf": "2026-02-24",
+      "excerpt": "Xcel Energy recently signed an agreement to supply power for the Google data center that will support core services — including Workspace, Search, YouTube and Maps — that people, communities and businesses use every day.\n\nThe Electric Service Agreement will be filed for review with the Minnesota Public Utilities Commission in the coming weeks. The MPUC must formally approve the agreement between Xcel Energy and Google to supply power to the site."
+    },
+    {
+      "id": "reviewed-facility-e808d9b9bc42b1c4",
+      "name": "OG&E 공식 Google 3개 데이터센터 ESA 발표",
+      "url": "https://www.prnewswire.com/news-releases/oge-announces-landmark-contract-with-google-302758482.html",
+      "retrievedAt": "2026-10-12T05:59:19.334Z",
+      "sha256": "8144a4311d917911990e377626946051e7d8284e727266e066955cf13732cd39",
+      "publishedAt": "2026-04-30",
+      "sourceAsOf": "2026-04-30",
+      "excerpt": "Today, OG&E, the operating subsidiary of locally-headquartered OGE Energy Corp. (NYSE: OGE), announced that it will power three new data centers that Google announced in Muskogee and Stillwater last year. The data centers and associated Electric Service Agreements will provide economic growth for local communities and the state, contribute to grid stability, and benefit OG&E's current customers. As technology continues to propel industry and our personal lives forward, OG&E will power the 21st century economy through these agreements with Google, whose data centers power key services that billions of people use every day, from online banking to hospital records to 911 systems. OG&E worked closely with Google to secure broad customer protections for years to come. Under this agreement, Google is committing to pay 100% of the costs to connect the data center sites to the grid as well as all contracted costs regardless of the company's energy use. Google will also pay its share of power generation required to serve these data centers. \"OG&E is pleased to support Google and together advance growth in our home state, ensuring our current customers benefit from data center expansion that meets the technology needs of the 21st century economy at some of the lowest rates in the country,\" said Sean Trauschke, Chairman, President and CEO of OGE Energy Corp. \"This unique agreement is a model for future data center partnerships and forms the basis for a new large-load The Electric Service Agreements and Capacity Purchase Agreements will be filed for review with the Oklahoma Corporation Commission in the coming days. The OCC must formally approve the agreement between OG&E and Google to supply power to the data center sites. For more information about OG&E's new contract with Google and how the company is approaching service for high-electricity demand cust"
+    },
+    {
+      "id": "reviewed-facility-2d26f58d13fd9b83",
+      "name": "OG&E 공식 Google 3개 데이터센터 ESA 발표",
+      "url": "https://www.prnewswire.com/news-releases/oge-announces-landmark-contract-with-google-302758482.html",
+      "retrievedAt": "2026-10-12T05:59:19.334Z",
+      "sha256": "8144a4311d917911990e377626946051e7d8284e727266e066955cf13732cd39",
+      "publishedAt": "2026-04-30",
+      "sourceAsOf": "2026-04-30",
+      "excerpt": "Today, OG&E, the operating subsidiary of locally-headquartered OGE Energy Corp. (NYSE: OGE), announced that it will power three new data centers that Google announced in Muskogee and Stillwater last year. The data centers and associated Electric Service Agreements will provide economic growth for local communities and the state, contribute to grid stability, and benefit OG&E's current customers. As technology continues to propel industry and our personal lives forward, OG&E will power the 21st century economy through these agreements with Google, whose data centers power key services that billions of people use every day, from online banking to hospital records to 911 systems. OG&E worked closely with Google to secure broad customer protections for years to come. Under this agreement, Google is committing to pay 100% of the costs to connect the data center sites to the grid as well as all contracted costs regardless of the company's energy use. Google will also pay its share of power generation required to serve these data centers. \"OG&E is pleased to support Google and together advance growth in our home state, ensuring our current customers benefit from data center expansion that meets the technology needs of the 21st century economy at some of the lowest rates in the country,\" said Sean Trauschke, Chairman, President and CEO of OGE Energy Corp. \"This unique agreement is a model for future data center partnerships and forms the basis for a new large-load The Electric Service Agreements and Capacity Purchase Agreements will be filed for review with the Oklahoma Corporation Commission in the coming days. The OCC must formally approve the agreement between OG&E and Google to supply power to the data center sites. For more information about OG&E's new contract with Google and how the company is approaching service for high-electricity demand cust"
+    },
+    {
+      "id": "reviewed-facility-183133e2355590d4",
+      "name": "Entergy Arkansas: Google West Memphis power service agreement",
+      "url": "https://www.entergy.com/wp-content/uploads/2026/03/GoogleDataCenterFactSheet.pdf",
+      "retrievedAt": "2026-10-12T06:06:18.215Z",
+      "sha256": "eff840ce921453af06df1176f7aaba977091711c53fde9589b7a7ba2f8412baa",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "Google is good for Arkansas\n  and great for Entergy customers\n  Google is investing $4 billion on cloud and artificial intelligence infrastructure in\n  Arkansas, including the development of a new data center in West Memphis\n  – the company’s first facility in the state – powered by Entergy.\n  Their historic investment in our state is bringing unparalleled benefits that will\n  improve the lives of Arkansans for generations to come.\n\n\nHow will it benefit you?\n           High tech partner = Lower cost power\n           Google will cover the full energy costs associated with powering the facility, which will produce more\n           than $1 billion in net customer savings over the life of the contract. In addition, as a new large industrial\n           customer on our grid, Google will pick up more of the grid maintenance improvement costs that existing\n           customers would otherwise have to bear alone and at a larger share than residential and small\n           business customers.\n           Adding any power-intensive facility to our grid can raise questions about its impact on service reliability\n           for other customers, but we’ve ensured that our power service agreement with Google not only protects\n           reliability for all customers, it improves it through measures such as:\n           • Adding a new solar generation and battery storage facility in Jefferson County financially supported\n             by Google.\n           • Electrical infrastructure additions and improvements that will enhance reliability of the entire grid and\n             lower costs for all customers.\n           • A program to reduce data center power use during peak hours to support grid stability for all customers."
+    },
+    {
+      "id": "reviewed-facility-f5eb0089aec4fe09",
+      "name": "Entergy Arkansas: Google West Memphis power service agreement",
+      "url": "https://www.entergy.com/wp-content/uploads/2026/03/GoogleDataCenterFactSheet.pdf",
+      "retrievedAt": "2026-10-12T06:06:18.215Z",
+      "sha256": "eff840ce921453af06df1176f7aaba977091711c53fde9589b7a7ba2f8412baa",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "Google is good for Arkansas\n  and great for Entergy customers\n  Google is investing $4 billion on cloud and artificial intelligence infrastructure in\n  Arkansas, including the development of a new data center in West Memphis\n  – the company’s first facility in the state – powered by Entergy.\n  Their historic investment in our state is bringing unparalleled benefits that will\n  improve the lives of Arkansans for generations to come.\n\n\nHow will it benefit you?\n           High tech partner = Lower cost power\n           Google will cover the full energy costs associated with powering the facility, which will produce more\n           than $1 billion in net customer savings over the life of the contract. In addition, as a new large industrial\n           customer on our grid, Google will pick up more of the grid maintenance improvement costs that existing\n           customers would otherwise have to bear alone and at a larger share than residential and small\n           business customers.\n           Adding any power-intensive facility to our grid can raise questions about its impact on service reliability\n           for other customers, but we’ve ensured that our power service agreement with Google not only protects\n           reliability for all customers, it improves it through measures such as:\n           • Adding a new solar generation and battery storage facility in Jefferson County financially supported\n             by Google.\n           • Electrical infrastructure additions and improvements that will enhance reliability of the entire grid and\n             lower costs for all customers.\n           • A program to reduce data center power use during peak hours to support grid stability for all customers."
+    },
+    {
+      "id": "reviewed-facility-6806c9bf195fa65c",
+      "name": "Wisconsin PSC: Alliant individual electric service agreement decision",
+      "url": "https://psc.wi.gov/Documents/PressReleases/05.08.26PressRelease.PDF",
+      "retrievedAt": "2026-10-12T04:47:53.047Z",
+      "sha256": "c385381eb93dccd2394ae907a5876c0e55a5d9c105341e618ee99a6f33542d76",
+      "publishedAt": "2026-05-07",
+      "sourceAsOf": null,
+      "excerpt": "The Public Service Commission of Wisconsin (PSC) today took up Alliant Energy’s Electric Service Agreement application to serve a data center in Beaver Dam and issued a decision that protects existing customers and improves public transparency and visibility.\n[…]\nIn April 2025, Alliant Energy submitted an application seeking PSC approval of an Electric Service Agreement.\n[…]\nIn its decision today, the Commission modified the Electric Service Agreement.\n[…]\nThis document provides an overview of the preliminary decision(s) verbally made in the Public Service Commission’s open meeting.\n[…]\nUnlike the We Energies application, the Alliant Energy application sought approval of a single Electric Service Agreement to serve one customer under Alliant Energy’s existing Individual Contract Rate tariff that has been in place since 2000."
+    },
+    {
+      "id": "reviewed-facility-faf15e6b692717ba",
+      "name": "Meta: Hello, Beaver Dam!",
+      "url": "https://datacenters.atmeta.com/2025/11/hello-beaver-dam/",
+      "retrievedAt": "2026-10-12T04:49:22.131Z",
+      "sha256": "73e5bc67cbd29b9849a871a21dce65263309b2d09f4dd87eab928b566e79809c",
+      "publishedAt": "2025-11-12",
+      "sourceAsOf": null,
+      "excerpt": "We have worked closely with Alliant Energy from the beginning to plan for our energy needs in Wisconsin and we will match this data center’s electricity use with 100% clean and renewable energy."
+    },
+    {
+      "id": "reviewed-facility-bd160ae13b7f6532",
+      "name": "WEDC: Meta Beaver Dam announcement",
+      "url": "https://wedc.org/meta-state-and-local-officials-announce-1-billion-data-center-investment-in-beaver-dam-project/",
+      "retrievedAt": "2026-10-12T04:48:32.708Z",
+      "sha256": "86df56f1975806788563fdcd7d23ba6044a20884dff77efe9a5beecee18505fa",
+      "publishedAt": "2025-11-12",
+      "sourceAsOf": null,
+      "excerpt": "Located in Alliant Energy’s Beaver Dam Commerce Park, the location is Wisconsin’s largest certified site and has been shovel-ready for development since it was designated by the Wisconsin Economic Development Corporation in 2019.\n[…]\nThe data center is expected to come online in 2027, after which it will support more than 100 operational jobs."
+    },
+    {
+      "id": "reviewed-facility-7c0be63284cd5ca1",
+      "name": "Meta: Hello, Beaver Dam!",
+      "url": "https://datacenters.atmeta.com/2025/11/hello-beaver-dam/",
+      "retrievedAt": "2026-10-12T04:49:22.131Z",
+      "sha256": "73e5bc67cbd29b9849a871a21dce65263309b2d09f4dd87eab928b566e79809c",
+      "publishedAt": "2025-11-12",
+      "sourceAsOf": null,
+      "excerpt": "We have worked closely with Alliant Energy from the beginning to plan for our energy needs in Wisconsin and we will match this data center’s electricity use with 100% clean and renewable energy."
+    },
+    {
+      "id": "reviewed-facility-71cfdc7093cdecf3",
+      "name": "WEDC: Meta Beaver Dam announcement",
+      "url": "https://wedc.org/meta-state-and-local-officials-announce-1-billion-data-center-investment-in-beaver-dam-project/",
+      "retrievedAt": "2026-10-12T04:48:32.708Z",
+      "sha256": "86df56f1975806788563fdcd7d23ba6044a20884dff77efe9a5beecee18505fa",
+      "publishedAt": "2025-11-12",
+      "sourceAsOf": null,
+      "excerpt": "Located in Alliant Energy’s Beaver Dam Commerce Park, the location is Wisconsin’s largest certified site and has been shovel-ready for development since it was designated by the Wisconsin Economic Development Corporation in 2019.\n[…]\nThe data center is expected to come online in 2027, after which it will support more than 100 operational jobs."
+    },
+    {
+      "id": "reviewed-facility-a12a4f31096b78d8",
+      "name": "Wisconsin PSC: Alliant individual electric service agreement decision",
+      "url": "https://psc.wi.gov/Documents/PressReleases/05.08.26PressRelease.PDF",
+      "retrievedAt": "2026-10-12T04:47:53.047Z",
+      "sha256": "c385381eb93dccd2394ae907a5876c0e55a5d9c105341e618ee99a6f33542d76",
+      "publishedAt": "2026-05-07",
+      "sourceAsOf": null,
+      "excerpt": "The Public Service Commission of Wisconsin (PSC) today took up Alliant Energy’s Electric Service Agreement application to serve a data center in Beaver Dam and issued a decision that protects existing customers and improves public transparency and visibility.\n[…]\nIn April 2025, Alliant Energy submitted an application seeking PSC approval of an Electric Service Agreement.\n[…]\nIn its decision today, the Commission modified the Electric Service Agreement.\n[…]\nThis document provides an overview of the preliminary decision(s) verbally made in the Public Service Commission’s open meeting.\n[…]\nUnlike the We Energies application, the Alliant Energy application sought approval of a single Electric Service Agreement to serve one customer under Alliant Energy’s existing Individual Contract Rate tariff that has been in place since 2000."
+    },
+    {
+      "id": "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+      "name": "Meta 공식 미국 데이터센터 전체 목록",
+      "url": "https://datacenters.atmeta.com/us-locations/",
+      "retrievedAt": "2026-10-12T08:20:21.183Z",
+      "sha256": "b8913e4cc2bff0075214048798841cd784e1b741167f9f742ed2dfa2ec3dc83c",
+      "publishedAt": "2022-10-10",
+      "excerpt": "Our U.S. data center fleet; individually named campus cards with state and ground-breaking year.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-ef015d2e3b6a-d76a50b027ba",
+      "name": "Meta Beaver Dam 공식 시설 정보지",
+      "url": "https://datacenters.atmeta.com/asset/beaver-dam-data-center-info-sheet/",
+      "retrievedAt": "2026-10-12T08:21:45.067Z",
+      "sha256": "d76a50b027ba25fdef6a2c74c1d544aa33a946f54b26b0a8728b66253c3defa7",
+      "publishedAt": null,
+      "excerpt": "Our global fleet of data centers supports Meta technologies that empower more than 3.6 billion people around the world to share ideas, offer support and make a difference. datacenters.atmeta.com Meta Beaver Dam Data Center The Beaver Dam Data Center will be part of our global infrastructure that brings Meta technologies and programs to life, making the future of human connection possible. Data center investment in Wisconsin $1B+ Operational jobs  once completed 100+ Skilled trade workers on site at peak construction 1,000+ Operating Responsibly Responsible energy and water use Water stewardship Clean and renewable energy Meta is partnering with Alliant Energy to plan for our energy needs and to ensure we are paying the full costs for the energy used by our data center, so consumers are not negatively impacted. Meta has also worked with the City of Beaver Dam to pay the full cost of water and wastewater service for our data center. Our operational data center buildings achieve LEED® Gold certification by focusing on efficiency, sustainability and innovation. Our goal is to be water positive in 2030, where we will restore more water than we consume globally where Meta has owned operations. An initial irrigation- efficiency project for local farmers will restore millions of gallons of water to the Rock River Basin each year over the next 10 years. We are committed to supporting the addition of new energy projects to the grid, including identifying and contracting new clean and renewable energy projects within the region. Meta ma\nThe Beaver Dam Data Center will be part of our global infrastructure that brings Meta technologies and programs to life, making the future of human connection possible. Data center investment in Wisconsin $1B+ Operational jobs supported once completed 100+ Skilled trade workers on site at peak construction 1,000+ Operating Responsibly Responsible energy and water use Water stewardship Clean and renewable energy Meta is partnering with Alliant Ene once completed 100+ Skilled trade workers on site at peak construction 1,000+ Operating Responsibly Responsible energy and water use Water stewardship Clean and renewable energy Meta is partnering with Alliant Energy to plan for our energy needs and to ensure we are paying the full costs for the energy used by our data center, so consumers are not negatively impacted. Meta has also worked with the City of Beaver Dam to pay the full cost of water and wastewater service for our data center. Our operational data center buildings achieve LEED® Gold certification by focusing on efficiency, sustainability and innovation. Our goal is to be water positive in 2030, where we will restore more water than we consume globally where Meta has owned operations. An initial irrigation- efficiency project for local farmers will restore millions of gallons of water to the Rock River Basin each year over the next 10 years. We are committed to supporting the addition of new energy projects to the grid, including identifying and contracting new clean and renewable energy projects within the region. Meta ma",
+      "sourceAsOf": null
+    },
+    {
+      "id": "reviewed-facility-1dd5a871506956d6",
+      "name": "Entergy Louisiana new Meta agreement, March 2026",
+      "url": "https://www.entergy.com/news/entergy-louisiana-announces-a-new-agreement-with-meta-that-will-deliver-an-additional-2b-in-customer-savings",
+      "retrievedAt": "2026-10-12T04:44:12.730Z",
+      "sha256": "cd3a1b4b27b4b418a8e2877237e7cd16b37ed3b9ecc770f5e36da4e710e71215",
+      "publishedAt": "2026-03-27",
+      "sourceAsOf": "2026-03-27",
+      "excerpt": "Entergy Louisiana today announced an additional agreement with Meta to support the hyperscale data center in Northeast Louisiana."
+    },
+    {
+      "id": "reviewed-facility-d057ed48c4b1488e",
+      "name": "E-LA investment to support new Meta agreement — filing highlights",
+      "url": "https://s201.q4cdn.com/714390239/files/doc_downloads/2026/03/27/E-LA-investment-to-support-customer-expansion.pdf",
+      "retrievedAt": "2026-10-12T04:46:45.865Z",
+      "sha256": "cfcc2817081ff2ae2a60445d29de5bf046aa73e102da318a00a29677d7b455ad",
+      "publishedAt": "2026-03-27",
+      "sourceAsOf": "2026-03-27",
+      "excerpt": "Electric service agreement provides for subscription up to an additional 2,500 MW of renewable resources under existing E-LA green tariff"
+    },
+    {
+      "id": "reviewed-facility-2e2a3052a7c05a53",
+      "name": "LPSC approval of Entergy Louisiana Meta infrastructure",
+      "url": "https://www.entergy.com/news/entergy-louisiana-receives-lpsc-approval-for-major-infrastructure-investments-to-support-metas-data-center-and-improve-reliability",
+      "retrievedAt": "2026-10-12T04:46:05.656Z",
+      "sha256": "9dbd4e7604d6c7bd5586b6a0ec2bfa631d1b7d1d7ad47864fe7cff7434f44516",
+      "publishedAt": "2025-08-20",
+      "sourceAsOf": "2025-08-20",
+      "excerpt": "Entergy Louisiana has already broken ground on a key substation to support the facility and will continue to invest in grid infrastructure that supports growth across the region."
+    },
+    {
+      "id": "reviewed-facility-4af2f9e3343229ec",
+      "name": "Entergy regulatory and other information — dated docket index",
+      "url": "https://investors.entergy.com/investors/regulatory-and-other-information-1/regulatory-and-other-information/default.aspx",
+      "retrievedAt": "2026-10-12T04:46:05.656Z",
+      "sha256": "fd4e4f03fd16353b9397fd1be507274d196b9e40690e3e991cdbc85c58535235",
+      "publishedAt": null,
+      "sourceAsOf": "2026-10-12",
+      "excerpt": "3/27/26 – Entergy Louisiana submitted an application for approval of investments proposed in connection with the new agreement with Meta (docket U-37882)\n\n10/30/24 - Entergy Louisiana submitted an application for approval of generation and transmission resources proposed in connection with service to a significant customer project in North Louisiana, including proposed rider, and request for timely treatment"
+    },
+    {
+      "id": "reviewed-facility-75d2c0fe7f5182a4",
+      "name": "E-LA investment to support new Meta agreement — filing highlights",
+      "url": "https://s201.q4cdn.com/714390239/files/doc_downloads/2026/03/27/E-LA-investment-to-support-customer-expansion.pdf",
+      "retrievedAt": "2026-10-12T04:46:45.865Z",
+      "sha256": "cfcc2817081ff2ae2a60445d29de5bf046aa73e102da318a00a29677d7b455ad",
+      "publishedAt": "2026-03-27",
+      "sourceAsOf": "2026-03-27",
+      "excerpt": "Electric service agreement provides for subscription up to an additional 2,500 MW of renewable resources under existing E-LA green tariff"
+    },
+    {
+      "id": "reviewed-facility-67132232eb400c16",
+      "name": "Entergy Louisiana new Meta agreement, March 2026",
+      "url": "https://www.entergy.com/news/entergy-louisiana-announces-a-new-agreement-with-meta-that-will-deliver-an-additional-2b-in-customer-savings",
+      "retrievedAt": "2026-10-12T04:44:12.730Z",
+      "sha256": "cd3a1b4b27b4b418a8e2877237e7cd16b37ed3b9ecc770f5e36da4e710e71215",
+      "publishedAt": "2026-03-27",
+      "sourceAsOf": "2026-03-27",
+      "excerpt": "Entergy Louisiana today announced an additional agreement with Meta to support the hyperscale data center in Northeast Louisiana."
+    },
+    {
+      "id": "reviewed-facility-12787dedfbe75d5f",
+      "name": "Entergy regulatory and other information — dated docket index",
+      "url": "https://investors.entergy.com/investors/regulatory-and-other-information-1/regulatory-and-other-information/default.aspx",
+      "retrievedAt": "2026-10-12T04:46:05.656Z",
+      "sha256": "fd4e4f03fd16353b9397fd1be507274d196b9e40690e3e991cdbc85c58535235",
+      "publishedAt": null,
+      "sourceAsOf": "2026-10-12",
+      "excerpt": "3/27/26 – Entergy Louisiana submitted an application for approval of investments proposed in connection with the new agreement with Meta (docket U-37882)\n\n10/30/24 - Entergy Louisiana submitted an application for approval of generation and transmission resources proposed in connection with service to a significant customer project in North Louisiana, including proposed rider, and request for timely treatment"
+    },
+    {
+      "id": "reviewed-facility-fc930e277c7d00a3",
+      "name": "LPSC approval of Entergy Louisiana Meta infrastructure",
+      "url": "https://www.entergy.com/news/entergy-louisiana-receives-lpsc-approval-for-major-infrastructure-investments-to-support-metas-data-center-and-improve-reliability",
+      "retrievedAt": "2026-10-12T04:46:05.656Z",
+      "sha256": "9dbd4e7604d6c7bd5586b6a0ec2bfa631d1b7d1d7ad47864fe7cff7434f44516",
+      "publishedAt": "2025-08-20",
+      "sourceAsOf": "2025-08-20",
+      "excerpt": "Entergy Louisiana has already broken ground on a key substation to support the facility and will continue to invest in grid infrastructure that supports growth across the region."
+    },
+    {
+      "id": "llf-hs-src-fec866e1c421-92590f9115b6",
+      "name": "Meta Richland Parish 공식 시설 정보지",
+      "url": "https://datacenters.atmeta.com/asset/richland-parish-data-center-info-sheet/",
+      "retrievedAt": "2026-10-12T08:21:43.396Z",
+      "sha256": "92590f9115b61212a43e5b8fee68aad179d3fa4081fb13e705970a762713116f",
+      "publishedAt": null,
+      "excerpt": "Our global fleet of data centers supports Meta technologies that empower more than 3.6 billion people around the world to share ideas, offer support and make a difference. datacenters.atmeta.com Data center investment in Louisiana $50B+ Operational jobs supported once completed 1,000 Skilled trade workers on site at peak construction 7,500+ Operating Responsibly Meta Richland Parish Data Center The Richland Parish Data Center will be part of our \nThe Richland Parish Data Center will be part of our global infrastructure that brings Meta technologies and programs to life, making the future of human connection possible. This data center will play a vital role in accelerating our AI progress, delivering 5 gigawatts of compute capacity to house Hyperion, our largest multi-gigawatt AI cluster. • Meta has been working closely with Entergy to plan for our energy needs. We pay the full costs for t",
+      "sourceAsOf": null
+    },
+    {
+      "id": "reviewed-facility-b6eeefbca580747f",
+      "name": "Meta — meta rosemount 202609",
+      "url": "https://datacenters.atmeta.com/wp-content/uploads/2026/09/Meta_s-Rosemount-Data-Center.pdf",
+      "retrievedAt": "2026-10-12T05:54:41.307Z",
+      "sha256": "2aae63212baa24d1a6544f1ab094314b25099e332cc381ed200106335802626b",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "Meta worked with Xcel Energy to plan for our energy needs and to ensure we are paying the full costs for the energy used by our data center, so consumers are not negatively impacted."
+    },
+    {
+      "id": "reviewed-facility-639af33fb19d3ffa",
+      "name": "Xcel Energy / Northern States Power — xcel meta rosemount",
+      "url": "https://stories.xcelenergy.com/ArticlePage/?id=Building-the-21st-century-economy--Xcel-Energy-to-power-new-Meta-data-center",
+      "retrievedAt": "2026-10-12T05:53:44.135Z",
+      "sha256": "acad20b1a5d7b4835b9ef31545cd8675cb225c272f5a4322bffad507cdc97a0d",
+      "publishedAt": "2024-03-15",
+      "sourceAsOf": "2024-03-15",
+      "excerpt": "The Minnesota Public Utilities Commission has already approved the agreement between Xcel Energy and Meta to supply power to the site – including a provision that Meta will contribute to Xcel's diversity, equity and inclusion (DEI) programs, making monthly contributions based on their energy use.\n\nMeta is also working with Xcel Energy to bring energy upgrades to UMore Park, the site of the new data center, including new transmission lines."
+    },
+    {
+      "id": "reviewed-facility-db641cc8fdca0169",
+      "name": "Meta — meta rosemount 202609",
+      "url": "https://datacenters.atmeta.com/wp-content/uploads/2026/09/Meta_s-Rosemount-Data-Center.pdf",
+      "retrievedAt": "2026-10-12T05:54:41.307Z",
+      "sha256": "2aae63212baa24d1a6544f1ab094314b25099e332cc381ed200106335802626b",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "Meta worked with Xcel Energy to plan for our energy needs and to ensure we are paying the full costs for the energy used by our data center, so consumers are not negatively impacted."
+    },
+    {
+      "id": "reviewed-facility-13d937332965b945",
+      "name": "Xcel Energy / Northern States Power — xcel meta rosemount",
+      "url": "https://stories.xcelenergy.com/ArticlePage/?id=Building-the-21st-century-economy--Xcel-Energy-to-power-new-Meta-data-center",
+      "retrievedAt": "2026-10-12T05:53:44.135Z",
+      "sha256": "acad20b1a5d7b4835b9ef31545cd8675cb225c272f5a4322bffad507cdc97a0d",
+      "publishedAt": "2024-03-15",
+      "sourceAsOf": "2024-03-15",
+      "excerpt": "The Minnesota Public Utilities Commission has already approved the agreement between Xcel Energy and Meta to supply power to the site – including a provision that Meta will contribute to Xcel's diversity, equity and inclusion (DEI) programs, making monthly contributions based on their energy use.\n\nMeta is also working with Xcel Energy to bring energy upgrades to UMore Park, the site of the new data center, including new transmission lines."
+    },
+    {
+      "id": "llf-hs-src-43bfbf4bac46-2aae63212baa",
+      "name": "Meta Rosemount 공식 시설 정보지",
+      "url": "https://datacenters.atmeta.com/asset/rosemount-data-center-info-sheet/",
+      "retrievedAt": "2026-10-12T08:21:43.407Z",
+      "sha256": "2aae63212baa24d1a6544f1ab094314b25099e332cc381ed200106335802626b",
+      "publishedAt": null,
+      "excerpt": "Our global fleet of data centers supports Meta technologies that empower more than 3.6 billion people around the world to share ideas, offer support and make a difference. datacenters.atmeta.com Data center investment in Minnesota $800M+ Operational jobs supported once completed ~100 Skilled trade workers on site at peak construction 1,000 Operating Responsibly Responsible energy and water use Water stewardship Clean and renewable energy Meta wor  once completed ~100 Skilled trade workers on site at peak construction 1,000 Operating Responsibly Responsible energy and water use Water stewardship Clean and renewable energy Meta worked with Xcel Energy to plan for our energy needs and to ensure we are paying the full costs for the energy used by our data center, so consumers are not negatively impacted. Meta has also worked with the City of Rosemount to pay the full cost of water and wastewater service for our data center. Our operational data center buildings achieve LEED® Gold certification by focusing on efficiency, sustainability and innovation. Our goal is to be water positive in 2030, where we will restore more water than we consume globally where Meta has owned operations. We are committed to supporting the addition of new clean and renewable energy to the grid. Meta matches all of its electricity use with 100% clean and renewable energy. Meta Rosemount Data Center The Rosemount Data Center will be part of our global infrastructure that brings Meta technologies and programs to life, making the future of human connection p\nThe Rosemount Data Center will be part of our global infrastructure that brings Meta technologies and programs to life, making the future of human connection possible. Water Stewardship Our water stewardship program is focused on increasing data center water efficiency, supporting water restoration and conservation projects in watersheds where we have data centers, and being transparent with our water data. The Rosemount Data Center will prioriti  once completed ~100 Skilled trade workers on site at peak construction 1,000 Operating Responsibly Responsible energy and water use Water stewardship Clean and renewable energy Meta worked with Xcel Energy to plan for our energy needs and to ensure we are paying the full costs for the energy used by our data center, so consumers are not negatively impacted. Meta has also worked with the City of Rosemount to pay the full cost of water and wastewater service for our data center. Our operational data center buildings achieve LEED® Gold certification by focusing on efficiency, sustainability and innovation. Our goal is to be water positive in 2030, where we will restore more water than we consume globally where Meta has owned operations. We are committed to supporting the addition of new clean and renewable energy to the grid. Meta matches all of its electricity use with 100% clean and renewable energy. Meta Rosemount Data Center The Rosemount Data Center will be part of our global infrastructure that brings Meta technologies and programs to life, making the future of human connection p",
+      "sourceAsOf": null
+    },
+    {
+      "id": "reviewed-facility-f3d89c3a3b88431b",
+      "name": "Wisconsin PSC: Ozaukee County Distribution Interconnection, 137-CE-229",
+      "url": "https://psc.wi.gov/Pages/CommissionActions/CasePages/OzaukeeDIP.aspx",
+      "retrievedAt": "2026-10-12T04:45:35.369Z",
+      "sha256": "a2c06c7ac3df77c71ea7a5d3565d1b0ad43977764aafbcbcfbc0df180bf58a2d",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "The project area was first generally identified by the applicant as necessary when WE Energies sent the applicant a new load interconnection request form (LIRF) #41052-2, in which WE Energies stated that their current distribution system was not capable of supporting the new load addition.\n[…]\nOf that cost, $1,099,366,000 is attributable to the E-STATCOM, which will be fully paid for by Oracle America Cloud Services, LLC (OACS)."
+    },
+    {
+      "id": "reviewed-facility-156b63e0d92ba01d",
+      "name": "Wisconsin PSC: initial Ozaukee case 137-CE-221",
+      "url": "https://psc.wi.gov/Pages/CommissionActions/CasePages/OzaukeeTransmission.aspx",
+      "retrievedAt": "2026-10-12T04:45:35.370Z",
+      "sha256": "0f8951a85a4e715604d1265c2c0b8eb72b1278ced62135f5725e6ca4e04ac7a9",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "On September 10, 2026, the Public Service Commission of Wisconsin revoked the completeness determination of American Transmission Company’s (ATC) application for a Certificate of Public Convenience and Necessity (CPCN) to construct and operate the Ozaukee County Distribution Interconnection Project."
+    },
+    {
+      "id": "reviewed-facility-c96d0866a1309991",
+      "name": "We Energies and Oracle Point Beach agreement",
+      "url": "https://news.we-energies.com/we-energies-agreement-with-oracle-expected-to-save-customers-approximately-300-million/",
+      "retrievedAt": "2026-10-12T04:47:53.048Z",
+      "sha256": "3e19bd97d3e815dce10c4e970f5898c15de953f250836476311585f81a63cdc4",
+      "publishedAt": "2026-10-02",
+      "sourceAsOf": null,
+      "excerpt": "Full details will be submitted to the Public Service Commission of Wisconsin in the coming months as part of its review of the agreement.\n[…]\nAccording to Oracle, the planned commitment builds on Oracle’s broader investment in Wisconsin through Project Lighthouse , its data center development in Port Washington."
+    },
+    {
+      "id": "reviewed-facility-7e88bf4956766d06",
+      "name": "Oracle Port Washington campus facts",
+      "url": "https://www.oracle.com/data-centers/port-washington/",
+      "retrievedAt": "2026-10-12T04:47:53.048Z",
+      "sha256": "c5e18626939ca154696486c3724e0e1257c05fa0e105e21e10dff8d0400c52bf",
+      "publishedAt": null,
+      "sourceAsOf": "2026-01",
+      "excerpt": "The project will add about 2,000 MW of new zero-emission power to Wisconsin’s grid, which means more reliable, affordable energy for local families and businesses."
+    },
+    {
+      "id": "reviewed-facility-dfa003161f4c75b4",
+      "name": "Oracle Port Washington campus facts",
+      "url": "https://www.oracle.com/data-centers/port-washington/",
+      "retrievedAt": "2026-10-12T04:47:53.048Z",
+      "sha256": "c5e18626939ca154696486c3724e0e1257c05fa0e105e21e10dff8d0400c52bf",
+      "publishedAt": null,
+      "sourceAsOf": "2026-01",
+      "excerpt": "The project will add about 2,000 MW of new zero-emission power to Wisconsin’s grid, which means more reliable, affordable energy for local families and businesses."
+    },
+    {
+      "id": "reviewed-facility-056cfd0f94db83ca",
+      "name": "Wisconsin PSC: Ozaukee County Distribution Interconnection, 137-CE-229",
+      "url": "https://psc.wi.gov/Pages/CommissionActions/CasePages/OzaukeeDIP.aspx",
+      "retrievedAt": "2026-10-12T04:45:35.369Z",
+      "sha256": "a2c06c7ac3df77c71ea7a5d3565d1b0ad43977764aafbcbcfbc0df180bf58a2d",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "The project area was first generally identified by the applicant as necessary when WE Energies sent the applicant a new load interconnection request form (LIRF) #41052-2, in which WE Energies stated that their current distribution system was not capable of supporting the new load addition.\n[…]\nOf that cost, $1,099,366,000 is attributable to the E-STATCOM, which will be fully paid for by Oracle America Cloud Services, LLC (OACS)."
+    },
+    {
+      "id": "reviewed-facility-73c229b9378b8d7c",
+      "name": "Wisconsin PSC: initial Ozaukee case 137-CE-221",
+      "url": "https://psc.wi.gov/Pages/CommissionActions/CasePages/OzaukeeTransmission.aspx",
+      "retrievedAt": "2026-10-12T04:45:35.370Z",
+      "sha256": "0f8951a85a4e715604d1265c2c0b8eb72b1278ced62135f5725e6ca4e04ac7a9",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "On September 10, 2026, the Public Service Commission of Wisconsin revoked the completeness determination of American Transmission Company’s (ATC) application for a Certificate of Public Convenience and Necessity (CPCN) to construct and operate the Ozaukee County Distribution Interconnection Project."
+    },
+    {
+      "id": "reviewed-facility-9e3b239ffb7ef7b4",
+      "name": "We Energies and Oracle Point Beach agreement",
+      "url": "https://news.we-energies.com/we-energies-agreement-with-oracle-expected-to-save-customers-approximately-300-million/",
+      "retrievedAt": "2026-10-12T04:47:53.048Z",
+      "sha256": "3e19bd97d3e815dce10c4e970f5898c15de953f250836476311585f81a63cdc4",
+      "publishedAt": "2026-10-02",
+      "sourceAsOf": null,
+      "excerpt": "Full details will be submitted to the Public Service Commission of Wisconsin in the coming months as part of its review of the agreement.\n[…]\nAccording to Oracle, the planned commitment builds on Oracle’s broader investment in Wisconsin through Project Lighthouse , its data center development in Port Washington."
+    },
+    {
+      "id": "llf-hs-src-bda0c0acdd62-6299917cdea9",
+      "name": "Oracle port washington 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/port-washington/",
+      "retrievedAt": "2026-10-12T08:34:17.081Z",
+      "sha256": "6299917cdea932e82dda5b4dfe04ee908e8e0215b4f644df67122fb86b26ad51",
+      "publishedAt": null,
+      "excerpt": "Port Washington, Wisconsin Data Center Port Washington Data Center Facts Open all Jobs The Port Washington project is expected to generate more than 4,000 union construction jobs and more than 1,000 ongoing project-supported jobs onsite. Local suppliers, vendors, contractors and residents will be prioritized with a union-first approach. Community Impact The project will contribute $175 million for local infrastructure upgrades, including expanded capacity for water and wastewater treatment facilities, upgraded water mains and sewer lines, a new water tower and power infrastructure. It’s expected to generate more than $11 billion for the local economy. Additional initiatives will focus on restoring wetlands, increasing biodiversity, and minimizing light pollution. Energy 70% of energy for the Port Washington campus will come from zero-emission sources, including wind, solar, and batteries. The project will add about 2,000 MW of new zero-emission power to Wisconsin’s grid, which means more reliable, affordable energy for local families and businesses. The project will fully fund all electrical infrastructure upgrades, requiring no increase to local energy bills. Water The Port Washington AI data center uses a closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. There’s a commitment to being “water positive,” with restoration projects returning more water to the environment than the campus consumes. Size The campus will consist of four buildings on 500 of its 672 acres. Remaining acres will be preserved as natural spaces. Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Learn more about the opportunities coming soon. Learn more /SC07v2 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-bda0c0acdd62-7bca4a32cda9",
+      "name": "Oracle port washington 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/port-washington/",
+      "retrievedAt": "2026-10-12T08:19:30.487Z",
+      "sha256": "7bca4a32cda9f9482d7c943f7dfe98d1549d24140cf048bb1a92bc84b790cf60",
+      "publishedAt": null,
+      "excerpt": "Port Washington, Wisconsin Data Center Port Washington Data Center Facts Open all Jobs The Port Washington project is expected to generate more than 4,000 union construction jobs and more than 1,000 ongoing project-supported jobs onsite. Local suppliers, vendors, contractors and residents will be prioritized with a union-first approach. Community Impact The project will contribute $175 million for local infrastructure upgrades, including expanded capacity for water and wastewater treatment facilities, upgraded water mains and sewer lines, a new water tower and power infrastructure. It’s expected to generate more than $11 billion for the local economy. Additional initiatives will focus on restoring wetlands, increasing biodiversity, and minimizing light pollution. Energy 70% of energy for the Port Washington campus will come from zero-emission sources, including wind, solar, and batteries. The project will add about 2,000 MW of new zero-emission power to Wisconsin’s grid, which means more reliable, affordable energy for local families and businesses. The project will fully fund all electrical infrastructure upgrades, requiring no increase to local energy bills. Water The Port Washington AI data center uses a closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. There’s a commitment to being “water positive,” with restoration projects returning more water to the environment than the campus consumes. Size The campus will consist of four buildings on 500 of its 672 acres. Remaining acres will be preserved as natural spaces. Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Learn more about the opportunities coming soon. Learn more /SC07v2 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "reviewed-facility-c5517cb600f54501",
+      "name": "MPSC: DTE–Oracle/Green Chile Ventures 특별계약 조건부 승인",
+      "url": "https://www.michigan.gov/mpsc/commission/events/2025/12/18/~/link.aspx?_id=5F5E5CA34D71466696AB507F9571E9FC&_z=z",
+      "retrievedAt": "2026-10-12T04:44:47.641Z",
+      "sha256": "f7418ffa46e98f5f4b432c1b95a7309d5a1412ae4c3e498077dd63c5cb358831",
+      "publishedAt": "2025-12-18",
+      "sourceAsOf": null,
+      "excerpt": "The Michigan Public Service Commission today conditionally approved an application from DTE Electric Co. for approval of special contracts to supply power for a Washtenaw County data center\n[…]\nthe 1,383- megawatt (MW) data center in Saline Township that it is unable to recover from Green Chile Ventures LLC, a subsidiary of the tech company Oracle Corp."
+    },
+    {
+      "id": "reviewed-facility-bc709334c513ee68",
+      "name": "DTE 원본 신청서: Green Chile Ventures PSA·ESA",
+      "url": "https://mi-psc.my.site.com/sfc/servlet.shepherd/version/download/068cs00001MH71XAAT",
+      "retrievedAt": "2026-10-12T04:46:25.894Z",
+      "sha256": "2e927e89666e6e67c36ce265f2a808efac14a44eee531a7efd0a5a6cd7a68017",
+      "publishedAt": "2025-10-31",
+      "sourceAsOf": null,
+      "excerpt": "Customer (Green Chile Ventures LLC) is a subsidiary of Oracle Corporation\n[…]\nFollowing extensive negotiations between the Company and Customer, the parties executed the Special Contracts that will become effective upon Commission approval in this case."
+    },
+    {
+      "id": "reviewed-facility-86946669a5e41ff4",
+      "name": "DTE SEC 공시: 2026-09-28 사업 업데이트",
+      "url": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000159/dtebusinessupdate92826fi.htm",
+      "retrievedAt": "2026-10-09T05:14:05.647Z",
+      "sha256": "2840ec99f5119ba8c5dca1be6ab551a8c9f96e3f3c634760d1651caf6c2f6c66",
+      "publishedAt": "2026-09-28",
+      "sourceAsOf": null,
+      "excerpt": "1.4 GW Oracle data center (in plan) approved and construction started"
+    },
+    {
+      "id": "reviewed-facility-3416e558c9a23714",
+      "name": "MPSC: DTE–Oracle/Green Chile Ventures 특별계약 조건부 승인",
+      "url": "https://www.michigan.gov/mpsc/commission/events/2025/12/18/~/link.aspx?_id=5F5E5CA34D71466696AB507F9571E9FC&_z=z",
+      "retrievedAt": "2026-10-12T04:44:47.641Z",
+      "sha256": "f7418ffa46e98f5f4b432c1b95a7309d5a1412ae4c3e498077dd63c5cb358831",
+      "publishedAt": "2025-12-18",
+      "sourceAsOf": null,
+      "excerpt": "The Michigan Public Service Commission today conditionally approved an application from DTE Electric Co. for approval of special contracts to supply power for a Washtenaw County data center\n[…]\nthe 1,383- megawatt (MW) data center in Saline Township that it is unable to recover from Green Chile Ventures LLC, a subsidiary of the tech company Oracle Corp."
+    },
+    {
+      "id": "reviewed-facility-b951eae45ad5f408",
+      "name": "DTE SEC 공시: 2026-09-28 사업 업데이트",
+      "url": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000159/dtebusinessupdate92826fi.htm",
+      "retrievedAt": "2026-10-09T05:14:05.647Z",
+      "sha256": "2840ec99f5119ba8c5dca1be6ab551a8c9f96e3f3c634760d1651caf6c2f6c66",
+      "publishedAt": "2026-09-28",
+      "sourceAsOf": null,
+      "excerpt": "1.4 GW Oracle data center (in plan) approved and construction started"
+    },
+    {
+      "id": "reviewed-facility-f7e11b0d9459c87b",
+      "name": "DTE 원본 신청서: Green Chile Ventures PSA·ESA",
+      "url": "https://mi-psc.my.site.com/sfc/servlet.shepherd/version/download/068cs00001MH71XAAT",
+      "retrievedAt": "2026-10-12T04:46:25.894Z",
+      "sha256": "2e927e89666e6e67c36ce265f2a808efac14a44eee531a7efd0a5a6cd7a68017",
+      "publishedAt": "2025-10-31",
+      "sourceAsOf": null,
+      "excerpt": "Customer (Green Chile Ventures LLC) is a subsidiary of Oracle Corporation\n[…]\nFollowing extensive negotiations between the Company and Customer, the parties executed the Special Contracts that will become effective upon Commission approval in this case."
+    },
+    {
+      "id": "llf-hs-src-bf6985c99fea-99466179840f",
+      "name": "Oracle saline township 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/saline-township/",
+      "retrievedAt": "2026-10-12T08:34:17.274Z",
+      "sha256": "99466179840f83bb76021ad1bfcb46d048ad52836522adef803bad05e4f6f659",
+      "publishedAt": null,
+      "excerpt": "Saline Township, Michigan Data Center Saline Township Data Center Facts Open all Jobs The project is expected to create 2,500+ union construction jobs, 450+ permanent jobs onsite, and 1,500+ jobs county-wide to support the project. Local suppliers, vendors, contractors and residents will be prioritized. Community Impact Millions of dollars will support community projects, services, schools, and new infrastructure supporting public safety. Stormwater management features are designed to significantly reduce runoff into the Saline River. Water The Saline Township AI data center uses a one-time fill, closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. Energy The project will be served by existing high-voltage power lines, which will have enough capacity to run the AI data center. Oracle will pay for the required energy infrastructure upgrades, keeping local residents’ electric bills in check. Utility customers will benefit from Oracle contributing its share to the fixed costs of maintaining and improving the grid – projected to be approximately $300 million annually. Size The AI data center uses only 250 of 1,000+ acres. Remaining acres will be preserved for open space, farmland, wetlands, and natural woods. Previous Slide Building the Right Way Investing in Saline An Idea That Works The Barn Next Slide play / pause slider /SH06v0 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Learn more about the opportunities coming soon. Learn more /SC07v2 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-bf6985c99fea-0f890f157714",
+      "name": "Oracle saline township 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/saline-township/",
+      "retrievedAt": "2026-10-12T08:19:30.988Z",
+      "sha256": "0f890f157714e3d80fd1ed34cb9700e13e1d0469eede35d560304f750d44133d",
+      "publishedAt": null,
+      "excerpt": "Saline Township, Michigan Data Center Saline Township Data Center Facts Open all Jobs The project is expected to create 2,500+ union construction jobs, 450+ permanent jobs onsite, and 1,500+ jobs county-wide to support the project. Local suppliers, vendors, contractors and residents will be prioritized. Community Impact Millions of dollars will support community projects, services, schools, and new infrastructure supporting public safety. Stormwater management features are designed to significantly reduce runoff into the Saline River. Water The Saline Township AI data center uses a one-time fill, closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. Energy The project will be served by existing high-voltage power lines, which will have enough capacity to run the AI data center. Oracle will pay for the required energy infrastructure upgrades, keeping local residents’ electric bills in check. Utility customers will benefit from Oracle contributing its share to the fixed costs of maintaining and improving the grid – projected to be approximately $300 million annually. Size The AI data center uses only 250 of 1,000+ acres. Remaining acres will be preserved for open space, farmland, wetlands, and natural woods. Previous Slide Building the Right Way Investing in Saline An Idea That Works The Barn Next Slide play / pause slider /SH06v0 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Learn more about the opportunities coming soon. Learn more /SC07v2 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "reviewed-facility-d7c1b51c041ac780",
+      "name": "Cipher Digital official investor presentation p.16",
+      "url": "https://investors.cipherdigital.com/static-files/58e46e77-13f9-4514-8c2a-2c7695cf2b4a",
+      "retrievedAt": "2026-10-12T05:52:42.180Z",
+      "sha256": "f476c44b127a9d7f95d8fc2156b0d3161cf60129ac2dc635dc86baff0c0b9c29",
+      "publishedAt": "2026-02-24",
+      "sourceAsOf": "2026-02-24",
+      "excerpt": "Ulysses 200 MW Gross Capacity; 2027 Q4 Target Energization. Recently acquired site in Ohio with approved interconnection in the PJM market for 200 gross MW. Ongoing discussions for an HPC hosting lease."
+    },
+    {
+      "id": "reviewed-facility-83a843f8e1d22982",
+      "name": "Cipher Digital official investor presentation p.16",
+      "url": "https://investors.cipherdigital.com/static-files/58e46e77-13f9-4514-8c2a-2c7695cf2b4a",
+      "retrievedAt": "2026-10-12T05:52:42.180Z",
+      "sha256": "f476c44b127a9d7f95d8fc2156b0d3161cf60129ac2dc635dc86baff0c0b9c29",
+      "publishedAt": "2026-02-24",
+      "sourceAsOf": "2026-02-24",
+      "excerpt": "Ulysses 200 MW Gross Capacity; 2027 Q4 Target Energization. Recently acquired site in Ohio with approved interconnection in the PJM market for 200 gross MW. Ongoing discussions for an HPC hosting lease."
+    },
+    {
+      "id": "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+      "name": "Cipher 2026-02-24 공식 투자자 시설 설명",
+      "url": "https://investors.cipherdigital.com/static-files/58e46e77-13f9-4514-8c2a-2c7695cf2b4a",
+      "retrievedAt": "2026-10-12T08:31:42.660Z",
+      "sha256": "f476c44b127a9d7f95d8fc2156b0d3161cf60129ac2dc635dc86baff0c0b9c29",
+      "publishedAt": "2026-02-24",
+      "excerpt": "ues to Execute on Strategy $2.0Bn Financing for Black Pearl Upsized Lease & Additional Financing at Barber Lake • Executed 15 -year HPC lease with AWS at ~100% NOI margin • Barber Lake fully funded through substantial completion with debt and equity contributed $1.4Bn Financing for Barber Lake • Issued $1.4Bn, 7.125% HY bond to support development at Barber Lake Expansion Beyond Texas • Acquired Ulysses, a 200 MW site in Ohio, for future data center development • Issued $2.0Bn, 6.125% HY bond • Black Pearl fully funded through substantial completion Note: (1) Based on forecasted gross MWs for Amazon Web Services and Fluidstack/Google executed HPC leases, and currently oper ating bitcoin self -mining capacity BTC Mining Contracted for HPC 600 MW Gross Capacity ~$9.3Bn Contracted Revenue 10-15years Base Lease Terms ~$669 MM Avg. Annualized NOI (1) 6 Note: (1) Reflects total average contracted annualized NOI from October 2026 to September \nperating & Contracted Gross Capacity 807 MW (1) November December February January AWS HPC Lease at Black Pearl 5 Cipher Continues to Execute on Strategy $2.0Bn Financing for Black Pearl Upsized Lease & Additional Financing at Barber Lake • Executed 15 -year HPC lease with AWS at ~100% NOI margin • Barber Lake fully funded through substantial completion with debt and equity contributed $1.4Bn Financing for Barber Lake • Issued $1.4Bn, 7.125% HY bond to support development at Barber Lake Expansion Beyond Texas • Acquired Ulysses, a 200 MW site in Ohio, for future data center development • Issued $2.0Bn, 6.125% HY bond • Black Pearl fully funded through substantial completion Note: (1) Based on forecasted gross MWs for Amazon Web Services and Fluidstack/Google executed HPC leases, and currently oper ating bitcoin self -mining capacity BTC Mining Contracted for HPC 600 MW Gross Capacity ~$9.3Bn Contracted Revenue 10-15years Base Lease Term\nacity ~17.2J/TH Fleet Efficiency ~¢2.8/kWh Power Cost 14 Development Pipeline 15 Pipeline Spotlight Stingray • ERCOT interconnection approved for 100 gross MW • Substation development underway • Ongoing discussions for an HPC hosting lease 2026 Q4 Target Energization 100 MW Gross Capacity Ulysses • Recently acquired site in Ohio with approved interconnection in the PJM market for 200 gross MW • Ongoing discussions for an HPC hosting lease 2027 Q4 Target Energization 200 MW Gross Capacity McLennan • All necessary deposits are funded & land is secured • Requisite studies approved by ERCOT, improving expectations to be included as firm load in future batch studies 2028 Target Energization (1) 500 MW Gross Capacity (1) Colchis • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studi es 2028 Target Energization (1) 1,0\nuded as firm load in future batch studi es 2028 Target Energization (1) 1,000 MW Gross Capacity (1) Reveille • ERCOT interconnection approved for first phase of development (70 gross MW) • Substation development initiated 2027 Q3 Target Energization 70 MW Gross Capacity Mikeska • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studies 2028 Target Energization (1) 500 MW Gross Capacity (1) Ulysses 200 MW Ohio Texas Colchis 1,000 MW McLennan 500 MW Reveille 70 MW Mikeska 500 MW Stingray 100 MW Note: (1) Gross capacity and target energization subject to ERCOT batch study process 16 207 MW 300 MW 300 MW 207 MW 600 MW Bitcoin Mining Capacity Contracted HPC Capacity 17 Total Pipeline Capacity Barber Lake ► Black Pearl ► New Energization Forecast Energized Capacity Odessa ► Note: MW presented on a gross basis; (1) Refle\nsued $1.4Bn, 7.125% HY bond to support development at Barber Lake Expansion Beyond Texas • Acquired Ulysses, a 200 MW site in Ohio, for future data center development • Issued $2.0Bn, 6.125% HY bond • Black Pearl fully funded through substantial completion Note: (1) Based on forecasted gross MWs for Amazon Web Services and Fluidstack/Google executed HPC leases, and currently oper ating bitcoin self -mining capacity BTC Mining Contracted for HPC 600 MW Gross Capacity ~$9.3Bn Contracted Revenue 10-15years Base Lease Terms ~$669 MM Avg. Annualized NOI (1) 6 Note: (1) Reflects total average contracted annualized NOI from October 2026 to September 2036, the Fluidstack/Google base le ase term Long -Term Leases & Contracted Cashflows Two leases signed with world’s leading hyperscalers Stable cashflows to strengthen robust liquidity profile Resilient business model with long -term leases Best -in-class team with HPC data center experience $86 $\nncluded as firm load in future batch studies 2028 Target Energization (1) 500 MW Gross Capacity (1) Colchis • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studi es 2028 Target Energization (1) 1,000 MW Gross Capacity (1) Reveille • ERCOT interconnection approved for first phase of development (70 gross MW) • Substation development initiated 2027 Q3 Target Energization 70 MW Gross Capacity Mikeska • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studies 2028 Target Energization (1) 500 MW Gross Capacity (1) Ulysses 200 MW Ohio Texas Colchis 1,000 MW McLennan 500 MW Reveille 70 MW Mikeska 500 MW Stingray 100 MW Note: (1) Gross capacity and target energization subject to ERCOT batch study\nt (70 gross MW) • Substation development initiated 2027 Q3 Target Energization 70 MW Gross Capacity Mikeska • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studies 2028 Target Energization (1) 500 MW Gross Capacity (1) Ulysses 200 MW Ohio Texas Colchis 1,000 MW McLennan 500 MW Reveille 70 MW Mikeska 500 MW Stingray 100 MW Note: (1) Gross capacity and target energization subject to ERCOT batch study process 16 207 MW 300 MW 300 MW 207 MW 600 MW Bitcoin Mining Capacity Contracted HPC Capacity 17 Total Pipeline Capacity Barber Lake ► Black Pearl ► New Energization Forecast Energized Capacity Odessa ► Note: MW presented on a gross basis; (1) Reflects estimated target energization and capacity subject to ERCOT batch study pro ces s; (2) Signed MOU to negotiate building an additional 500 MW data center adjacent to th\nMW • Ongoing discussions for an HPC hosting lease 2027 Q4 Target Energization 200 MW Gross Capacity McLennan • All necessary deposits are funded & land is secured • Requisite studies approved by ERCOT, improving expectations to be included as firm load in future batch studies 2028 Target Energization (1) 500 MW Gross Capacity (1) Colchis • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studi es 2028 Target Energization (1) 1,000 MW Gross Capacity (1) Reveille • ERCOT interconnection approved for first phase of development (70 gross MW) • Substation development initiated 2027 Q3 Target Energization 70 MW Gross Capacity Mikeska • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studies 2028 \nit Black Pearl from BTC Mining to HPC • All Black Pearl bitcoin mining rigs have been redeployed at Odessa, sold or marked for sale as development on HPC data center begins • Odessa • Flexibility to continue mining through expiration of the PPA in July 2027, while evaluating a potential conversion to HPC 8 (2) Note: (1) Reflects total BTC inventory as of February 20 th, 2026; (2) Reflects Cipher’s current total operating hashrate at the Odessa site Reflects decommissioning of rigs at Black Pearl and divestiture of joint venture sites Alborz, Bear & Chief Total Operating Hashrate 9 Current Portfolio ~$3.8 Bn Contracted Revenue 300 MW Gross Capacity 10Years Base Lease Term 2026 Oct Lease Start Date 10-Year Modified Gross Lease for HPC Hosting with Fluidstack • 10-year base lease agreement with Fluidstack with two 5-year extension options • Google to provide backstop for up to $1.73Bn of Fluidstack’s lease obligations • NOI margin of ~86% ",
+      "sourceAsOf": "2026-02-24"
+    },
+    {
+      "id": "llf-hs-src-75808617777a-4049ddd4c580",
+      "name": "Cipher 공식 개별 캠퍼스 용량·가동 계획",
+      "url": "https://cipherdigital.com/infrastructure/",
+      "retrievedAt": "2026-10-12T08:18:41.637Z",
+      "sha256": "4049ddd4c58068dc7533d58204f5421d4c601deba419bb83c40fedc6172d4a9b",
+      "publishedAt": null,
+      "excerpt": "data-oa-site-item data-oa-site-index=\"0\"> Barber Lake Capacity 300 MW Energization Timeline Energized\ndata-oa-site-item data-oa-site-index=\"1\"> Black Pearl Capacity 300 MW Energization Timeline Energized\ndata-oa-site-item data-oa-site-index=\"2\"> Third HPC Lease Capacity 100 MW Energization Timeline 2026 Q4 \ndata-oa-site-item data-oa-site-index=\"0\"> Reveille Capacity 70 MW Energization Timeline 2027 Q3\ndata-oa-site-item data-oa-site-index=\"1\"> Ulysses Capacity 200 MW Energization Timeline 2027 Q4\ndata-oa-site-item data-oa-site-index=\"2\"> Colchis Capacity 1000 MW Energization Timeline 2028-29 Est.\ndata-oa-site-item data-oa-site-index=\"3\"> Mikeska Capacity 500 MW Energization Timeline 2028-29 Est.\ndata-oa-site-item data-oa-site-index=\"4\"> McLennan Capacity 500 MW Energization Timeline 2028-29 Est.\ndata-oa-site-item data-oa-site-index=\"5\"> Barber Lake Expansion Capacity 500 MW Energization Timeline 2030 +\ndata-oa-site-item data-oa-site-index=\"6\"> Stingray Expansion Capacity 200 MW Energization Timeline 2030 +\ndata-oa-site-item data-oa-site-index=\"7\"> Apollo Capacity 900 MW Energization Timeline 2030 +\ndata-oa-site-item data-oa-site-index=\"8\"> Milsing Capacity 500 MW Energization Timeline 2030 + \ndata-oa-site-item data-oa-site-index=\"0\"> Odessa Capacity 207 MW Operating Hashrate ~11.6 EH/s “ We are firmly focused on establishing Cipher Digital as the premier developer and operator of data centers powering the next generation of compute.” Tyler Page Chief Executive Officer Built for Hyperscale. Company Investor Resources Infrastructure Careers Insights Terms of Use Privacy Policy Get in Tou",
+      "sourceAsOf": null
+    },
+    {
+      "id": "reviewed-facility-556b6c7b4d45492b",
+      "name": "TVA Board approved 150MW xAI firm power availability",
+      "url": "https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/about-tva/board-of-directors/november--7-2024/resolutions/reading-room-11072024g-grtr-100mw-ctc-xai-reso-memo.pdf?sfvrsn=55653613_1",
+      "retrievedAt": "2026-10-12T04:44:12.733Z",
+      "sha256": "02fc764ddec5a326c8aafc478dabc4859e649866ddeb452229b1d9fe2386edac",
+      "publishedAt": "2024-11-07",
+      "sourceAsOf": "2024-11-07",
+      "excerpt": "In March of this year, xAI inquired about MLGW and TVA’s potential to supply a 150 MW operation at the site for the purpose of operating an AI data center that would house the world’s largest supercomputer. hereby approves 150 MW of power supply to the new MLGW end-use customer on the requested timeline contingent on the new customer’s agreement to certain demand response terms offered for similar customer loads. By August of this year, xAI was already operating at over 50 MW with a combination of limited MLGW power and xAI gas turbines."
+    },
+    {
+      "id": "reviewed-facility-f9206437d24eacff",
+      "name": "TVA Board approved 150MW xAI firm power availability",
+      "url": "https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/about-tva/board-of-directors/november--7-2024/resolutions/reading-room-11072024g-grtr-100mw-ctc-xai-reso-memo.pdf?sfvrsn=55653613_1",
+      "retrievedAt": "2026-10-12T04:44:12.733Z",
+      "sha256": "02fc764ddec5a326c8aafc478dabc4859e649866ddeb452229b1d9fe2386edac",
+      "publishedAt": "2024-11-07",
+      "sourceAsOf": "2024-11-07",
+      "excerpt": "In March of this year, xAI inquired about MLGW and TVA’s potential to supply a 150 MW operation at the site for the purpose of operating an AI data center that would house the world’s largest supercomputer.\n\nhereby approves 150 MW of power supply to the new MLGW end-use customer on the requested timeline contingent on the new customer’s agreement to certain demand response terms offered for similar customer loads.\n\nBy August of this year, xAI was already operating at over 50 MW with a combination of limited MLGW power and xAI gas turbines."
+    },
+    {
+      "id": "llf-hs-src-f5d4251eed68-e18cb726557b",
+      "name": "xAI 공식 Colossus 시설 소개",
+      "url": "https://x.ai/colossus",
+      "retrievedAt": "2026-10-12T08:21:45.415Z",
+      "sha256": "e18cb726557b083af0b550957db4a0bd8b1d688958e9bd959baca1ecb801aaa9",
+      "publishedAt": null,
+      "excerpt": "mentation Grok Build Try for free New: Anthropic partners with Colossus Our gigafactory of compute. Built in 122 days — outpacing every estimate — Colossus was the most powerful AI training system yet. Then we doubled it in 92 days to 200k GPUs. This is just the beginning. 200,000 H100 GPUs in a single interconnected cluster The build We go further, faster We were told it would take 24 months to build. So we took the project into our own hands, questioned everything, removed whatever was unnecessary, and accomplished our goal in four months. By the numbers Unprecedented scale We doubled our compute at an unprecedented rate, with a roadmap to 1M GPUs. Progress in AI is driven by compute and no one has come close to building at this magnitude and speed. :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:var(--number-flow-char-height, 1em) !important}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:calc(var(--number",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-7f86772c67f5-02fc764ddec5",
+      "name": "TVA xAI Memphis 전력 공급 승인",
+      "url": "https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/about-tva/board-of-directors/november--7-2024/resolutions/reading-room-11072024g-grtr-100mw-ctc-xai-reso-memo.pdf?sfvrsn=55653613_1",
+      "retrievedAt": "2026-10-12T08:31:38.653Z",
+      "sha256": "02fc764ddec5a326c8aafc478dabc4859e649866ddeb452229b1d9fe2386edac",
+      "publishedAt": "2024-11-07",
+      "excerpt": ", the Board of Directors finds it to be appropriate and in the interest of TVA, and hereby approves 150 MW of power supply to the new MLGW end-use customer on the requested timeline contingent on the new customer’s agreement to certain demand response terms offered for similar customer loads. 55 Approved by TVA Board of Directors November 7, 2024 KAB Assistant Secretary October 7, 2024 Customer and Community Relations Board of Directors SUBJECT The TVA Board of Directors (Board) is requested to approve the availability of firm power exceeding 100 megawatts (MW) to a new customer of Memphis Light, Gas and Water (MLGW). The request will allow MLGW to enter into a power contract with CTC Property LLC, an xAI subsidiary, (hereinafter also referred to as Company or xAI) with a demand that exceeds 100 MW at the former Electrolux site in Memphis, Tennessee. CTC Property LLC is a new MLGW custom ht in temporary gas generators to power the operation during early testing and operational ramp up. By August of this year, xAI was already operating at over 50 MW with a combination of limited MLGW power and xAI gas turbines. xAI is completing its buildout as it also constructs the new substation onsite that will be the delivery point for firm power for the plant. TVA’s Commercial Energy Solutions team presented a term sheet to xAI outlining the expectations for the Company’s participation in demand response. The Company has so far been receptive and understands the need for such an approach for large scale loads in order to make the requested amount of power available on the requested timeline. The Company has batteries for use in demand response events. TVA would only make the requested",
+      "sourceAsOf": "2024-11-07"
+    },
+    {
+      "id": "reviewed-facility-1db8861e6b108763",
+      "name": "Infrastructure | Cipher Digital Infrastructure Engineered for next-generation compute. Cipher builds next-generation data centers in rapid time to power the leading edge of compute.",
+      "url": "https://cipherdigital.com/infrastructure/",
+      "retrievedAt": "2026-10-12T05:52:36.346Z",
+      "sha256": "4049ddd4c58068dc7533d58204f5421d4c601deba419bb83c40fedc6172d4a9b",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "ch to identifying high-value, long-term locations for advanced compute. 000 MW Contracted Capacity 0.0 GW Pipeline Capacity 000 MW Operating Capacity Site Overview Site Overview Contracted Capacity Site Capacity Energization Timeline Barber Lake Capacity 300 MW Energization Timeline Energized Black Pearl Capacity 300 MW Energization Timeline Energized Third HPC Lease Capacity 100 MW Energization Timeline 2026 Q4 Pipeline Capacity Site Capacity Energization Timeline Reveille Capacity 70 MW Energization Timeline 2027 Q3 Ulysses Capacity 200 MW Energization Timeline 2027 Q4 Colchis Capacity 1000 MW Energization Timeline 2028-29 Est. Mikeska Capacity 500 MW Energization Timeline 2028-29 Est. McLennan Capacity 500 MW Energization Timeline 2028-29 Est. Barber Lake Expansion Capacity 500 MW Energization Timeline 2030 + Stingray Expansion Capacity 200 MW Energization Timeline 2030 + Apollo Capacity 900 MW Energization Timeline 2030 + Milsing Capacity 500 MW Energization Timeline 2030 + Operating Capacity Site Capacity Operating Hashrate Odessa Capacity 207 MW Operating Hashrate ~11.6 EH/s “ We are firmly focused on establishing Cipher Digital as the premier developer and operator of data centers powering the next generation of compute.” Tyler Page Chief Executive Officer"
+    },
+    {
+      "id": "reviewed-facility-e27b8e189f1ecffa",
+      "name": "Cipher Digital Provides Second Quarter 2026 Business Update | Cipher Digital Inc. Skip to main navigation Press Release ‹ Back Cipher Digital Provides Second Quarter 2026 Business Update",
+      "url": "https://investors.cipherdigital.com/news-releases/news-release-details/cipher-digital-provides-second-quarter-2026-business-update",
+      "retrievedAt": "2026-10-12T05:52:39.326Z",
+      "sha256": "2ccd7fcc2c30697cd72d13a95905d07fb432e000d64d36f999cb029a5c98aca5",
+      "publishedAt": "2026-08-04",
+      "sourceAsOf": "2026-08-04",
+      "excerpt": "als, our foundation of disciplined execution is what truly sets us apart.” Cipher also today announced it has acquired an option on a new site called Apollo for up to 900 MW, located within 25 miles of San Antonio, Texas. The site spans approximately 288 acres and has been submitted as a studied load in Batch Zero through ERCOT's updated process. The site's flat, buildable terrain makes it well-suited for large-scale data center development, and its proximity to San Antonio positions it favorably for fiber connectivity. Cipher moved quickly to secure the option, reflecting the Company's ability to identify and act on attractive opportunities as they arise in the market. In the second quarter, the Company also built on strong momentum from previous quarters by completing another highly successful bond offering. The offering fully funded the Company’s Stingray development through substantial completion and reimbursed Cipher for $56.7 million of previously funded project expenditures. “A core strength of our strategy is its repeatability, and in the second quarter, we demonstrated that once again. We accessed capital markets to fund another one of our leases, secured an option on a new site, and delivered accelerated capacity to our tenant, further building our position as a leading HPC development platform,\" said Tyler Page. “We look forward to carrying this momentum into the third quarter, where we expect to make significant additional progress.” Finance and Operations Highlights First data center capacity at Black Pearl delivered in August, with rent commenced Secured option for new Apollo data center site with up to 900 MW near San Antonio, Texas Completed bond offering to fully fund Stingray data center development Barber Lake data center continues to progress towards completion as tenant has commenced beneficial use"
+    },
+    {
+      "id": "reviewed-facility-f0ffb3a0fa440549",
+      "name": "Infrastructure | Cipher Digital Infrastructure Engineered for next-generation compute. Cipher builds next-generation data centers in rapid time to power the leading edge of compute.",
+      "url": "https://cipherdigital.com/infrastructure/",
+      "retrievedAt": "2026-10-12T05:52:36.346Z",
+      "sha256": "4049ddd4c58068dc7533d58204f5421d4c601deba419bb83c40fedc6172d4a9b",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "ch to identifying high-value, long-term locations for advanced compute. 000 MW Contracted Capacity 0.0 GW Pipeline Capacity 000 MW Operating Capacity Site Overview Site Overview Contracted Capacity Site Capacity Energization Timeline Barber Lake Capacity 300 MW Energization Timeline Energized Black Pearl Capacity 300 MW Energization Timeline Energized Third HPC Lease Capacity 100 MW Energization Timeline 2026 Q4 Pipeline Capacity Site Capacity Energization Timeline Reveille Capacity 70 MW Energization Timeline 2027 Q3 Ulysses Capacity 200 MW Energization Timeline 2027 Q4 Colchis Capacity 1000 MW Energization Timeline 2028-29 Est. Mikeska Capacity 500 MW Energization Timeline 2028-29 Est. McLennan Capacity 500 MW Energization Timeline 2028-29 Est. Barber Lake Expansion Capacity 500 MW Energization Timeline 2030 + Stingray Expansion Capacity 200 MW Energization Timeline 2030 + Apollo Capacity 900 MW Energization Timeline 2030 + Milsing Capacity 500 MW Energization Timeline 2030 + Operating Capacity Site Capacity Operating Hashrate Odessa Capacity 207 MW Operating Hashrate ~11.6 EH/s “ We are firmly focused on establishing Cipher Digital as the premier developer and operator of data centers powering the next generation of compute.” Tyler Page Chief Executive Officer"
+    },
+    {
+      "id": "reviewed-facility-5bbfa179eabb9709",
+      "name": "Cipher Digital Provides Second Quarter 2026 Business Update | Cipher Digital Inc. Skip to main navigation Press Release ‹ Back Cipher Digital Provides Second Quarter 2026 Business Update",
+      "url": "https://investors.cipherdigital.com/news-releases/news-release-details/cipher-digital-provides-second-quarter-2026-business-update",
+      "retrievedAt": "2026-10-12T05:52:39.326Z",
+      "sha256": "2ccd7fcc2c30697cd72d13a95905d07fb432e000d64d36f999cb029a5c98aca5",
+      "publishedAt": "2026-08-04",
+      "sourceAsOf": "2026-08-04",
+      "excerpt": "als, our foundation of disciplined execution is what truly sets us apart.” Cipher also today announced it has acquired an option on a new site called Apollo for up to 900 MW, located within 25 miles of San Antonio, Texas. The site spans approximately 288 acres and has been submitted as a studied load in Batch Zero through ERCOT's updated process. The site's flat, buildable terrain makes it well-suited for large-scale data center development, and its proximity to San Antonio positions it favorably for fiber connectivity. Cipher moved quickly to secure the option, reflecting the Company's ability to identify and act on attractive opportunities as they arise in the market. In the second quarter, the Company also built on strong momentum from previous quarters by completing another highly successful bond offering. The offering fully funded the Company’s Stingray development through substantial completion and reimbursed Cipher for $56.7 million of previously funded project expenditures. “A core strength of our strategy is its repeatability, and in the second quarter, we demonstrated that once again. We accessed capital markets to fund another one of our leases, secured an option on a new site, and delivered accelerated capacity to our tenant, further building our position as a leading HPC development platform,\" said Tyler Page. “We look forward to carrying this momentum into the third quarter, where we expect to make significant additional progress.” Finance and Operations Highlights First data center capacity at Black Pearl delivered in August, with rent commenced Secured option for new Apollo data center site with up to 900 MW near San Antonio, Texas Completed bond offering to fully fund Stingray data center development Barber Lake data center continues to progress towards completion as tenant has commenced beneficial use"
+    },
+    {
+      "id": "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30",
+      "name": "Cipher 2026-08-04 공식 사업 진행 발표",
+      "url": "https://investors.cipherdigital.com/news-releases/news-release-details/cipher-digital-provides-second-quarter-2026-business-update",
+      "retrievedAt": "2026-10-12T08:31:39.259Z",
+      "sha256": "2ccd7fcc2c30697cd72d13a95905d07fb432e000d64d36f999cb029a5c98aca5",
+      "publishedAt": "2026-08-04",
+      "excerpt": "0 MW near San Antonio, Texas Completed bond offering to fully fund Stingray data center development Barber Lake data center continues to progress towards completion as tenant has commenced beneficial use of the facility, including partial occupancy of the building and deployment of network racks Black Pearl data center continues to progress towards completion with remaining Phase I data halls moving through MEP fit-out and Phase II concrete foundations, building steel, and underground electrical in progress Stingray data center construction continues to progress on schedule, with earthwork, grading, pad preparation, and underground electrical work all underway Q2 2026 Revenue of $25 million and Adjusted EBITDA of negative $30 million Business Update Call and Webcast The live webcast and a webcast replay of the conference call can be accessed from the investor relations section of Cipher’s website at https://investors.cipherdigital.com/ . About Cipher Cipher develops and operates industrial-scale data centers engineered for next-generation computing at the highest standards of innovation, precision, and excellence. The Company brings together deep expertise across power sourcing, construction, engineering, operations, real estate, and technology to deliver high-quality data center\n Release ‹ Back Cipher Digital Provides Second Quarter 2026 Business Update PDF Version Aug 4, 2026 Black Pearl Data Center Delivery Accelerated Acquired Option for 900 MW Site Near San Antonio, Texas Completed Project-Level Financing to Fully Fund Third Data Center Development NEW YORK, Aug. 04, 2026 (GLOBE NEWSWIRE) -- Cipher Digital Inc. (NASDAQ: CIFR) (“Cipher” or the “Company”), a leading developer, owner, and operator of industrial-scale data centers, today announced its second quarter 2026 financial results, with an update on its operations and business strategy. As part of this update, Cipher disclosed an amendment to its Black Pearl campus lease with its investment-grade hyperscale tenant, accelerating the development timeline of initial capacity at the tenant's request. Under the amended terms, Cipher began delivering data center capacity at the beginning of August, two months ahead of the original schedule. “We are proud to have delivered our first HPC data center capacity ahead of schedule and announce that rent has commenced at the site,” said Tyler Page, Chief Executive Officer. “This accelerated delivery proves we can execute at scale, with speed, and without compromise in a challenging environment. As we continue to acquire new sites and sign new deals, our founda\nters by completing another highly successful bond offering. The offering fully funded the Company’s Stingray development through substantial completion and reimbursed Cipher for $56.7 million of previously funded project expenditures. “A core strength of our strategy is its repeatability, and in the second quarter, we demonstrated that once again. We accessed capital markets to fund another one of our leases, secured an option on a new site, and delivered accelerated capacity to our tenant, further building our position as a leading HPC development platform,\" said Tyler Page. “We look forward to carrying this momentum into the third quarter, where we expect to make significant additional progress.” Finance and Operations Highlights First data center capacity at Black Pearl delivered in August, with rent commenced Secured option for new Apollo data center site with up to 900 MW near San Antonio, Texas Completed bond offering to fully fund Stingray data center development Barber Lake data center continues to progress towards completion as tenant has commenced beneficial use of the facility, including partial occupancy of the building and deployment of network racks Black Pearl data center continues to progress towards completion with remaining Phase I data halls moving through MEP \nat truly sets us apart.” Cipher also today announced it has acquired an option on a new site called Apollo for up to 900 MW, located within 25 miles of San Antonio, Texas. The site spans approximately 288 acres and has been submitted as a studied load in Batch Zero through ERCOT's updated process. The site's flat, buildable terrain makes it well-suited for large-scale data center development, and its proximity to San Antonio positions it favorably for fiber connectivity. Cipher moved quickly to secure the option, reflecting the Company's ability to identify and act on attractive opportunities as they arise in the market. In the second quarter, the Company also built on strong momentum from previous quarters by completing another highly successful bond offering. The offering fully funded the Company’s Stingray development through substantial completion and reimbursed Cipher for $56.7 million of previously funded project expenditures. “A core strength of our strategy is its repeatability, and in the second quarter, we demonstrated that once again. We accessed capital markets to fund another one of our leases, secured an option on a new site, and delivered accelerated capacity to our tenant, further building our position as a leading HPC development platform,\" said Tyler Page. “We l",
+      "sourceAsOf": "2026-08-04"
+    },
+    {
+      "id": "reviewed-facility-99cdd32828574659",
+      "name": "Business Update February 24, 2026 1 Forward -Looking Statements This communication contains certain forward -looking statements within the meaning of the federal securities laws of",
+      "url": "https://investors.cipherdigital.com/static-files/58e46e77-13f9-4514-8c2a-2c7695cf2b4a",
+      "retrievedAt": "2026-10-12T05:52:42.180Z",
+      "sha256": "f476c44b127a9d7f95d8fc2156b0d3161cf60129ac2dc635dc86baff0c0b9c29",
+      "publishedAt": "2026-02-24",
+      "sourceAsOf": "2026-02-24",
+      "excerpt": "sing hashrate by ~0.3 EH/s • Odessa’s fixed -price PPA has positioned Cipher as one of the lowest - cost bitcoin producers 14 Development Pipeline 15 Pipeline Spotlight Ohio Stingray 100 MW Gross Capacity 2026 Q4 Target Energization • ERCOT interconnection approved for 100 gross MW • Substation development underway • Ongoing discussions for an HPC hosting lease Ulysses Reveille 70 MW Gross Capacity 2027 Q3 Target Energization 200 MW • ERCOT interconnection approved for first phase of development (70 gross MW) • Substation development initiated Ulysses 200 MW 2027 Q4 Gross Capacity • Recently acquired site in Ohio with approved interconnection in the PJM market for 200 gross MW Target Energization Texas • Ongoing discussions for an HPC hosting lease Mikeska 500 MW McLennan 500 MW Gross Capacity (1) 2028 Target Energization (1) • All necessary deposits are funded & land is secured Stingray • Requisite studies approved by ERCOT, improving expectations to be included as firm load in future batch studies 100 MW McLennan Mikeska 500 MW Gross Capacity (1) 2028 Target Energization (1) Colchis 500 MW • All necessary deposits are funded & land is secured 1,000 MW • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studies Colchis 1,000 MW Gross Capacity (1) 2028 Target Energization (1) Reveille 70 MW • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studi es Note: (1) Gross capacity and target energization subject to ERCOT batch study process 16 Total Pipeline Capacity Energized Capacity New Energization Forecast 2,500 MW Colchis (1) ► 1,000 MW McLennan (1) ► 500 MW Mikeska (1) ► 500 MW 600 MW 500 MW Black Pearl ► 300 MW 370 MW Barber 207 MW Ulysses ► 200 MW Milsing (1) ► 500 MW Lake (2) ► 500 MW Barber Lake ► 300 MW Reveille ► 70 MW Odessa ► 207 MW Stingray ► 100 MW Bitcoin Mining Capacity Contracted HPC Capacity 2026 - 2027 2028 - 2029 2030+ Note: MW presented on a gross basis; (1) Reflects estimated target energization and capacity subject to ERCOT batch study pro ces s; (2) Signed MOU to negotiate building an additional 500 MW data center adjacent to the current 300 MW site, expected to be ava ilable 2030+ subject to ERCOT batch study process 17 Q4 2025 Financial Update 1"
+    },
+    {
+      "id": "reviewed-facility-598b4335be5e7136",
+      "name": "Business Update February 24, 2026 1 Forward -Looking Statements This communication contains certain forward -looking statements within the meaning of the federal securities laws of",
+      "url": "https://investors.cipherdigital.com/static-files/58e46e77-13f9-4514-8c2a-2c7695cf2b4a",
+      "retrievedAt": "2026-10-12T05:52:42.180Z",
+      "sha256": "f476c44b127a9d7f95d8fc2156b0d3161cf60129ac2dc635dc86baff0c0b9c29",
+      "publishedAt": "2026-02-24",
+      "sourceAsOf": "2026-02-24",
+      "excerpt": "sing hashrate by ~0.3 EH/s • Odessa’s fixed -price PPA has positioned Cipher as one of the lowest - cost bitcoin producers 14 Development Pipeline 15 Pipeline Spotlight Ohio Stingray 100 MW Gross Capacity 2026 Q4 Target Energization • ERCOT interconnection approved for 100 gross MW • Substation development underway • Ongoing discussions for an HPC hosting lease Ulysses Reveille 70 MW Gross Capacity 2027 Q3 Target Energization 200 MW • ERCOT interconnection approved for first phase of development (70 gross MW) • Substation development initiated Ulysses 200 MW 2027 Q4 Gross Capacity • Recently acquired site in Ohio with approved interconnection in the PJM market for 200 gross MW Target Energization Texas • Ongoing discussions for an HPC hosting lease Mikeska 500 MW McLennan 500 MW Gross Capacity (1) 2028 Target Energization (1) • All necessary deposits are funded & land is secured Stingray • Requisite studies approved by ERCOT, improving expectations to be included as firm load in future batch studies 100 MW McLennan Mikeska 500 MW Gross Capacity (1) 2028 Target Energization (1) Colchis 500 MW • All necessary deposits are funded & land is secured 1,000 MW • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studies Colchis 1,000 MW Gross Capacity (1) 2028 Target Energization (1) Reveille 70 MW • All necessary deposits are funded & land is secured • ERCOT study submission and approval process ongoing, improving expectations to be included as firm load in future batch studi es Note: (1) Gross capacity and target energization subject to ERCOT batch study process 16 Total Pipeline Capacity Energized Capacity New Energization Forecast 2,500 MW Colchis (1) ► 1,000 MW McLennan (1) ► 500 MW Mikeska (1) ► 500 MW 600 MW 500 MW Black Pearl ► 300 MW 370 MW Barber 207 MW Ulysses ► 200 MW Milsing (1) ► 500 MW Lake (2) ► 500 MW Barber Lake ► 300 MW Reveille ► 70 MW Odessa ► 207 MW Stingray ► 100 MW Bitcoin Mining Capacity Contracted HPC Capacity 2026 - 2027 2028 - 2029 2030+ Note: MW presented on a gross basis; (1) Reflects estimated target energization and capacity subject to ERCOT batch study pro ces s; (2) Signed MOU to negotiate building an additional 500 MW data center adjacent to the current 300 MW site, expected to be ava ilable 2030+ subject to ERCOT batch study process 17 Q4 2025 Financial Update 1"
+    }
+  ],
+  "facilities": [
+    {
+      "id": "LLF-HS-google-van-buren-township-michigan",
+      "name": "Google Van Buren Township, Michigan",
+      "operator": "Google",
+      "sector": "data_center",
+      "region": "MISO",
+      "regionBasis": "geographic_estimate",
+      "state": "MI",
+      "county": null,
+      "city": "Van Buren Township",
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "reviewed-facility-ac5cfd1e0ecee15e",
+        "reviewed-facility-d976d45284c0a695",
+        "reviewed-facility-ee4461740e092de7",
+        "reviewed-facility-9a7ddaeaee8684ff"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-google-van-buren-township-michigan:reviewed:1",
+          "value": 1000,
+          "unit": "MW",
+          "measure": "contracted_grid",
+          "scope": "campus",
+          "asOf": "2026-10-01",
+          "sourceIds": [
+            "reviewed-facility-ee4461740e092de7",
+            "reviewed-facility-9a7ddaeaee8684ff"
+          ],
+          "note": "기존 원장의 MW 성분. 확인된 계통 요청/계약 기준만 비교 합계에 사용합니다. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-google-van-buren-township-michigan:reviewed-grid",
+          "kind": "contract",
+          "date": "2026-10-01",
+          "sourceIds": [
+            "reviewed-facility-ac5cfd1e0ecee15e",
+            "reviewed-facility-d976d45284c0a695",
+            "reviewed-facility-ee4461740e092de7",
+            "reviewed-facility-9a7ddaeaee8684ff"
+          ],
+          "note": "기존 개별 조사에서 확인한 Google Van Buren Township data center (Project Cannoli)의 confirmed_contract 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "MPSC::U-22058"
+      ],
+      "notes": [
+        "공식 위치 JSON: location=Van Buren Township, Michigan; inDevelopment=True. 개발 중 표시는 계획·공사 세부 구분을 제공하지 않습니다.",
+        "운영 표시는 캠퍼스에 운영 기능이 있음을 뜻하며 전체 증설 건물이 준공됐다는 뜻이 아닙니다. 개시일·접속 용량은 미공개입니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:google-van-buren 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-google-pine-island-minnesota",
+      "name": "Google Pine Island, Minnesota",
+      "operator": "Google",
+      "sector": "data_center",
+      "region": "MISO",
+      "regionBasis": "geographic_estimate",
+      "state": "MN",
+      "county": null,
+      "city": "Pine Island",
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "reviewed-facility-6f2e979adf3df9b8",
+        "reviewed-facility-2f4073aed321d0a0"
+      ],
+      "capacityFacts": [],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-google-pine-island-minnesota:reviewed-grid",
+          "kind": "contract",
+          "date": "2026-02-24",
+          "sourceIds": [
+            "reviewed-facility-6f2e979adf3df9b8",
+            "reviewed-facility-2f4073aed321d0a0"
+          ],
+          "note": "기존 개별 조사에서 확인한 Google Pine Island data center의 confirmed_contract 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:xcel-google-pine-island"
+      ],
+      "notes": [
+        "공식 위치 JSON: location=Pine Island, Minnesota; inDevelopment=True. 개발 중 표시는 계획·공사 세부 구분을 제공하지 않습니다.",
+        "운영 표시는 캠퍼스에 운영 기능이 있음을 뜻하며 전체 증설 건물이 준공됐다는 뜻이 아닙니다. 개시일·접속 용량은 미공개입니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:xcel-google-pine-island 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-google-stillwater-oklahoma",
+      "name": "Google Stillwater, Oklahoma",
+      "operator": "Google",
+      "sector": "data_center",
+      "region": "SPP",
+      "regionBasis": "geographic_estimate",
+      "state": "OK",
+      "county": null,
+      "city": "Stillwater",
+      "lat": 36.1156,
+      "lon": -97.0584,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "reviewed-facility-e808d9b9bc42b1c4",
+        "reviewed-facility-2d26f58d13fd9b83"
+      ],
+      "capacityFacts": [],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-google-stillwater-oklahoma:reviewed-grid",
+          "kind": "contract",
+          "date": "2026-04-30",
+          "sourceIds": [
+            "reviewed-facility-e808d9b9bc42b1c4",
+            "reviewed-facility-2d26f58d13fd9b83"
+          ],
+          "note": "기존 개별 조사에서 확인한 Google Stillwater data center campus의 confirmed_contract 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:google-stillwater"
+      ],
+      "notes": [
+        "공식 위치 JSON: location=Stillwater, Oklahoma; inDevelopment=True. 개발 중 표시는 계획·공사 세부 구분을 제공하지 않습니다.",
+        "운영 표시는 캠퍼스에 운영 기능이 있음을 뜻하며 전체 증설 건물이 준공됐다는 뜻이 아닙니다. 개시일·접속 용량은 미공개입니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:google-stillwater 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-google-west-memphis-arkansas",
+      "name": "Google West Memphis, Arkansas",
+      "operator": "Google",
+      "sector": "data_center",
+      "region": "MISO",
+      "regionBasis": "geographic_estimate",
+      "state": "AR",
+      "county": null,
+      "city": "West Memphis",
+      "lat": 35.1465,
+      "lon": -90.1848,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "reviewed-facility-183133e2355590d4",
+        "reviewed-facility-f5eb0089aec4fe09"
+      ],
+      "capacityFacts": [],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-google-west-memphis-arkansas:reviewed-grid",
+          "kind": "contract",
+          "date": null,
+          "sourceIds": [
+            "reviewed-facility-183133e2355590d4",
+            "reviewed-facility-f5eb0089aec4fe09"
+          ],
+          "note": "기존 개별 조사에서 확인한 Google West Memphis data center의 confirmed_contract 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:google-west-memphis"
+      ],
+      "notes": [
+        "공식 위치 JSON: location=West Memphis, Arkansas; inDevelopment=True. 개발 중 표시는 계획·공사 세부 구분을 제공하지 않습니다.",
+        "운영 표시는 캠퍼스에 운영 기능이 있음을 뜻하며 전체 증설 건물이 준공됐다는 뜻이 아닙니다. 개시일·접속 용량은 미공개입니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:google-west-memphis 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-meta-beaver-dam-wi",
+      "name": "Meta Beaver Dam Data Center",
+      "operator": "Meta",
+      "sector": "data_center",
+      "region": "MISO",
+      "regionBasis": "geographic_estimate",
+      "state": "WI",
+      "county": null,
+      "city": "Beaver Dam",
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "construction",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "llf-hs-src-ef015d2e3b6a-d76a50b027ba",
+        "reviewed-facility-6806c9bf195fa65c",
+        "reviewed-facility-faf15e6b692717ba",
+        "reviewed-facility-bd160ae13b7f6532",
+        "reviewed-facility-7c0be63284cd5ca1",
+        "reviewed-facility-71cfdc7093cdecf3",
+        "reviewed-facility-a12a4f31096b78d8"
+      ],
+      "capacityFacts": [],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-meta-beaver-dam-wi:reviewed-grid",
+          "kind": "application",
+          "date": "2026-05-07",
+          "sourceIds": [
+            "reviewed-facility-6806c9bf195fa65c",
+            "reviewed-facility-faf15e6b692717ba",
+            "reviewed-facility-bd160ae13b7f6532",
+            "reviewed-facility-7c0be63284cd5ca1",
+            "reviewed-facility-71cfdc7093cdecf3",
+            "reviewed-facility-a12a4f31096b78d8"
+          ],
+          "note": "기존 개별 조사에서 확인한 Meta Beaver Dam Data Center의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "WIPSC::6680-TE-115"
+      ],
+      "notes": [
+        "Wisconsin Beaver Dam $1 billion+ investment 202 5 break ground 1,000+ skilled trade workers on site at peak construction 100 + operational jobs supported once completed Learn more Learn more about Beaver Dam Follow us Follow Beaver Dam on Facebook",
+        "정보지 첫 문장의 is part / will be part와 해당 캠퍼스 착공연도를 구분합니다. 공통 ESG 문구에 등장하는 operational buildings는 개별 준공 근거로 사용하지 않습니다.",
+        "월·연 단위 착공 정보는 임의의 일자로 시계열 사건을 만들지 않습니다. 재생에너지 프로젝트 MW는 데이터센터 수전 용량으로 넣지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:meta-beaver-dam 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-meta-richland-parish-la",
+      "name": "Meta Richland Parish Data Center",
+      "operator": "Meta",
+      "sector": "data_center",
+      "region": "MISO",
+      "regionBasis": "geographic_estimate",
+      "state": "LA",
+      "county": "Richland Parish",
+      "city": null,
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "construction",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "llf-hs-src-fec866e1c421-92590f9115b6",
+        "reviewed-facility-1dd5a871506956d6",
+        "reviewed-facility-d057ed48c4b1488e",
+        "reviewed-facility-2e2a3052a7c05a53",
+        "reviewed-facility-4af2f9e3343229ec",
+        "reviewed-facility-75d2c0fe7f5182a4",
+        "reviewed-facility-67132232eb400c16",
+        "reviewed-facility-12787dedfbe75d5f",
+        "reviewed-facility-fc930e277c7d00a3"
+      ],
+      "capacityFacts": [],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-meta-richland-parish-la:reviewed-grid",
+          "kind": "contract",
+          "date": "2026-03-27",
+          "sourceIds": [
+            "reviewed-facility-1dd5a871506956d6",
+            "reviewed-facility-d057ed48c4b1488e",
+            "reviewed-facility-2e2a3052a7c05a53",
+            "reviewed-facility-4af2f9e3343229ec",
+            "reviewed-facility-75d2c0fe7f5182a4",
+            "reviewed-facility-67132232eb400c16",
+            "reviewed-facility-12787dedfbe75d5f",
+            "reviewed-facility-fc930e277c7d00a3"
+          ],
+          "note": "기존 개별 조사에서 확인한 Meta Hyperion — Richland Parish campus의 confirmed_contract 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [
+        "Hyperion"
+      ],
+      "legacyProjectIds": [
+        "LPSC::U-37425::Meta-Hyperion"
+      ],
+      "notes": [
+        "Louisiana Richland Parish $50 billion + investment 20 24 break ground 7,500+ skilled trade workers on site at peak construction 1,000 operational jobs supported once completed Learn more Learn more about Richland Parish Follow us Follow Richland Parish on Facebook",
+        "정보지 첫 문장의 is part / will be part와 해당 캠퍼스 착공연도를 구분합니다. 공통 ESG 문구에 등장하는 operational buildings는 개별 준공 근거로 사용하지 않습니다.",
+        "월·연 단위 착공 정보는 임의의 일자로 시계열 사건을 만들지 않습니다. 재생에너지 프로젝트 MW는 데이터센터 수전 용량으로 넣지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "기존 조사 원장 식별자: site:meta-richland-parish (개별 점수 원장 ID 연결 미확인)",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:meta-hyperion-richland 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-meta-rosemount-mn",
+      "name": "Meta Rosemount Data Center",
+      "operator": "Meta",
+      "sector": "data_center",
+      "region": "MISO",
+      "regionBasis": "geographic_estimate",
+      "state": "MN",
+      "county": null,
+      "city": "Rosemount",
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "construction",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "llf-hs-src-43bfbf4bac46-2aae63212baa",
+        "reviewed-facility-b6eeefbca580747f",
+        "reviewed-facility-639af33fb19d3ffa",
+        "reviewed-facility-db641cc8fdca0169",
+        "reviewed-facility-13d937332965b945"
+      ],
+      "capacityFacts": [],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-meta-rosemount-mn:reviewed-grid",
+          "kind": "contract",
+          "date": "2024-03-15",
+          "sourceIds": [
+            "reviewed-facility-b6eeefbca580747f",
+            "reviewed-facility-639af33fb19d3ffa",
+            "reviewed-facility-db641cc8fdca0169",
+            "reviewed-facility-13d937332965b945"
+          ],
+          "note": "기존 개별 조사에서 확인한 Meta Rosemount Data Center의 confirmed_contract 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:xcel-meta-rosemount"
+      ],
+      "notes": [
+        "MINNESOTA Rosemount $800 million+ investment 202 4 break ground 1,000 skilled trade workers on site at peak construction ~ 100 operational jobs supported once completed Learn more Learn more about Rosemount Follow us Follow Rosemount on Facebook",
+        "정보지 첫 문장의 is part / will be part와 해당 캠퍼스 착공연도를 구분합니다. 공통 ESG 문구에 등장하는 operational buildings는 개별 준공 근거로 사용하지 않습니다.",
+        "월·연 단위 착공 정보는 임의의 일자로 시계열 사건을 만들지 않습니다. 재생에너지 프로젝트 MW는 데이터센터 수전 용량으로 넣지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:xcel-meta-rosemount 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-oracle-port-washington",
+      "name": "Oracle / Stargate Port Washington",
+      "operator": "Oracle / OpenAI",
+      "sector": "data_center",
+      "region": "MISO",
+      "regionBasis": "geographic_estimate",
+      "state": "WI",
+      "county": "Ozaukee County",
+      "city": "Port Washington",
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-bda0c0acdd62-7bca4a32cda9",
+        "llf-hs-src-bda0c0acdd62-6299917cdea9",
+        "reviewed-facility-f3d89c3a3b88431b",
+        "reviewed-facility-156b63e0d92ba01d",
+        "reviewed-facility-c96d0866a1309991",
+        "reviewed-facility-7e88bf4956766d06",
+        "reviewed-facility-dfa003161f4c75b4",
+        "reviewed-facility-056cfd0f94db83ca",
+        "reviewed-facility-73c229b9378b8d7c",
+        "reviewed-facility-9e3b239ffb7ef7b4"
+      ],
+      "capacityFacts": [],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-oracle-port-washington:reviewed-grid",
+          "kind": "application",
+          "date": null,
+          "sourceIds": [
+            "reviewed-facility-f3d89c3a3b88431b",
+            "reviewed-facility-156b63e0d92ba01d",
+            "reviewed-facility-c96d0866a1309991",
+            "reviewed-facility-7e88bf4956766d06",
+            "reviewed-facility-dfa003161f4c75b4",
+            "reviewed-facility-056cfd0f94db83ca",
+            "reviewed-facility-73c229b9378b8d7c",
+            "reviewed-facility-9e3b239ffb7ef7b4"
+          ],
+          "note": "기존 개별 조사에서 확인한 Oracle Project Lighthouse / Port Washington data center의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [
+        "Vantage Lighthouse"
+      ],
+      "legacyProjectIds": [
+        "WIPSC::LIRF-41052-2"
+      ],
+      "notes": [
+        "공식 페이지가 January 2026 기준이라고 명시하며 정확한 기준일은 없어 asOf를 비워 둡니다. 새 수집시각을 상태 기준일로 대체하지 않습니다.",
+        "채용·예상 고용·주변 발전 추가 MW는 개별 캠퍼스 수전 MW가 아닙니다.",
+        "2,000 MW는 Wisconsin에 추가될 신재생 발전이며 이 캠퍼스 부하가 아닙니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:oracle-port-washington 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-oracle-saline-township",
+      "name": "Oracle / Stargate Saline Township",
+      "operator": "Oracle / OpenAI",
+      "sector": "data_center",
+      "region": "MISO",
+      "regionBasis": "geographic_estimate",
+      "state": "MI",
+      "county": "Washtenaw County",
+      "city": "Saline Township",
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-bf6985c99fea-0f890f157714",
+        "llf-hs-src-bf6985c99fea-99466179840f",
+        "reviewed-facility-c5517cb600f54501",
+        "reviewed-facility-bc709334c513ee68",
+        "reviewed-facility-86946669a5e41ff4",
+        "reviewed-facility-3416e558c9a23714",
+        "reviewed-facility-b951eae45ad5f408",
+        "reviewed-facility-f7e11b0d9459c87b"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-oracle-saline-township:reviewed:1",
+          "value": 1383,
+          "unit": "MW",
+          "measure": "contracted_grid",
+          "scope": "campus",
+          "asOf": "2026-09-28",
+          "sourceIds": [
+            "reviewed-facility-3416e558c9a23714",
+            "reviewed-facility-f7e11b0d9459c87b",
+            "reviewed-facility-b951eae45ad5f408"
+          ],
+          "note": "기존 원장의 MW 성분. 확인된 계통 요청/계약 기준만 비교 합계에 사용합니다. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-oracle-saline-township:reviewed-grid",
+          "kind": "contract",
+          "date": "2026-09-28",
+          "sourceIds": [
+            "reviewed-facility-c5517cb600f54501",
+            "reviewed-facility-bc709334c513ee68",
+            "reviewed-facility-86946669a5e41ff4",
+            "reviewed-facility-3416e558c9a23714",
+            "reviewed-facility-b951eae45ad5f408",
+            "reviewed-facility-f7e11b0d9459c87b"
+          ],
+          "note": "기존 개별 조사에서 확인한 Oracle / Green Chile Ventures Saline Township data center (The Barn)의 confirmed_contract 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [
+        "Green Chile Ventures",
+        "Related Saline"
+      ],
+      "legacyProjectIds": [
+        "MPSC::U-21990"
+      ],
+      "notes": [
+        "공식 페이지가 January 2026 기준이라고 명시하며 정확한 기준일은 없어 asOf를 비워 둡니다. 새 수집시각을 상태 기준일로 대체하지 않습니다.",
+        "채용·예상 고용·주변 발전 추가 MW는 개별 캠퍼스 수전 MW가 아닙니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "기존 조사 원장 식별자: site:oracle-saline-township (개별 점수 원장 ID 연결 미확인)",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:oracle-saline 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-cipher-ulysses",
+      "name": "Cipher Ulysses",
+      "operator": "Cipher Digital",
+      "sector": "data_center",
+      "region": "PJM",
+      "regionBasis": "reported",
+      "state": "OH",
+      "county": null,
+      "city": null,
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "reviewed-facility-d7c1b51c041ac780",
+        "reviewed-facility-83a843f8e1d22982"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-cipher-ulysses-capacity",
+          "value": 200.0,
+          "unit": "MW",
+          "measure": "facility_power",
+          "scope": "campus",
+          "asOf": null,
+          "sourceIds": [
+            "llf-hs-src-75808617777a-4049ddd4c580"
+          ],
+          "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"1\"> Ulysses Capacity 200 MW Energization Timeline 2027 Q4"
+        },
+        {
+          "id": "LLF-HS-cipher-ulysses:reviewed:1",
+          "value": 200,
+          "unit": "MW",
+          "measure": "requested_grid",
+          "scope": "campus",
+          "asOf": "2026-02-24",
+          "sourceIds": [
+            "reviewed-facility-d7c1b51c041ac780"
+          ],
+          "note": "Approved interconnection for 200 gross MW; gross grid capacity, not IT-only MW; future energization target. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-cipher-ulysses-approved-interconnection",
+          "kind": "study",
+          "date": "2026-02-24",
+          "sourceIds": [
+            "llf-hs-src-f4d0310cb8ae-f476c44b127a"
+          ],
+          "note": "Recently acquired site in Ohio with approved interconnection in the PJM market for 200 gross MW."
+        },
+        {
+          "id": "LLF-HS-cipher-ulysses:reviewed-grid",
+          "kind": "study",
+          "date": "2026-02-24",
+          "sourceIds": [
+            "reviewed-facility-d7c1b51c041ac780",
+            "reviewed-facility-83a843f8e1d22982"
+          ],
+          "note": "기존 개별 조사에서 확인한 Cipher Ulysses data center의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:pjm-cipher-ulysses"
+      ],
+      "notes": [
+        "Energized는 전력 설비 통전을 뜻하며 고객 서버의 전체 용량 운영으로 해석하지 않습니다. 증설은 부모 캠퍼스에 연결된 phase로 보존합니다.",
+        "표의 분기/2030+ 표시는 미래 목표이며 실제 사건 날짜로 생성하지 않습니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:pjm-cipher-ulysses 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-xai-colossus-memphis",
+      "name": "xAI Colossus — former Electrolux Memphis",
+      "operator": "xAI",
+      "sector": "data_center",
+      "region": "Southeast",
+      "regionBasis": "reported",
+      "state": "TN",
+      "county": "Shelby County",
+      "city": "Memphis",
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "operating",
+      "asOf": "2024-11-07",
+      "sourceIds": [
+        "llf-hs-src-7f86772c67f5-02fc764ddec5",
+        "llf-hs-src-f5d4251eed68-e18cb726557b",
+        "reviewed-facility-556b6c7b4d45492b",
+        "reviewed-facility-f9206437d24eacff"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-xai-colossus-memphis-tva-150",
+          "value": 150,
+          "unit": "MW",
+          "measure": "contracted_grid",
+          "scope": "phase",
+          "asOf": "2024-11-07",
+          "sourceIds": [
+            "llf-hs-src-7f86772c67f5-02fc764ddec5"
+          ],
+          "note": "150 MW 조건부 확정공급 승인. 실제 전력 소비나 Colossus 전체 증설 용량이 아닙니다."
+        },
+        {
+          "id": "LLF-HS-xai-colossus-memphis:reviewed:1",
+          "value": 150,
+          "unit": "MW",
+          "measure": "requested_grid",
+          "scope": "campus",
+          "asOf": "2024-11-07",
+          "sourceIds": [
+            "reviewed-facility-f9206437d24eacff"
+          ],
+          "note": "기존 조사 자료의 requested_grid_mw; 다른 문서의 MW와 합산하지 않습니다. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [
+        {
+          "id": "LLF-HS-xai-colossus-memphis-event-2024-11-07-operating",
+          "date": "2024-11-07",
+          "status": "operating",
+          "sourceIds": [
+            "llf-hs-src-7f86772c67f5-02fc764ddec5"
+          ],
+          "note": "승인 문서가 2024년 8월 이미 일부 MLGW 전력과 자체 가스터빈을 함께 사용해 운영했다고 명시합니다. 11월7일은 공시 기준일입니다."
+        }
+      ],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-xai-colossus-memphis-tva",
+          "kind": "contract",
+          "date": "2024-11-07",
+          "sourceIds": [
+            "llf-hs-src-7f86772c67f5-02fc764ddec5"
+          ],
+          "note": "TVA approves 150 MW power supply contingent on demand-response terms."
+        }
+      ],
+      "aliases": [
+        "CTC Property LLC"
+      ],
+      "legacyProjectIds": [
+        "TVA::11-07-24G::CTC-xAI-Memphis"
+      ],
+      "notes": [
+        "Colossus 2·Southaven을 이 Memphis 초기 캠퍼스의 용량이나 진행 사건으로 합치지 않습니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 request:TVA::11-07-24G::CTC-xAI-Memphis 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-cipher-apollo",
+      "name": "Cipher Apollo",
+      "operator": "Cipher Digital",
+      "sector": "data_center",
+      "region": "ERCOT",
+      "regionBasis": "geographic_estimate",
+      "state": "TX",
+      "county": null,
+      "city": null,
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": "2026-08-04",
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30",
+        "reviewed-facility-1db8861e6b108763",
+        "reviewed-facility-e27b8e189f1ecffa",
+        "reviewed-facility-f0ffb3a0fa440549",
+        "reviewed-facility-5bbfa179eabb9709"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-cipher-apollo-capacity",
+          "value": 900.0,
+          "unit": "MW",
+          "measure": "facility_power",
+          "scope": "campus",
+          "asOf": null,
+          "sourceIds": [
+            "llf-hs-src-75808617777a-4049ddd4c580"
+          ],
+          "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"7\"> Apollo Capacity 900 MW Energization Timeline 2030 +"
+        },
+        {
+          "id": "LLF-HS-cipher-apollo:reviewed:1",
+          "value": 900,
+          "unit": "MW",
+          "measure": "requested_grid",
+          "scope": "campus",
+          "asOf": "2026-08-04",
+          "sourceIds": [
+            "reviewed-facility-e27b8e189f1ecffa"
+          ],
+          "note": "최대 900 MW 사이트를 ERCOT Batch Zero studied load로 제출. 확정 승인·통전이 아님. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [
+        {
+          "id": "LLF-HS-cipher-apollo-event-2026-08-04-planned",
+          "date": "2026-08-04",
+          "status": "planned",
+          "sourceIds": [
+            "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30"
+          ],
+          "note": "해당 날짜 사업보고가 명시한 진행 상태. 일부 고객 인도·부지 공사와 전체 캠퍼스 운영을 구분합니다."
+        }
+      ],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-cipher-apollo:reviewed-grid",
+          "kind": "study",
+          "date": "2026-08-04",
+          "sourceIds": [
+            "reviewed-facility-1db8861e6b108763",
+            "reviewed-facility-e27b8e189f1ecffa",
+            "reviewed-facility-f0ffb3a0fa440549",
+            "reviewed-facility-5bbfa179eabb9709"
+          ],
+          "note": "기존 개별 조사에서 확인한 Cipher Apollo의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:cipher-apollo"
+      ],
+      "notes": [
+        "Energized는 전력 설비 통전을 뜻하며 고객 서버의 전체 용량 운영으로 해석하지 않습니다. 증설은 부모 캠퍼스에 연결된 phase로 보존합니다.",
+        "표의 분기/2030+ 표시는 미래 목표이며 실제 사건 날짜로 생성하지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:cipher-apollo 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-cipher-colchis",
+      "name": "Cipher Colchis",
+      "operator": "Cipher Digital",
+      "sector": "data_center",
+      "region": "ERCOT",
+      "regionBasis": "geographic_estimate",
+      "state": "TX",
+      "county": null,
+      "city": null,
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "reviewed-facility-1db8861e6b108763",
+        "reviewed-facility-e27b8e189f1ecffa",
+        "reviewed-facility-99cdd32828574659",
+        "reviewed-facility-f0ffb3a0fa440549",
+        "reviewed-facility-5bbfa179eabb9709",
+        "reviewed-facility-598b4335be5e7136"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-cipher-colchis-capacity",
+          "value": 1000.0,
+          "unit": "MW",
+          "measure": "facility_power",
+          "scope": "campus",
+          "asOf": null,
+          "sourceIds": [
+            "llf-hs-src-75808617777a-4049ddd4c580"
+          ],
+          "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"2\"> Colchis Capacity 1000 MW Energization Timeline 2028-29 Est."
+        },
+        {
+          "id": "LLF-HS-cipher-colchis:reviewed:1",
+          "value": 1000,
+          "unit": "MW",
+          "measure": "requested_grid",
+          "scope": "campus",
+          "asOf": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-99cdd32828574659"
+          ],
+          "note": "ERCOT interconnection approval 또는 ongoing ERCOT study에 직접 연결된 gross MW; 향후 batch 조건 보존. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-cipher-colchis:reviewed-grid",
+          "kind": "study",
+          "date": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-1db8861e6b108763",
+            "reviewed-facility-e27b8e189f1ecffa",
+            "reviewed-facility-99cdd32828574659",
+            "reviewed-facility-f0ffb3a0fa440549",
+            "reviewed-facility-5bbfa179eabb9709",
+            "reviewed-facility-598b4335be5e7136"
+          ],
+          "note": "기존 개별 조사에서 확인한 Cipher Colchis의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:cipher-colchis"
+      ],
+      "notes": [
+        "Energized는 전력 설비 통전을 뜻하며 고객 서버의 전체 용량 운영으로 해석하지 않습니다. 증설은 부모 캠퍼스에 연결된 phase로 보존합니다.",
+        "표의 분기/2030+ 표시는 미래 목표이며 실제 사건 날짜로 생성하지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:cipher-colchis 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-cipher-mclennan",
+      "name": "Cipher McLennan",
+      "operator": "Cipher Digital",
+      "sector": "data_center",
+      "region": "ERCOT",
+      "regionBasis": "geographic_estimate",
+      "state": "TX",
+      "county": null,
+      "city": null,
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "reviewed-facility-1db8861e6b108763",
+        "reviewed-facility-e27b8e189f1ecffa",
+        "reviewed-facility-99cdd32828574659",
+        "reviewed-facility-f0ffb3a0fa440549",
+        "reviewed-facility-5bbfa179eabb9709",
+        "reviewed-facility-598b4335be5e7136"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-cipher-mclennan-capacity",
+          "value": 500.0,
+          "unit": "MW",
+          "measure": "facility_power",
+          "scope": "campus",
+          "asOf": null,
+          "sourceIds": [
+            "llf-hs-src-75808617777a-4049ddd4c580"
+          ],
+          "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"4\"> McLennan Capacity 500 MW Energization Timeline 2028-29 Est."
+        },
+        {
+          "id": "LLF-HS-cipher-mclennan:reviewed:1",
+          "value": 500,
+          "unit": "MW",
+          "measure": "requested_grid",
+          "scope": "campus",
+          "asOf": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-99cdd32828574659"
+          ],
+          "note": "ERCOT interconnection approval 또는 ongoing ERCOT study에 직접 연결된 gross MW; 향후 batch 조건 보존. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-cipher-mclennan:reviewed-grid",
+          "kind": "study",
+          "date": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-1db8861e6b108763",
+            "reviewed-facility-e27b8e189f1ecffa",
+            "reviewed-facility-99cdd32828574659",
+            "reviewed-facility-f0ffb3a0fa440549",
+            "reviewed-facility-5bbfa179eabb9709",
+            "reviewed-facility-598b4335be5e7136"
+          ],
+          "note": "기존 개별 조사에서 확인한 Cipher McLennan의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:cipher-mclennan"
+      ],
+      "notes": [
+        "Energized는 전력 설비 통전을 뜻하며 고객 서버의 전체 용량 운영으로 해석하지 않습니다. 증설은 부모 캠퍼스에 연결된 phase로 보존합니다.",
+        "표의 분기/2030+ 표시는 미래 목표이며 실제 사건 날짜로 생성하지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:cipher-mclennan 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-cipher-mikeska",
+      "name": "Cipher Mikeska",
+      "operator": "Cipher Digital",
+      "sector": "data_center",
+      "region": "ERCOT",
+      "regionBasis": "geographic_estimate",
+      "state": "TX",
+      "county": null,
+      "city": null,
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "reviewed-facility-1db8861e6b108763",
+        "reviewed-facility-e27b8e189f1ecffa",
+        "reviewed-facility-99cdd32828574659",
+        "reviewed-facility-f0ffb3a0fa440549",
+        "reviewed-facility-5bbfa179eabb9709",
+        "reviewed-facility-598b4335be5e7136"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-cipher-mikeska-capacity",
+          "value": 500.0,
+          "unit": "MW",
+          "measure": "facility_power",
+          "scope": "campus",
+          "asOf": null,
+          "sourceIds": [
+            "llf-hs-src-75808617777a-4049ddd4c580"
+          ],
+          "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"3\"> Mikeska Capacity 500 MW Energization Timeline 2028-29 Est."
+        },
+        {
+          "id": "LLF-HS-cipher-mikeska:reviewed:1",
+          "value": 500,
+          "unit": "MW",
+          "measure": "requested_grid",
+          "scope": "campus",
+          "asOf": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-99cdd32828574659"
+          ],
+          "note": "ERCOT interconnection approval 또는 ongoing ERCOT study에 직접 연결된 gross MW; 향후 batch 조건 보존. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-cipher-mikeska:reviewed-grid",
+          "kind": "study",
+          "date": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-1db8861e6b108763",
+            "reviewed-facility-e27b8e189f1ecffa",
+            "reviewed-facility-99cdd32828574659",
+            "reviewed-facility-f0ffb3a0fa440549",
+            "reviewed-facility-5bbfa179eabb9709",
+            "reviewed-facility-598b4335be5e7136"
+          ],
+          "note": "기존 개별 조사에서 확인한 Cipher Mikeska의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:cipher-mikeska"
+      ],
+      "notes": [
+        "Energized는 전력 설비 통전을 뜻하며 고객 서버의 전체 용량 운영으로 해석하지 않습니다. 증설은 부모 캠퍼스에 연결된 phase로 보존합니다.",
+        "표의 분기/2030+ 표시는 미래 목표이며 실제 사건 날짜로 생성하지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:cipher-mikeska 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-cipher-reveille",
+      "name": "Cipher Reveille",
+      "operator": "Cipher Digital",
+      "sector": "data_center",
+      "region": "ERCOT",
+      "regionBasis": "geographic_estimate",
+      "state": "TX",
+      "county": null,
+      "city": null,
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "planned",
+      "asOf": null,
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "reviewed-facility-1db8861e6b108763",
+        "reviewed-facility-e27b8e189f1ecffa",
+        "reviewed-facility-99cdd32828574659",
+        "reviewed-facility-f0ffb3a0fa440549",
+        "reviewed-facility-5bbfa179eabb9709",
+        "reviewed-facility-598b4335be5e7136"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-cipher-reveille-capacity",
+          "value": 70.0,
+          "unit": "MW",
+          "measure": "facility_power",
+          "scope": "campus",
+          "asOf": null,
+          "sourceIds": [
+            "llf-hs-src-75808617777a-4049ddd4c580"
+          ],
+          "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"0\"> Reveille Capacity 70 MW Energization Timeline 2027 Q3"
+        },
+        {
+          "id": "LLF-HS-cipher-reveille:reviewed:1",
+          "value": 70,
+          "unit": "MW",
+          "measure": "requested_grid",
+          "scope": "campus",
+          "asOf": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-99cdd32828574659"
+          ],
+          "note": "ERCOT interconnection approval 또는 ongoing ERCOT study에 직접 연결된 gross MW; 향후 batch 조건 보존. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-cipher-reveille:reviewed-grid",
+          "kind": "study",
+          "date": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-1db8861e6b108763",
+            "reviewed-facility-e27b8e189f1ecffa",
+            "reviewed-facility-99cdd32828574659",
+            "reviewed-facility-f0ffb3a0fa440549",
+            "reviewed-facility-5bbfa179eabb9709",
+            "reviewed-facility-598b4335be5e7136"
+          ],
+          "note": "기존 개별 조사에서 확인한 Cipher Reveille의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [],
+      "legacyProjectIds": [
+        "CENSUS::site:cipher-reveille"
+      ],
+      "notes": [
+        "Energized는 전력 설비 통전을 뜻하며 고객 서버의 전체 용량 운영으로 해석하지 않습니다. 증설은 부모 캠퍼스에 연결된 phase로 보존합니다.",
+        "표의 분기/2030+ 표시는 미래 목표이며 실제 사건 날짜로 생성하지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:cipher-reveille 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    },
+    {
+      "id": "LLF-HS-cipher-stingray",
+      "name": "Cipher Stingray",
+      "operator": "Cipher Digital",
+      "sector": "data_center",
+      "region": "ERCOT",
+      "regionBasis": "geographic_estimate",
+      "state": "TX",
+      "county": null,
+      "city": null,
+      "lat": null,
+      "lon": null,
+      "identityKind": "campus",
+      "parentId": null,
+      "lifecycle": "construction",
+      "asOf": "2026-08-04",
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30",
+        "reviewed-facility-1db8861e6b108763",
+        "reviewed-facility-e27b8e189f1ecffa",
+        "reviewed-facility-99cdd32828574659",
+        "reviewed-facility-f0ffb3a0fa440549",
+        "reviewed-facility-5bbfa179eabb9709",
+        "reviewed-facility-598b4335be5e7136"
+      ],
+      "capacityFacts": [
+        {
+          "id": "LLF-HS-cipher-stingray-capacity",
+          "value": 100.0,
+          "unit": "MW",
+          "measure": "facility_power",
+          "scope": "campus",
+          "asOf": null,
+          "sourceIds": [
+            "llf-hs-src-75808617777a-4049ddd4c580"
+          ],
+          "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"2\"> Third HPC Lease Capacity 100 MW Energization Timeline 2026 Q4 "
+        },
+        {
+          "id": "LLF-HS-cipher-stingray:reviewed:1",
+          "value": 100,
+          "unit": "MW",
+          "measure": "requested_grid",
+          "scope": "campus",
+          "asOf": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-99cdd32828574659"
+          ],
+          "note": "ERCOT interconnection approval 또는 ongoing ERCOT study에 직접 연결된 gross MW; 향후 batch 조건 보존. 기존 조사 사업과 동일 범위로 연결한 요청·계약 용량."
+        }
+      ],
+      "events": [
+        {
+          "id": "LLF-HS-cipher-stingray-event-2026-08-04-construction",
+          "date": "2026-08-04",
+          "status": "construction",
+          "sourceIds": [
+            "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30"
+          ],
+          "note": "해당 날짜 사업보고가 명시한 진행 상태. 일부 고객 인도·부지 공사와 전체 캠퍼스 운영을 구분합니다."
+        }
+      ],
+      "gridEvidence": [
+        {
+          "id": "LLF-HS-cipher-stingray:reviewed-grid",
+          "kind": "application",
+          "date": "2026-10-12",
+          "sourceIds": [
+            "reviewed-facility-1db8861e6b108763",
+            "reviewed-facility-e27b8e189f1ecffa",
+            "reviewed-facility-99cdd32828574659",
+            "reviewed-facility-f0ffb3a0fa440549",
+            "reviewed-facility-5bbfa179eabb9709",
+            "reviewed-facility-598b4335be5e7136"
+          ],
+          "note": "기존 개별 조사에서 확인한 Cipher Stingray의 confirmed_request 근거. 법적 승인·조건 및 진행 상세는 아래 원문을 따릅니다. 시설 상태나 다른 요건 전체의 완료를 의미하지 않습니다."
+        }
+      ],
+      "aliases": [
+        "Third HPC Lease"
+      ],
+      "legacyProjectIds": [
+        "CENSUS::site:cipher-stingray"
+      ],
+      "notes": [
+        "Energized는 전력 설비 통전을 뜻하며 고객 서버의 전체 용량 운영으로 해석하지 않습니다. 증설은 부모 캠퍼스에 연결된 phase로 보존합니다.",
+        "표의 분기/2030+ 표시는 미래 목표이며 실제 사건 날짜로 생성하지 않습니다.",
+        "권역은 주·도시를 이용한 지리상 추정입니다. 실제 공급 유틸리티·접속 ISO·규제 관할의 확정 근거가 아닙니다.",
+        "시설 명칭·사업자·주·부지 일치로 기존 조사 원장 site:cipher-stingray 및 해당 개별 접속 근거를 연결했습니다. 목록별 건수를 서로 더하지 않습니다."
+      ]
+    }
+  ],
+  "limitations": [
+    "기존 개별 조사와 명칭·부지를 대조해 연결한 검토 자료입니다. 같은 시설 ID로 합치며 신규 시설 수를 늘리지 않습니다.",
+    "기존 근거의 실제 취득일을 보존하며 이 조립 시각을 원문 신규 취득일로 표시하지 않습니다."
+  ],
+  "enrichmentOnlyFacilityIds": [
+    "LLF-HS-cipher-apollo",
+    "LLF-HS-cipher-colchis",
+    "LLF-HS-cipher-mclennan",
+    "LLF-HS-cipher-mikeska",
+    "LLF-HS-cipher-reveille",
+    "LLF-HS-cipher-stingray",
+    "LLF-HS-cipher-ulysses",
+    "LLF-HS-google-pine-island-minnesota",
+    "LLF-HS-google-stillwater-oklahoma",
+    "LLF-HS-google-van-buren-township-michigan",
+    "LLF-HS-google-west-memphis-arkansas",
+    "LLF-HS-meta-beaver-dam-wi",
+    "LLF-HS-meta-richland-parish-la",
+    "LLF-HS-meta-rosemount-mn",
+    "LLF-HS-oracle-port-washington",
+    "LLF-HS-oracle-saline-township",
+    "LLF-HS-xai-colossus-memphis"
+  ]
+}

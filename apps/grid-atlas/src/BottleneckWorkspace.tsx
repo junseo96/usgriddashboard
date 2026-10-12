@@ -5,8 +5,9 @@ import { ratingPoint } from '../shared/scoring';
 import LoadBottleneckPanel from './LoadBottleneckPanel';
 import './bottleneck-workspace.css';
 import StageInferenceWorkspace from './StageInferenceWorkspace';
+import LargeLoadFacilities from './LargeLoadFacilities';
 
-export type ScoreTab = 'projects' | 'inferences' | 'regional' | 'methodology';
+export type ScoreTab = 'projects' | 'inferences' | 'regional' | 'methodology' | 'facilities';
 interface Props {
   data: DashboardResponse | null;
   revision: number;
@@ -97,12 +98,13 @@ export default function BottleneckWorkspace({ data, revision, onProject, project
   const observedAt = data?.snapshot ? new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(data.snapshot.capturedAt)) + ' KST' : '관측 자료 없음';
   return <div className="bottleneck-workspace">
     <nav className="bw-tabs" aria-label="병목점수 보기">{([
+      ['facilities', '전국 수용가 시설·개발 점수', <Layers3 size={16} />],
       ['projects', selectedType === 'load' ? '개별 수용가 신청·계약' : '개별 프로젝트 평가', <Layers3 size={16} />],
       ['inferences', '자료 종합·진행 판단', <FileSearch size={16} />],
       ['regional', '수용가 권역별 평가', <ChartNoAxesCombined size={16} />],
       ['methodology', '산정 기준', <CircleHelp size={16} />],
     ] as const).map(([key, label, icon]) => <button key={key} aria-pressed={tab === key} className={tab === key ? 'selected' : ''} onClick={() => selectTab(key)}>{icon}{label}</button>)}</nav>
-    {tab === 'inferences' ? <StageInferenceWorkspace region={selectedRegion} type={selectedType} onRegion={onRegionChange} onProject={onProject} /> : tab === 'regional' ? <LoadBottleneckPanel revision={revision} onCoverage={onCoverage} selectedRegion={selectedRegion} onRegionChange={onRegionChange} /> : tab === 'methodology' ? methodology : <>
+    {tab === 'facilities' ? <LargeLoadFacilities region={selectedRegion} onRegion={onRegionChange} onProject={onProject} scoreFocus /> : tab === 'inferences' ? <StageInferenceWorkspace region={selectedRegion} type={selectedType} onRegion={onRegionChange} onProject={onProject} /> : tab === 'regional' ? <LoadBottleneckPanel revision={revision} onCoverage={onCoverage} selectedRegion={selectedRegion} onRegionChange={onRegionChange} /> : tab === 'methodology' ? methodology : <>
       {(selectedType === 'all' || selectedType === 'load') && <LoadBottleneckPanel revision={revision} onCoverage={onCoverage} selectedRegion={selectedRegion} onRegionChange={onOpenRegional} overviewOnly />}
       {selectedType === 'load' && <div className="bw-scope-note bw-load-register-scope"><CircleHelp size={17} /><div><strong>개별 전력공급 요청과 검토된 주 규제기관 계약 사건입니다.</strong><p>공식 요청번호 또는 단일 사업의 계약 사건을 연결합니다. 진행 단계가 부족하면 점수는 미산출이며, 회사별 MW 집계는 위 권역별 카드에서 별도로 조회합니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>선택 권역의 수용가 평가 보기<ArrowRight size={13} /></button></div></div>}
       {!data?.available || !s ? projectFallback : <>

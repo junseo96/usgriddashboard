@@ -2,7 +2,9 @@
 
 미국 발전·저장·수용가의 계통접속 신청, 절차별 병목점수, 수집 공백과 시점별 이력을 다루는 독립 애플리케이션. 2026-10-08 새 구축 요청에 따라 작성했으며 기존 대시보드는 참고 자료로만 유지한다.
 
-**[GitHub Pages 대시보드](https://junseo96.github.io/usgriddashboard/)**에서 공개 자료를 조회한다. 7개 ISO/RTO 실측 부하는 GitHub Actions의 15분 목표 일정으로 수집·게시한다. 프로젝트 원장 주간·월간 자동 적재와 평가 저장 API는 별도 운영 설정이 필요하다. 공개 자료에 없는 미국 전체 수용가 분모나 진행 근거를 임의로 만들지 않는다.
+**[GitHub Pages 대시보드](https://junseo96.github.io/usgriddashboard/)**에서 공개 자료를 조회한다. 7개 ISO/RTO 실측 부하는 GitHub Actions의 15분 목표 일정으로 수집·게시한다. 전국 대형 수용가 시설·개발 목록은 별도 주간 Actions로 새 항목과 변경을 수집한다. 기존 접속 원장의 API 자동 적재와 평가 저장은 별도 운영 설정이 필요하다. 공개 자료에 없는 미국 전체 수용가 분모나 진행 근거를 임의로 만들지 않는다.
+
+**수용가 기본 화면은 [전국 시설·개발 원장](docs/LARGE_LOAD_FACILITIES.md)**이다. 데이터센터와 대형 산업시설의 계획·공사·운영·중단, 개별 용량의 의미, 단계 근거와 보수적 추정 점수를 함께 확인한다. MW나 공식 큐 번호가 없다는 이유로 확인된 시설을 제외하지 않는다. 기존 신청·계약 원장은 보조 탭에 유지하며 두 모집단을 합산하지 않는다.
 
 ## 화면 구성
 
@@ -78,6 +80,8 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - [배포·계정 연결](docs/DEPLOYMENT.md)
 - [Pages 게시와 실측 부하 갱신](docs/PAGES.md)
 - [부하 관측·일별 피크 산식](docs/DEMAND.md)
+- [전국 시설·개발 원장과 보수적 단계 모형](docs/LARGE_LOAD_FACILITIES.md)
+- [공식 시설 목록의 주간 발굴·갱신](docs/FACILITY_COLLECTION.md)
 - [수용가 조사 자료·단위·중복](docs/LOAD_PIPELINE.md)
 - [ISO/RTO별 수용가 대표 지표와 전체 요청 공백](docs/REGIONAL_LOAD.md)
 - [전국 신고기관·ISO/RTO 명부와 수용가 수집범위](docs/LOAD_COVERAGE.md)

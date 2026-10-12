@@ -1,5 +1,5 @@
 import { useEffect, useId, useMemo, useState, type ReactNode } from 'react';
-import { Activity, ArrowDownToLine, CalendarDays, ChevronLeft, ChevronRight, Database, ExternalLink, GitBranch, History, RefreshCw, Search } from 'lucide-react';
+import { Activity, ArrowDownToLine, CalendarDays, ChevronLeft, ChevronRight, Database, ExternalLink, Factory, GitBranch, History, RefreshCw, Search } from 'lucide-react';
 import { isHistoricalDataset, type HistoricalDataset } from '../shared/history';
 import { isLoadBottleneckDataset, type LoadBottleneckDataset } from '../shared/load-bottleneck';
 import { isDemandDataset } from '../shared/market';
@@ -8,6 +8,7 @@ import { buildTimelineSeries, comparableTimelineSeries, filterTimelineSeries, ti
   type TimelineMetric, type TimelineOrigin, type TimelinePoint, type TimelineSeries, type TimelineFilters } from '../shared/timeline';
 import ProjectLifecyclePanel from './ProjectLifecyclePanel';
 import './timeline-workspace.css';
+import { LargeLoadFacilityHistory } from './LargeLoadFacilities';
 
 const METRICS: { id: TimelineMetric; label: string }[] = [{ id: 'score', label: '병목점수' }, { id: 'capacity', label: '신청·계약 용량' }, { id: 'count', label: '신청·사업 건수' }, { id: 'demand', label: '실측 부하' }, { id: 'peak', label: '일별 피크' }];
 const ORIGINS: Record<TimelineOrigin, string> = { historical: '공식 과거 원장·공시', load_stage: '수용가 단계 자료', system: '계통 부하 관측' };
@@ -25,7 +26,12 @@ const scoreBasis = (s: TimelineSeries) => s.metric === 'score' ? s.weightBasis =
 type Selection = { seriesId: string; pointId: string };
 
 export default function TimelineWorkspace({ revision, observationContent }: { revision: number; observationContent?: ReactNode }) {
-  const [tab, setTab] = useState<'series' | 'projects' | 'observations'>('series');
+  const [tab, setTab] = useState<'series' | 'projects' | 'facilities' | 'observations'>(() => window.location.hash.split('?')[0] === '#history/facilities' ? 'facilities' : 'series');
+  useEffect(() => {
+    const onHash = () => { const mode = window.location.hash.split('?')[0].split('/')[1]; setTab(mode === 'facilities' || mode === 'projects' || mode === 'observations' ? mode : 'series'); };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
   const [historical, setHistorical] = useState<HistoricalDataset | null>(null);
   const [load, setLoad] = useState<LoadBottleneckDataset | null>(null);
   const [demand, setDemand] = useState<DemandDataset | null>(null);
@@ -91,9 +97,9 @@ export default function TimelineWorkspace({ revision, observationContent }: { re
   };
   return <div className="timeline-workspace">
     <header className="tw-intro"><div><span className="eyebrow">HISTORY & PROGRESS</span><h2>시간이 흐르며, 무엇이 달라졌을까</h2><p>신청 규모, 진행 점수, 실제 계통 부하를 같은 탐색 화면에서 확인합니다.</p></div><div className="tw-intro-meta"><strong>{all.length ? nf(all.length, 0) : '—'}</strong><span>구분된 지표 계열<br />공개 시점만 연결</span></div></header>
-    <div className="tw-tabs" role="tablist" aria-label="통합 시계열 탐색 방식">{([{ id: 'series', label: '지표 시계열', icon: History }, { id: 'projects', label: '프로젝트 생애주기', icon: GitBranch }, ...(observationContent ? [{ id: 'observations', label: '앱 관측 기록', icon: Database }] : [])] as const).map(item => <button key={item.id} id={`${tabsId}-${item.id}`} type="button" role="tab" aria-selected={tab === item.id} aria-controls={`${tabsId}-content`} className={tab === item.id ? 'selected' : ''} onClick={() => setTab(item.id as typeof tab)}><item.icon size={17} />{item.label}</button>)}</div>
+    <div className="tw-tabs" role="tablist" aria-label="통합 시계열 탐색 방식">{([{ id: 'series', label: '지표 시계열', icon: History }, { id: 'projects', label: '프로젝트 생애주기', icon: GitBranch }, { id: 'facilities', label: '시설 진행 이력', icon: Factory }, ...(observationContent ? [{ id: 'observations', label: '앱 관측 기록', icon: Database }] : [])] as const).map(item => <button key={item.id} id={`${tabsId}-${item.id}`} type="button" role="tab" aria-selected={tab === item.id} aria-controls={`${tabsId}-content`} className={tab === item.id ? 'selected' : ''} onClick={() => { setTab(item.id as typeof tab); window.location.hash = item.id === 'series' ? 'history' : `history/${item.id}`; }}><item.icon size={17} />{item.label}</button>)}</div>
     <div id={`${tabsId}-content`} role="tabpanel" aria-labelledby={`${tabsId}-${tab}`}>
-      {tab === 'projects' ? <ProjectLifecyclePanel revision={revision} /> : tab === 'observations' ? <><div className="tw-notice">앱이 실제로 저장한 관측 기록입니다. 공식 과거 자료를 앱의 과거 관측으로 소급 생성하지 않습니다.</div>{observationContent}</> : <>
+      {tab === 'facilities' ? <LargeLoadFacilityHistory /> : tab === 'projects' ? <ProjectLifecyclePanel revision={revision} /> : tab === 'observations' ? <><div className="tw-notice">앱이 실제로 저장한 관측 기록입니다. 공식 과거 자료를 앱의 과거 관측으로 소급 생성하지 않습니다.</div>{observationContent}</> : <>
         <div className="tw-presets" aria-label="시계열 빠른 선택"><span>바로 살펴보기</span><button type="button" onClick={() => preset('national')}>전국 공개 원장</button><button type="button" onClick={() => preset('cohort')}>NYISO 전체 · 동일 7건</button><button type="button" onClick={() => preset('demand')}>PJM 실제 부하</button></div>
         <div className="tw-notice"><strong>{metric === 'score' ? '당시 상태에 현재 모형을 적용한 과거 재평가입니다.' : '원문에서 확인한 공개 시점의 값입니다.'}</strong> 자료가 없는 날짜는 채우지 않습니다. 전국 LBNL 원장, NYISO 수용가, 회사별 부분 자료는 각각의 범위로 조회하며 하나의 전국 평균으로 합치지 않습니다.</div>
         {errors.length > 0 && <div className="tw-error" role="alert"><div>{errors.map(error => <p key={error}>{error}</p>)}<small>현재 불러올 수 있거나 이전에 확인한 자료만 표시합니다.</small></div><button className="button compact" onClick={() => setRetry(n => n + 1)}><RefreshCw size={14} />다시 불러오기</button></div>}
