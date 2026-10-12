@@ -1,5 +1,150 @@
 {
   "schemaVersion": 1,
-  "observations": [],
-  "generatedAt": "2026-10-12T09:03:09.666Z"
+  "observations": [
+    {
+      "sourceGroup": "hyperscale",
+      "facilityId": "LLF-HS-cipher-apollo",
+      "observedAt": "2026-10-12T09:12:32.149Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "asOf"
+      ],
+      "previousLifecycle": "planned",
+      "lifecycle": "planned",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:5c8240109de42a5f8aeada4e"
+    },
+    {
+      "sourceGroup": "hyperscale",
+      "facilityId": "LLF-HS-cipher-barber-lake",
+      "observedAt": "2026-10-12T09:12:32.149Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "asOf"
+      ],
+      "previousLifecycle": "construction",
+      "lifecycle": "construction",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:b8d59e7096e4f00bb46c34c1"
+    },
+    {
+      "sourceGroup": "hyperscale",
+      "facilityId": "LLF-HS-cipher-black-pearl",
+      "observedAt": "2026-10-12T09:12:32.149Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "asOf"
+      ],
+      "previousLifecycle": "construction",
+      "lifecycle": "construction",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:bd9dc1e375fcfa864cef0cf8"
+    },
+    {
+      "sourceGroup": "industrial",
+      "facilityId": "LLF-ind-doe-aspen-aerogels-register-ga-8b7d09c8",
+      "observedAt": "2026-10-12T09:12:40.535Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "name",
+        "identityKind"
+      ],
+      "previousLifecycle": "cancelled",
+      "lifecycle": "cancelled",
+      "sourceAsOf": "2026-06-30",
+      "sourceIds": [
+        "industrial-doe-index-5c8b2a43b9a9",
+        "industrial-doe-manufacturing-2e3a37e911b2",
+        "industrial-doe-methodology-a47e1e3ed909",
+        "industrial-primary-e78348480015-b0ff4f334563",
+        "industrial-doe-index-be45400a3fa3",
+        "industrial-doe-methodology-489ae07468a2"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:65c60b537fd1c99ded8a9fe5"
+    },
+    {
+      "sourceGroup": "industrial",
+      "facilityId": "LLF-ind-doe-aspen-aerogels-register-ga-cb09f390",
+      "observedAt": "2026-10-12T09:12:40.535Z",
+      "kind": "facility_discovered",
+      "changedFields": [
+        "facility"
+      ],
+      "previousLifecycle": null,
+      "lifecycle": "unknown",
+      "sourceAsOf": "2025-01-15",
+      "sourceIds": [
+        "industrial-doe-index-be45400a3fa3",
+        "industrial-doe-manufacturing-2e3a37e911b2",
+        "industrial-doe-methodology-489ae07468a2"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:1c962ea5f5cc2765dc69bc82"
+    },
+    {
+      "sourceGroup": "industrial",
+      "facilityId": "LLF-ind-sia-intel-rio-rancho-nm-campus",
+      "observedAt": "2026-10-12T09:12:40.535Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "identityKind"
+      ],
+      "previousLifecycle": "operating",
+      "lifecycle": "operating",
+      "sourceAsOf": "2024-01-24",
+      "sourceIds": [
+        "industrial-primary-0d0ac18e80fa-56ce9c5daee7",
+        "industrial-primary-a9a7ed092782-4e0a16736112",
+        "industrial-sia-index-0918557145f7",
+        "industrial-sia-investments-413b62862a98",
+        "industrial-primary-a9a7ed092782-95ba3d140e25",
+        "industrial-sia-index-71874bb9abd4",
+        "industrial-primary-a9a7ed092782-0c845b0a1d10",
+        "industrial-sia-index-5ea931fe93ce"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:330dd6bedcb8a36f5ceb25c1"
+    },
+    {
+      "sourceGroup": "industrial",
+      "facilityId": "LLF-ind-sia-tsmc-phoenix-az-new-facility",
+      "observedAt": "2026-10-12T09:12:40.535Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "identityKind"
+      ],
+      "previousLifecycle": "construction",
+      "lifecycle": "construction",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "industrial-primary-9c3035810d4a-8f56d865b77e",
+        "industrial-primary-f3097e9ed9cd-271cab028d8f",
+        "industrial-sia-index-0918557145f7",
+        "industrial-sia-investments-413b62862a98",
+        "industrial-sia-index-71874bb9abd4",
+        "industrial-sia-index-5ea931fe93ce"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:aec7314cd7d0dde060a34fba"
+    }
+  ],
+  "generatedAt": "2026-10-12T09:12:41.032Z"
 }
