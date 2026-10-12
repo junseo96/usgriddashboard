@@ -278,9 +278,14 @@ const exportedKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', d
 const snapshotKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.snapshot.capturedAt));
 // Keep encoding within the first 1024 bytes, before the large embedded dataset.
 html = html.replace(/<meta\b[^>]*charset\s*=[^>]*>/gi, '');
-html = html.replace(/<head([^>]*)>/i, match => `${match}\n<meta charset="UTF-8">\n<script>${scriptText(runtime)}</script>\n<style>body{padding-bottom:72px!important}#grid-atlas-offline-banner{all:initial;box-sizing:border-box;position:fixed;bottom:0;left:0;right:0;z-index:2147483647;background:#102a28;color:#fff;font:13px/1.5 system-ui,sans-serif;padding:11px 18px;border-top:2px solid #58d3af;text-align:center;box-shadow:0 -3px 16px #0002}#grid-atlas-offline-banner strong{font-weight:700;color:#8de8cc}</style>`);
-const bannerDetail = options.pages ? `프로젝트 관측 ${htmlText(snapshotKst)} KST · 실측 부하의 관측·갱신 시각은 비교 화면에 별도 표시` : `프로젝트 관측 ${htmlText(snapshotKst)} KST · ${htmlText(exportedKst)} KST 내보냄 · 프로젝트 관측 1개 포함`;
-html = html.replace('</body>', `<aside id="grid-atlas-offline-banner" role="note"><strong>읽기 전용 대시보드 · 변경사항 저장 불가</strong><br>${bannerDetail}</aside></body>`);
+html = html.replace(/<head([^>]*)>/i, match => `${match}\n<meta charset="UTF-8">\n<script>${scriptText(runtime)}</script>`);
+// Public Pages already identifies the read-only state in the app shell.
+// Keep the persistent export label only on standalone offline files.
+if (!options.pages) {
+  html = html.replace('</head>', '<style>body{padding-bottom:72px!important}#grid-atlas-offline-banner{all:initial;box-sizing:border-box;position:fixed;bottom:0;left:0;right:0;z-index:2147483647;background:#102a28;color:#fff;font:13px/1.5 system-ui,sans-serif;padding:11px 18px;border-top:2px solid #58d3af;text-align:center;box-shadow:0 -3px 16px #0002}#grid-atlas-offline-banner strong{font-weight:700;color:#8de8cc}</style></head>');
+  const bannerDetail = `프로젝트 관측 ${htmlText(snapshotKst)} KST · ${htmlText(exportedKst)} KST 내보냄 · 프로젝트 관측 1개 포함`;
+  html = html.replace('</body>', `<aside id="grid-atlas-offline-banner" role="note"><strong>읽기 전용 대시보드 · 변경사항 저장 불가</strong><br>${bannerDetail}</aside></body>`);
+}
 // Inline classic scripts must run after the root element exists. defer has no
 // effect on inline scripts, so move the built application to the body's end.
 const appScripts = [...html.matchAll(/<script defer>([\s\S]*?)<\/script>/g)];

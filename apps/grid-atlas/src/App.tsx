@@ -6,26 +6,35 @@ import { ratingPoint } from '../shared/scoring';
 import { STAGE_ESTIMATE_CATALOG } from '../shared/stage-estimate';
 import MarketPanel from './MarketPanel';
 import LoadPipelinePanel from './LoadPipelinePanel';
-import RegionalPipelinePanel from './RegionalPipelinePanel';
-import HistoricalPanel from './HistoricalPanel';
-import LoadBottleneckPanel from './LoadBottleneckPanel';
 import LoadCoveragePanel from './LoadCoveragePanel';
-import type { LoadPipelineDataset, MarketRegion } from '../shared/market-types';
-import type { MarketComparison } from '../shared/market';
+import { MARKET_REGIONS, type MarketRegion } from '../shared/market-types';
+import NationalOverview from './NationalOverview';
+import BottleneckWorkspace from './BottleneckWorkspace';
+import TimelineWorkspace from './TimelineWorkspace';
 import './styles.css';
+import './workspace.css';
 
-type View = 'overview' | 'market' | 'pipeline' | 'projects' | 'history' | 'sources' | 'method';
+type View = 'overview' | 'projects' | 'scores' | 'history';
+type ProjectMode = 'register' | 'pipeline' | 'market' | 'coverage' | 'sources';
 type TypeFilter = ProjectType | 'all';
 type Detail = { available: boolean; score: ProjectScore | null; assessments: Assessment[]; assessmentsTruncated: boolean; totalAssessments: number };
 const NAV = [
-  { id: 'overview', label: '전국 개요', icon: Globe2 },
-  { id: 'market', label: '부하·신청 비교', icon: Activity },
-  { id: 'pipeline', label: '수용가 파이프라인', icon: Factory },
-  { id: 'projects', label: '프로젝트 원장', icon: Layers3 },
-  { id: 'history', label: '관측 시계열', icon: History },
-  { id: 'sources', label: '데이터 커버리지', icon: Database },
-  { id: 'method', label: '평가 방법론', icon: BookOpen },
+  { id: 'overview', label: '전국 개요', caption: '전력망 현황 한눈에', icon: Globe2 },
+  { id: 'projects', label: '권역별 프로젝트', caption: '신청 원장과 공개 파이프라인', icon: Layers3 },
+  { id: 'scores', label: '병목점수', caption: '진행 단계와 프로젝트별 평가', icon: BarChart3 },
+  { id: 'history', label: '통합 시계열', caption: '과거 신청·점수·부하 비교', icon: History },
 ] as const;
+const PROJECT_MODES = [
+  { id: 'register', label: '개별 프로젝트', icon: Layers3 },
+  { id: 'pipeline', label: '수용가 파이프라인', icon: Factory },
+  { id: 'market', label: '부하·피크 상세', icon: Activity },
+  { id: 'coverage', label: '사업자·기관 수집범위', icon: Database },
+  { id: 'sources', label: '출처·갱신 상태', icon: FileText },
+] as const;
+const readRoute = (): { view: View; mode: ProjectMode } => {
+  const [view, mode] = window.location.hash.slice(1).split('/');
+  return { view: NAV.some(item => item.id === view) ? view as View : 'overview', mode: PROJECT_MODES.some(item => item.id === mode) ? mode as ProjectMode : 'register' };
+};
 const TYPES = [{ id: 'all', label: '전체 프로젝트', icon: Layers3 }, { id: 'generation', label: '발전원', icon: Sun }, { id: 'storage', label: '저장전원', icon: BatteryCharging }, { id: 'load', label: '수용가', icon: Factory }] as const;
 const TYPE_LABEL: Record<ProjectType, string> = { generation: '발전', storage: '저장', load: '수용가' };
 const GATE_LABEL: Record<Gate, string> = { technical: '기술 검토', commercial: '계약·비용·보증', permitting: '부지·인허가', construction: '설비·계통 보강', energization: '통전·운영 승인' };
@@ -38,7 +47,12 @@ const GATE_DESCRIPTION: Record<Gate, Record<ProjectType, string>> = {
 };
 const STATUS_LABEL: Record<GateStatus, string> = { unknown: '미공개·미확인', not_started: '미진행 확인', in_progress: '진행 중', complete: '완료', not_applicable: '해당 없음' };
 const COVERAGE_LABEL: Record<Source['coverage'], string> = { full_register: '개별 원장', filtered_register: '범위 제한 원장', aggregate: '집계 자료', case: '개별 사례', not_reviewed: '검토 대기', access_failed: '접근 실패', not_public: '비공개' };
-const VIEW_DESCRIPTION: Record<View, string> = { overview: '발전·저장·수용가의 계통 연결, 진행의 근거를 한곳에서.', market: 'ISO·RTO의 공개 부하와 일 피크를 접속 신청 용량과 비교합니다.', pipeline: '공식 신청, 전력회사 자료, 계약·발표를 구분해 대형 수용가를 추적합니다.', projects: '공식 원장의 신청 단위와 요건별 평가 근거를 확인합니다.', history: '과거 공식 자료의 신청 용량·건수·추정 점수와 이후 관측 기록을 확인합니다.', sources: '확보한 원장과 아직 관측하지 못한 범위를 함께 공개합니다.', method: '다섯 가지 접속 요건을 같은 기준으로 평가합니다.' };
+const VIEW_DESCRIPTION: Record<View, string> = {
+  overview: '현재의 전력 수요, 쌓인 접속 신청, 통전까지 남은 진행 단계를 함께 봅니다.',
+  projects: '권역과 유형을 선택해 개별 신청, 대형 수용가 자료와 전력회사별 수집범위를 확인합니다.',
+  scores: '각 프로젝트가 어디까지 진행됐고, 다섯 요건에 몇 점을 부여했는지 확인합니다.',
+  history: '접속 신청·병목점수·실측 부하를 같은 탐색 화면에서 비교합니다.',
+};
 const nf = new Intl.NumberFormat('ko-KR');
 const number = (value: number) => nf.format(value);
 const decimal = (value: number, digits = 1) => value.toLocaleString('ko-KR', { maximumFractionDigits: digits });
@@ -61,13 +75,13 @@ async function request<T>(url: string, options?: RequestInit): Promise<T> {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>('overview');
-  const [historyMode, setHistoryMode] = useState<'coverage' | 'load' | 'official' | 'app'>('coverage');
+  const [view, setView] = useState<View>(() => readRoute().view);
+  const [projectMode, setProjectMode] = useState<ProjectMode>(() => readRoute().mode);
   const [type, setType] = useState<TypeFilter>('all');
   const [region, setRegion] = useState('');
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
-  const [status, setStatus] = useState('all');
+  const [status, setStatus] = useState(() => readRoute().view === 'scores' ? 'scored' : 'all');
   const [page, setPage] = useState(1);
   const [asOf, setAsOf] = useState('');
   const [knownAt, setKnownAt] = useState('');
@@ -75,48 +89,46 @@ export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [health, setHealth] = useState<(HealthResponse & { offlinePreview?: boolean }) | null>(null);
   const [data, setData] = useState<DashboardResponse | null>(null);
+  const [dataQuery, setDataQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [revision, setRevision] = useState(0);
-  const [pipeline, setPipeline] = useState<LoadPipelineDataset | null>(null);
-  const [marketComparison, setMarketComparison] = useState<MarketComparison | null>(null);
-  const [pipelineError, setPipelineError] = useState('');
-  const [marketRegion, setMarketRegion] = useState<MarketRegion>('PJM');
   const [selected, setSelected] = useState<string | null>(null);
   const [token, setToken] = useState('');
   const [adminOpen, setAdminOpen] = useState(false);
   const [capturing, setCapturing] = useState(false);
   const [notice, setNotice] = useState('');
+  const scoped = view === 'scores' || (view === 'projects' && projectMode === 'register');
   useEffect(() => { const timer = setTimeout(() => { setQuery(search); setPage(1); }, 280); return () => clearTimeout(timer); }, [search]);
   useEffect(() => { setPage(1); }, [type, region, status, asOf, knownAt]);
-  const params = new URLSearchParams({ type, region, q: query, status, page: String(page), pageSize: '20', historyLimit: '12' });
-  if (asOf) params.set('asOf', asOf);
-  if (knownAt) params.set('knownAt', new Date(`${knownAt}+09:00`).toISOString());
+  useEffect(() => {
+    const onHash = () => { const route = readRoute(); setView(route.view); setProjectMode(route.mode); setMobileOpen(false); };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+  const params = new URLSearchParams({ type: scoped ? type : 'all', region: scoped ? region : '', q: scoped ? query : '', status: scoped ? status : 'all', page: String(scoped ? page : 1), pageSize: '20', historyLimit: '52' });
+  if (scoped && asOf) params.set('asOf', asOf);
+  if (scoped && knownAt) params.set('knownAt', new Date(`${knownAt}+09:00`).toISOString());
   const queryString = params.toString();
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true); setError('');
     request<DashboardResponse>(`/api/dashboard?${queryString}`, { signal: controller.signal })
-      .then(setData).catch(e => { if (e.name !== 'AbortError') setError(e.message); })
+      .then(next => { setData(next); setDataQuery(queryString); })
+      .catch(e => { if (e.name !== 'AbortError') setError(e.message); })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
   }, [queryString, revision]);
   useEffect(() => { request<HealthResponse>('/api/health').then(setHealth).catch(() => setHealth(null)); }, [revision]);
-  useEffect(() => {
-    if (view !== 'overview') return;
-    const controller = new AbortController();
-    setPipelineError('');
-    Promise.all([
-      request<LoadPipelineDataset>('/api/load-pipeline', { signal: controller.signal }),
-      request<MarketComparison>('/api/market-comparison', { signal: controller.signal }),
-    ]).then(([nextPipeline, nextComparison]) => {
-      setPipeline(nextPipeline); setMarketComparison(nextComparison);
-    }).catch(e => { if (e.name !== 'AbortError') setPipelineError(e.message); });
-    return () => controller.abort();
-  }, [view, revision]);
   useEffect(() => { if (!notice) return; const timer = setTimeout(() => setNotice(''), 7000); return () => clearTimeout(timer); }, [notice]);
-  const navigate = (next: View) => { setView(next); setMobileOpen(false); };
-  const openMarket = (nextRegion: MarketRegion = 'PJM') => { setMarketRegion(nextRegion); navigate('market'); };
+  const navigate = (next: View, mode: ProjectMode = 'register') => {
+    setView(next); setProjectMode(mode); setMobileOpen(false);
+    const hash = next === 'projects' && mode !== 'register' ? `${next}/${mode}` : next;
+    if (window.location.hash !== `#${hash}`) window.location.hash = hash;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+  const showProjects = (nextRegion = '', nextType: TypeFilter = 'all') => { setRegion(nextRegion); setType(nextType); setSearch(''); setQuery(''); setStatus('all'); setAsOf(''); setKnownAt(''); setPage(1); navigate('projects'); };
+  const showScores = () => { setType('all'); setRegion(''); setSearch(''); setQuery(''); setStatus('scored'); setAsOf(''); setKnownAt(''); setPage(1); navigate('scores'); };
   const authHeaders = () => ({ 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) });
   const capture = async () => {
     setCapturing(true);
@@ -125,101 +137,64 @@ export default function App() {
     finally { setCapturing(false); }
   };
   const currentNav = NAV.find(item => item.id === view)!;
-  const filtersChanged = type !== 'all' || region !== '';
   const offline = health?.offlinePreview === true;
   const canWrite = !offline && (!!health?.canWrite || !!token);
-  return <div className="app-shell">
-    <a className="skip-link" href="#main">본문으로 이동</a>
+  const previousParams = new URLSearchParams(dataQuery);
+  const sameScope = !!dataQuery && ['type', 'region', 'asOf', 'knownAt'].every(key => previousParams.get(key) === params.get(key));
+  const readyData = sameScope ? data : null;
+  const selectedMarket: MarketRegion = MARKET_REGIONS.includes(region as MarketRegion) ? region as MarketRegion : 'PJM';
+  const register = readyData ? <ProjectTable data={readyData} region={region} setRegion={setRegion} search={search} setSearch={setSearch} status={status} setStatus={setStatus} page={page} setPage={setPage} onProject={setSelected} exportQuery={queryString} /> : null;
+  const projectControls = readyData ? <div className="score-project-controls" aria-label="평가 프로젝트 탐색"><label className="search-field"><Search size={17} /><input aria-label="평가 프로젝트 검색" value={search} onChange={e => setSearch(e.target.value)} placeholder="프로젝트명 · 신청 ID · 원문 단계" /></label><select aria-label="평가 프로젝트 점수 상태" value={status} onChange={e => setStatus(e.target.value)}><option value="all">모든 평가 상태</option><option value="scored">점수 있음 · 추정 포함</option><option value="unknown">점수 미산출</option></select><div className="pagination"><button className="icon-button" aria-label="평가 이전 페이지" disabled={loading || page <= 1} onClick={() => setPage(v => v - 1)}><ChevronLeft size={16} /></button><span>{readyData.page} / {Math.max(1, Math.ceil(readyData.total / readyData.pageSize))}</span><button className="icon-button" aria-label="평가 다음 페이지" disabled={loading || page * readyData.pageSize >= readyData.total} onClick={() => setPage(v => v + 1)}><ChevronRight size={16} /></button></div>{loading && <span className="score-filter-loading" role="status">조회 중…</span>}</div> : null;
+  const unavailable = <div className="empty-state"><CalendarDays size={34} /><h2>이 시점에 저장된 관측이 없습니다</h2><p>확보한 과거 원장과 생애주기 점수는 통합 시계열에서 확인할 수 있습니다.</p><div className="workspace-empty-actions"><button className="button" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재 관측으로</button><button className="button primary" onClick={() => navigate('history')}>과거 시계열 보기 <ArrowRight size={15} /></button></div></div>;
+  return <div className="app-shell workspace-shell">
+    <a className="skip-link" href="#main" onClick={event => { event.preventDefault(); document.getElementById('main')?.focus(); document.getElementById('main')?.scrollIntoView(); }}>본문으로 이동</a>
     {mobileOpen && <button className="sidebar-scrim" aria-label="메뉴 닫기" onClick={() => setMobileOpen(false)} />}
     <aside className={`sidebar ${mobileOpen ? 'is-open' : ''}`}>
-      <a href="#" className="brand" onClick={e => { e.preventDefault(); navigate('overview'); }} aria-label="Grid Atlas 전국 개요"><span className="brand-mark"><Network size={23} strokeWidth={1.6} /></span><span>GRID<span className="brand-light">ATLAS</span><small>GRID CONNECTION OBSERVATORY</small></span></a>
-      <div className="sidebar-label">OBSERVATORY <span>01</span></div>
-      <nav aria-label="주 메뉴">{NAV.map(item => <button key={item.id} className={`nav-item ${view === item.id ? 'active' : ''}`} aria-current={view === item.id ? 'page' : undefined} onClick={() => navigate(item.id)}><item.icon size={19} strokeWidth={1.6} /><span>{item.label}</span>{view === item.id && <span className="nav-dot" />}</button>)}</nav>
-      <div className="sidebar-note"><span className="small-overline">OUR PRINCIPLE</span><p>진행은 근거로.<br />공백은 투명하게.</p><span>단계 미공개는<br />별도 집계합니다.</span><div className="note-orbit"><span /><span /><span /></div></div>
-      <div className="sidebar-bottom"><div><span className={`status-dot ${health?.ok ? 'green' : 'amber'}`} /><span>{health?.ok ? (offline ? '공개 자료 불러옴' : '데이터베이스 연결됨') : '연결 상태 확인 중'}</span></div><button onClick={() => setAdminOpen(true)}><LockKeyhole size={14} /> 평가 관리 연결 <ChevronRight size={13} /></button><small>CONUS 48 STATES + DC<br />{MODEL_VERSION} · 기준 시각 KST</small></div>
+      <a href="#overview" className="brand" onClick={e => { e.preventDefault(); navigate('overview'); }} aria-label="Grid Atlas 전국 개요"><span className="brand-mark"><Network size={23} strokeWidth={1.6} /></span><span>GRID<span className="brand-light">ATLAS</span><small>U.S. POWER GRID OBSERVATORY</small></span></a>
+      <div className="sidebar-label">EXPLORE THE GRID <span>04</span></div>
+      <nav aria-label="주 메뉴">{NAV.map((item, index) => <button key={item.id} className={`nav-item ${view === item.id ? 'active' : ''}`} aria-current={view === item.id ? 'page' : undefined} onClick={() => item.id === 'scores' ? showScores() : navigate(item.id)}><item.icon size={20} strokeWidth={1.6} /><span><strong>{item.label}</strong><small>{item.caption}</small></span><i>{String(index + 1).padStart(2, '0')}</i></button>)}</nav>
+      <div className="workspace-sidebar-context"><span>FROM REQUEST TO POWER</span><p>신청에서 통전까지,<br />미국 전력망의 진행 기록.</p><div><i className="type-dot generation" />발전 <i className="type-dot storage" />저장 <i className="type-dot load" />수용가</div><button onClick={() => navigate('projects', 'coverage')}>데이터 수집범위 확인 <ArrowUpRight size={14} /></button></div>
+      <div className="sidebar-bottom"><div><span className={`status-dot ${health?.ok ? 'green' : 'amber'}`} /><span>{health?.ok ? (offline ? '공개 자료 불러옴' : '데이터베이스 연결됨') : '연결 상태 확인 중'}</span></div>{!offline && <button onClick={() => setAdminOpen(true)}><LockKeyhole size={14} /> 평가 관리 연결 <ChevronRight size={13} /></button>}<small>CONUS 48 STATES + DC<br />공개 원장 기준 · 날짜와 시각 KST</small></div>
     </aside>
     <div className="main-shell">
-      <header className="topbar"><div className="breadcrumb"><button className="icon-button menu-button" aria-label="메뉴 열기" onClick={() => setMobileOpen(true)}><Menu size={20} /></button><span>관측 워크스페이스</span><ChevronRight size={13} /><strong>{currentNav.label}</strong></div><div className="topbar-right"><span className="environment-badge"><span className={`status-dot ${health?.ok ? 'green' : 'amber'}`} />{offline ? '읽기 전용 대시보드' : health?.canWrite ? '로컬 작업공간' : '데이터 관측소'}</span><button className="icon-button" aria-label="데이터 새로 읽기" onClick={() => setRevision(v => v + 1)} disabled={loading}><RefreshCw size={17} className={loading ? 'spin' : ''} /></button><span className="avatar">GA</span></div></header>
+      <header className="topbar"><div className="breadcrumb"><button className="icon-button menu-button" aria-label="메뉴 열기" onClick={() => setMobileOpen(true)}><Menu size={20} /></button><span>미국 전력망</span><ChevronRight size={13} /><strong>{currentNav.label}</strong></div><div className="topbar-right"><span className="environment-badge"><span className={`status-dot ${health?.ok ? 'green' : 'amber'}`} />{offline ? '공개 데이터 · 조회용' : '계통접속 관측소'}</span><button className="icon-button" aria-label="데이터 새로 읽기" onClick={() => setRevision(v => v + 1)} disabled={loading}><RefreshCw size={17} className={loading ? 'spin' : ''} /></button></div></header>
       <main id="main" tabIndex={-1}>
-        <section className="page-heading"><div><div className="eyebrow"><span /> U.S. GRID CONNECTION INTELLIGENCE</div><h1>{view === 'overview' ? '미국 계통접속 관측소' : currentNav.label}<span className="heading-period">.</span></h1><p>{VIEW_DESCRIPTION[view]}</p></div>{view !== "market" && view !== "pipeline" && !(view === "history" && historyMode !== "app") && <div className="heading-date"><span>최근 관측</span><strong>{date(data?.snapshot?.capturedAt)}</strong><small>{data?.snapshot ? '원자료 기준일은 출처별 상이' : '관측 기록 확인 중'}</small></div>}</section>
-        {view !== 'method' && view !== 'market' && view !== 'pipeline' && !(view === 'history' && historyMode !== 'app') && <>
-          <div className="scope-toolbar"><div className="type-tabs" role="group" aria-label="프로젝트 유형">{TYPES.map(item => <button key={item.id} className={type === item.id ? 'selected' : ''} aria-pressed={type === item.id} onClick={() => setType(item.id)}><item.icon size={16} /><span>{item.label}</span>{item.id !== 'all' && data && <small>{number(data.summary.typeCounts[item.id])}</small>}</button>)}</div><button className={`button compact ${asOf || knownAt ? 'active-filter' : ''}`} aria-expanded={timeOpen} onClick={() => setTimeOpen(v => !v)}><CalendarDays size={15} />{asOf ? date(asOf) : '관측 시점'}<ChevronDown size={13} /></button></div>
-          {timeOpen && <div className="temporal-panel"><div><strong>시점 기준 조회</strong><p>현재까지 확인한 근거로 과거를 재평가하거나, 당시 알려진 범위만 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
-          <div className="disclosure"><CircleHelp size={16} /><span><strong>수집된 공개 원장 기준</strong> · 전국 전수 데이터가 아닙니다. 동일 출처 신청 ID로 집계하며, 원장 간 동일 실물 프로젝트의 중복 식별은 미완료입니다.</span><button onClick={() => navigate('sources')}>수집 범위 확인 <ArrowUpRight size={14} /></button></div>
-        </>}
-        {view === 'history' && <div className="historical-mode-tabs" role="group" aria-label="시계열 자료 구분"><button className={historyMode === 'coverage' ? 'selected' : ''} aria-pressed={historyMode === 'coverage'} onClick={() => setHistoryMode('coverage')}><Database size={16} />사업자·기관 수집범위</button><button className={historyMode === 'load' ? 'selected' : ''} aria-pressed={historyMode === 'load'} onClick={() => setHistoryMode('load')}><Factory size={16} />수용가 권역 비교</button><button className={historyMode === 'official' ? 'selected' : ''} aria-pressed={historyMode === 'official'} onClick={() => setHistoryMode('official')}><History size={16} />공식 과거 자료</button><button className={historyMode === 'app' ? 'selected' : ''} aria-pressed={historyMode === 'app'} onClick={() => setHistoryMode('app')}><Database size={16} />앱 관측 기록</button></div>}
-        {view === 'history' ? historyMode === 'coverage' ? <LoadCoveragePanel revision={revision} onScores={() => setHistoryMode('load')} /> : historyMode === 'load' ? <LoadBottleneckPanel revision={revision} onCoverage={() => setHistoryMode('coverage')} /> : historyMode === 'official' ? <HistoricalPanel revision={revision} /> : error ? <div className="market-error" role="alert">관측 기록 조회 실패: {error}</div> : !data ? <LoadingSkeleton /> : !data.available ? <div className="empty-state"><CalendarDays size={36} /><h2>이 날짜에 저장된 앱 관측이 없습니다</h2><p>서비스 시작 전의 자료는 ‘공식 과거 자료’에서 확인할 수 있습니다.</p><button className="button primary" onClick={() => setHistoryMode('official')}>공식 과거 자료 보기 <ArrowRight size={15} /></button></div> : <HistoryView data={data} capturing={capturing} canWrite={canWrite} onCapture={capture} /> : view === 'market' ? <MarketPanel revision={revision} initialRegion={marketRegion} /> : view === 'pipeline' ? <LoadPipelinePanel revision={revision} onRegister={() => { setType('load'); setRegion(''); setSearch(''); setStatus('all'); setAsOf(''); setKnownAt(''); navigate('projects'); }} /> : error ? <div className="empty-state error-state"><Database size={34} /><h2>데이터를 불러오지 못했습니다</h2><p>{error}</p><button className="button primary" onClick={() => setRevision(v => v + 1)}><RefreshCw size={15} /> 다시 시도</button></div> : !data && loading ? <LoadingSkeleton /> : data && <>
-          {loading && <div className="loading-strip" role="status">선택한 조건을 불러오는 중…</div>}
-          {view === 'method' ? <Methodology /> : !data.available ? <div className="empty-state"><CalendarDays size={36} /><h2>이 시점의 관측 자료가 없습니다</h2><p>첫 수집 이전의 진행 상태를 현재 데이터로 채우지 않습니다.<br />다른 기준일을 선택하거나 현재 관측으로 돌아가세요.</p><button className="button primary" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재 관측 보기 <ArrowRight size={15} /></button></div> : <>
-            {view === 'overview' && <>
-              <div className="national-load-scope"><Factory size={20} /><div><strong>전국 수용가 접속 요청 총량은 아직 미확보입니다.</strong><p>개별 신청 원장의 알려진 용량을 전국 수용가 총량으로 해석하지 않습니다. 아래에서는 각 ISO/RTO의 공식 요청 집계와 공개 파이프라인을 해당 권역의 발전·저장 신청과 함께 확인할 수 있습니다. 회사별 부분 집계와 단계별 수치를 전국 합계로 더하지 않습니다.</p></div></div>
-              {(asOf || knownAt) && <div className="market-notice">아래 권역별 파이프라인은 최신 공개 자료입니다. 선택한 과거 시점은 그 아래 프로젝트 원장·평가에 적용됩니다.</div>}
-              {pipelineError && <div className="market-error" role="alert">권역별 파이프라인 재조회 실패: {pipelineError}{pipeline ? ' 이전에 불러온 자료를 표시합니다.' : ''}</div>}
-              {pipeline && marketComparison ? <RegionalPipelinePanel pipeline={pipeline} comparison={marketComparison} onChoose={openMarket} /> : !pipelineError && <div className="market-loading" role="status">ISO/RTO별 공개 요청·파이프라인을 불러오는 중…</div>}
-              <p className="market-caveat">위 표는 7개 ISO/RTO 범위입니다. 아래 발전·저장 원장 합계에는 ISO/RTO 밖의 서부·남동부 자료도 포함되며, 수용가 전체 요청과 같은 모집단이 아닙니다.</p>
-            </>}
-            {(view === 'overview' || view === 'projects') && <Metrics data={data} scoped={filtersChanged} selectedType={type} selectedRegion={region} onMarket={() => openMarket()} />}
-            {view === 'overview' && <>
-              <div className="market-feature-links"><button className="market-feature-link" onClick={() => navigate('market')}><Activity size={23} /><span><strong>실제 부하와 신청 용량 비교</strong><small>7개 ISO·RTO · 공개 부하 관측과 일별 피크</small></span><ArrowRight size={17} /></button><button className="market-feature-link" onClick={() => navigate('pipeline')}><Factory size={23} /><span><strong>수용가 파이프라인 확장 보기</strong><small>데이터센터·공장 · 신청, 계약, 발표 근거 구분</small></span><ArrowRight size={17} /></button></div>
-              <RatingBreakdown data={data} selectedRegion={region} onLoadComparison={() => { setHistoryMode('load'); navigate('history'); }} /><div className="overview-grid"><RegionMap data={data} region={region} setRegion={setRegion} type={type} /><CoverageCard data={data} onReview={() => { setStatus('unknown'); navigate('projects'); }} /></div><RegionalRatings data={data} onRegion={setRegion} />
-              <div className="section-heading"><div><span className="eyebrow">THE FIVE REQUIREMENTS</span><h2>통전까지, 다섯 가지 접속 요건</h2></div><button className="text-button" onClick={() => navigate('method')}>점수 산정 방식 <ArrowRight size={15} /></button></div>
-              <div className="gate-strip">{GATES.map((gate, i) => <button key={gate} className="gate-tile" onClick={() => navigate('method')}><span className="gate-number">0{i + 1}</span><span><strong>{GATE_LABEL[gate]}</strong><small>미진행 20 → 완료 0점</small></span><ArrowUpRight size={15} /></button>)}</div>
-              <ProjectTable data={data} compact region={region} setRegion={setRegion} search={search} setSearch={setSearch} status={status} setStatus={setStatus} page={page} setPage={setPage} onProject={setSelected} onAll={() => navigate('projects')} exportQuery={queryString} />
-            </>}
-            {view === 'projects' && <ProjectTable data={data} region={region} setRegion={setRegion} search={search} setSearch={setSearch} status={status} setStatus={setStatus} page={page} setPage={setPage} onProject={setSelected} exportQuery={queryString} />}
-            {view === 'sources' && <><div className="coverage-score-link"><span>기존 프로젝트 원장 출처와 함께, 전체 신고 전력회사·권역별 기관의 수용가 자료 확인 현황을 볼 수 있습니다.</span><button className="text-button" onClick={() => { setHistoryMode('coverage'); navigate('history'); }}>수용가 사업자·기관 전체 명부<ArrowRight size={14} /></button></div><SourcesView sources={data.sources} type={type} health={health} revision={revision} /></>}
-          </>}
-        </>}
-        <footer className="page-footer"><span><Network size={14} /> GRID ATLAS <i /> 공개 근거 기반 계통접속 관측</span><span>기준 시각 Asia/Seoul · {MODEL_VERSION}</span></footer>
+        <section className="page-heading"><div><div className="eyebrow"><span /> U.S. GRID ATLAS <i>/</i> {String(NAV.findIndex(item => item.id === view) + 1).padStart(2, '0')}</div><h1>{currentNav.label}<span className="heading-period">.</span></h1><p>{VIEW_DESCRIPTION[view]}</p></div>{view === 'overview' && <div className="heading-date"><span>원장 최근 관측</span><strong>{date(readyData?.snapshot?.capturedAt)}</strong><small>부하 시각·원자료 기준일은 별도</small></div>}</section>
+        {view === 'projects' && <div className="workspace-tabs" role="group" aria-label="권역별 상세 자료">{PROJECT_MODES.map(item => <button key={item.id} className={projectMode === item.id ? 'selected' : ''} aria-pressed={projectMode === item.id} onClick={() => navigate('projects', item.id)}><item.icon size={16} />{item.label}</button>)}</div>}
+        {scoped && <section className="workspace-filter-panel" aria-label="원장 조회 조건">
+          <div className="scope-toolbar"><div className="type-tabs" role="group" aria-label="프로젝트 유형">{TYPES.map(item => <button key={item.id} className={type === item.id ? 'selected' : ''} aria-pressed={type === item.id} onClick={() => setType(item.id)}><item.icon size={16} /><span>{item.label}</span></button>)}</div><button className={`button compact ${asOf || knownAt ? 'active-filter' : ''}`} aria-expanded={timeOpen} onClick={() => setTimeOpen(v => !v)}><CalendarDays size={15} />{asOf ? date(asOf) : '관측 시점'}<ChevronDown size={13} /></button></div>
+          <div className="workspace-region-pills" role="group" aria-label="프로젝트 권역 선택"><button className={!region ? 'selected' : ''} aria-pressed={!region} onClick={() => setRegion('')}>전국 공개 원장</button>{(data?.regions ?? [...MARKET_REGIONS, 'West', 'Southeast']).map(r => <button key={r} className={region === r ? 'selected' : ''} aria-pressed={region === r} onClick={() => setRegion(r)}>{r}</button>)}</div>
+          {timeOpen && <div className="temporal-panel"><div><strong>저장된 앱 관측의 조회 시점</strong><p>더 오래된 공식 원장과 점수는 통합 시계열에서 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
+        </section>}
+        {error && <div className="error-banner" role="alert"><CircleHelp size={18} /><span>프로젝트 원장 조회 실패: {error}</span><button className="text-button" onClick={() => setRevision(v => v + 1)}>다시 읽기</button></div>}
+        {view === 'history' ? <TimelineWorkspace revision={revision} observationContent={readyData?.available ? <><p className="workspace-caption">전국 공개 원장 · 모든 유형 · 실제 저장한 관측 범위</p><HistoryView data={readyData} capturing={capturing} canWrite={canWrite} onCapture={capture} /></> : <p className="workspace-caption">{error || '저장된 앱 관측 기록을 불러오는 중입니다.'}</p>} />
+          : view === 'projects' && projectMode === 'pipeline' ? <LoadPipelinePanel revision={revision} initialRegion={region} onRegister={() => { setType('load'); navigate('projects'); }} />
+          : view === 'projects' && projectMode === 'market' ? <MarketPanel revision={revision} initialRegion={selectedMarket} />
+          : view === 'projects' && projectMode === 'coverage' ? <LoadCoveragePanel revision={revision} onScores={showScores} />
+          : !readyData ? !error && <LoadingSkeleton />
+          : view === 'projects' && projectMode === 'sources' ? <SourcesView sources={readyData.sources} type="all" health={health} revision={revision} />
+          : !readyData.available ? unavailable
+          : view === 'overview' ? <NationalOverview data={readyData} revision={revision} onProjects={showProjects} onScores={showScores} onTimeline={() => navigate('history')} />
+          : view === 'scores' ? <BottleneckWorkspace data={readyData} revision={revision} onProject={setSelected} projectTable={register} projectControls={projectControls} methodology={<Methodology />} onCoverage={() => navigate('projects', 'coverage')} />
+          : <><ProjectSummary data={readyData} region={region} type={type} onPipeline={() => navigate('projects', 'pipeline')} />{register}<div className="workspace-bottom-link"><span>개별 신청 외에 전력회사 집계·계약·발표 자료도 확인할 수 있습니다.</span><button className="text-button" onClick={() => navigate('projects', 'pipeline')}>수용가 파이프라인 <ArrowRight size={15} /></button></div></>}
+        <footer className="page-footer"><span><Network size={14} /> GRID ATLAS <i /> 공개 근거 기반 계통접속 관측</span><button className="text-button" onClick={() => navigate('projects', 'sources')}>출처·갱신 상태 <ArrowUpRight size={12} /></button></footer>
       </main>
     </div>
     {notice && <div className="toast" role="status"><FileCheck2 size={19} /><span>{notice}</span><button className="icon-button" aria-label="알림 닫기" onClick={() => setNotice('')}><X size={15} /></button></div>}
-    {selected && <ProjectDrawer projectId={selected} asOf={asOf} knownAt={knownAt} canWrite={canWrite} token={token} onClose={() => setSelected(null)} onSaved={() => { setRevision(v => v + 1); setNotice('평가 근거를 새 이력으로 저장했습니다. 이전 평가는 보존됩니다.'); }} onAdmin={() => setAdminOpen(true)} />}
+    {selected && <ProjectDrawer projectId={selected} asOf={scoped ? asOf : ''} knownAt={scoped ? knownAt : ''} canWrite={canWrite} token={token} onClose={() => setSelected(null)} onSaved={() => { setRevision(v => v + 1); setNotice('평가 근거를 새 이력으로 저장했습니다. 이전 평가는 보존됩니다.'); }} onAdmin={() => setAdminOpen(true)} />}
     {adminOpen && <Modal title="평가 관리 연결" onClose={() => setAdminOpen(false)}><div className="admin-intro"><LockKeyhole size={25} /><p>공개 조회와 평가 기록 권한을 구분합니다. 운영 서버에서 평가·관측 기록을 저장할 때 관리 키가 필요합니다.</p></div>{health?.canWrite && <div className="inline-note success"><Check size={15} /> 로컬 개발 환경은 평가 기록이 허용됩니다.</div>}{offline ? <div className="inline-note">이 화면은 읽기 전용입니다. 평가 저장과 관리 키 연결은 실제 서버에서만 가능합니다.</div> : <label className="form-field">관리 키<input type="password" autoComplete="off" value={token} onChange={e => setToken(e.target.value)} placeholder="ADMIN_TOKEN" /></label>}<p className="form-help">키는 이 화면의 메모리에만 보관합니다. 새로고침하면 사라집니다. 코드·파일·브라우저 저장소에는 저장하지 않습니다.</p><div className="dialog-actions"><button className="button" onClick={() => { setToken(''); setAdminOpen(false); }}>연결 해제</button><button className="button primary" onClick={() => setAdminOpen(false)}>설정 완료 <Check size={15} /></button></div></Modal>}
   </div>;
 }
 
-function Metrics({ data, scoped, selectedType, selectedRegion, onMarket }: { data: DashboardResponse; scoped: boolean; selectedType: TypeFilter; selectedRegion: string; onMarket: () => void }) {
+function ProjectSummary({ data, region, type, onPipeline }: { data: DashboardResponse; region: string; type: TypeFilter; onPipeline: () => void }) {
   const s = data.summary;
-  return <section className="metrics-grid" aria-label="관측 요약">
-    <article className="metric metric-score"><div className="metric-label">{scoped ? '선택 범위' : '관측 프로젝트'} 평균 병목점수<BarChart3 size={17} /></div><div className={`metric-value ${s.ratingMean === null ? 'unavailable' : ''}`}>{s.ratingMean === null ? '미산출' : decimal(s.ratingMean)}{s.ratingMean !== null && <small>/ 100</small>}</div><p className="score-evidence-caption">{s.ratingEstimatedCount ? `단계·근거 추정 ${number(s.ratingEstimatedCount)}건 포함` : '입력된 요건별 근거 기준'} · 미산출 {number(s.ratingUnknownCount)}건 제외</p><div className="metric-bottom"><span className="tiny-dot" /> 평균 분모 {number(s.ratedCount)}건 · 용량 가중 없음</div><span className="metric-trace" /></article>
-    <article className="metric"><div className="metric-label">평가 대상 신청<Layers3 size={17} /></div><div className="metric-value">{number(s.eligibleCount)}<small>건</small></div><div className="metric-bottom">본토 활성 신청 · 유형 간 혼합 사업 중복 제외</div></article>
-    <article className="metric"><div className="metric-label">공개 개별 신청 원장 용량<Activity size={17} /></div><div className="capacity-stack">{(['generation', 'storage', 'load'] as ProjectType[]).filter(t => selectedType === 'all' || t === selectedType).map(t => <div key={t}><span><i className={`type-dot ${t}`} />{t === 'load' ? '수용가 원장' : TYPE_LABEL[t]}</span>{t === 'load' && selectedType === 'all' && !selectedRegion ? <button className="text-button" onClick={onMarket}>권역별 규모 확인 <ArrowRight size={13} /></button> : <strong>{s.knownCapacityCounts[t] > 0 ? decimal(s[`${t}Mw`] / 1000, 2) : '미확보'}{s.knownCapacityCounts[t] > 0 && <small>GW</small>}</strong>}</div>)}</div><div className="metric-bottom">{selectedType === 'load' ? '확보한 개별 원장 범위 · 전국 수용가 총량과 별도' : '수용가 파이프라인은 권역표의 공개 범위와 함께 확인'}</div></article>
-    <article className="metric"><div className="metric-label">점수 미산출<CircleHelp size={17} /></div><div className="metric-value">{number(s.ratingUnknownCount)}<small>건</small></div><div className="metric-bottom"><span className="tiny-dot amber" />상태 미공개·해석 불가 · 평균에서 제외</div></article>
+  return <section className="project-workspace-summary" aria-label="선택 권역 신청 요약">
+    <article><span>{region || '전국 공개 원장'} · 활성 신청</span><strong>{number(s.eligibleCount)}<small>건</small></strong><p>동일 신청 ID의 혼합 사업은 한 번 집계</p></article>
+    {(['generation', 'storage', 'load'] as const).filter(t => type === 'all' || t === type).map(t => <article key={t} className={`summary-${t}`}><span><i className={`type-dot ${t}`} />{TYPE_LABEL[t]} 개별 신청</span><strong>{s.knownCapacityCounts[t] ? decimal(s[`${t}Mw`] / 1000, 2) : '미확보'}{s.knownCapacityCounts[t] > 0 && <small>GW</small>}</strong><p>{number(s.typeCounts[t])}건 · {t === 'load' ? '공개 개별 원장 범위' : '공개된 용량 성분의 합'}</p>{t === 'load' && <button className="text-button" onClick={onPipeline}>권역 취합·사업자 자료 <ArrowRight size={12} /></button>}</article>)}
+    <p className="workspace-caption">본토 활성 신청 기준 · 전국 전수 자료가 아니며 원장 간 같은 실물 사업의 연결은 미완료입니다. {type === 'load' || type === 'all' ? '수용가 개별 원장은 현재 NYISO 중심이며 전국 수용가 총량이 아닙니다.' : ''} 원자료 기준일은 각 프로젝트에서 확인하세요.</p>
   </section>;
 }
 
-const MAP_REGIONS = [
-  { id: 'CAISO', label: 'CAISO', caption: '캘리포니아', path: 'M48,77 L93,83 L111,144 L141,195 L108,195 L66,142 Z', x: 90, y: 137 },
-  { id: 'West', label: 'WEST', caption: '서부', path: 'M99,35 L205,44 L204,162 L143,190 L116,139 L100,82 L57,72 L59,36 Z', x: 153, y: 91 },
-  { id: 'SPP', label: 'SPP', caption: '중부 평원', path: 'M213,48 L271,48 L278,107 L297,144 L281,184 L211,161 Z', x: 247, y: 112 },
-  { id: 'ERCOT', label: 'ERCOT', caption: '텍사스', path: 'M214,171 L276,193 L299,208 L288,243 L268,249 L241,222 L221,223 L190,199 Z', x: 251, y: 206 },
-  { id: 'MISO', label: 'MISO', caption: '중북부', path: 'M280,40 L328,45 L341,70 L372,80 L354,115 L329,125 L316,169 L299,181 L290,184 L305,143 L287,106 Z', x: 313, y: 93 },
-  { id: 'Southeast', label: 'SOUTHEAST', caption: '남동부', path: 'M322,178 L335,135 L377,126 L423,150 L401,185 L405,211 L428,240 L415,244 L389,212 L375,202 L311,203 L303,190 Z', x: 362, y: 170 },
-  { id: 'PJM', label: 'PJM', caption: '중동부', path: 'M367,91 L390,82 L428,81 L448,99 L431,143 L381,117 L364,116 Z', x: 410, y: 109 },
-  { id: 'NYISO', label: 'NYISO', caption: '뉴욕', path: 'M401,61 L431,46 L451,58 L450,90 L431,73 L399,75 Z', x: 426, y: 63 },
-  { id: 'ISO-NE', label: 'ISO-NE', caption: '뉴잉글랜드', path: 'M459,28 L476,17 L489,49 L480,72 L458,85 L459,57 Z', x: 476, y: 52 },
-];
-function RegionMap({ data, region, setRegion, type }: { data: DashboardResponse; region: string; setRegion: (v: string) => void; type: TypeFilter }) {
-  const sources = data.sources.filter(s => type === 'all' || s.types.includes(type));
-  return <section className="panel map-panel"><div className="panel-heading"><div><span className="eyebrow">REGIONAL COVERAGE</span><h2>미국 본토 관측 범위</h2></div><span className="small-pill">48 STATES + DC</span></div><div className="map-subhead"><span>권역을 선택해 원장과 평가 대상을 확인하세요.</span>{region && <button className="text-button" onClick={() => setRegion('')}>전체 보기 <X size={13} /></button>}</div><div className="map-wrap"><svg viewBox="20 0 490 270" role="img" aria-label="미국 본토 권역 도식. 실제 지리 경계와 다릅니다."><defs><pattern id="map-dot" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".75" fill="#dce5e7" /></pattern></defs><rect width="550" height="280" fill="url(#map-dot)" />{MAP_REGIONS.map(r => {
-    const regionSources = sources.filter(s => s.region === r.id);
-    const hasRegister = regionSources.some(s => s.coverage === 'full_register' || s.coverage === 'filtered_register');
-    return <g key={r.id} className={`map-region ${region === r.id ? 'chosen' : ''} ${hasRegister ? 'has-register' : 'coverage-gap'}`} role="button" tabIndex={0} aria-label={`${r.label} 권역 선택`} aria-pressed={region === r.id} onClick={() => setRegion(region === r.id ? '' : r.id)} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setRegion(region === r.id ? '' : r.id); } }}><title>{r.caption}: {hasRegister ? '일부 공개 원장 확보' : '개별 원장 공백 또는 미확인'}</title><path d={r.path} /><text x={r.x} y={r.y} textAnchor="middle">{r.label}</text></g>;
-  })}</svg></div><div className="map-caption"><span><i className="legend-box teal" />일부 개별 원장 확보</span><span><i className="legend-box sand" />개별 원장 공백·미확인</span><small>권역 도식 · 실제 경계와 다름</small></div><div className="region-pills"><button className={!region ? 'selected' : ''} onClick={() => setRegion('')}>전체 권역</button>{data.regions.map(r => <button key={r} className={region === r ? 'selected' : ''} onClick={() => setRegion(region === r ? '' : r)}>{r}</button>)}</div></section>;
-}
-function CoverageCard({ data, onReview }: { data: DashboardResponse; onReview: () => void }) {
-  const s = data.summary; const pct = s.eligibleCount ? s.ratedCount / s.eligibleCount * 100 : 0;
-  return <section className="panel evaluation-panel"><div className="panel-heading"><div><span className="eyebrow">EVIDENCE & STAGE ESTIMATES</span><h2>점수 산출 범위</h2></div><ShieldCheck size={21} /></div><div className="coverage-ring" style={{ background: `conic-gradient(#167e76 0% ${pct}%, #eaf0ef ${pct}% 100%)` }}><div><span>추정 포함 점수 산출</span><strong>{number(s.ratedCount)}<small>건</small></strong><span>{decimal(pct)}% <i>관측 대상 내 비율</i></span></div></div><div className="coverage-key"><div><span><i className="type-dot generation" />요건별 근거 점수 산출</span><strong>{number(s.scoredCount)} <small>건</small></strong></div><div><span><i className="type-dot storage" />단계·근거 추정 포함</span><strong>{number(s.ratingEstimatedCount)} <small>건</small></strong></div><div><span><i className="type-dot unknown" />상태 미확인·해석 불가</span><strong>{number(s.ratingUnknownCount)} <small>건</small></strong></div></div><div className="coverage-note">원장의 연구·계약·공사 단계에 공통 가정을 적용한 <strong>추정 점수</strong>를 포함합니다. 실제 요건별 근거와 구분하며, 미확인 상태를 100점으로 채우지 않습니다.</div><button className="button full-width" onClick={onReview}>점수 미산출 프로젝트 검토 <ArrowRight size={15} /></button></section>;
-}
-
-function RatingBreakdown({ data, selectedRegion, onLoadComparison }: { data: DashboardResponse; selectedRegion: string; onLoadComparison: () => void }) {
-  const s = data.summary;
-  return <section className="rating-type-grid" aria-label="유형별 추정 포함 평균 점수">{(['generation', 'storage', 'load'] as ProjectType[]).map(type => <article key={type}><span><i className={`type-dot ${type}`} />{type === 'load' ? `${selectedRegion && selectedRegion !== 'NYISO' ? selectedRegion : 'NYISO'} 수용가` : TYPE_LABEL[type]} 평균 병목점수</span><strong>{s.ratingTypeMeans[type] === null ? '미산출' : decimal(s.ratingTypeMeans[type]!)}{s.ratingTypeMeans[type] !== null && <small>/ 100</small>}</strong><p>추정 포함 · 평균 분모 {number(s.ratingTypeCounts[type])}건</p>{type === 'load' && <button className="load-score-overview-link" onClick={onLoadComparison}>권역별 수용가 진행 근거 <ArrowRight size={13} /></button>}</article>)}<p>발전·저장 원장의 기준일은 주로 2025.12.31이며 현재 확인 시각과 다릅니다. 같은 프로젝트의 복합 유형은 각 유형 평균에 포함되며 전체 평균에서는 한 번 셉니다.</p><p className="load-score-overview-note">수용가 원장 평균은 현재 NYISO 개별 신청 범위입니다. 다른 권역의 용량 가중 단계 점수·추적군 참고지수는 별도 화면에서 집계 범위와 함께 확인합니다.</p></section>;
-}
-function RegionalRatings({ data, onRegion }: { data: DashboardResponse; onRegion: (region: string) => void }) {
-  return <section className="panel regional-rating-panel"><div className="panel-heading"><div><span className="eyebrow">PROJECT BOTTLENECK RATINGS</span><h2>권역별 프로젝트 평균 점수</h2></div><span className="small-pill sand">단계 추정 포함 · 동일 가중</span></div><p className="panel-description">공개 원장의 활성 신청별 점수를 평균합니다. 수용가 집계 자료의 MW는 프로젝트 점수 분모에 넣지 않습니다.</p><div className="table-scroll"><table className="rating-region-table"><thead><tr><th>권역</th><th>평균 병목점수</th><th>평균 분모</th><th>추정 포함</th><th>미산출·제외</th></tr></thead><tbody>{data.summary.ratingRegions.map(row => <tr key={row.region}><td><button className="text-button" onClick={() => onRegion(row.region)}>{row.region}<ArrowUpRight size={12} /></button></td><td><strong>{row.mean === null ? '미산출' : decimal(row.mean)}{row.mean !== null && <small>/ 100</small>}</strong></td><td>{number(row.ratedCount)}건</td><td>{number(row.estimatedCount)}건</td><td>{number(row.unknownCount)}건</td></tr>)}</tbody></table></div></section>;
-}
 function RatingBadge({ score }: { score: ProjectScore }) {
   const point = ratingPoint(score); const modeled = score.point === null && score.stageEstimate !== null;
   return point === null ? <span className="unknown-pill">미산출</span> : <span className="project-rating"><span className={`score-pill ${point >= 70 ? 'high' : point <= 30 ? 'low' : ''}`}>{decimal(point)}<small>/100</small></span>{modeled ? <small className="stage-estimate-tag">단계 추정</small> : score.estimated ? <small className="stage-estimate-tag">근거 추정 포함</small> : <small className="verified-rating-tag">요건별 근거</small>}</span>;
@@ -250,7 +225,7 @@ function SourcesView({ sources, type, health, revision }: { sources: Source[]; t
   const typed = sources.filter(s => type === 'all' || s.types.includes(type));
   const visible = typed.filter(s => filter === 'all' || (filter === 'register' ? ['full_register', 'filtered_register'].includes(s.coverage) : !['full_register', 'filtered_register'].includes(s.coverage)));
   const register = typed.filter(s => ['full_register', 'filtered_register'].includes(s.coverage)).length;
-  return <><div className="source-summary"><div className="panel source-stat"><Database size={22} /><span>등록된 데이터 출처</span><strong>{typed.length}<small>개</small></strong></div><div className="panel source-stat"><FileCheck2 size={22} /><span>개별 원장 제공 출처</span><strong>{register}<small>개</small></strong></div><div className="panel source-stat"><CircleHelp size={22} /><span>개별 원장 미확보 출처</span><strong>{typed.length - register}<small>개</small></strong></div></div><section className="schedule-card"><span className="schedule-icon"><Clock3 size={24} /></span><div><span className="eyebrow">COLLECTION & REFRESH</span><h2>{health?.schedule.configured ? '프로젝트 원장 정기 실행 설정' : '프로젝트 원장 정기 수집 연결 대기'}</h2><p>{health?.schedule.configured ? `설정 주기: ${health.schedule.cadence}. 설정 여부와 실제 수집 성공은 아래 실행 기록으로 구분합니다.` : '프로젝트 원장의 주간·월간 자동 적재는 아직 가동하지 않습니다. 실측 부하의 별도 갱신 상태는 부하·신청 비교 화면에서 확인할 수 있습니다.'}</p></div><div className="schedule-status"><span className={`small-pill ${health?.schedule.configured ? 'teal' : 'sand'}`}>{health?.schedule.configured ? '설정됨' : '미가동'}</span><small>마지막 실행 {health?.schedule.lastRunAt ? date(health.schedule.lastRunAt, true) : '기록 없음'}</small></div></section><section className="panel source-panel"><div className="panel-heading"><div><span className="eyebrow">SOURCE TRANSPARENCY</span><h2>출처별 수집 범위와 공백</h2></div><select aria-label="출처 상태 필터" value={filter} onChange={e => setFilter(e.target.value)}><option value="all">모든 출처</option><option value="register">개별 원장 확보</option><option value="gaps">개별 원장 미확보</option></select></div><div className="table-scroll"><table className="source-table"><thead><tr><th>출처 / 권역</th><th>공개 범위</th><th>원자료 기준일</th><th>실제 확인일</th><th>갱신 계획 / 처리기</th><th>공개 데이터의 한계</th></tr></thead><tbody>{visible.map(s => <tr key={s.id}><td><a href={safeUrl(s.url)} target="_blank" rel="noreferrer">{s.name}<ExternalLink size={12} /></a><small>{s.region} · {s.types.map(t => TYPE_LABEL[t]).join(' / ')}</small></td><td><span className={`coverage-pill ${['full_register', 'filtered_register'].includes(s.coverage) ? 'teal' : 'sand'}`}>{COVERAGE_LABEL[s.coverage]}</span></td><td>{date(s.sourceAsOf)}</td><td>{date(s.lastCheckedAt)}</td><td><span>{s.refreshCadence === 'weekly' ? '주간' : s.refreshCadence === 'monthly' ? '월간' : '연간'}</span><small>{s.adapter ? '정규화 처리기 있음' : '처리기 미연결'}</small></td><td><p className="source-gap">{s.gaps.length ? s.gaps.join(' · ') : '전국 전수 확보를 의미하지 않음'}</p></td></tr>)}</tbody></table></div>{!visible.length && <div className="empty-table">선택한 유형에 등록된 출처가 없습니다.</div>}</section><section className="panel run-panel"><div className="panel-heading"><div><span className="eyebrow">RUN LOG</span><h2>수집 실행 기록</h2></div></div>{runError ? <div className="empty-table">실행 기록을 불러오지 못했습니다.</div> : !runs.length ? <div className="inline-empty"><Clock3 size={22} /><div><strong>저장된 수집 실행 기록이 없습니다</strong><p>기존 원장을 가져온 관측 기록과 실제 원자료를 새로 수집한 실행 기록은 구분합니다.</p></div></div> : <div className="run-list">{runs.map(r => <div key={r.id}><span className={`status-dot ${r.status === 'success' ? 'green' : 'amber'}`} /><strong>{r.status === 'success' ? '성공' : r.status === 'partial' ? '일부 성공' : r.status === 'failed' ? '실패' : '실행 중'}</strong><time>{date(r.startedAt, true)}</time><p>{r.details}</p></div>)}</div>}</section></>;
+  return <><div className="source-summary"><div className="panel source-stat"><Database size={22} /><span>등록된 데이터 출처</span><strong>{typed.length}<small>개</small></strong></div><div className="panel source-stat"><FileCheck2 size={22} /><span>개별 원장 제공 출처</span><strong>{register}<small>개</small></strong></div><div className="panel source-stat"><CircleHelp size={22} /><span>개별 원장 미확보 출처</span><strong>{typed.length - register}<small>개</small></strong></div></div><section className="schedule-card"><span className="schedule-icon"><Clock3 size={24} /></span><div><span className="eyebrow">COLLECTION & REFRESH</span><h2>{health?.schedule.configured ? '프로젝트 원장 정기 실행 설정' : '프로젝트 원장 정기 수집 연결 대기'}</h2><p>{health?.schedule.configured ? `설정 주기: ${health.schedule.cadence}. 설정 여부와 실제 수집 성공은 아래 실행 기록으로 구분합니다.` : '프로젝트 원장의 주간·월간 자동 적재는 아직 가동하지 않습니다. 실측 부하의 별도 갱신 상태는 권역별 프로젝트의 부하·피크 상세에서 확인할 수 있습니다.'}</p></div><div className="schedule-status"><span className={`small-pill ${health?.schedule.configured ? 'teal' : 'sand'}`}>{health?.schedule.configured ? '설정됨' : '미가동'}</span><small>마지막 실행 {health?.schedule.lastRunAt ? date(health.schedule.lastRunAt, true) : '기록 없음'}</small></div></section><section className="panel source-panel"><div className="panel-heading"><div><span className="eyebrow">SOURCE TRANSPARENCY</span><h2>출처별 수집 범위와 공백</h2></div><select aria-label="출처 상태 필터" value={filter} onChange={e => setFilter(e.target.value)}><option value="all">모든 출처</option><option value="register">개별 원장 확보</option><option value="gaps">개별 원장 미확보</option></select></div><div className="table-scroll"><table className="source-table"><thead><tr><th>출처 / 권역</th><th>공개 범위</th><th>원자료 기준일</th><th>실제 확인일</th><th>갱신 계획 / 처리기</th><th>공개 데이터의 한계</th></tr></thead><tbody>{visible.map(s => <tr key={s.id}><td><a href={safeUrl(s.url)} target="_blank" rel="noreferrer">{s.name}<ExternalLink size={12} /></a><small>{s.region} · {s.types.map(t => TYPE_LABEL[t]).join(' / ')}</small></td><td><span className={`coverage-pill ${['full_register', 'filtered_register'].includes(s.coverage) ? 'teal' : 'sand'}`}>{COVERAGE_LABEL[s.coverage]}</span></td><td>{date(s.sourceAsOf)}</td><td>{date(s.lastCheckedAt)}</td><td><span>{s.refreshCadence === 'weekly' ? '주간' : s.refreshCadence === 'monthly' ? '월간' : '연간'}</span><small>{s.adapter ? '정규화 처리기 있음' : '처리기 미연결'}</small></td><td><p className="source-gap">{s.gaps.length ? s.gaps.join(' · ') : '전국 전수 확보를 의미하지 않음'}</p></td></tr>)}</tbody></table></div>{!visible.length && <div className="empty-table">선택한 유형에 등록된 출처가 없습니다.</div>}</section><section className="panel run-panel"><div className="panel-heading"><div><span className="eyebrow">RUN LOG</span><h2>수집 실행 기록</h2></div></div>{runError ? <div className="empty-table">실행 기록을 불러오지 못했습니다.</div> : !runs.length ? <div className="inline-empty"><Clock3 size={22} /><div><strong>저장된 수집 실행 기록이 없습니다</strong><p>기존 원장을 가져온 관측 기록과 실제 원자료를 새로 수집한 실행 기록은 구분합니다.</p></div></div> : <div className="run-list">{runs.map(r => <div key={r.id}><span className={`status-dot ${r.status === 'success' ? 'green' : 'amber'}`} /><strong>{r.status === 'success' ? '성공' : r.status === 'partial' ? '일부 성공' : r.status === 'failed' ? '실패' : '실행 중'}</strong><time>{date(r.startedAt, true)}</time><p>{r.details}</p></div>)}</div>}</section></>;
 }
 
 function HistoryView({ data, canWrite, capturing, onCapture }: { data: DashboardResponse; canWrite: boolean; capturing: boolean; onCapture: () => void }) {

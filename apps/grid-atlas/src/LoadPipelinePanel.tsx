@@ -8,11 +8,11 @@ const CLASSES: Record<PipelineClass, string> = { application: '공식 접속 신
 const SECTORS: Record<PipelineProject['sector'], string> = { data_center: '데이터센터', manufacturing: '제조·대형 공장', crypto: '암호화폐 채굴', other: '기타 수용가', undisclosed: '업종 미공개' };
 const STATUSES: Record<PipelineProject['status'], string> = { planned: '계획', active: '진행', construction: '공사', operating: '운영', withdrawn: '철회', unknown: '진행 상태 미공개' };
 
-export default function LoadPipelinePanel({ revision, onRegister }: { revision: number; onRegister: () => void }) {
+export default function LoadPipelinePanel({ revision, onRegister, initialRegion = '' }: { revision: number; onRegister: () => void; initialRegion?: string }) {
   const [data, setData] = useState<LoadPipelineDataset | null>(null);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
-  const [region, setRegion] = useState('');
+  const [region, setRegion] = useState(initialRegion);
   const [sector, setSector] = useState('');
   const [classification, setClassification] = useState('');
   const [reference, setReference] = useState(false);
@@ -23,6 +23,7 @@ export default function LoadPipelinePanel({ revision, onRegister }: { revision: 
     marketFetch<LoadPipelineDataset>('/api/load-pipeline', controller.signal).then(setData).catch(e => { if (e.name !== 'AbortError') setError(e.message); });
     return () => controller.abort();
   }, [revision]);
+  useEffect(() => { setRegion(initialRegion); }, [initialRegion]);
   useEffect(() => { setLimit(20); }, [query, region, sector, classification, reference]);
   useEffect(() => setAllAggregates(false), [region]);
   if (!data) return <div className={`market-loading ${error ? 'market-error' : ''}`} role={error ? 'alert' : 'status'}><Database size={22} />{error || '공개 수용가 자료를 불러오는 중…'}</div>;
