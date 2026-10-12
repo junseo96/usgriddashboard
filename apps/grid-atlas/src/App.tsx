@@ -9,7 +9,8 @@ import LoadPipelinePanel from './LoadPipelinePanel';
 import LoadCoveragePanel from './LoadCoveragePanel';
 import { MARKET_REGIONS, type MarketRegion } from '../shared/market-types';
 import NationalOverview from './NationalOverview';
-import BottleneckWorkspace from './BottleneckWorkspace';
+import BottleneckWorkspace, { type ScoreTab } from './BottleneckWorkspace';
+import { LOAD_REGIONS } from '../shared/load-bottleneck';
 import TimelineWorkspace from './TimelineWorkspace';
 import './styles.css';
 import './workspace.css';
@@ -31,9 +32,16 @@ const PROJECT_MODES = [
   { id: 'coverage', label: '사업자·기관 수집범위', icon: Database },
   { id: 'sources', label: '출처·갱신 상태', icon: FileText },
 ] as const;
-const readRoute = (): { view: View; mode: ProjectMode } => {
-  const [view, mode] = window.location.hash.slice(1).split('/');
-  return { view: NAV.some(item => item.id === view) ? view as View : 'overview', mode: PROJECT_MODES.some(item => item.id === mode) ? mode as ProjectMode : 'register' };
+const readRoute = (): { view: View; mode: ProjectMode; scoreTab: ScoreTab; scoreType: TypeFilter; scoreRegion: string } => {
+  const [view, mode, scope, projectRegion] = window.location.hash.slice(1).split('/');
+  const region = mode === 'regional' ? scope : mode === 'projects' ? projectRegion : '';
+  return {
+    view: NAV.some(item => item.id === view) ? view as View : 'overview',
+    mode: PROJECT_MODES.some(item => item.id === mode) ? mode as ProjectMode : 'register',
+    scoreTab: view === 'scores' && (mode === 'regional' || mode === 'methodology') ? mode : 'projects',
+    scoreType: view !== 'scores' ? 'all' : mode === 'regional' ? 'load' : mode === 'projects' && (scope === 'generation' || scope === 'storage' || scope === 'load') ? scope : 'all',
+    scoreRegion: view === 'scores' && LOAD_REGIONS.some(value => value === region) ? region : '',
+  };
 };
 const TYPES = [{ id: 'all', label: '전체 프로젝트', icon: Layers3 }, { id: 'generation', label: '발전원', icon: Sun }, { id: 'storage', label: '저장전원', icon: BatteryCharging }, { id: 'load', label: '수용가', icon: Factory }] as const;
 const TYPE_LABEL: Record<ProjectType, string> = { generation: '발전', storage: '저장', load: '수용가' };
@@ -77,8 +85,9 @@ async function request<T>(url: string, options?: RequestInit): Promise<T> {
 export default function App() {
   const [view, setView] = useState<View>(() => readRoute().view);
   const [projectMode, setProjectMode] = useState<ProjectMode>(() => readRoute().mode);
-  const [type, setType] = useState<TypeFilter>('all');
-  const [region, setRegion] = useState('');
+  const [scoreTab, setScoreTab] = useState<ScoreTab>(() => readRoute().scoreTab);
+  const [type, setType] = useState<TypeFilter>(() => readRoute().scoreType);
+  const [region, setRegion] = useState(() => readRoute().scoreRegion);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState(() => readRoute().view === 'scores' ? 'scored' : 'all');
@@ -98,11 +107,15 @@ export default function App() {
   const [adminOpen, setAdminOpen] = useState(false);
   const [capturing, setCapturing] = useState(false);
   const [notice, setNotice] = useState('');
-  const scoped = view === 'scores' || (view === 'projects' && projectMode === 'register');
+  const scoped = (view === 'scores' && scoreTab === 'projects') || (view === 'projects' && projectMode === 'register');
+  const regionalScores = view === 'scores' && scoreTab === 'regional';
   useEffect(() => { const timer = setTimeout(() => { setQuery(search); setPage(1); }, 280); return () => clearTimeout(timer); }, [search]);
   useEffect(() => { setPage(1); }, [type, region, status, asOf, knownAt]);
   useEffect(() => {
-    const onHash = () => { const route = readRoute(); setView(route.view); setProjectMode(route.mode); setMobileOpen(false); };
+    const onHash = () => {
+      const route = readRoute(); setView(route.view); setProjectMode(route.mode); setScoreTab(route.scoreTab); setMobileOpen(false);
+      if (route.view === 'scores' && route.scoreTab !== 'methodology') { setType(route.scoreType); setRegion(route.scoreRegion); }
+    };
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
@@ -128,7 +141,23 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
   const showProjects = (nextRegion = '', nextType: TypeFilter = 'all') => { setRegion(nextRegion); setType(nextType); setSearch(''); setQuery(''); setStatus('all'); setAsOf(''); setKnownAt(''); setPage(1); navigate('projects'); };
-  const showScores = () => { setType('all'); setRegion(''); setSearch(''); setQuery(''); setStatus('scored'); setAsOf(''); setKnownAt(''); setPage(1); navigate('scores'); };
+  const showScores = () => { setScoreTab('projects'); setType('all'); setRegion(''); setSearch(''); setQuery(''); setStatus('scored'); setAsOf(''); setKnownAt(''); setPage(1); navigate('scores'); };
+  const selectScoreTab = (tab: ScoreTab, nextRegion = region, nextType: TypeFilter = type) => {
+    setScoreTab(tab);
+    setType(tab === 'regional' ? 'load' : nextType); setRegion(nextRegion);
+    const hash = tab === 'projects'
+      ? nextType === 'all' && !nextRegion ? 'scores' : `scores/projects/${nextType}${nextRegion ? `/${nextRegion}` : ''}`
+      : `scores/${tab}${tab === 'regional' && nextRegion ? `/${nextRegion}` : ''}`;
+    if (window.location.hash !== `#${hash}`) window.location.hash = hash;
+  };
+  const selectType = (next: TypeFilter) => {
+    setType(next);
+    if (view === 'scores') selectScoreTab(next === 'load' ? 'regional' : 'projects', region, next);
+  };
+  const selectRegion = (next: string) => {
+    setRegion(next);
+    if (view === 'scores') selectScoreTab(scoreTab === 'projects' && type === 'load' && next !== 'NYISO' ? 'regional' : scoreTab, next);
+  };
   const authHeaders = () => ({ 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) });
   const capture = async () => {
     setCapturing(true);
@@ -143,7 +172,7 @@ export default function App() {
   const sameScope = !!dataQuery && ['type', 'region', 'asOf', 'knownAt'].every(key => previousParams.get(key) === params.get(key));
   const readyData = sameScope ? data : null;
   const selectedMarket: MarketRegion = MARKET_REGIONS.includes(region as MarketRegion) ? region as MarketRegion : 'PJM';
-  const register = readyData ? <ProjectTable data={readyData} region={region} setRegion={setRegion} search={search} setSearch={setSearch} status={status} setStatus={setStatus} page={page} setPage={setPage} onProject={setSelected} exportQuery={queryString} /> : null;
+  const register = readyData ? <ProjectTable data={readyData} region={region} setRegion={selectRegion} search={search} setSearch={setSearch} status={status} setStatus={setStatus} page={page} setPage={setPage} onProject={setSelected} exportQuery={queryString} /> : null;
   const projectControls = readyData ? <div className="score-project-controls" aria-label="평가 프로젝트 탐색"><label className="search-field"><Search size={17} /><input aria-label="평가 프로젝트 검색" value={search} onChange={e => setSearch(e.target.value)} placeholder="프로젝트명 · 신청 ID · 원문 단계" /></label><select aria-label="평가 프로젝트 점수 상태" value={status} onChange={e => setStatus(e.target.value)}><option value="all">모든 평가 상태</option><option value="scored">점수 있음 · 추정 포함</option><option value="unknown">점수 미산출</option></select><div className="pagination"><button className="icon-button" aria-label="평가 이전 페이지" disabled={loading || page <= 1} onClick={() => setPage(v => v - 1)}><ChevronLeft size={16} /></button><span>{readyData.page} / {Math.max(1, Math.ceil(readyData.total / readyData.pageSize))}</span><button className="icon-button" aria-label="평가 다음 페이지" disabled={loading || page * readyData.pageSize >= readyData.total} onClick={() => setPage(v => v + 1)}><ChevronRight size={16} /></button></div>{loading && <span className="score-filter-loading" role="status">조회 중…</span>}</div> : null;
   const unavailable = <div className="empty-state"><CalendarDays size={34} /><h2>이 시점에 저장된 관측이 없습니다</h2><p>확보한 과거 원장과 생애주기 점수는 통합 시계열에서 확인할 수 있습니다.</p><div className="workspace-empty-actions"><button className="button" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재 관측으로</button><button className="button primary" onClick={() => navigate('history')}>과거 시계열 보기 <ArrowRight size={15} /></button></div></div>;
   return <div className="app-shell workspace-shell">
@@ -161,21 +190,21 @@ export default function App() {
       <main id="main" tabIndex={-1}>
         <section className="page-heading"><div><div className="eyebrow"><span /> U.S. GRID ATLAS <i>/</i> {String(NAV.findIndex(item => item.id === view) + 1).padStart(2, '0')}</div><h1>{currentNav.label}<span className="heading-period">.</span></h1><p>{VIEW_DESCRIPTION[view]}</p></div>{view === 'overview' && <div className="heading-date"><span>원장 최근 관측</span><strong>{date(readyData?.snapshot?.capturedAt)}</strong><small>부하 시각·원자료 기준일은 별도</small></div>}</section>
         {view === 'projects' && <div className="workspace-tabs" role="group" aria-label="권역별 상세 자료">{PROJECT_MODES.map(item => <button key={item.id} className={projectMode === item.id ? 'selected' : ''} aria-pressed={projectMode === item.id} onClick={() => navigate('projects', item.id)}><item.icon size={16} />{item.label}</button>)}</div>}
-        {scoped && <section className="workspace-filter-panel" aria-label="원장 조회 조건">
-          <div className="scope-toolbar"><div className="type-tabs" role="group" aria-label="프로젝트 유형">{TYPES.map(item => <button key={item.id} className={type === item.id ? 'selected' : ''} aria-pressed={type === item.id} onClick={() => setType(item.id)}><item.icon size={16} /><span>{item.label}</span></button>)}</div><button className={`button compact ${asOf || knownAt ? 'active-filter' : ''}`} aria-expanded={timeOpen} onClick={() => setTimeOpen(v => !v)}><CalendarDays size={15} />{asOf ? date(asOf) : '관측 시점'}<ChevronDown size={13} /></button></div>
-          <div className="workspace-region-pills" role="group" aria-label="프로젝트 권역 선택"><button className={!region ? 'selected' : ''} aria-pressed={!region} onClick={() => setRegion('')}>전국 공개 원장</button>{(data?.regions ?? [...MARKET_REGIONS, 'West', 'Southeast']).map(r => <button key={r} className={region === r ? 'selected' : ''} aria-pressed={region === r} onClick={() => setRegion(r)}>{r}</button>)}</div>
-          {timeOpen && <div className="temporal-panel"><div><strong>저장된 앱 관측의 조회 시점</strong><p>더 오래된 공식 원장과 점수는 통합 시계열에서 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
+        {(scoped || regionalScores) && <section className="workspace-filter-panel" aria-label={regionalScores ? '수용가 평가 조회 조건' : '원장 조회 조건'}>
+          <div className="scope-toolbar"><div className="type-tabs" role="group" aria-label="프로젝트 유형">{TYPES.map(item => <button key={item.id} className={type === item.id ? 'selected' : ''} aria-pressed={type === item.id} onClick={() => selectType(item.id)}><item.icon size={16} /><span>{item.label}</span></button>)}</div>{scoped && <button className={`button compact ${asOf || knownAt ? 'active-filter' : ''}`} aria-expanded={timeOpen} onClick={() => setTimeOpen(v => !v)}><CalendarDays size={15} />{asOf ? date(asOf) : '관측 시점'}<ChevronDown size={13} /></button>}</div>
+          <div className="workspace-region-pills" role="group" aria-label="프로젝트 권역 선택"><button className={!region ? 'selected' : ''} aria-pressed={!region} onClick={() => selectRegion('')}>{regionalScores ? '전체 권역 자료' : '전국 공개 원장'}</button>{(regionalScores ? LOAD_REGIONS : data?.regions ?? LOAD_REGIONS).map(r => <button key={r} className={region === r ? 'selected' : ''} aria-pressed={region === r} onClick={() => selectRegion(r)}>{r}</button>)}</div>
+          {scoped && timeOpen && <div className="temporal-panel"><div><strong>저장된 앱 관측의 조회 시점</strong><p>더 오래된 공식 원장과 점수는 통합 시계열에서 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
         </section>}
-        {error && <div className="error-banner" role="alert"><CircleHelp size={18} /><span>프로젝트 원장 조회 실패: {error}</span><button className="text-button" onClick={() => setRevision(v => v + 1)}>다시 읽기</button></div>}
+        {error && (view !== 'scores' || scoped) && <div className="error-banner" role="alert"><CircleHelp size={18} /><span>프로젝트 원장 조회 실패: {error}</span><button className="text-button" onClick={() => setRevision(v => v + 1)}>다시 읽기</button></div>}
         {view === 'history' ? <TimelineWorkspace revision={revision} observationContent={readyData?.available ? <><p className="workspace-caption">전국 공개 원장 · 모든 유형 · 실제 저장한 관측 범위</p><HistoryView data={readyData} capturing={capturing} canWrite={canWrite} onCapture={capture} /></> : <p className="workspace-caption">{error || '저장된 앱 관측 기록을 불러오는 중입니다.'}</p>} />
           : view === 'projects' && projectMode === 'pipeline' ? <LoadPipelinePanel revision={revision} initialRegion={region} onRegister={() => { setType('load'); navigate('projects'); }} />
           : view === 'projects' && projectMode === 'market' ? <MarketPanel revision={revision} initialRegion={selectedMarket} />
           : view === 'projects' && projectMode === 'coverage' ? <LoadCoveragePanel revision={revision} onScores={showScores} />
+          : view === 'scores' ? <BottleneckWorkspace data={readyData} revision={revision} tab={scoreTab} onTabChange={next => selectScoreTab(next, next === 'projects' && type === 'load' ? 'NYISO' : region)} selectedType={type} selectedRegion={region} onRegionChange={selectRegion} onOpenRegional={next => selectScoreTab('regional', next)} projectFallback={readyData ? unavailable : error ? <p className="workspace-caption">원장 조회를 다시 시도하거나 수용가 권역별 평가를 선택해 주세요.</p> : <LoadingSkeleton />} onProject={setSelected} projectTable={register} projectControls={projectControls} methodology={<Methodology />} onCoverage={() => navigate('projects', 'coverage')} />
           : !readyData ? !error && <LoadingSkeleton />
           : view === 'projects' && projectMode === 'sources' ? <SourcesView sources={readyData.sources} type="all" health={health} revision={revision} />
           : !readyData.available ? unavailable
           : view === 'overview' ? <NationalOverview data={readyData} revision={revision} onProjects={showProjects} onScores={showScores} onTimeline={() => navigate('history')} />
-          : view === 'scores' ? <BottleneckWorkspace data={readyData} revision={revision} onProject={setSelected} projectTable={register} projectControls={projectControls} methodology={<Methodology />} onCoverage={() => navigate('projects', 'coverage')} />
           : <><ProjectSummary data={readyData} region={region} type={type} onPipeline={() => navigate('projects', 'pipeline')} />{register}<div className="workspace-bottom-link"><span>개별 신청 외에 전력회사 집계·계약·발표 자료도 확인할 수 있습니다.</span><button className="text-button" onClick={() => navigate('projects', 'pipeline')}>수용가 파이프라인 <ArrowRight size={15} /></button></div></>}
         <footer className="page-footer"><span><Network size={14} /> GRID ATLAS <i /> 공개 근거 기반 계통접속 관측</span><button className="text-button" onClick={() => navigate('projects', 'sources')}>출처·갱신 상태 <ArrowUpRight size={12} /></button></footer>
       </main>

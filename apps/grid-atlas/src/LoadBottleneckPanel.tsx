@@ -1,6 +1,6 @@
 import { useEffect, useId, useState } from 'react';
 import { ArrowDownToLine, ArrowRight, CircleHelp, ExternalLink, Factory, RefreshCw } from 'lucide-react';
-import { LOAD_STAGE_CATALOG, isLoadBottleneckDataset, loadBottleneckCsv, rateLoadObservation, type LoadBottleneckDataset, type LoadBottleneckSeries, type LoadBottleneckObservation, type LoadBottleneckRating, type LoadRegion } from '../shared/load-bottleneck';
+import { LOAD_STAGE_CATALOG, isLoadBottleneckDataset, loadBottleneckCsv, rateLoadObservation, type LoadBottleneckDataset, type LoadBottleneckSeries, type LoadBottleneckObservation, type LoadBottleneckRating } from '../shared/load-bottleneck';
 import './load-bottleneck.css';
 
 const number = (value: number, digits = 1) => value.toLocaleString('ko-KR', { maximumFractionDigits: digits });
@@ -23,12 +23,16 @@ const scoreLabel = (rating: LoadBottleneckRating, series: LoadBottleneckSeries) 
 const ordered = (series: LoadBottleneckSeries) => [...series.points].sort((a, b) => a.date.localeCompare(b.date));
 const GATE_LABEL: Record<string, string> = { technical: '기술 검토', commercial: '계약·비용', permitting: '부지·인허가', construction: '설비·망 보강', energization: '통전 승인' };
 
-export default function LoadBottleneckPanel({ revision, onCoverage }: { revision: number; onCoverage?: () => void }) {
+export interface LoadBottleneckPanelProps {
+  revision: number; onCoverage?: () => void; selectedRegion: string;
+  onRegionChange: (region: string) => void; overviewOnly?: boolean;
+}
+export default function LoadBottleneckPanel({ revision, onCoverage, selectedRegion, onRegionChange, overviewOnly = false }: LoadBottleneckPanelProps) {
   const [dataset, setDataset] = useState<LoadBottleneckDataset | null>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const [retry, setRetry] = useState(0);
-  const [region, setRegion] = useState<LoadRegion>('ERCOT');
+  const region = selectedRegion;
   const [seriesId, setSeriesId] = useState('');
   const [pointId, setPointId] = useState('');
   const [start, setStart] = useState('');
@@ -43,13 +47,14 @@ export default function LoadBottleneckPanel({ revision, onCoverage }: { revision
     }).catch(e => { if (e.name !== 'AbortError') setError(e.message); }).finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
   }, [revision, retry]);
+  useEffect(() => { setSeriesId(''); setPointId(''); setStart(''); setEnd(''); }, [region]);
   const regionInfo = dataset?.regions.find(row => row.region === region);
   const choices = dataset?.series.filter(row => row.region === region) ?? [];
   const series = choices.find(row => row.id === seriesId) ?? choices.find(row => row.id === regionInfo?.headlineSeriesId) ?? choices[0];
   const points = series ? ordered(series).filter(point => (!start || point.date >= start) && (!end || point.date <= end)) : [];
   const point = points.find(row => row.id === pointId) ?? points[points.length - 1];
   const rating = series && point ? rateLoadObservation(series, point) : null;
-  const selectRegion = (value: LoadRegion) => { setRegion(value); setSeriesId(''); setPointId(''); setStart(''); setEnd(''); };
+  const selectRegion = (value: string) => { onRegionChange(value); };
   const download = () => {
     if (!dataset || !series || !points.length) return;
     const csv = loadBottleneckCsv(dataset, { seriesId: series.id, ...(start ? { start } : {}), ...(end ? { end } : {}) });
@@ -58,19 +63,29 @@ export default function LoadBottleneckPanel({ revision, onCoverage }: { revision
   };
   if (loading && !dataset) return <div className="market-loading" role="status"><RefreshCw size={20} className="spin" />권역별 수용가 진행 근거를 불러오는 중…</div>;
   if (!dataset) return <div className="empty-state"><Factory size={30} /><h2>수용가 진행 자료 조회 실패</h2><p role="alert">{error}</p><button className="button primary" onClick={() => setRetry(value => value + 1)}>다시 불러오기<RefreshCw size={14} /></button></div>;
-  return <div className="load-bottleneck-view">
-    <section className="load-bottleneck-intro"><span><Factory size={24} /></span><div><span className="eyebrow">REGIONAL LOAD CONNECTION PROGRESS</span><h2>수용가 진행 단계, 권역별 근거</h2><p>ISO·RTO와 공개된 다른 권역의 단계 자료를 비교하고, 확보한 과거 시점의 변화를 확인합니다.</p></div></section>
-    <div className="coverage-score-link"><span>부분 사업자 점수의 조사 범위와 권역 전체 자료는 사업자·기관 명부에서 확인할 수 있습니다.</span>{onCoverage && <button className="text-button" onClick={onCoverage}>전체 사업자·수집범위 보기<ArrowRight size={14} /></button>}</div>
-    <div className="load-bottleneck-note"><CircleHelp size={18} /><div><strong>같은 점수라도 집계 대상과 가중 방식이 다릅니다.</strong><p>개별 신청 평균, 용량 가중 점수, 운영을 포함한 추적군 참고지수를 구분합니다. 전력회사 일부 사업을 권역 전체로 확대하거나 서로 합산하지 않으며, 이 값만으로 권역 순위를 매기지 않습니다.</p></div></div>
-    {error && <div className="market-error" role="alert">{error} 이전에 불러온 자료를 표시합니다.</div>}
+  const regionCards = (
     <section className="load-region-cards" aria-label="권역별 수용가 점수 범위">{dataset.regions.map(({ region: value }) => {
       const info = dataset.regions.find(row => row.region === value);
       const headline = dataset.series.find(row => row.id === info?.headlineSeriesId);
       const latest = headline ? ordered(headline).at(-1) : undefined;
       const result = headline && latest ? rateLoadObservation(headline, latest) : null;
-      return <button key={value} className={`load-region-card ${region === value ? 'selected' : ''}`} aria-pressed={region === value} onClick={() => selectRegion(value)}><span>{value}<ArrowRight size={13} /></span><strong>{result ? pointText(result) : '미산출'}</strong><small>{result && displayPoint(result) !== null ? `${hasReferenceIndex(result) ? '추적군 참고지수 · ' : consumptionProxy(headline!) ? '관측 소비 제외 · ' : ''}${basis(headline!)}` : '단계·분모 확인 필요'}</small><p>{headline ? headline.name : '공개 근거 공백'}</p><em>{headline && <>{scopeLabel(headline)}<br /></>}{latest ? `${pointDate(latest)} · ${dateBasis(latest)}` : '산출 가능한 시점 없음'}</em></button>;
+      return <button key={value} className={`load-region-card ${region === value ? 'selected' : ''}`} aria-pressed={region === value} onClick={() => selectRegion(value)}><span>{value}<ArrowRight size={13} /></span><strong>{result ? pointText(result) : '미산출'}</strong><small>{result && displayPoint(result) !== null ? `${hasReferenceIndex(result) ? '추적군 참고지수 · ' : consumptionProxy(headline!) ? '관측 소비 제외 · ' : ''}${basis(headline!)}` : '단계·분모 확인 필요'}</small><p>{headline ? headline.name : '공개 근거 공백'}</p><em>{headline && <>{scopeLabel(headline)}{overviewOnly ? ' · ' : <br />}</>}{latest ? `${pointDate(latest)} · ${dateBasis(latest)}` : '산출 가능한 시점 없음'}</em></button>;
     })}</section>
-    <section className="panel load-score-controls"><label>권역<select aria-label="수용가 점수 권역" value={region} onChange={event => selectRegion(event.target.value as LoadRegion)}>{dataset.regions.map(({ region: value }) => <option key={value} value={value}>{value}</option>)}</select></label><label className="load-score-source-select">출처·집계 범위<select aria-label="수용가 점수 출처" value={series?.id ?? ''} disabled={!choices.length} onChange={event => { setSeriesId(event.target.value); setPointId(''); }}>{choices.length ? choices.map(row => <option key={row.id} value={row.id}>{row.name}</option>) : <option value="">확보한 단계 자료 없음</option>}</select></label><label>시작일<input aria-label="수용가 점수 시작일" type="date" value={start} max={end || undefined} onChange={event => setStart(event.target.value)} /></label><label>종료일<input aria-label="수용가 점수 종료일" type="date" value={end} min={start || undefined} onChange={event => setEnd(event.target.value)} /></label><button className="button compact" onClick={() => { setStart(''); setEnd(''); setPointId(''); }}>전체 기간</button></section>
+  );
+  if (overviewOnly) return <section className="load-bottleneck-overview" aria-label="수용가 9개 권역 평가 요약">
+    <header><div><span className="eyebrow">REGIONAL LOAD SCORES</span><h2>수용가 권역별 평가</h2></div><span>{dataset.regions.length}개 권역 · {dataset.series.length}개 자료 계열</span></header>
+    <p>권역을 선택하면 수용가의 진행 단계·과거 점수·출처를 확인합니다. 아래는 각 공개 범위의 값이며 전국 수용가 평균으로 합산하지 않습니다.</p>
+    {error && <p className="market-error" role="alert">{error} 이전 조회 자료를 표시합니다.</p>}
+    {regionCards}
+  </section>;
+
+  return <div className="load-bottleneck-view">
+    <section className="load-bottleneck-intro"><span><Factory size={24} /></span><div><span className="eyebrow">REGIONAL LOAD CONNECTION PROGRESS</span><h2>수용가 진행 단계, 권역별 근거</h2><p>ISO·RTO와 공개된 다른 권역의 단계 자료를 비교하고, 확보한 과거 시점의 변화를 확인합니다.</p></div></section>
+    <div className="coverage-score-link"><span>부분 사업자 점수의 조사 범위와 권역 전체 자료는 사업자·기관 명부에서 확인할 수 있습니다.</span>{onCoverage && <button className="text-button" onClick={onCoverage}>전체 사업자·수집범위 보기<ArrowRight size={14} /></button>}</div>
+    <div className="load-bottleneck-note"><CircleHelp size={18} /><div><strong>같은 점수라도 집계 대상과 가중 방식이 다릅니다.</strong><p>개별 신청 평균, 용량 가중 점수, 운영을 포함한 추적군 참고지수를 구분합니다. 전력회사 일부 사업을 권역 전체로 확대하거나 서로 합산하지 않으며, 이 값만으로 권역 순위를 매기지 않습니다.</p></div></div>
+    {error && <div className="market-error" role="alert">{error} 이전에 불러온 자료를 표시합니다.</div>}
+    {regionCards}
+    <section className="panel load-score-controls"><label>권역<select aria-label="수용가 점수 권역" value={region} onChange={event => selectRegion(event.target.value)}><option value="">전체 권역 · 비교</option>{dataset.regions.map(({ region: value }) => <option key={value} value={value}>{value}</option>)}</select></label><label className="load-score-source-select">출처·집계 범위<select aria-label="수용가 점수 출처" value={series?.id ?? ''} disabled={!choices.length} onChange={event => { setSeriesId(event.target.value); setPointId(''); }}>{choices.length ? choices.map(row => <option key={row.id} value={row.id}>{row.name}</option>) : <option value="">확보한 단계 자료 없음</option>}</select></label><label>시작일<input aria-label="수용가 점수 시작일" type="date" value={start} max={end || undefined} onChange={event => setStart(event.target.value)} /></label><label>종료일<input aria-label="수용가 점수 종료일" type="date" value={end} min={start || undefined} onChange={event => setEnd(event.target.value)} /></label><button className="button compact" onClick={() => { setStart(''); setEnd(''); setPointId(''); }}>전체 기간</button></section>
     {regionInfo?.gaps.length ? <div className="load-region-gaps"><strong>{region}의 관측 범위와 공백</strong><ul>{regionInfo.gaps.map(gap => <li key={gap}>{gap}</li>)}</ul></div> : null}
     {region === 'NYISO' && <NyisoCohortComparison dataset={dataset} onSelect={id => { setSeriesId(id); setPointId(''); }} />}
     {series ? <>
@@ -85,7 +100,7 @@ export default function LoadBottleneckPanel({ revision, onCoverage }: { revision
       </section>
       <div className="load-trend-caveat"><CircleHelp size={17} /><div><strong>평균 점수 상승만으로 접속 지연이 심해졌다고 단정할 수 없습니다.</strong><p>신규 신청이 늘거나 완료 사업이 원장에서 빠져도 평균은 달라집니다. 같은 사업군의 처리 기간·완료율을 추적한 결과와 구분해야 합니다. {series.comparability}</p></div></div>
       <section className="panel load-score-table"><div className="panel-heading"><div><span className="eyebrow">HISTORICAL STAGE EVIDENCE</span><h2>시점별 값과 점수 분모</h2></div><button className="button compact" disabled={!points.length} onClick={download}><ArrowDownToLine size={14} />CSV 내려받기</button></div><div className="table-scroll"><table><thead><tr><th>시점</th><th>{consumptionProxy(series) ? '관측 소비 제외 지수' : '활성 신청 평균'}</th><th>추적군 참고지수</th><th>{consumptionProxy(series) ? '소비 제외 점수 분모' : '활성 점수 분모'}</th><th>{consumptionProxy(series) ? '소비 제외 후 미산출' : '활성 미산출'}</th><th>공식 근거</th></tr></thead><tbody>{[...points].reverse().map(row => { const result = rateLoadObservation(series, row); return <tr key={row.id} className={row.id === point?.id ? 'selected' : ''}><td><button className="text-button" aria-pressed={row.id === point?.id} onClick={() => setPointId(row.id)}>{pointDate(row)}</button>{row.breakBefore && <small className="load-break-tag">연속 비교 단절</small>}</td><td>{result.point === null ? '미산출' : `${number(result.point)}점`}</td><td>{result.trackedPoint === null ? '—' : <>{number(result.trackedPoint)}점<small className="load-reference-table-meta">분모 {weight(series, result.trackedRatedWeight)}<br />미산출 {weight(series, result.trackedUnknownWeight)} · {trackedCoverage(result)}</small></>}</td><td>{weight(series, result.ratedWeight)}</td><td>{weight(series, result.unknownWeight)}</td><td><a className="source-link" href={safeUrl(row.source.url)} target="_blank" rel="noreferrer">{row.source.name}<ExternalLink size={12} /></a></td></tr>; })}</tbody></table></div></section>
-    </> : <section className="panel load-score-empty"><Factory size={30} /><h2>{region}의 단계별 평균은 아직 산출할 수 없습니다</h2><p>요청 총량이나 계약 용량만으로 다섯 접속 요건의 진행 상태를 추정하지 않습니다. 확보한 단계별 분모가 있을 때 점수를 추가합니다.</p></section>}
+    </> : !region ? <section className="panel load-score-empty load-score-select-region"><Factory size={30} /><h2>비교할 수용가 권역을 선택하세요</h2><p>위 {dataset.regions.length}개 권역 카드에서 점수의 범위·가중치·기준일을 비교하고, 하나를 선택하면 세부 진행 단계와 시계열이 열립니다.</p></section> : <section className="panel load-score-empty"><Factory size={30} /><h2>{region}의 단계별 평균은 아직 산출할 수 없습니다</h2><p>요청 총량이나 계약 용량만으로 다섯 접속 요건의 진행 상태를 추정하지 않습니다. 확보한 단계별 분모가 있을 때 점수를 추가합니다.</p></section>}
     <details className="load-score-limitations"><summary>산정 범위와 자료의 한계</summary><ul>{dataset.limitations.map(note => <li key={note}>{note}</li>)}</ul><p>자료 생성 {time(dataset.generatedAt)} KST · 각 원자료의 기준일과 다릅니다.</p></details>
   </div>;
 }
