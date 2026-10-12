@@ -1,0 +1,1784 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12T06:17:17.583Z",
+  "items": [
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R003",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R004",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R005",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R006",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R007",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R008",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R009",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R010",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R011",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R012",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R013",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R015",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R016",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R017",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R018",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R019",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R020",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R021",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R022",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R023",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R024",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R025",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R026",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R028",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R029",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R030",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R031",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R032",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R033",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R034",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R035",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R036",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R037",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R038",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R039",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R040",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R041",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R042",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R043",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R044",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R045",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R046",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R047",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R048",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R049",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R050",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R051",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R052",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R053",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R054",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R055",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R056",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R057",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R058",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R059",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R060",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R061",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R062",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R063",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R064",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R065",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R066",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R067",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R068",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R069",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R070",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R071",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R072",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R073",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R074",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R075",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R076",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R077",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R078",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R079",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R080",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R083",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R084",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R085",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R086",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R087",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R088",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R090",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R092",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R093",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R094",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R096",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R097",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R098",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R100",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R101",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R102",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R103",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R107",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R108",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R109",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R111",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R112",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R114",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "ia_executed",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 전력 서비스 계약 체결를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R115",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R116",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R117",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R119",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": null,
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 서비스 요청를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:Georgia Power::GPC_2026Q2_MAIN_R120",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Georgia Power / Georgia Public Service Commission",
+      "docketId": "55378",
+      "stage": "impact_study",
+      "stageRationale": "공개 Q2 2026 Main 개별 행의 기술 검토를 근거로 분류했습니다. 모형 단계는 원문 5개 요건 각각의 완료 사실이 아닙니다.",
+      "limitations": [
+        "2026-06-30의 공개 단계이며 10월 현재 재고를 단정하지 않습니다. 과거 공급 목표일을 가진13개 계약 행은 이 권고에서 제외했습니다.",
+        "최종 장래 부하를 신규 미통전 접속 MW로 옮기지 않고 MW=null로 유지해야 합니다.",
+        "고객명·현장 가림 때문에 실명 캠퍼스와 중복 가능성이 남아 있습니다."
+      ]
+    },
+    {
+      "entityId": "request:pjm-m3-dom-2025-0080-r2150",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "PJM / Dominion Energy Virginia M-3 named load request",
+      "docketId": "DOM-2025-0080",
+      "stage": null,
+      "stageRationale": "2026-10-01 공식 원장에 실명 단일 공장의 12MW 공급 요청이 명시되고 고객의 실제 공장 착공이 확인됨. 공장 시공을 계통 보강 시공으로 전환하지 않으므로 단계 점수는 미확정.",
+      "limitations": [
+        "PJM M-3 Need ID는 고객의 ISO 큐 ID가 아니며, 고객명 비공개 요청의 물리적 사이트 동일성은 미확정이다.",
+        "신청 사실은 원문으로 확인하되 송전계획 회의·보강안 게시·목표일을 고객의 심사 통과·공사 완료·통전일로 변환하지 않는다.",
+        "용량 사실은 원문 문맥별 값이며 초기·최종·증분·기존 부하 및 MW/MVA를 서로 합산하지 않는다.",
+        "고객 접속요청의 존재와 현재 활성·시공·통전 상태는 별도다. 현재 단계 미확인을 100점으로 바꾸지 않는다.",
+        "2026-10-01 M-3의 building/requests 문구와 고객의 2025-04-29 실제 착공 발표를 연결했다. 전력 공사의 진척률은 미확인이다."
+      ]
+    },
+    {
+      "entityId": "site:avaio-leo-little-rock",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Entergy Arkansas / AVAIO Digital",
+      "docketId": null,
+      "stage": "ia_executed",
+      "stageRationale": "공식 공급자 또는 고객 원문이 특정 부지의 체결된 전력공급계약을 확인합니다. 공통 계약 체결 모형(50점)을 적용하되 고객 건물 공사를 계통 공사나 통전으로 간주하지 않습니다.",
+      "limitations": [
+        "각 요건의 직접 관측 완료율이 아닌 공통 단계 모형입니다. 미공개 진행률은 100점으로 대체하지 않습니다."
+      ]
+    },
+    {
+      "entityId": "site:avaio-taurus-brandon",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Entergy Mississippi / AVAIO Digital",
+      "docketId": null,
+      "stage": "ia_executed",
+      "stageRationale": "공식 공급자 또는 고객 원문이 특정 부지의 체결된 전력공급계약을 확인합니다. 공통 계약 체결 모형(50점)을 적용하되 고객 건물 공사를 계통 공사나 통전으로 간주하지 않습니다.",
+      "limitations": [
+        "각 요건의 직접 관측 완료율이 아닌 공통 단계 모형입니다. 미공개 진행률은 100점으로 대체하지 않습니다."
+      ]
+    },
+    {
+      "entityId": "site:centerpoint-baytown-hydrogen",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "CenterPoint 고객 요청 문서 / ERCOT 독립검토·TAC",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "고객 요청과 연결된 송전 보강의 ERCOT 독립검토·TAC endorsement가 확인됨. 개별 고객 impact approval 또는 최종 접속 허가와 동일하지 않아 단계 점수는 null. 2025-09-15 문서의 Board recommendation을 실제 Board 최종 승인으로 바꾸지 않음.",
+      "limitations": [
+        "최근 개별 고객 갱신 원장은 미공개. 2025-09-15 기준 활성 연구 기록으로 표시.",
+        "고객 회사명은 공개되지 않아 특정 수소기업으로 추정하지 않음."
+      ]
+    },
+    {
+      "entityId": "site:cipher-apollo",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Cipher 2026-08-04 공식 business update",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "The site has been submitted as a studied load in Batch Zero through ERCOT updated process를 명시.",
+      "limitations": [
+        "288-acre 부지 옵션 확보. Batch Zero studied load 제출 확인이나 최종 승인은 미확인."
+      ]
+    },
+    {
+      "entityId": "site:cipher-colchis",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Cipher 공식 2026-02-24 투자자 자료 + 현행 pipeline",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "ERCOT study submission and approval process ongoing. 세부 통과단계는 미공개.",
+      "limitations": [
+        "Gross capacity/target dates for batch-study sites remain conditional on ERCOT batch process.",
+        "고객사 공식 공개문 기반. 접속번호·유틸리티 계약서는 미공개."
+      ]
+    },
+    {
+      "entityId": "site:cipher-mclennan",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Cipher 공식 2026-02-24 투자자 자료 + 현행 pipeline",
+      "docketId": null,
+      "stage": "impact_approved",
+      "stageRationale": "필요 ERCOT studies approved, 향후 batch firm load는 아직 예상.",
+      "limitations": [
+        "Gross capacity/target dates for batch-study sites remain conditional on ERCOT batch process.",
+        "고객사 공식 공개문 기반. 접속번호·유틸리티 계약서는 미공개."
+      ]
+    },
+    {
+      "entityId": "site:cipher-mikeska",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Cipher 공식 2026-02-24 투자자 자료 + 현행 pipeline",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "ERCOT study submission and approval process ongoing. 세부 통과단계는 미공개.",
+      "limitations": [
+        "Gross capacity/target dates for batch-study sites remain conditional on ERCOT batch process.",
+        "고객사 공식 공개문 기반. 접속번호·유틸리티 계약서는 미공개."
+      ]
+    },
+    {
+      "entityId": "site:cipher-reveille",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Cipher 공식 2026-02-24 투자자 자료 + 현행 pipeline",
+      "docketId": null,
+      "stage": "impact_approved",
+      "stageRationale": "ERCOT interconnection approved, substation development initiated. development만으로 실제 공사를 확정하지 않음.",
+      "limitations": [
+        "Gross capacity/target dates for batch-study sites remain conditional on ERCOT batch process.",
+        "고객사 공식 공개문 기반. 접속번호·유틸리티 계약서는 미공개."
+      ]
+    },
+    {
+      "entityId": "site:cipher-stingray",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Cipher 공식 2026-02-24 투자자 자료 + 현행 pipeline",
+      "docketId": null,
+      "stage": "construction",
+      "stageRationale": "ERCOT interconnection approved; 2026-08-04 earthwork, grading, pad preparation and underground electrical work underway 확인.",
+      "limitations": [
+        "Gross capacity/target dates for batch-study sites remain conditional on ERCOT batch process.",
+        "고객사 공식 공개문 기반. 접속번호·유틸리티 계약서는 미공개."
+      ]
+    },
+    {
+      "entityId": "site:google-muskogee-council-hill",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Oklahoma Gas & Electric / Oklahoma Corporation Commission",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "OG&E의 공식 ESA 발표와 위치별 캠퍼스 발표를 교차 확인했습니다. OCC 승인 조건이 남아 있으며 공통 5단계의 계약·비용보증 완료 위치를 별도로 확정하지 않아 단계 점수는 보류합니다.",
+      "limitations": [
+        "3개 부지를 구분하지만 각 계약 접속 MW는 미공개입니다.",
+        "2026-04-30 공식 발표 이후 OCC 최종 결정·공사·통전 변화는 추가 수집 대상입니다."
+      ]
+    },
+    {
+      "entityId": "site:google-muskogee-summit",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Oklahoma Gas & Electric / Oklahoma Corporation Commission",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "OG&E의 공식 ESA 발표와 위치별 캠퍼스 발표를 교차 확인했습니다. OCC 승인 조건이 남아 있으며 공통 5단계의 계약·비용보증 완료 위치를 별도로 확정하지 않아 단계 점수는 보류합니다.",
+      "limitations": [
+        "3개 부지를 구분하지만 각 계약 접속 MW는 미공개입니다.",
+        "2026-04-30 공식 발표 이후 OCC 최종 결정·공사·통전 변화는 추가 수집 대상입니다."
+      ]
+    },
+    {
+      "entityId": "site:google-stillwater",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Oklahoma Gas & Electric / Oklahoma Corporation Commission",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "OG&E의 공식 ESA 발표와 위치별 캠퍼스 발표를 교차 확인했습니다. OCC 승인 조건이 남아 있으며 공통 5단계의 계약·비용보증 완료 위치를 별도로 확정하지 않아 단계 점수는 보류합니다.",
+      "limitations": [
+        "3개 부지를 구분하지만 각 계약 접속 MW는 미공개입니다.",
+        "2026-04-30 공식 발표 이후 OCC 최종 결정·공사·통전 변화는 추가 수집 대상입니다."
+      ]
+    },
+    {
+      "entityId": "site:google-west-memphis",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Entergy Arkansas",
+      "docketId": null,
+      "stage": "ia_executed",
+      "stageRationale": "공식 공급자 또는 고객 원문이 특정 부지의 체결된 전력공급계약을 확인합니다. 공통 계약 체결 모형(50점)을 적용하되 고객 건물 공사를 계통 공사나 통전으로 간주하지 않습니다.",
+      "limitations": [
+        "각 요건의 직접 관측 완료율이 아닌 공통 단계 모형입니다. 미공개 진행률은 100점으로 대체하지 않습니다."
+      ]
+    },
+    {
+      "entityId": "site:hut8-beacon-point",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Hut 8 공식 Beacon Point 현장 공개문",
+      "docketId": null,
+      "stage": "impact_approved",
+      "stageRationale": "Key interconnection and site approvals secured for 1,000 MW; infrastructure costs pre-funded. 계약/통전은 추가 추정하지 않음.",
+      "limitations": [
+        "AI 테넌트 352 MW IT lease 두 건은 1,000 MW utility capacity 안의 단계. 별도 전력접속 계약으로 세지 않음.",
+        "회사 공시상 key interconnection/site approvals 및 infrastructure pre-funded. 실제 착공/최종 통전일은 미공개."
+      ]
+    },
+    {
+      "entityId": "site:hut8-river-bend",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Entergy Louisiana",
+      "docketId": null,
+      "stage": "ia_executed",
+      "stageRationale": "공식 공급자 또는 고객 원문이 특정 부지의 체결된 전력공급계약을 확인합니다. 공통 계약 체결 모형(50점)을 적용하되 고객 건물 공사를 계통 공사나 통전으로 간주하지 않습니다.",
+      "limitations": [
+        "각 요건의 직접 관측 완료율이 아닌 공통 단계 모형입니다. 미공개 진행률은 100점으로 대체하지 않습니다."
+      ]
+    },
+    {
+      "entityId": "site:iren-sweetwater-1",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "IREN 공식 Sweetwater 현장 공개문",
+      "docketId": null,
+      "stage": "construction",
+      "stageRationale": "각 현장을 UNDER CONSTRUCTION으로 구분. Sweetwater 1은 1,400 MW bulk/primary substations의 procurement/site works underway까지 명시. Sweetwater 2는 site 건설 공시만 있으므로 전력설비 공사 단계 점수는 null.",
+      "limitations": [
+        "공식 두 별도 현장. 2 GW 통합 허브 합계를 추가 현장으로 세지 않음.",
+        "고객사 direct ERCOT connection/under construction 공시이며 원본 유틸리티 agreement/접속번호는 미공개.",
+        "2026/2027 substation energization은 목표연도이며 통전 완료로 보지 않음."
+      ]
+    },
+    {
+      "entityId": "site:iren-sweetwater-2",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "IREN 공식 Sweetwater 현장 공개문",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "각 현장을 UNDER CONSTRUCTION으로 구분. Sweetwater 1은 1,400 MW bulk/primary substations의 procurement/site works underway까지 명시. Sweetwater 2는 site 건설 공시만 있으므로 전력설비 공사 단계 점수는 null.",
+      "limitations": [
+        "공식 두 별도 현장. 2 GW 통합 허브 합계를 추가 현장으로 세지 않음.",
+        "고객사 direct ERCOT connection/under construction 공시이며 원본 유틸리티 agreement/접속번호는 미공개.",
+        "2026/2027 substation energization은 목표연도이며 통전 완료로 보지 않음."
+      ]
+    },
+    {
+      "entityId": "site:lancium-crusoe-childress",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Lancium 공식 캠퍼스 공개문",
+      "docketId": null,
+      "stage": "impact_approved",
+      "stageRationale": "1 GW interconnect fully approved by ERCOT 및 transmission service providers 정식 검토를 명시. 2026-07-15 공사 예정은 착공 완료로 간주하지 않음.",
+      "limitations": [
+        "ERCOT 신청번호·접속계약 원본 미공개. 개발사 공식 공시 기반."
+      ]
+    },
+    {
+      "entityId": "site:mara-matagorda-mat1177",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "MARA SEC Form 10-Q 2026-06-30 후속사건 공시",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "2,000 MW provision에 관한 전력회사 letter agreement 권리를 특정 단일 Matagorda 현장과 연결. 조건부 계약이므로 ia_executed로 승격하지 않음.",
+      "limitations": [
+        "공개 고객별 ERCOT 큐 번호와 유틸리티 접속신청 원본의 대응은 미확보.",
+        "조건부 utility letter agreement이며 실행된 최종 접속계약/통전승인으로 보지 않음.",
+        "계약 유틸리티 이름 비공개. AEP Blessing–Zoisite 송전사업과 동일 현장이라는 근거 없음."
+      ]
+    },
+    {
+      "entityId": "site:pjm-cipher-ulysses",
+      "eligible": true,
+      "identityBasis": "official_service_request",
+      "authority": "Cipher Digital official investor presentation: PJM approved interconnection",
+      "docketId": null,
+      "stage": null,
+      "stageRationale": "단일 Ohio Ulysses 사이트가 2026-02-24 공식 공시에서 200 gross MW PJM 접속 승인과 2027Q4 통전 목표로 식별됨. 승인 세부 게이트가 미공개여서 단계 점수는 미확정.",
+      "limitations": [
+        "공식 IR 자료에 PJM 접속 승인 200 gross MW가 공개된다. 운영 중이 아닌 2027년 4분기 통전 목표이다.",
+        "세부 접속 승인 유형과 계약 체결 여부가 미공개여서 임의 단계 점수를 확정하지 않는다."
+      ]
+    },
+    {
+      "entityId": "site:pjm-terawulf-muskie",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Kentucky Power / TeraWulf official electric service agreement announcement",
+      "docketId": null,
+      "stage": "ia_executed",
+      "stageRationale": "단일 Muskie 캠퍼스 전력 서비스 계약이 2026-10-05 1GW로 개정 체결됨. 계약 단계의 대리근거이며 PSC 승인·계통 공사·통전은 완료로 취급하지 않는다.",
+      "limitations": [
+        "1GW 개정 전력 서비스 계약은 Kentucky PSC 승인과 유틸리티 공사 일정에 조건부다. 2028/2029 공급 일정은 전망이며 현재 통전 용량이 아니다.",
+        "최대 2GW 장래 확장 가능성은 현재 계약에 포함하지 않는다. MISO Justified 사업과 다른 부지이다."
+      ]
+    },
+    {
+      "entityId": "site:terawulf-justified-hawesville",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Kentucky Public Service Commission, as quoted by TeraWulf",
+      "docketId": null,
+      "stage": "ia_executed",
+      "stageRationale": "공식 공급자 또는 고객 원문이 특정 부지의 체결된 전력공급계약을 확인합니다. 공통 계약 체결 모형(50점)을 적용하되 고객 건물 공사를 계통 공사나 통전으로 간주하지 않습니다.",
+      "limitations": [
+        "각 요건의 직접 관측 완료율이 아닌 공통 단계 모형입니다. 미공개 진행률은 100점으로 대체하지 않습니다."
+      ]
+    },
+    {
+      "entityId": "site:xcel-google-pine-island",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Xcel Energy / Minnesota Public Utilities Commission",
+      "docketId": null,
+      "stage": "ia_executed",
+      "stageRationale": "공식 공급자 또는 고객 원문이 특정 부지의 체결된 전력공급계약을 확인합니다. 공통 계약 체결 모형(50점)을 적용하되 고객 건물 공사를 계통 공사나 통전으로 간주하지 않습니다.",
+      "limitations": [
+        "각 요건의 직접 관측 완료율이 아닌 공통 단계 모형입니다. 미공개 진행률은 100점으로 대체하지 않습니다."
+      ]
+    },
+    {
+      "entityId": "site:xcel-meta-rosemount",
+      "eligible": true,
+      "identityBasis": "official_single_site_contract",
+      "authority": "Xcel Energy / Minnesota Public Utilities Commission",
+      "docketId": null,
+      "stage": "ia_executed",
+      "stageRationale": "공식 공급자 또는 고객 원문이 특정 부지의 체결된 전력공급계약을 확인합니다. 공통 계약 체결 모형(50점)을 적용하되 고객 건물 공사를 계통 공사나 통전으로 간주하지 않습니다.",
+      "limitations": [
+        "각 요건의 직접 관측 완료율이 아닌 공통 단계 모형입니다. 미공개 진행률은 100점으로 대체하지 않습니다."
+      ]
+    }
+  ]
+}

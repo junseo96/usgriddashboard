@@ -13,6 +13,7 @@ import BottleneckWorkspace, { type ScoreTab } from './BottleneckWorkspace';
 import { LOAD_REGIONS } from '../shared/load-bottleneck';
 import TimelineWorkspace from './TimelineWorkspace';
 import { ReviewedLoadEvidence, ReviewedLoadScope } from './ReviewedLoadEvidence';
+import LoadProjectCensus, { CensusOverviewLink } from './LoadProjectCensus';
 import './styles.css';
 import './workspace.css';
 
@@ -89,6 +90,7 @@ export default function App() {
   const [scoreTab, setScoreTab] = useState<ScoreTab>(() => readRoute().scoreTab);
   const [type, setType] = useState<TypeFilter>(() => readRoute().scoreType);
   const [region, setRegion] = useState(() => readRoute().scoreRegion);
+  const [loadRegisterMode, setLoadRegisterMode] = useState<'census' | 'scoring'>('census');
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState(() => readRoute().view === 'scores' ? 'scored' : readRoute().scoreType === 'load' ? 'eligible' : 'all');
@@ -109,6 +111,7 @@ export default function App() {
   const [capturing, setCapturing] = useState(false);
   const [notice, setNotice] = useState('');
   const scoped = (view === 'scores' && scoreTab === 'projects') || (view === 'projects' && projectMode === 'register');
+  const censusActive = view === 'projects' && projectMode === 'register' && type === 'load' && loadRegisterMode === 'census';
   const regionalScores = view === 'scores' && scoreTab === 'regional';
   useEffect(() => { const timer = setTimeout(() => { setQuery(search); setPage(1); }, 280); return () => clearTimeout(timer); }, [search]);
   useEffect(() => { setPage(1); }, [type, region, status, asOf, knownAt]);
@@ -196,20 +199,22 @@ export default function App() {
         <section className="page-heading"><div><div className="eyebrow"><span /> U.S. GRID ATLAS <i>/</i> {String(NAV.findIndex(item => item.id === view) + 1).padStart(2, '0')}</div><h1>{currentNav.label}<span className="heading-period">.</span></h1><p>{VIEW_DESCRIPTION[view]}</p></div>{view === 'overview' && <div className="heading-date"><span>원장 최근 관측</span><strong>{date(readyData?.snapshot?.capturedAt)}</strong><small>부하 시각·원자료 기준일은 별도</small></div>}</section>
         {view === 'projects' && <div className="workspace-tabs" role="group" aria-label="권역별 상세 자료">{PROJECT_MODES.map(item => <button key={item.id} className={projectMode === item.id ? 'selected' : ''} aria-pressed={projectMode === item.id} onClick={() => navigate('projects', item.id)}><item.icon size={16} />{item.label}</button>)}</div>}
         {(scoped || regionalScores) && <section className="workspace-filter-panel" aria-label={regionalScores ? '수용가 평가 조회 조건' : '원장 조회 조건'}>
-          <div className="scope-toolbar"><div className="type-tabs" role="group" aria-label="프로젝트 유형">{TYPES.map(item => <button key={item.id} className={type === item.id ? 'selected' : ''} aria-pressed={type === item.id} onClick={() => selectType(item.id)}><item.icon size={16} /><span>{item.label}</span></button>)}</div>{scoped && <button className={`button compact ${asOf || knownAt ? 'active-filter' : ''}`} aria-expanded={timeOpen} onClick={() => setTimeOpen(v => !v)}><CalendarDays size={15} />{asOf ? date(asOf) : '관측 시점'}<ChevronDown size={13} /></button>}</div>
+          <div className="scope-toolbar"><div className="type-tabs" role="group" aria-label="프로젝트 유형">{TYPES.map(item => <button key={item.id} className={type === item.id ? 'selected' : ''} aria-pressed={type === item.id} onClick={() => selectType(item.id)}><item.icon size={16} /><span>{item.label}</span></button>)}</div>{scoped && !censusActive && <button className={`button compact ${asOf || knownAt ? 'active-filter' : ''}`} aria-expanded={timeOpen} onClick={() => setTimeOpen(v => !v)}><CalendarDays size={15} />{asOf ? date(asOf) : '관측 시점'}<ChevronDown size={13} /></button>}</div>
           <div className="workspace-region-pills" role="group" aria-label="프로젝트 권역 선택"><button className={!region ? 'selected' : ''} aria-pressed={!region} onClick={() => selectRegion('')}>{regionalScores ? '전체 권역 자료' : type === 'load' ? '확보한 수용가 전체' : '확보한 공개 원장 전체'}</button>{(regionalScores ? LOAD_REGIONS : data?.regions ?? LOAD_REGIONS).map(r => <button key={r} className={region === r ? 'selected' : ''} aria-pressed={region === r} onClick={() => selectRegion(r)}>{r}</button>)}</div>
-          {scoped && timeOpen && <div className="temporal-panel"><div><strong>저장된 앱 관측의 조회 시점</strong><p>더 오래된 공식 원장과 점수는 통합 시계열에서 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
+          {scoped && !censusActive && timeOpen && <div className="temporal-panel"><div><strong>저장된 앱 관측의 조회 시점</strong><p>더 오래된 공식 원장과 점수는 통합 시계열에서 조회합니다.</p></div><label>평가 기준일<input type="date" max={today()} value={asOf} onChange={e => setAsOf(e.target.value)} /></label><label>근거가 알려진 시각 (KST)<input type="datetime-local" max={currentKstMinute()} value={knownAt} onChange={e => setKnownAt(e.target.value)} /></label><button className="button compact" onClick={() => { setAsOf(''); setKnownAt(''); }}>현재로 돌아가기</button></div>}
         </section>}
-        {error && (view !== 'scores' || scoped) && <div className="error-banner" role="alert"><CircleHelp size={18} /><span>프로젝트 원장 조회 실패: {error}</span><button className="text-button" onClick={() => setRevision(v => v + 1)}>다시 읽기</button></div>}
+        {view === 'projects' && projectMode === 'register' && type === 'load' && <div className="workspace-tabs" role="group" aria-label="수용가 원장 범위"><button className={loadRegisterMode === 'census' ? 'selected' : ''} aria-pressed={loadRegisterMode === 'census'} onClick={() => setLoadRegisterMode('census')}>통합 조사 원장 · 전체 진행상태</button><button className={loadRegisterMode === 'scoring' ? 'selected' : ''} aria-pressed={loadRegisterMode === 'scoring'} onClick={() => setLoadRegisterMode('scoring')}>개별 평가 원장</button></div>}
+        {error && !censusActive && (view !== 'scores' || scoped) && <div className="error-banner" role="alert"><CircleHelp size={18} /><span>프로젝트 원장 조회 실패: {error}</span><button className="text-button" onClick={() => setRevision(v => v + 1)}>다시 읽기</button></div>}
         {view === 'history' ? <TimelineWorkspace revision={revision} observationContent={readyData?.available ? <><p className="workspace-caption">전국 공개 원장 · 모든 유형 · 실제 저장한 관측 범위</p><HistoryView data={readyData} capturing={capturing} canWrite={canWrite} onCapture={capture} /></> : <p className="workspace-caption">{error || '저장된 앱 관측 기록을 불러오는 중입니다.'}</p>} />
+          : censusActive ? <LoadProjectCensus region={region} onRegion={selectRegion} onScore={id => { setAsOf(''); setKnownAt(''); setSelected(id); }} />
           : view === 'projects' && projectMode === 'pipeline' ? <LoadPipelinePanel revision={revision} initialRegion={region} onRegister={() => showProjects(region, 'load')} />
           : view === 'projects' && projectMode === 'market' ? <MarketPanel revision={revision} initialRegion={selectedMarket} />
-          : view === 'projects' && projectMode === 'coverage' ? <LoadCoveragePanel revision={revision} onScores={showScores} />
+          : view === 'projects' && projectMode === 'coverage' ? <><CensusOverviewLink onOpen={() => { setLoadRegisterMode('census'); showProjects('', 'load'); }} /><p className="workspace-caption">새 교차 조사의 사업자별 실제 조회 기록은 통합 조사 원장의 ‘조사 현황’에서 확인할 수 있습니다. 아래는 기존 기관·집계 출처의 범위입니다.</p><LoadCoveragePanel revision={revision} onScores={showScores} /></>
           : view === 'scores' ? <BottleneckWorkspace data={readyData} revision={revision} tab={scoreTab} onTabChange={next => selectScoreTab(next)} selectedType={type} selectedRegion={region} onRegionChange={selectRegion} onOpenRegional={next => selectScoreTab('regional', next)} projectFallback={readyData ? unavailable : error ? <p className="workspace-caption">원장 조회를 다시 시도하거나 수용가 권역별 평가를 선택해 주세요.</p> : <LoadingSkeleton />} onProject={setSelected} projectTable={register} projectControls={projectControls} methodology={<Methodology />} onCoverage={() => navigate('projects', 'coverage')} />
           : !readyData ? !error && <LoadingSkeleton />
           : view === 'projects' && projectMode === 'sources' ? <SourcesView sources={readyData.sources} type="all" health={health} revision={revision} />
           : !readyData.available ? unavailable
-          : view === 'overview' ? <NationalOverview data={readyData} revision={revision} onProjects={showProjects} onScores={showScores} onTimeline={() => navigate('history')} />
+          : view === 'overview' ? <><CensusOverviewLink onOpen={() => { setLoadRegisterMode('census'); showProjects('', 'load'); }} /><NationalOverview data={readyData} revision={revision} onProjects={showProjects} onScores={showScores} onTimeline={() => navigate('history')} /></>
           : <><ProjectSummary data={readyData} region={region} type={type} onPipeline={() => navigate('projects', 'pipeline')} />{register}{(type === 'load' || type === 'all') && <ReviewedLoadScope region={region} onProject={setSelected} />}<div className="workspace-bottom-link"><span>개별 신청 외에 전력회사 집계·계약·발표 자료도 확인할 수 있습니다.</span><button className="text-button" onClick={() => navigate('projects', 'pipeline')}>수용가 파이프라인 <ArrowRight size={15} /></button></div></>}
         <footer className="page-footer"><span><Network size={14} /> GRID ATLAS <i /> 공개 근거 기반 계통접속 관측</span><button className="text-button" onClick={() => navigate('projects', 'sources')}>출처·갱신 상태 <ArrowUpRight size={12} /></button></footer>
       </main>

@@ -1,0 +1,100 @@
+name: Grid Atlas census source monitoring
+
+on:
+  schedule:
+    # Monday 09:35 Korea Standard Time; weekly is the default cadence.
+    - cron: '35 0 * * 1'
+    # First day of each month 09:35 KST, when monthly cadence is selected.
+    - cron: '35 0 1 * *'
+  workflow_dispatch:
+    inputs:
+      max_sources:
+        description: 'Maximum unique source URLs to check (1–2000; use 12 for a short smoke run)'
+        type: string
+        required: false
+        default: '1000'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: grid-atlas-census-source-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    if: >-
+      github.ref_name == github.event.repository.default_branch &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event.schedule == '35 0 * * 1' && vars.GRID_ATLAS_CENSUS_CADENCE != 'monthly') ||
+       (github.event.schedule == '35 0 1 * *' && vars.GRID_ATLAS_CENSUS_CADENCE == 'monthly'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    defaults:
+      run:
+        working-directory: apps/grid-atlas
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore previous successful byte observations
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            apps/grid-atlas/.local/census-source-monitor/state.json
+            apps/grid-atlas/.local/census-source-monitor/latest-report.json
+          key: grid-atlas-census-monitor-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            grid-atlas-census-monitor-v1-
+      - name: Check the census evidence URLs without changing project data
+        env:
+          CENSUS_MAX_SOURCES: ${{ github.event_name == 'workflow_dispatch' && inputs.max_sources || '1000' }}
+        run: |
+          python3 - <<'PY'
+          import os, re, subprocess, sys
+          value = os.environ['CENSUS_MAX_SOURCES']
+          if not re.fullmatch(r'[0-9]{1,4}', value) or not 1 <= int(value) <= 2000:
+              raise SystemExit('max_sources must be an integer between 1 and 2000.')
+          result = subprocess.run([sys.executable, 'scripts/check-load-census-sources.py', '--max-sources', str(int(value))])
+          raise SystemExit(result.returncode)
+          PY
+      - name: Preserve the machine-readable monitoring report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grid-atlas-census-source-monitor-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            apps/grid-atlas/.local/census-source-monitor/runs/**/*.json
+            apps/grid-atlas/.local/census-source-monitor/state.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Cache observations and report for the next comparison
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            apps/grid-atlas/.local/census-source-monitor/state.json
+            apps/grid-atlas/.local/census-source-monitor/latest-report.json
+          key: grid-atlas-census-monitor-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Report coverage and the limits of byte comparisons
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          reports = sorted(Path('.local/census-source-monitor/runs').glob('*/report.json'))
+          lines = ['### 수용가 조사 출처 점검', '']
+          if reports:
+              report = json.loads(reports[-1].read_text())
+              lines += [f"실행 결과: **{report['status']}** · 대상 URL {report['uniqueUrls']}개", '', '| 결과 | URL 수 |', '| --- | ---: |']
+              lines += [f'| {key} | {value} |' for key, value in report['counts'].items()]
+          else:
+              lines += ['이번 실행의 보고서가 없습니다. 이전 캐시를 새 점검 결과로 표시하지 않습니다.']
+          lines += ['', '원문 바이트 변경 여부만 확인합니다. 최초 취득과 변경 문서는 검토 대기이며, 프로젝트 신청량·상태·점수·기준일을 자동 수정하지 않습니다.',
+                    '403 등 접근 실패는 우회하지 않습니다. 이전 정상 취득 시각과 해시는 보존됩니다.',
+                    '이 조사는 원장에 연결된 URL의 점검이며 전체 사업자 웹사이트 전수 수집이 아닙니다. 실제 시각과 개별 결과는 artifact의 JSON을 확인하세요.']
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
+              output.write('\n'.join(lines) + '\n')
+          PY

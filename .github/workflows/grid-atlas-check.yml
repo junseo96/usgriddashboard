@@ -37,6 +37,9 @@ jobs:
           python-version: '3.12'
       - run: npm ci
       - run: npm run typecheck
+      - run: npm run data:census:check
+      - run: npm run data:census:promote:check
+      - run: npm run data:reviewed:check
       - run: npm test
       - run: npm run test:python
       - run: npm run build

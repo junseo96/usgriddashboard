@@ -1456,5 +1456,77 @@
       "문서별 진행 기준일을 보존하며 취득일을 신규 사업 상태로 전환하지 않는다."
     ],
     "adapter": null
+  },
+  {
+    "id": "census-official-load-pjm",
+    "name": "PJM 공식 공급 신청·계약 교차 조사",
+    "region": "PJM",
+    "types": [
+      "load"
+    ],
+    "url": "https://www.pjm.com/-/media/DotCom/committees-groups/committees/teac/2026/20261006/20261006-informational-only---m-3-process-needs-status.xlsx",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T06:17:17.583Z",
+    "refreshCadence": "monthly",
+    "recordCount": 3,
+    "gaps": [
+      "유틸리티·규제기관·송전계획·고객 공시에서 개별 확인한 범위. 전국·권역 전수가 아니며 현재 단계 미확인은 미산출."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "census-official-load-miso",
+    "name": "MISO 공식 공급 신청·계약 교차 조사",
+    "region": "MISO",
+    "types": [
+      "load"
+    ],
+    "url": "https://www.avaiodigital.com/developments/little-rock-arkansas",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T06:17:17.583Z",
+    "refreshCadence": "monthly",
+    "recordCount": 7,
+    "gaps": [
+      "유틸리티·규제기관·송전계획·고객 공시에서 개별 확인한 범위. 전국·권역 전수가 아니며 현재 단계 미확인은 미산출."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "census-official-load-ercot",
+    "name": "ERCOT 공식 공급 신청·계약 교차 조사",
+    "region": "ERCOT",
+    "types": [
+      "load"
+    ],
+    "url": "https://www.ercot.com/files/docs/2024/11/11/CNP_Baytown_Area_Load_Addition_project_20241112.pdf",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T06:17:17.583Z",
+    "refreshCadence": "monthly",
+    "recordCount": 12,
+    "gaps": [
+      "유틸리티·규제기관·송전계획·고객 공시에서 개별 확인한 범위. 전국·권역 전수가 아니며 현재 단계 미확인은 미산출."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "census-official-load-spp",
+    "name": "SPP 공식 공급 신청·계약 교차 조사",
+    "region": "SPP",
+    "types": [
+      "load"
+    ],
+    "url": "https://www.prnewswire.com/news-releases/oge-announces-landmark-contract-with-google-302758482.html",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T06:17:17.583Z",
+    "refreshCadence": "monthly",
+    "recordCount": 3,
+    "gaps": [
+      "유틸리티·규제기관·송전계획·고객 공시에서 개별 확인한 범위. 전국·권역 전수가 아니며 현재 단계 미확인은 미산출."
+    ],
+    "adapter": null
   }
 ]

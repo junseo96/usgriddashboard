@@ -90,3 +90,5 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - [오프라인 미리보기](docs/PREVIEW.md)
 
 GitHub 코드 저장과 Cloudflare 계정 권한은 별개다. 토큰은 GitHub Secrets 또는 Cloudflare 비밀값으로 설정하고 채팅·소스·브라우저 저장소에 넣지 않는다. 운영 게시 후 자료를 수정할 때는 전체 출처 범위 검증·읽기 대조·관측 저장을 함께 수행한다.
+
+수용가의 유틸리티·규제기관·송전계획·고객 공시 교차 조사와 중복 연결은 [LOAD_CENSUS.md](docs/LOAD_CENSUS.md)를 참고한다.
