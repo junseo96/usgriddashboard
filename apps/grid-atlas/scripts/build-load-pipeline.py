@@ -8,6 +8,7 @@ Neither rebuilding nor republishing changes checkedAt or bootstrap eligibility.
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
 from collections import Counter
 from datetime import datetime, timezone
 import json
@@ -286,7 +287,39 @@ def build(bootstrap: dict, generated_at: str, regional_coverage: list | None = N
     source_map = {s['id']: s for s in bootstrap['sources']}
     projects = [project_from_register(p, source_map[p['sourceId']]) for p in bootstrap['projects']
                 if 'load' in p['types'] and p['sourceId'] in REGISTER_SOURCES]
-    projects += REVIEWED_EVIDENCE['projects']
+    projects += deepcopy(REVIEWED_EVIDENCE['projects'])
+    # Explicit crosswalks join the same named campus to its reviewed service case.
+    # No fuzzy name matching and no extra physical project for a second docket.
+    crosswalk = {
+        'MPSC::U-22058': 'named:NAMED_GOOGLE_VAN_BUREN_CANNOLI',
+        'MPSC::U-21990': 'named:NAMED_ORACLE_SALINE_THE_BARN',
+        'WIPSC::LIRF-41052-2': 'named:NAMED_ORACLE_OPENAI_LIGHTHOUSE_WI',
+        'LPSC::U-37425::Meta-Hyperion': 'named:NAMED_META_HYPERION_LOUISIANA',
+        'CPUC::7785-E': 'named:NAMED_GOOGLE_DISK_DRIVE_CA',
+        'SANTEE::2025-10-06::Century-Mt-Holly': 'named:southeast-industrial-century-mt-holly',
+        'DOE::EA-2251::Rivian-Stanton-Springs-North': 'named:southeast-industrial-rivian-georgia',
+    }
+    reviewed = json.loads((APP / 'data/reviewed-load-projects.json').read_text())
+    checked = {p['id']: p for p in reviewed['projects']}
+    reviews = {r['projectId']: r for r in reviewed['reviews']}
+    for project in bootstrap['projects']:
+        if checked.get(project['id']) != project:
+            continue
+        review = reviews[project['id']]
+        row = next((p for p in projects if p['id'] == crosswalk.get(project['id']) or p['linkedProjectId'] == project['id']), None)
+        if row is None:
+            row = {'id': 'register:' + project['id'], 'sector': 'undisclosed'}
+            projects.append(row)
+        classification = 'utility_register' if project['sourceId'] == 'california-pge-industrial-register' else 'application' if review['identityBasis'] == 'official_service_request' else 'contract'
+        if review['identityBasis'] in {'official_permit_only', 'grouped_case', 'unresolved'}:
+            classification = 'announced'
+        row.update(name=project['name'], region=project['region'], state=project['state'],
+                   classification=classification, status=record_status(project, project['sourceId']),
+                   capacityMw=project['loadMw'], capacityBasis=review['capacityBasis'],
+                   sourceName=source_map[project['sourceId']]['name'], sourceUrl=project['sourceUrl'],
+                   sourceAsOf=project['sourceAsOf'], checkedAt=max(e['retrievedAt'] for e in review['sourceEvidence']),
+                   evidence=project['rawStatus'] + ' · ' + review['stageRationale'],
+                   caveats=[*review['limitations'], NON_ADDITIVE], linkedProjectId=project['id'])
     # Named cases first; this is a discovery index, not a queue-size leaderboard.
     projects.sort(key=lambda p: (p['linkedProjectId'] is not None, p['region'], p['name'], p['id']))
     result = {
@@ -295,14 +328,14 @@ def build(bootstrap: dict, generated_at: str, regional_coverage: list | None = N
         'aggregates': REVIEWED_EVIDENCE['aggregates'] + historical_register_aggregates(bootstrap) + [nyiso_active_register_summary(bootstrap)],
         'regionalCoverage': regional_coverage if regional_coverage is not None else json.loads((APP / 'data/regional-pipeline-coverage.json').read_text()),
         'limitations': [
-            '기존 53건은 NYISO 공개 원장에서 현재 활성으로 확인된 행 수이며 미국 전체 데이터센터·공장의 수가 아닙니다.',
+            '개별 활성 원장은 NYISO·공식 유틸리티 요청·검토된 주 규제기관 공급계약을 연결한 부분 수집입니다. 미국 전체 데이터센터·공장의 수가 아닙니다.',
             '이 목록은 신청·유틸리티 원장·계약·공시·송전 지원·이력을 분리한 탐색 자료입니다. 전체 행 수를 활성 접속 대기열 규모로 해석하지 않습니다.',
             '용량 미공개인 공장과 익명 고객도 보존합니다. 미공개 MW는 0으로 바꾸거나 투자액·생산량·MVA에서 추정하지 않습니다.',
             'IT 부하, 부지 총전력, 발전설비, 계약 수요, 접속 요청, 혼합 단계 집계는 서로 다른 분모입니다. 전국 총계나 실시간 부하 비율로 합산하지 않습니다.',
             '유틸리티별 집계에는 중복 문의·복수 부지·기존 운영 용량이 포함될 수 있고 명명 사례와도 겹칠 수 있습니다.',
             'checkedAt은 실제 근거 확인일을 보존합니다. generatedAt은 이 파일을 조립한 시각이며 최신 원문 확인일이나 현재 진행상태가 아닙니다.',
             '미국 본토의 비RTO 권역도 별도 West·Southeast로 표시합니다. 해당 사례를 인접 ISO의 수요에 임의 배정하지 않습니다.',
-            '이 목록의 사례·집계는 기존 병목 점수 분모·평가 이력을 변경하지 않습니다. 실제 개별 절차 근거 확인이 별도로 필요합니다.',
+            '검토된 단일 사업의 공식 공급 신청·계약만 개별 원장과 연결합니다. 집계·미확인 사례는 점수 분모에 넣지 않으며, 목록의 중복 표시는 신규 사업을 추가하지 않습니다.',
         ],
     }
     validate(result)

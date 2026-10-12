@@ -4,6 +4,7 @@
  * Source stages are not asserted to prove any individual gate's completion.
  */
 import type { Gate, Project } from './types.ts';
+import { matchingReviewedLoadProject } from './reviewed-load-projects.ts';
 
 export const STAGE_ESTIMATE_VERSION = 'stage-proxy-v1' as const;
 const GATE_ORDER: readonly Gate[] = ['technical', 'commercial', 'permitting', 'construction', 'energization'];
@@ -105,8 +106,9 @@ function verifiedSource(project: Project): Readonly<Record<string, string>> | nu
 export function estimateStage(project: Project): StageEstimate | null {
   if (!project.eligible || project.status !== 'active') return null;
   const mapping = verifiedSource(project);
-  if (!mapping || !Object.hasOwn(mapping, project.rawStatus)) return null;
-  const stage = BY_STAGE.get(mapping[project.rawStatus]);
+  const review = matchingReviewedLoadProject(project);
+  const stageId = mapping && Object.hasOwn(mapping, project.rawStatus) ? mapping[project.rawStatus] : review?.stage;
+  const stage = stageId ? BY_STAGE.get(stageId) : undefined;
   if (!stage) return null;
   return {
     modelVersion: STAGE_ESTIMATE_VERSION,
@@ -115,7 +117,7 @@ export function estimateStage(project: Project): StageEstimate | null {
       gate, progress: stage.progress[gate], points: 20 * (1 - stage.progress[gate]),
       rationale: `${stage.label} 단계에서 ${GATE_LABEL[gate]} 진행률 ${stage.progress[gate] * 100}%를 배정한 모형 가정, 해당 요건의 직접 확인 아님. ${stage.rationale}`,
     })),
-    rationale: `공식 원문 상태 “${project.rawStatus}”에 ${STAGE_ESTIMATE_VERSION}를 적용한 단계 기반 추정입니다. ${stage.rationale} 실제 다섯 요건의 근거 평가는 변경하지 않습니다.`,
+    rationale: `공식 원문 상태 “${project.rawStatus}”에 ${STAGE_ESTIMATE_VERSION}를 적용한 단계 기반 추정입니다. ${review ? review.stageRationale + ' ' : ''}${stage.rationale} 실제 다섯 요건의 근거 평가는 변경하지 않습니다.`,
     sourceUrl: project.sourceUrl, sourceAsOf: project.sourceAsOf,
   };
 }

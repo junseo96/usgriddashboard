@@ -485,7 +485,7 @@
     "url": "https://pucweb1.state.nv.us/puc2/DktInfo.aspx",
     "coverage": "case",
     "sourceAsOf": null,
-    "lastCheckedAt": "2026-10-03",
+    "lastCheckedAt": "2026-10-12T04:44:37.589Z",
     "refreshCadence": "monthly",
     "recordCount": 5,
     "gaps": [
@@ -504,8 +504,8 @@
     ],
     "url": "https://pscdocs.utah.gov/electric/26docs/2603505/3447332603505oasadmfatmdrao4-10-2026.pdf",
     "coverage": "case",
-    "sourceAsOf": "2026-04-10",
-    "lastCheckedAt": "2026-10-03",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:44:30.223Z",
     "refreshCadence": "monthly",
     "recordCount": 1,
     "gaps": [
@@ -526,7 +526,7 @@
     "url": "https://puc.idaho.gov/Case?closed=0&fc=2&fv=idaho+power&pn=1&ps=100&sc=1&sd=1&util=1",
     "coverage": "case",
     "sourceAsOf": null,
-    "lastCheckedAt": "2026-10-03",
+    "lastCheckedAt": "2026-10-12T04:48:48.518Z",
     "refreshCadence": "monthly",
     "recordCount": 3,
     "gaps": [
@@ -699,22 +699,21 @@
   },
   {
     "id": "california-pge-industrial-register",
-    "name": "공개 통전 요청 원장의 산업 분류",
+    "name": "PG&E · 산업용 확인군 후속 서비스 요청 원장",
     "region": "CAISO",
     "types": [
       "load"
     ],
-    "url": "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/energy-division/documents/infrastructure/energization/pge-september-2025-biannual-energization-data-report_20250930.xlsx",
+    "url": "https://pgera.azurewebsites.net/Regulation/ValidateDocAccess?docID=867810",
     "coverage": "filtered_register",
-    "sourceAsOf": "2025-06-30",
-    "lastCheckedAt": "2026-10-03",
+    "sourceAsOf": "2025-12-31",
+    "lastCheckedAt": "2026-10-12T04:57:09.199Z",
     "refreshCadence": "monthly",
     "recordCount": 196,
     "gaps": [
-      "196행을 10 MW 이상 고객 또는 현재 대기 고객 196개로 간주 불가.",
-      "고객명·도시·요청용량 미공개; 일반 상업 분류의 고부하 산업 선별 불가. 최신 workbook 취득 공백.",
-      "2025년 9월 공개 XLSX 55,284행: tariff 25,207·MPU 30,077. 명시 New Industrial 196행; 고용량 여부 미검증.",
-      "원장 기준일; 게시일 2025-09-30. 2026년 3월 서술보고서는 2025-12-31 기준이나 동반 최신 XLSX 미취득."
+      "PG&E는 2025년 6월 말 산업용으로 확인된 196개 ID를 2025년 12월 말 공개 원장에서 추적한 코호트입니다. 최신 원장의 산업용 분류가 없어 신규 산업용 전체를 선별하지 못했습니다.",
+      "195개 ID 일치, 1개 후속 원장 미등장. 고객명·요청 MW·부지 미공개. 2026년 10월 현재 상태를 재확인한 원장이 아닙니다.",
+      "2025년 6월 통전에서 12월 진행 중으로 재분류된 2건은 원문 분류 변경으로 보존하며 실제 공정 후퇴로 단정하지 않습니다."
     ],
     "adapter": null
   },
@@ -1281,5 +1280,181 @@
     "gaps": [
       "Wyoming 개별 공개 발표. South Dakota EL26-008 계약 사건과 별도. 현재 전체 접속 신청 원장 미확보."
     ]
+  },
+  {
+    "id": "california-cpuc-load-cases",
+    "name": "CPUC · 검토된 개별 공급계약 사건",
+    "region": "CAISO",
+    "types": [
+      "load"
+    ],
+    "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M607/K718/607718746.PDF",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:50:15.269Z",
+    "refreshCadence": "monthly",
+    "recordCount": 1,
+    "gaps": [
+      "검토된 개별 공식 사건만 연결한 부분 수집입니다. 해당 관할의 전수 원장이 아닙니다."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "michigan-mpsc-load-cases",
+    "name": "Michigan MPSC · DTE 개별 특별 공급계약 사건",
+    "region": "MISO",
+    "types": [
+      "load"
+    ],
+    "url": "https://www.michigan.gov/mpsc",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:46:25.894Z",
+    "refreshCadence": "monthly",
+    "recordCount": 2,
+    "gaps": [
+      "공식 원문으로 식별한 선별 사건이며 주 전체·유틸리티 전체·MISO 전체의 수용가 신청 전수가 아닙니다.",
+      "사건마다 다른 기준일과 공시 범위를 가지며 신규 취득일을 진행 사건 날짜로 바꾸지 않습니다.",
+      "월간은 재검토 목표 주기이며 자동 수집 어댑터는 아직 없습니다."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "wisconsin-psc-load-cases",
+    "name": "Wisconsin PSC · 개별 부하 요청·공급계약 사건",
+    "region": "MISO",
+    "types": [
+      "load"
+    ],
+    "url": "https://psc.wi.gov/Pages/CommissionActions/HighlightedCases.aspx",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:49:22.131Z",
+    "refreshCadence": "monthly",
+    "recordCount": 2,
+    "gaps": [
+      "공식 원문으로 식별한 선별 사건이며 주 전체·유틸리티 전체·MISO 전체의 수용가 신청 전수가 아닙니다.",
+      "사건마다 다른 기준일과 공시 범위를 가지며 신규 취득일을 진행 사건 날짜로 바꾸지 않습니다.",
+      "월간은 재검토 목표 주기이며 자동 수집 어댑터는 아직 없습니다."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "indiana-iurc-load-cases",
+    "name": "Indiana IURC · NIPSCO–Amazon 묶음 계약 참고 사건",
+    "region": "MISO",
+    "types": [
+      "load"
+    ],
+    "url": "https://secure.in.gov/iurc/files/ord_46322_061726.pdf",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:47:04.515Z",
+    "refreshCadence": "monthly",
+    "recordCount": 1,
+    "gaps": [
+      "공식 원문으로 식별한 선별 사건이며 주 전체·유틸리티 전체·MISO 전체의 수용가 신청 전수가 아닙니다.",
+      "사건마다 다른 기준일과 공시 범위를 가지며 신규 취득일을 진행 사건 날짜로 바꾸지 않습니다.",
+      "월간은 재검토 목표 주기이며 자동 수집 어댑터는 아직 없습니다."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "louisiana-lpsc-load-cases",
+    "name": "Louisiana LPSC·Entergy 개별 대형 수용가 심의 사례",
+    "region": "MISO",
+    "types": [
+      "load"
+    ],
+    "url": "https://investors.entergy.com/investors/regulatory-and-other-information-1/regulatory-and-other-information/default.aspx",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:46:45.865Z",
+    "refreshCadence": "monthly",
+    "recordCount": 1,
+    "gaps": [
+      "공식 협약·심의자료로 확인한 개별 사례이며 Louisiana 또는 Entergy 전체 수용가 접속 원장이 아닙니다.",
+      "두 인프라 심의 사건을 하나의 Meta 캠퍼스로 통합했습니다. 고객 계약 MW는 미공개입니다.",
+      "발전소 투자 승인만으로 고객의 전력 서비스 계약 체결을 간주하지 않습니다."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "southeast-reviewed-service-cases",
+    "name": "남동부 공식 전력 서비스 계약·승인 검토 사례",
+    "region": "Southeast",
+    "types": [
+      "load"
+    ],
+    "url": "https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/about-tva/board-of-directors/november--7-2024/resolutions/reading-room-11072024g-grtr-100mw-ctc-xai-reso-memo.pdf?sfvrsn=55653613_1",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:53:01.063Z",
+    "refreshCadence": "monthly",
+    "recordCount": 5,
+    "gaps": [
+      "TN·SC·NC·GA·MS의 개별 검토 사례 5건이며 권역 전체 고객·사업자·접속신청을 포괄하지 않습니다.",
+      "과거 부분 가동·완료·현재 상태 미확인 계약 3건, 인허가 계획 1건, 복수 부지 묶음 1건을 별도로 보존합니다. 모두 현재 활성 접속신청 평균에서는 제외됩니다.",
+      "문서마다 기준일과 공개 단위가 달라 출처 전체의 공통 기준일은 두지 않았습니다.",
+      "이 출처는 MISO에 속한 Mississippi 사례도 포함합니다. 전력 권역은 각 프로젝트의 region을 따릅니다."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "westvirginia-psc-load-cases",
+    "name": "WV PSC 개별 수용가 전력계약 사례",
+    "region": "PJM",
+    "types": [
+      "load"
+    ],
+    "url": "https://www.psc.state.wv.us/Mgmt_Sum/MSR2024_Report.pdf",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T05:00:56.791Z",
+    "refreshCadence": "monthly",
+    "recordCount": 2,
+    "gaps": [
+      "선별 확인 사례이며 권역·유틸리티 전체 고객 원장이 아니다.",
+      "문서별 진행 기준일을 보존하며 취득일을 신규 사업 상태로 전환하지 않는다."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "pjm-federal-load-cases",
+    "name": "PJM 연방 규제기관 고객 계약 참고",
+    "region": "PJM",
+    "types": [
+      "load"
+    ],
+    "url": "https://www.ferc.gov/news-events/news/commissioner-changs-concurrence-transmission-security-agreement-between-peco",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:51:35.885Z",
+    "refreshCadence": "monthly",
+    "recordCount": 1,
+    "gaps": [
+      "선별 확인 사례이며 권역·유틸리티 전체 고객 원장이 아니다.",
+      "문서별 진행 기준일을 보존하며 취득일을 신규 사업 상태로 전환하지 않는다."
+    ],
+    "adapter": null
+  },
+  {
+    "id": "virginia-scc-load-cases",
+    "name": "Virginia SCC 개별 고객 증언 참고",
+    "region": "PJM",
+    "types": [
+      "load"
+    ],
+    "url": "https://www.scc.virginia.gov/docketsearch/DOCS/4h4f01!.PDF",
+    "coverage": "case",
+    "sourceAsOf": null,
+    "lastCheckedAt": "2026-10-12T04:47:29.900Z",
+    "refreshCadence": "monthly",
+    "recordCount": 1,
+    "gaps": [
+      "선별 확인 사례이며 권역·유틸리티 전체 고객 원장이 아니다.",
+      "문서별 진행 기준일을 보존하며 취득일을 신규 사업 상태로 전환하지 않는다."
+    ],
+    "adapter": null
   }
 ]

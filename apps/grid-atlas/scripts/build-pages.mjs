@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Build a public, read-only snapshot using only the checked-in bootstrap. */
+/** Build a public, read-only snapshot from the checked-in bootstrap and reviewed load records. */
 import { spawn } from 'node:child_process';
 import { mkdir, mkdtemp, rename, rm, stat, writeFile } from 'node:fs/promises';
 import { createServer } from 'node:net';
@@ -137,7 +137,7 @@ try {
   console.log(JSON.stringify({
     output: join(outputDirectory, 'index.html'),
     bytes: (await stat(join(outputDirectory, 'index.html'))).size,
-    input: 'checked-in data/bootstrap.json',
+    input: 'checked-in data/bootstrap.json + data/reviewed-load-projects.json',
     readOnly: true,
     collectionPerformed: false,
   }, null, 2));

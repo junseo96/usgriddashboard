@@ -97,6 +97,18 @@ test('unknown projects are distinct from no progress and search does not change 
     const detail=await(await call(env,'/api/projects/alpha?limit=1')).json();assert.equal(detail.score.point,90);assert.equal(detail.assessments.length,1);assert.equal(detail.totalAssessments,6);assert.equal(detail.assessmentsTruncated,true);
   }finally{db.close();}
 });
+test('eligible status includes scored and unscored active requests and excludes references without changing summary scope', async () => {
+  const {db,env}=await seeded();try{
+    for(const gate of GATES){const response=await call(env,'/api/assessments',evidence(gate));assert.equal(response.status,201,await response.text());}
+    const all=await(await call(env,'/api/dashboard?status=all')).json();assert.equal(all.total,3);
+    const eligible=await(await call(env,'/api/dashboard?status=eligible')).json();assert.equal(eligible.total,2);assert.deepEqual(eligible.projects.map((p:{project:Project})=>p.project.id).sort(),['alpha','hybrid']);assert.equal(eligible.summary.eligibleCount,2);assert.equal(eligible.summary.pointMean,100);
+    assert.equal((await(await call(env,'/api/dashboard?status=scored')).json()).total,1);
+    assert.equal((await(await call(env,'/api/dashboard?status=unknown')).json()).total,1);
+    const searched=await(await call(env,'/api/dashboard?status=eligible&q=hybrid')).json();assert.equal(searched.total,1);assert.equal(searched.summary.eligibleCount,2);
+    const csv=await(await call(env,'/api/export?status=eligible')).text();assert.ok(csv.includes('hybrid'));assert.ok(csv.includes('alpha'));assert.ok(!csv.includes('"reference"'));
+    assert.equal((await call(env,'/api/dashboard?status=unreviewed')).status,400);
+  }finally{db.close();}
+});
 test('assessment append is strict, content idempotent and immutable',async()=>{
   const {db,env}=await seeded();try{
     const input=evidence('technical');

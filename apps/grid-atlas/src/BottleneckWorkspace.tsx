@@ -96,13 +96,13 @@ export default function BottleneckWorkspace({ data, revision, onProject, project
   const observedAt = data?.snapshot ? new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(data.snapshot.capturedAt)) + ' KST' : '관측 자료 없음';
   return <div className="bottleneck-workspace">
     <nav className="bw-tabs" aria-label="병목점수 보기">{([
-      ['projects', selectedType === 'load' ? '개별 수용가 원장 · NYISO' : '개별 프로젝트 평가', <Layers3 size={16} />],
+      ['projects', selectedType === 'load' ? '개별 수용가 신청·계약' : '개별 프로젝트 평가', <Layers3 size={16} />],
       ['regional', '수용가 권역별 평가', <ChartNoAxesCombined size={16} />],
       ['methodology', '산정 기준', <CircleHelp size={16} />],
     ] as const).map(([key, label, icon]) => <button key={key} aria-pressed={tab === key} className={tab === key ? 'selected' : ''} onClick={() => selectTab(key)}>{icon}{label}</button>)}</nav>
     {tab === 'regional' ? <LoadBottleneckPanel revision={revision} onCoverage={onCoverage} selectedRegion={selectedRegion} onRegionChange={onRegionChange} /> : tab === 'methodology' ? methodology : <>
       {(selectedType === 'all' || selectedType === 'load') && <LoadBottleneckPanel revision={revision} onCoverage={onCoverage} selectedRegion={selectedRegion} onRegionChange={onOpenRegional} overviewOnly />}
-      {selectedType === 'load' && <div className="bw-scope-note bw-load-register-scope"><CircleHelp size={17} /><div><strong>아래 개별 수용가 원장은 NYISO 공개 신청 범위입니다.</strong><p>다른 권역의 수용가 자료는 위 권역별 카드에서 조회합니다. 개별 원장 행이 없다고 해당 권역의 수용가 요청이나 평가 자료가 없는 것은 아닙니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>선택 권역의 수용가 평가 보기<ArrowRight size={13} /></button></div></div>}
+      {selectedType === 'load' && <div className="bw-scope-note bw-load-register-scope"><CircleHelp size={17} /><div><strong>개별 전력공급 요청과 검토된 주 규제기관 계약 사건입니다.</strong><p>공식 요청번호 또는 단일 사업의 계약 사건을 연결합니다. 진행 단계가 부족하면 점수는 미산출이며, 회사별 MW 집계는 위 권역별 카드에서 별도로 조회합니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>선택 권역의 수용가 평가 보기<ArrowRight size={13} /></button></div></div>}
       {!data?.available || !s ? projectFallback : <>
       <section className="bw-summary" aria-label="선택 범위의 병목점수와 평가 분모">
         <article className="bw-mean"><span>{selectedType === 'load' ? '수용가 개별 원장 평균' : '선택 범위 평균 병목점수'}</span><strong>{pointLabel(s.ratingMean)}{s.ratingMean !== null && <small>/ 100</small>}</strong><p>낮을수록 잔여 절차가 적음 · 신청별 동일 가중</p></article>
@@ -112,7 +112,7 @@ export default function BottleneckWorkspace({ data, revision, onProject, project
       </section>
       <div className="bw-summary-caption"><p>상단 평균·유형·권역 요약은 선택한 유형·권역의 전체 적격 신청을 집계합니다. 원장 검색어·평가 상태·현재 페이지의 행 수와 분모가 다릅니다.</p><span>원장 관측 {observedAt}</span></div>
       <section className="bw-type-grid" aria-label="유형별 프로젝트 평균 병목점수">{TYPES.map(type => <article key={type} className={`bw-type-${type}`}><span>{type === 'load' ? '수용가 개별 원장 평균' : `${TYPE_LABEL[type]} 평균`}</span><strong>{pointLabel(s.ratingTypeMeans[type])}{s.ratingTypeMeans[type] !== null && <small>/ 100</small>}</strong><p>평균 분모 {number(s.ratingTypeCounts[type])}건 · 미산출 {number(s.typeCounts[type] - s.ratingTypeCounts[type])}건</p></article>)}</section>
-      <div className="bw-scope-note"><CircleHelp size={17} /><div><p>개별 수용가 원장 평균은 현재 NYISO 범위입니다. 다른 권역의 회사별 자료·MW 가중 지수와 합치지 않습니다. 발전·저장 복합 신청은 각 유형에 포함되며 전체 평균에서는 한 번 셉니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>다른 권역의 수용가 진행 근거 보기<ArrowRight size={13} /></button></div></div>
+      <div className="bw-scope-note"><CircleHelp size={17} /><div><p>개별 수용가 평균은 공개 신청·공급계약 중 단계 평가가 가능한 기록의 평균입니다. 다른 권역의 회사별 자료·MW 가중 지수와 합치지 않습니다. 발전·저장 복합 신청은 각 유형에 포함되며 전체 평균에서는 한 번 셉니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>다른 권역의 수용가 진행 근거 보기<ArrowRight size={13} /></button></div></div>
       <section className="bw-gate-guide" aria-label="다섯 요건의 동일 배점"><header><div><h2>5개 요건에 각 20점</h2><p>잔여점수 = 20 × (1 − 진행률). 확인된 미진행은 20점, 완전히 통과하면 0점입니다.</p></div><button onClick={() => selectTab('methodology')}>산정 기준<ArrowRight size={14} /></button></header><ol>{GATES.map((gate, index) => <li key={gate}><span>{String(index + 1).padStart(2, '0')}</span><strong>{GATE_LABEL[gate]}</strong><small>20 → 0점</small></li>)}</ol></section>
       {projectControls && <div className="bw-project-controls">{projectControls}</div>}
       <ProjectMatrix data={data} onProject={onProject} />

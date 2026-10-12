@@ -140,7 +140,7 @@ function installOffline(data, scoring, pagesMode) {
   const extraLimit = '프로젝트 원장은 내보낸 관측 1개를 포함합니다. 프로젝트 신규 수집·평가·저장은 별도 서버 연결이 필요합니다.';
   const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
   const scoped = filters => scores.filter(score => (filters.type === 'all' || score.project.types.includes(filters.type)) && (!filters.region || filters.region === 'all' || score.project.region === filters.region));
-  const visible = (items, filters) => items.filter(score => (!filters.q || [score.project.name, score.project.id, score.project.sourceRecordId, score.project.state ?? '', score.project.rawStatus, score.stageEstimate?.label ?? ''].some(value => value.toLocaleLowerCase().includes(filters.q.toLocaleLowerCase()))) && (filters.status !== 'scored' || (score.project.eligible && ratingPoint(score) !== null)) && (filters.status !== 'unknown' || (score.project.eligible && ratingPoint(score) === null)));
+  const visible = (items, filters) => items.filter(score => (!filters.q || [score.project.name, score.project.id, score.project.sourceRecordId, score.project.state ?? '', score.project.rawStatus, score.stageEstimate?.label ?? ''].some(value => value.toLocaleLowerCase().includes(filters.q.toLocaleLowerCase()))) && (filters.status !== 'eligible' || score.project.eligible) && (filters.status !== 'scored' || (score.project.eligible && ratingPoint(score) !== null)) && (filters.status !== 'unknown' || (score.project.eligible && ratingPoint(score) === null)));
   function numberParam(params, name, fallback, maximum) {
     if (!params.has(name)) return fallback;
     const value = params.get(name);
@@ -152,7 +152,7 @@ function installOffline(data, scoring, pagesMode) {
     const asOf = p.get('asOf') || calendarDayKst();
     const knownAt = p.get('knownAt') || new Date().toISOString();
     const type = p.get('type') || 'all', status = p.get('status') || 'all';
-    if (!isCalendarDay(asOf) || asOf > calendarDayKst() || !Number.isFinite(Date.parse(knownAt)) || Date.parse(knownAt) > Date.now() || !['all', 'generation', 'storage', 'load'].includes(type) || !['all', 'scored', 'unknown'].includes(status)) throw new Error('Invalid or future asOf / knownAt or filter');
+    if (!isCalendarDay(asOf) || asOf > calendarDayKst() || !Number.isFinite(Date.parse(knownAt)) || Date.parse(knownAt) > Date.now() || !['all', 'generation', 'storage', 'load'].includes(type) || !['all', 'eligible', 'scored', 'unknown'].includes(status)) throw new Error('Invalid or future asOf / knownAt or filter');
     return { type, status, region: p.get('region') || '', q: p.get('q') || '', asOf, knownAt: new Date(knownAt).toISOString(), page: numberParam(p, 'page', 1, 100000), pageSize: numberParam(p, 'pageSize', 30, 100) };
   }
   const available = filter => data.snapshot.capturedAt <= [endOfKstDay(filter.asOf), filter.knownAt].sort()[0];

@@ -8,6 +8,8 @@ import hashlib
 import datetime as dt
 import copy
 import json
+import subprocess
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -213,6 +215,16 @@ def refresh_from_report(bootstrap, report_path):
     return output
 
 
+def apply_reviewed_records(payload):
+    """Use the same validated exact-ID overlay as local/remote and Pages seeds."""
+    with tempfile.TemporaryDirectory(prefix='grid-reviewed-bootstrap-') as directory:
+        candidate = Path(directory) / 'bootstrap.json'
+        candidate.write_text(json.dumps(payload, ensure_ascii=False) + '\n')
+        subprocess.run(['node', str(ROOT / 'scripts' / 'apply-reviewed-load-projects.ts'),
+                        '--bootstrap', str(candidate)], check=True, stdout=subprocess.DEVNULL)
+        return json.loads(candidate.read_text())
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--reference-dir', type=Path, default=ROOT.parents[1] / 'data')
@@ -221,6 +233,7 @@ if __name__ == '__main__':
     payload = build(args.reference_dir)
     for report_path in args.refresh_report:
         payload = refresh_from_report(payload, report_path)
+    payload = apply_reviewed_records(payload)
     (ROOT / 'data').mkdir(exist_ok=True)
     (ROOT / 'data' / 'bootstrap.json').write_text(json.dumps(payload, ensure_ascii=False, separators=(',', ':')) + '\n')
     (ROOT / 'data' / 'source-registry.json').write_text(json.dumps(payload['sources'], ensure_ascii=False, indent=2) + '\n')

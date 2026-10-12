@@ -11,6 +11,8 @@
     "dev:api": "node server/local.ts",
     "seed:local": "node scripts/seed-local.ts",
     "seed:remote": "node scripts/seed-remote.mjs",
+    "data:reviewed": "node scripts/apply-reviewed-load-projects.ts",
+    "data:reviewed:check": "node scripts/apply-reviewed-load-projects.ts --check",
     "typecheck": "tsc --noEmit",
     "test": "node --test --test-isolation=none tests/*.test.ts",
     "test:python": "python3 -m unittest discover -s tests -p 'test_*.py'",

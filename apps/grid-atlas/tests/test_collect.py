@@ -225,8 +225,14 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(len(rows), len({p['id'] for p in rows}))
         self.assertEqual(len(rows), len({(p['sourceId'], p['sourceRecordId']) for p in rows}))
         self.assertTrue(all(p['sourceAsOf'] is None for p in rows if p['sourceId'] == c.NYISO))
-        self.assertEqual(sum(p['eligible'] for p in rows), 8513)
-        self.assertEqual(sum(p['eligible'] and 'load' in p['types'] for p in rows), 53)
+        reviewed = json.loads((ROOT / 'data/reviewed-load-projects.json').read_text())
+        reviewed_eligible = {p['id'] for p in reviewed['projects'] if p['eligible']}
+        active_load = {p['id'] for p in rows if p['eligible'] and 'load' in p['types']}
+        nyiso = {p['id'] for p in rows if p['eligible'] and p['sourceId'] == c.NYISO}
+        self.assertEqual(len(nyiso), 53)
+        self.assertEqual(active_load, nyiso | reviewed_eligible)
+        self.assertGreater(len(active_load), 53)
+        self.assertEqual(sum(p['eligible'] for p in rows), 8460 + len(active_load))
         self.assertEqual(payload['assessments'], [])
         self.assertEqual(len(payload['provenance']['sourceRefreshes']), 2)
         self.assertEqual(sum(p['eligible'] and 'generation' in p['types'] for p in rows), 6134)

@@ -87,12 +87,15 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(self.by_id['named:NAMED_ORACLE_JUPITER_NM']['capacityBasis'], 'generation_mw')
         self.assertEqual(self.by_id['named:NAMED_ERCOT_IREN_CHILDRESS_MICROSOFT']['capacityBasis'], 'it_mw')
 
-    def test_disclosed_service_application_does_not_invent_queue_link(self):
+    def test_disclosed_service_application_links_case_without_inventing_iso_queue_or_approval(self):
         google = self.by_id['named:NAMED_GOOGLE_DISK_DRIVE_CA']
         self.assertEqual((google['classification'], google['capacityMw'], google['capacityBasis']), ('application', 250, 'requested_grid_mw'))
-        self.assertIsNone(google['linkedProjectId'])
-        self.assertEqual(google['status'], 'planned')
-        self.assertIn('최종 표결 전', google['evidence'])
+        self.assertEqual(google['linkedProjectId'], 'CPUC::7785-E')
+        self.assertEqual(google['status'], 'unknown')
+        self.assertIn('held until October 29, 2026', google['evidence'])
+        case = next(p for p in self.bootstrap['projects'] if p['id'] == google['linkedProjectId'])
+        self.assertFalse(case['eligible'])  # Anonymous utility-request overlap unresolved.
+        self.assertIn('중복', case['exclusionReason'])
 
     def test_unknown_factories_and_distinct_micron_sites_are_retained(self):
         for key in ('ercot-samsung-taylor', 'southeast-industrial-rivian-georgia',
@@ -126,8 +129,8 @@ class PipelineTests(unittest.TestCase):
         for row in regenerated['projects']:
             self.assertEqual((row['sourceAsOf'], row['checkedAt']), original[row['id']])
         pge = next(p for p in regenerated['projects'] if p['id'].startswith('register:PG&E::'))
-        self.assertEqual(pge['sourceAsOf'], '2025-06-30')
-        self.assertEqual(pge['checkedAt'], '2026-10-03')
+        self.assertEqual(pge['sourceAsOf'], '2025-12-31')
+        self.assertEqual(pge['checkedAt'], '2026-10-12T04:57:09.199Z')
         samsung = self.by_id['named:ercot-samsung-taylor']
         self.assertEqual(samsung['sourceAsOf'], '2026-10-07')
         self.assertTrue(samsung['checkedAt'].startswith('2026-10-08T'))
@@ -266,6 +269,17 @@ class PipelineTests(unittest.TestCase):
         aws = self.aggregates['disclosure:AWS_NIPSCO_NORTHERN_INDIANA']
         self.assertIsNone(aws['projectCount'])
         self.assertEqual(aws['capacityMw'], 2400)
+
+    def test_reviewed_cases_share_one_pipeline_row_and_keep_unknown_capacity(self):
+        for project_id in ('MPSC::U-22058', 'MPSC::U-21990', 'WIPSC::LIRF-41052-2',
+                           'LPSC::U-37425::Meta-Hyperion', 'IPUC::IPC-E-26-19',
+                           'DOE::EA-2251::Rivian-Stanton-Springs-North'):
+            linked = [p for p in self.output['projects'] if p['linkedProjectId'] == project_id]
+            self.assertEqual(len(linked), 1, project_id)
+        oracle = self.by_id['named:NAMED_ORACLE_OPENAI_LIGHTHOUSE_WI']
+        self.assertIsNone(oracle['capacityMw'])  # IT/generation MW cannot become grid demand.
+        chobani = self.by_id['register:IPUC::IPC-E-26-19']
+        self.assertIsNone(chobani['capacityMw'])  # Expanded whole-site demand is not net-new MW.
 
 
 if __name__ == '__main__':

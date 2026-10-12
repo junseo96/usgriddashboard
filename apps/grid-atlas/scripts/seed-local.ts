@@ -2,6 +2,8 @@ import { readFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { createLocalDatabase } from '../server/local-db.ts';
 import { seedDatabase } from '../server/database.ts';
+import { loadBootstrapWithReviewed } from './apply-reviewed-load-projects.ts';
+const bootstrap = loadBootstrapWithReviewed();
 const db = createLocalDatabase(process.env.GRID_ATLAS_DB ?? '.state/grid-atlas.sqlite');
 try {
   db.exec('CREATE TABLE IF NOT EXISTS _grid_atlas_migrations (name TEXT PRIMARY KEY, sha256 TEXT NOT NULL)');
@@ -20,7 +22,6 @@ try {
       } catch (error) { db.exec('ROLLBACK'); throw error; }
     }
   }
-  const bootstrap = JSON.parse(await readFile(new URL('../data/bootstrap.json', import.meta.url), 'utf8'));
   const result = await seedDatabase(db, { projects: bootstrap.projects, sources: bootstrap.sources }, 'bootstrap');
   console.log('Grid Atlas 로컬 데이터 준비:', JSON.stringify(result));
 } finally { db.close(); }

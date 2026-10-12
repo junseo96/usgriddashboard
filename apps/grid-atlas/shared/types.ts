@@ -44,7 +44,7 @@ export interface SnapshotMeta {
   id: string; capturedAt: string; contentHash: string; projectCount: number; sourceCount: number;
   modelVersion: typeof MODEL_VERSION; trigger: 'bootstrap' | 'manual' | 'scheduled';
 }
-export interface Filters { type?: ProjectType | 'all'; region?: string; q?: string; status?: 'all' | 'scored' | 'unknown'; asOf?: string; knownAt?: string; page?: number; pageSize?: number; }
+export interface Filters { type?: ProjectType | 'all'; region?: string; q?: string; status?: 'all' | 'eligible' | 'scored' | 'unknown'; asOf?: string; knownAt?: string; page?: number; pageSize?: number; }
 export interface HistoryPoint { snapshot: SnapshotMeta; summary: Summary; }
 export interface DashboardResponse {
   available: boolean; modelVersion: typeof MODEL_VERSION; ratingMethodVersion: string; snapshot: SnapshotMeta | null; summary: Summary;

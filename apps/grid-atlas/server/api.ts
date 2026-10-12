@@ -7,6 +7,7 @@ import { publicDemand, publicPipeline, publicHistorical, publicLoadBottleneck, p
 import { filterHistoricalSeries, historicalCsv, parseHistoricalFilters } from '../shared/history.ts';
 import { loadBottleneckCsv, parseLoadBottleneckFilters } from '../shared/load-bottleneck.ts';
 import { loadCoverageCsv, parseLoadCoverageFilters } from '../shared/load-coverage.ts';
+import { eligibleSourceForProject } from '../shared/reviewed-load-projects.ts';
 import { captureSnapshot, inventoryRevisionGuard, listSnapshots, MAX_PROJECTS, readAssessments, readInventoryWithRevision, readSnapshot, recordCollectionRun, seedDatabase, sha256, sourceReplacementStatements, stableJson, type Inventory, type SqlDatabase } from './database.ts';
 
 export type { SqlDatabase, SqlStatement } from './database.ts';
@@ -76,7 +77,7 @@ function validateInventory(projects: unknown, sources: unknown): asserts project
   const projectIds = new Set<string>(), sourceRecordIds = new Set<string>();
   for (const project of projects) {
     validateProject(project);
-    if (project.eligible && !['full_register','filtered_register'].includes(sourceMap.get(project.sourceId)?.coverage ?? '')) throw new ApiError(400, 'Eligible individual requests require a register source');
+    if (project.eligible && !eligibleSourceForProject(project, sourceMap.get(project.sourceId))) throw new ApiError(400, 'Eligible individual requests require a register or an exact reviewed official case');
     const record = stableJson([project.sourceId, project.sourceRecordId]);
     if (!sourceIds.has(project.sourceId) || projectIds.has(project.id) || sourceRecordIds.has(record)) throw new ApiError(400, 'Unknown source or duplicate project identity');
     projectIds.add(project.id);
@@ -109,7 +110,7 @@ function query(url: URL): Query {
   const asOf = p.get('asOf') || today, knownAt = p.get('knownAt') || now.toISOString();
   if (!date(asOf) || asOf > today || !timestamp(knownAt) || Date.parse(knownAt) > now.getTime()) throw new ApiError(400, 'Invalid or future asOf / knownAt');
   const type = p.get('type') || 'all', status = p.get('status') || 'all';
-  if (![...TYPES, 'all'].includes(type) || !['all','scored','unknown'].includes(status)) throw new ApiError(400, 'Invalid type or status filter');
+  if (![...TYPES, 'all'].includes(type) || !['all','eligible','scored','unknown'].includes(status)) throw new ApiError(400, 'Invalid type or status filter');
   const q = p.get('q') || '', region = p.get('region') || '';
   if (q.length > 200 || region.length > 100) throw new ApiError(400, 'Filter is too long');
   const normalizedKnownAt = new Date(knownAt).toISOString();
@@ -123,7 +124,7 @@ function scoresFor(projects: Project[], assessments: Assessment[], asOf: string,
 }
 function filterScores(scores: ProjectScore[], filters: Filters): ProjectScore[] {
   const q = filters.q?.toLocaleLowerCase();
-  return scores.filter(s => (!q || [s.project.name,s.project.id,s.project.sourceRecordId,s.project.state ?? '',s.project.rawStatus,s.stageEstimate?.label ?? ''].some(v => v.toLocaleLowerCase().includes(q))) && (filters.status !== 'scored' || (s.project.eligible && ratingPoint(s) !== null)) && (filters.status !== 'unknown' || (s.project.eligible && ratingPoint(s) === null)));
+  return scores.filter(s => (!q || [s.project.name,s.project.id,s.project.sourceRecordId,s.project.state ?? '',s.project.rawStatus,s.stageEstimate?.label ?? ''].some(v => v.toLocaleLowerCase().includes(q))) && (filters.status !== 'eligible' || s.project.eligible) && (filters.status !== 'scored' || (s.project.eligible && ratingPoint(s) !== null)) && (filters.status !== 'unknown' || (s.project.eligible && ratingPoint(s) === null)));
 }
 async function dashboard(db: SqlDatabase, q: Query, includeHistory = true): Promise<DashboardResponse> {
   const snapshots = await listSnapshots(db, q.cutoff, includeHistory ? q.historyLimit + 1 : 1);
@@ -264,7 +265,7 @@ export async function handleApi(request: Request, env: ApiEnvironment): Promise<
       if (!Array.isArray(input.projects) || !input.projects.length || input.projects.length > MAX_PROJECTS) throw new ApiError(400, 'Empty source replacement is blocked');
       const ids = new Set<string>(), recordIds = new Set<string>();
       for (const project of input.projects) { validateProject(project, input.sourceId); if (ids.has(project.id) || recordIds.has(project.sourceRecordId)) throw new ApiError(400, 'Duplicate project identity in import'); ids.add(project.id); recordIds.add(project.sourceRecordId); }
-      if (input.projects.some(p => p.eligible) && !['full_register','filtered_register'].includes(input.source.coverage)) throw new ApiError(400, 'Eligible individual requests require a register source');
+      if (input.projects.some(p => p.eligible && !eligibleSourceForProject(p, input.source as Source))) throw new ApiError(400, 'Eligible individual requests require a register or an exact reviewed official case');
       if (input.source.recordCount !== null && input.source.recordCount !== input.projects.length) throw new ApiError(400, 'Source record count does not match complete imported scope');
       const { inventory, revision } = await readInventoryWithRevision(env.DB);
       const others = inventory.projects.filter(p => p.sourceId !== input.sourceId);

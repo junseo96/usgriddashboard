@@ -86,6 +86,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - [과거 시계열·출처·집계 기준과 재생성](docs/HISTORY.md)
 - [수집·정기 갱신과 복구](docs/OPERATIONS.md)
 - [데이터 출처·범위·미확보 항목](docs/DATA.md)
+- [검토한 개별 수용가 신청·계약과 정확한 ID 연결](docs/REVIEWED_LOAD_PROJECTS.md)
 - [오프라인 미리보기](docs/PREVIEW.md)
 
 GitHub 코드 저장과 Cloudflare 계정 권한은 별개다. 토큰은 GitHub Secrets 또는 Cloudflare 비밀값으로 설정하고 채팅·소스·브라우저 저장소에 넣지 않는다. 운영 게시 후 자료를 수정할 때는 전체 출처 범위 검증·읽기 대조·관측 저장을 함께 수행한다.
