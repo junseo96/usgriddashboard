@@ -24,6 +24,44 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(pipeline.build(self.bootstrap, self.output['generatedAt']), self.output)
         self.assertEqual(self.bootstrap, before)
 
+    def test_current_status_overlay_preserves_the_original_dated_evidence_index(self):
+        reviews = json.loads((APP / 'data/project-status-reviews.json').read_text())['reviews']
+        current = {p['id']: p for p in self.bootstrap['projects']}
+        source_rows = pipeline.source_snapshot_projects(self.bootstrap['projects'], reviews)
+        source = {p['id']: p for p in source_rows}
+        changed = [r for r in reviews if r['baseProject']['sourceId'] == 'california-pge-industrial-register']
+        self.assertTrue(changed, 'Exercise an actual utility-request status reassessment.')
+        for review in changed:
+            self.assertEqual(source[review['project']['id']], review['baseProject'])
+            self.assertEqual(current[review['project']['id']], review['project'])
+            row = self.by_id['register:' + review['project']['id']]
+            self.assertEqual(row['status'], pipeline.record_status(review['baseProject'], review['baseProject']['sourceId']))
+            self.assertEqual(row['sourceAsOf'], review['baseProject']['sourceAsOf'])
+        original = {**self.bootstrap, 'projects': source_rows}
+        self.assertEqual(pipeline.build(original, self.output['generatedAt']),
+                         pipeline.build(self.bootstrap, self.output['generatedAt']))
+
+    def test_source_snapshot_restoration_rejects_changed_identity_capacity_dates_and_broken_chains(self):
+        base = {'id': 'fixture', 'sourceId': 'fixture-source', 'sourceRecordId': 'request-1',
+                'sourceUrl': 'https://example.org/source', 'sourceAsOf': '2025-12-31',
+                'rawStatus': 'Tariff - In-progress', 'loadMw': None, 'status': 'active',
+                'state': 'CA', 'eligible': True, 'exclusionReason': None}
+        current = {**base, 'status': 'unknown', 'eligible': False, 'exclusionReason': 'Current status uncertain.'}
+        review = {'baseProject': base, 'project': current, 'evaluatedAt': '2026-10-12T00:00:00.000Z'}
+        self.assertEqual(pipeline.source_snapshot_projects([current], [review]), [base])
+        self.assertEqual(pipeline.source_snapshot_projects([base], [review]), [base])
+        for key, value in [('sourceRecordId', 'request-2'), ('sourceUrl', 'https://example.org/other'),
+                           ('sourceAsOf', '2026-01-01'), ('rawStatus', 'Energized'), ('loadMw', 100)]:
+            with self.subTest(field=key):
+                altered = {**current, key: value}
+                with self.assertRaisesRegex(ValueError, 'original source fields'):
+                    pipeline.source_snapshot_projects([altered], [{**review, 'project': altered}])
+                with self.assertRaisesRegex(ValueError, 'does not match'):
+                    pipeline.source_snapshot_projects([altered], [review])
+        broken = {**review, 'baseProject': base, 'evaluatedAt': '2026-10-12T01:00:00.000Z'}
+        with self.assertRaisesRegex(ValueError, 'chronological chain'):
+            pipeline.source_snapshot_projects([current], [review, broken])
+
     def test_nyiso_links_all_statuses_without_duplicate_score_records(self):
         originals = [p for p in self.bootstrap['projects'] if p['sourceId'] == 'nyiso-load-register']
         for p in originals:

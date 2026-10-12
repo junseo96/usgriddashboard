@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import { GATES, MODEL_VERSION, type Assessment, type Project, type Source } from '../shared/types.ts';
 import { ratingPoint, scoreProject, summarize } from '../shared/scoring.ts';
+import { projectCsv } from '../shared/csv.ts';
 import { STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
 import { calendarDayKst, endOfKstDay, isCalendarDay } from '../shared/time.ts';
 import { isDemandDataset } from '../shared/market.ts';
@@ -108,7 +109,7 @@ test('API filters, detail, CSV and exported runtime agree on stage ratings witho
     install({ projects: dashboard.projects.map((s: { project: Project }) => s.project), snapshot: dashboard.snapshot,
       exportedAt: at.knownAt, modelVersion: MODEL_VERSION, ratingMethodVersion: STAGE_ESTIMATE_VERSION,
       sources: dashboard.sources, limitations: dashboard.limitations },
-    { scoreProject, summarize, ratingPoint, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset }, false);
+    { scoreProject, summarize, ratingPoint, projectCsv, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset }, false);
     for (const filter of ['status=scored', 'status=unknown', 'q=Construction', 'q=' + encodeURIComponent('공사')]) {
       const path = '/api/dashboard?' + params + '&' + filter;
       const live = await (await call(env, path)).json();

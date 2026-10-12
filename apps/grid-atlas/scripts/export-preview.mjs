@@ -102,7 +102,7 @@ function validateObservation(data) {
 // Shares live API score functions and never writes. Pages mode may refresh the
 // public demand JSON from the same origin; offline exports stay self-contained.
 function installOffline(data, scoring, pagesMode) {
-  const { summarize, scoreProject, ratingPoint, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset,
+  const { summarize, scoreProject, ratingPoint, projectCsv, calendarDayKst, endOfKstDay, isCalendarDay, isDemandDataset,
     filterHistoricalSeries, historicalCsv, parseHistoricalFilters, loadBottleneckCsv, parseLoadBottleneckFilters, loadCoverageCsv, parseLoadCoverageFilters } = scoring;
   const networkFetch = window.fetch.bind(window);
   let demand = data.demand;
@@ -135,11 +135,23 @@ function installOffline(data, scoring, pagesMode) {
     return demandRequest;
   }
   const baseUrl = 'https://grid-atlas-offline.invalid';
-  const scores = data.projects.map(project => scoreProject(project, [], { asOf: calendarDayKst(data.exportedAt), knownAt: data.exportedAt }));
-  const byId = new Map(scores.map(score => [score.project.id, score]));
+  const scoreCache = new Map();
+  function scoresFor(filter) {
+    // The export contains one inventory and knowledge only through exportedAt.
+    // Clamp later requests to that horizon, while preserving earlier cutoffs.
+    const asOf = [filter.asOf, calendarDayKst(data.exportedAt)].sort()[0];
+    const knownAt = [filter.knownAt, data.exportedAt].sort()[0];
+    const key = JSON.stringify([asOf, knownAt]);
+    const cached = scoreCache.get(key);
+    if (cached) { scoreCache.delete(key); scoreCache.set(key, cached); return cached; }
+    const scores = data.projects.map(project => scoreProject(project, [], { asOf, knownAt }));
+    const result = { scores, byId: new Map(scores.map(score => [score.project.id, score])) };
+    if (scoreCache.size >= 12) scoreCache.delete(scoreCache.keys().next().value);
+    scoreCache.set(key, result); return result;
+  }
   const extraLimit = '프로젝트 원장은 내보낸 관측 1개를 포함합니다. 프로젝트 신규 수집·평가·저장은 별도 서버 연결이 필요합니다.';
   const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
-  const scoped = filters => scores.filter(score => (filters.type === 'all' || score.project.types.includes(filters.type)) && (!filters.region || filters.region === 'all' || score.project.region === filters.region));
+  const scoped = filters => scoresFor(filters).scores.filter(score => (filters.type === 'all' || score.project.types.includes(filters.type)) && (!filters.region || filters.region === 'all' || score.project.region === filters.region));
   const visible = (items, filters) => items.filter(score => (!filters.q || [score.project.name, score.project.id, score.project.sourceRecordId, score.project.state ?? '', score.project.rawStatus, score.stageEstimate?.label ?? ''].some(value => value.toLocaleLowerCase().includes(filters.q.toLocaleLowerCase()))) && (filters.status !== 'eligible' || score.project.eligible) && (filters.status !== 'scored' || (score.project.eligible && ratingPoint(score) !== null)) && (filters.status !== 'unknown' || (score.project.eligible && ratingPoint(score) === null)));
   function numberParam(params, name, fallback, maximum) {
     if (!params.has(name)) return fallback;
@@ -160,9 +172,9 @@ function installOffline(data, scoring, pagesMode) {
     const result = { available: false, modelVersion: data.modelVersion, ratingMethodVersion: data.ratingMethodVersion, snapshot: null, summary: summarize([]), regions: [], projects: [], total: 0, page: filter.page, pageSize: filter.pageSize, sources: [], history: [], historyTruncated: false, nationalComplete: false, identityScope: 'source_record', limitations: [...data.limitations, extraLimit] };
     if (!available(filter)) return result;
     const scope = scoped(filter), projects = visible(scope, filter), summary = summarize(scope);
-    return { ...result, available: true, snapshot: data.snapshot, summary, regions: [...new Set(data.projects.map(project => project.region))].sort(), projects: projects.slice((filter.page - 1) * filter.pageSize, filter.page * filter.pageSize), total: projects.length, sources: data.sources, history: [{ snapshot: data.snapshot, summary }] };
+    const historical = { ...filter, asOf: calendarDayKst(data.snapshot.capturedAt), knownAt: [filter.knownAt, data.snapshot.capturedAt].sort()[0] };
+    return { ...result, available: true, snapshot: data.snapshot, summary, regions: [...new Set(data.projects.map(project => project.region))].sort(), projects: projects.slice((filter.page - 1) * filter.pageSize, filter.page * filter.pageSize), total: projects.length, sources: data.sources, history: [{ snapshot: data.snapshot, summary: summarize(scoped(historical)) }] };
   }
-  const csvValue = value => { const raw = value === null || value === undefined ? '' : String(value); const safe = /^[=+\-@\t\r]/.test(raw) ? "'" + raw : raw; return '"' + safe.replaceAll('"', '""') + '"'; };
   window.fetch = async (input, init = {}) => {
     const requested = input instanceof Request ? input.url : String(input);
     const method = (init.method || (input instanceof Request ? input.method : 'GET')).toUpperCase();
@@ -208,16 +220,14 @@ function installOffline(data, scoring, pagesMode) {
       if (path === '/api/dashboard') return json(dashboard(filter));
       if (path.startsWith('/api/projects/')) {
         if (!available(filter)) return json({ available: false, snapshot: null, score: null, assessments: [], assessmentsTruncated: false, totalAssessments: 0 });
-        const score = byId.get(decodeURIComponent(path.slice('/api/projects/'.length)));
+        const score = scoresFor(filter).byId.get(decodeURIComponent(path.slice('/api/projects/'.length)));
         return score ? json({ available: true, snapshot: data.snapshot, score, assessments: [], assessmentsTruncated: false, totalAssessments: 0 }) : json({ error: 'Project not found in exported observation' }, 404);
       }
       if (path === '/api/export') {
         if (!available(filter)) return json({ error: 'No inventory observed at selected time' }, 404);
         const items = visible(scoped(filter), filter);
         if (items.length > 25000) return json({ error: 'Export exceeds 25000 rows; narrow type or region' }, 413);
-        const headers = ['id','name','types','region','state','status','eligible','generation_mw','storage_mw','load_mw','bottleneck_score','lower','upper','assessed_gates','estimated','source_url','source_as_of','snapshot_captured_at','as_of','known_at','model_version','rating_score','rating_basis','rating_model_version','raw_status','stage_model_rationale'];
-        const rows = items.map(score => [score.project.id, score.project.name, score.project.types.join('|'), score.project.region, score.project.state, score.project.status, score.project.eligible, score.project.generationMw, score.project.storageMw, score.project.loadMw, score.point, score.lower, score.upper, score.assessedGates, score.estimated, score.project.sourceUrl, score.project.sourceAsOf, data.snapshot.capturedAt, filter.asOf, filter.knownAt, data.modelVersion, ratingPoint(score), score.point !== null ? (score.estimated ? 'gate_estimate' : 'gate_evidence') : score.stageEstimate ? 'stage_model' : 'unknown', score.point !== null ? data.modelVersion : score.stageEstimate?.modelVersion ?? '', score.project.rawStatus, score.stageEstimate?.rationale ?? ''].map(csvValue).join(','));
-        return new Response('\uFEFF' + [headers.join(','), ...rows].join('\r\n'), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-preview.csv"' } });
+        return new Response(projectCsv(items, { snapshotCapturedAt: data.snapshot.capturedAt, asOf: filter.asOf, knownAt: filter.knownAt, modelVersion: data.modelVersion }), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-preview.csv"' } });
       }
       return json({ error: 'API is unavailable in the read-only offline preview' }, 404);
     } catch (error) { return json({ error: error.message || 'Invalid preview request' }, 400); }
@@ -273,7 +283,7 @@ for (const match of [...html.matchAll(/<link\b[^>]*rel=["'](?:icon|shortcut icon
   const href = /href=["']([^"']+)["']/i.exec(match[0])?.[1];
   if (href && !href.startsWith('data:')) html = html.replace(match[0], match[0].replace(href, await dataUrl(href)));
 }
-const runtime = await bundle(null, `import {scoreProject,summarize,ratingPoint} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; import {filterHistoricalSeries,historicalCsv,parseHistoricalFilters} from ${JSON.stringify(resolve(appRoot, 'shared/history.ts'))}; import {loadBottleneckCsv,parseLoadBottleneckFilters} from ${JSON.stringify(resolve(appRoot, 'shared/load-bottleneck.ts'))}; import {loadCoverageCsv,parseLoadCoverageFilters} from ${JSON.stringify(resolve(appRoot, 'shared/load-coverage.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,ratingPoint,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset,filterHistoricalSeries,historicalCsv,parseHistoricalFilters,loadBottleneckCsv,parseLoadBottleneckFilters,loadCoverageCsv,parseLoadCoverageFilters}, ${JSON.stringify(!!options.pages)});`);
+const runtime = await bundle(null, `import {projectCsv} from ${JSON.stringify(resolve(appRoot, 'shared/csv.ts'))}; import {scoreProject,summarize,ratingPoint} from ${JSON.stringify(resolve(appRoot, 'shared/scoring.ts'))}; import {calendarDayKst,endOfKstDay,isCalendarDay} from ${JSON.stringify(resolve(appRoot, 'shared/time.ts'))}; import {isDemandDataset} from ${JSON.stringify(resolve(appRoot, 'shared/market.ts'))}; import {filterHistoricalSeries,historicalCsv,parseHistoricalFilters} from ${JSON.stringify(resolve(appRoot, 'shared/history.ts'))}; import {loadBottleneckCsv,parseLoadBottleneckFilters} from ${JSON.stringify(resolve(appRoot, 'shared/load-bottleneck.ts'))}; import {loadCoverageCsv,parseLoadCoverageFilters} from ${JSON.stringify(resolve(appRoot, 'shared/load-coverage.ts'))}; (${installOffline.toString()})(${jsonScript(observation)}, {scoreProject,summarize,ratingPoint,projectCsv,calendarDayKst,endOfKstDay,isCalendarDay,isDemandDataset,filterHistoricalSeries,historicalCsv,parseHistoricalFilters,loadBottleneckCsv,parseLoadBottleneckFilters,loadCoverageCsv,parseLoadCoverageFilters}, ${JSON.stringify(!!options.pages)});`);
 const exportedKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.exportedAt));
 const snapshotKst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(observation.snapshot.capturedAt));
 // Keep encoding within the first 1024 bytes, before the large embedded dataset.

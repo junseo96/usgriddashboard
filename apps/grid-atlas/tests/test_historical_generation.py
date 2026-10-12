@@ -82,23 +82,35 @@ class HistoricalGenerationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             history.validate_artifact(changed)
 
-    def test_current_vintage_matches_actual_typescript_model_and_bootstrap(self):
+    def test_current_vintage_matches_original_source_snapshot_and_contemporary_model(self):
         # Independent application model and bootstrap path protect against a
         # subtly different historical denominator or duplicated Python score.
         script = """
           import fs from 'node:fs';
           import { estimateStage, STAGE_ESTIMATE_VERSION } from './shared/stage-estimate.ts';
           const data = JSON.parse(fs.readFileSync('./data/bootstrap.json','utf8'));
-          const projects = data.projects.filter(p => p.sourceId === 'lbnl-generation-storage-queues' && p.eligible);
-          const scores = projects.map(p => estimateStage(p)?.point).filter(p => p !== undefined);
-          const statuses = Object.fromEntries(['Not Started','Feasibility Study','Cluster Study','System Impact Study','Facility Study','IA Pending','IA Executed','Construction'].map(rawStatus => [rawStatus, estimateStage({...projects[0],rawStatus})?.point]));
-          console.log(JSON.stringify({modelVersion:STAGE_ESTIMATE_VERSION,n:projects.length,rated:scores.length,mean:scores.reduce((a,b)=>a+b,0)/scores.length,statuses,generation:projects.reduce((n,p)=>n+(p.generationMw??0),0),storage:projects.reduce((n,p)=>n+(p.storageMw??0),0)}));
+          const reviews = JSON.parse(fs.readFileSync('./data/project-status-reviews.json','utf8')).reviews;
+          const vintage = JSON.parse(fs.readFileSync('./data/history-generation.json','utf8')).vintages.at(-1);
+          const original = new Map(data.projects.filter(p => p.sourceId === 'lbnl-generation-storage-queues').map(p => [p.id,p]));
+          const canonical = v => JSON.stringify(v, Object.keys(v).sort());
+          for (const review of [...reviews].sort((a,b) => b.evaluatedAt.localeCompare(a.evaluatedAt))) {
+            if (!original.has(review.project.id)) continue;
+            if (canonical(original.get(review.project.id)) !== canonical(review.project) || !review.baseProject) throw Error('Status-review snapshot chain does not match the current bootstrap');
+            original.set(review.project.id, review.baseProject);
+          }
+          const projects = [...original.values()].filter(p => p.eligible);
+          const options = {asOf:vintage.sourceAsOf,knownAt:vintage.source.retrievedAt};
+          const scores = projects.map(p => estimateStage(p,options)?.point).filter(p => p !== undefined);
+          const statuses = Object.fromEntries(['Not Started','Feasibility Study','Cluster Study','System Impact Study','Facility Study','IA Pending','IA Executed','Construction'].map(rawStatus => [rawStatus, estimateStage({...projects[0],rawStatus},options)?.point]));
+          const currentEligible = data.projects.filter(p => p.sourceId === 'lbnl-generation-storage-queues' && p.eligible).length;
+          console.log(JSON.stringify({modelVersion:STAGE_ESTIMATE_VERSION,n:projects.length,currentEligible,rated:scores.length,mean:scores.reduce((a,b)=>a+b,0)/scores.length,statuses,generation:projects.reduce((n,p)=>n+(p.generationMw??0),0),storage:projects.reduce((n,p)=>n+(p.storageMw??0),0)}));
         """
         actual = json.loads(subprocess.check_output(['node', '--input-type=module', '-e', script], cwd=APP, text=True))
         latest = self.artifact['vintages'][-1]['summaries'][0]
         self.assertEqual(actual['modelVersion'], history.MODEL)
         self.assertEqual(actual['statuses'], history.POINTS)
         self.assertEqual(actual['n'], latest['eligibleCount'])
+        self.assertLess(actual['currentEligible'], actual['n'], 'Subsequent current-status withdrawals must not delete projects from the historical vintage')
         self.assertEqual(actual['rated'], latest['ratedCount'])
         self.assertAlmostEqual(actual['mean'], latest['ratingMean'])
         self.assertAlmostEqual(actual['generation'], latest['generationMw'], places=5)

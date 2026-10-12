@@ -1,5 +1,6 @@
 import { MODEL_VERSION, type Assessment, type CollectionRun, type DashboardResponse, type Filters, type HealthResponse, type ImportPayload, type Project, type ProjectScore, type SnapshotMeta, type Source } from '../shared/types.ts';
 import { ratingPoint, scoreProject, summarize, validateAssessment } from '../shared/scoring.ts';
+import { projectCsv } from '../shared/csv.ts';
 import { STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
 import { calendarDayKst, endOfKstDay, isCalendarDay as date } from '../shared/time.ts';
 import { compareMarkets } from '../shared/market.ts';
@@ -148,7 +149,6 @@ async function dashboard(db: SqlDatabase, q: Query, includeHistory = true): Prom
   }
   return result;
 }
-function csvValue(value: unknown): string { const raw = value === null || value === undefined ? '' : String(value); const safe = /^[=+\-@\t\r]/.test(raw) ? "'" + raw : raw; return '"' + safe.replaceAll('"', '""') + '"'; }
 function validateRun(value: unknown): asserts value is CollectionRun {
   exactObject(value, RUN_FIELDS, 'collection run');
   if (!id(value.id) || !timestamp(value.startedAt) || Date.parse(value.startedAt) > Date.now() || !['running','success','partial','failed'].includes(value.status as string) || typeof value.details !== 'string' || value.details.length > 16000) throw new ApiError(400, 'Invalid collection run');
@@ -224,9 +224,7 @@ export async function handleApi(request: Request, env: ApiEnvironment): Promise<
       const [inventory, assessments] = await Promise.all([readSnapshot(env.DB, snapshots[0].id), readAssessments(env.DB, q.asOf, q.knownAt)]);
       const scores = filterScores(scoresFor(scoped(inventory.projects, q.filters), assessments, q.asOf, q.knownAt), q.filters);
       if (scores.length > 25000) throw new ApiError(413, 'Export exceeds 25000 rows; narrow type or region');
-      const headers = ['id','name','types','region','state','status','eligible','generation_mw','storage_mw','load_mw','bottleneck_score','lower','upper','assessed_gates','estimated','source_url','source_as_of','snapshot_captured_at','as_of','known_at','model_version','rating_score','rating_basis','rating_model_version','raw_status','stage_model_rationale'];
-      const lines = scores.map(s => [s.project.id,s.project.name,s.project.types.join('|'),s.project.region,s.project.state,s.project.status,s.project.eligible,s.project.generationMw,s.project.storageMw,s.project.loadMw,s.point,s.lower,s.upper,s.assessedGates,s.estimated,s.project.sourceUrl,s.project.sourceAsOf,snapshots[0].capturedAt,q.asOf,q.knownAt,MODEL_VERSION,ratingPoint(s),s.point !== null ? (s.estimated ? 'gate_estimate' : 'gate_evidence') : s.stageEstimate ? 'stage_model' : 'unknown',s.point !== null ? MODEL_VERSION : s.stageEstimate?.modelVersion ?? '',s.project.rawStatus,s.stageEstimate?.rationale ?? ''].map(csvValue).join(','));
-      return new Response('\uFEFF' + [headers.join(','),...lines].join('\r\n'), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas.csv"', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
+      return new Response(projectCsv(scores, { snapshotCapturedAt: snapshots[0].capturedAt, asOf: q.asOf, knownAt: q.knownAt, modelVersion: MODEL_VERSION }), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas.csv"', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
     }
     if (path === '/api/assessments' && request.method === 'POST') {
       const input = await body(request, 32_000); exactObject(input, ASSESSMENT_FIELDS, 'assessment');

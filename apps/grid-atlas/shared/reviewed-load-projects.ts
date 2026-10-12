@@ -1,8 +1,10 @@
 import rawDataset from '../data/reviewed-load-projects.json' with { type: 'json' };
 import type { Project, Source } from './types.ts';
 import { calendarDayKst, isCalendarDay } from './time.ts';
+import { projectStatusReviews } from './project-status-review-data.ts';
+import { matchingProjectStatusReview } from './project-status-reviews.ts';
 
-export type LoadIdentityBasis = 'official_service_request' | 'official_single_site_docket' | 'official_single_site_contract' | 'official_permit_only' | 'grouped_case' | 'unresolved';
+export type LoadIdentityBasis = 'inferred_single_site_connection' | 'official_service_request' | 'official_single_site_docket' | 'official_single_site_contract' | 'official_permit_only' | 'grouped_case' | 'unresolved';
 export type LoadCapacityBasis = 'requested_grid_mw' | 'contracted_grid_mw' | 'unknown';
 export const REVIEWED_LOAD_STAGES = ['not_started', 'scoping_pending', 'feasibility_study', 'impact_pending', 'impact_study', 'impact_approved', 'facilities_pending', 'facilities_study', 'ia_pending', 'ia_executed', 'construction'] as const;
 export type ReviewedLoadStage = typeof REVIEWED_LOAD_STAGES[number];
@@ -21,7 +23,7 @@ export interface ReviewedLoadDataset {
 }
 
 const MAINLAND = new Set('AL AZ AR CA CO CT DE FL GA ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC'.split(' '));
-const ELIGIBLE_IDENTITIES = new Set<LoadIdentityBasis>(['official_service_request', 'official_single_site_docket', 'official_single_site_contract']);
+const ELIGIBLE_IDENTITIES = new Set<LoadIdentityBasis>(['inferred_single_site_connection', 'official_service_request', 'official_single_site_docket', 'official_single_site_contract']);
 const IDENTITY_BASES = [...ELIGIBLE_IDENTITIES, 'official_permit_only', 'grouped_case', 'unresolved'];
 const PROJECT_FIELDS = 'id sourceId sourceRecordId name types region state status generationMw storageMw loadMw capacityStatus eligible exclusionReason sourceUrl sourceAsOf rawStatus identityScope'.split(' ');
 const SOURCE_FIELDS = 'id name region types url coverage sourceAsOf lastCheckedAt refreshCadence recordCount gaps adapter'.split(' ');
@@ -35,7 +37,7 @@ function fields(v: unknown, names: string[], label: string): asserts v is Record
 }
 function https(v: unknown): v is string { if (!text(v, 2048)) return false; try { const u = new URL(v); return u.protocol === 'https:' && !!u.hostname && !u.username && !u.password; } catch { return false; } }
 function instant(v: unknown): v is string { return typeof v === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(v) && Number.isFinite(Date.parse(v)) && new Date(v).toISOString() === v; }
-function sourceDate(v: unknown, latest: string): v is string | null { return v === null || typeof v === 'string' && (isCalendarDay(v) || /^\d{4}-(0[1-9]|1[0-2])$/.test(v)) && v <= latest; }
+function sourceDate(v: unknown, latest: string, allowYear = false): v is string | null { return v === null || typeof v === 'string' && (isCalendarDay(v) || /^\d{4}-(0[1-9]|1[0-2])$/.test(v) || allowYear && /^\d{4}$/.test(v)) && v <= latest; }
 function loadOnly(v: unknown): boolean { return Array.isArray(v) && v.length === 1 && v[0] === 'load'; }
 
 /** A review is an explicit decision about a source record, never a fuzzy name match. */
@@ -84,7 +86,7 @@ export function validateReviewedLoadProjects(input: unknown, now = new Date()): 
       fields(evidence, ['url', 'name', 'retrievedAt', 'sha256', 'publishedAt', 'sourceAsOf', 'excerpt'], 'evidence');
       requireValid(https(evidence.url) && text(evidence.name, 1500) && instant(evidence.retrievedAt) && evidence.retrievedAt <= generatedAt && typeof evidence.sha256 === 'string' && /^[a-f0-9]{64}$/.test(evidence.sha256) && text(evidence.excerpt, 20000), 'evidence provenance');
       const retrievedDay = calendarDayKst(evidence.retrievedAt);
-      requireValid(sourceDate(evidence.publishedAt, retrievedDay) && sourceDate(evidence.sourceAsOf, retrievedDay), 'evidence chronology');
+      requireValid(sourceDate(evidence.publishedAt, retrievedDay, true) && sourceDate(evidence.sourceAsOf, retrievedDay, true), 'evidence chronology');
       const key = JSON.stringify([evidence.url, evidence.sha256]); requireValid(!evidenceKeys.has(key), 'duplicate evidence'); evidenceKeys.add(key);
       latestEvidenceDay = [latestEvidenceDay, retrievedDay].sort()[1];
     }
@@ -108,7 +110,9 @@ const checkedProjects = new Map(reviewedLoadProjects.projects.map(project => [pr
 const checkedReviews = new Map(reviewedLoadProjects.reviews.map(review => [review.projectId, review]));
 
 export function matchingReviewedLoadProject(project: Project): ReviewedLoadProject | null {
-  return checkedProjects.get(project.id) === reviewedCanonicalJson(project) ? checkedReviews.get(project.id) ?? null : null;
+  if (checkedProjects.get(project.id) === reviewedCanonicalJson(project)) return checkedReviews.get(project.id) ?? null;
+  const base = matchingProjectStatusReview(projectStatusReviews, project)?.baseProject;
+  return base && checkedProjects.get(base.id) === reviewedCanonicalJson(base) ? checkedReviews.get(base.id) ?? null : null;
 }
 
 /** Reviewed cases are allowed without requiring an ISO queue ID or a complete utility register. */

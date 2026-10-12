@@ -1,5 +1,6 @@
 /** Merge reviewed official load records into the checked-in seed. No DB is opened. */
 import { createHash } from 'node:crypto';
+import { applyProjectStatusReviewsToBootstrap, loadProjectStatusReviewDataset } from './apply-project-status-reviews.ts';
 import { readFileSync, writeFileSync, renameSync, unlinkSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -82,7 +83,11 @@ export function loadBootstrapWithReviewed(bootstrapPath = resolve(ROOT, 'data/bo
   const bootstrap = JSON.parse(readFileSync(bootstrapPath, 'utf8')) as ReviewedBootstrap;
   const bytes = readFileSync(datasetPath), dataset: unknown = JSON.parse(bytes.toString('utf8'));
   validateReviewedLoadProjects(dataset);
-  return applyReviewedLoadProjects(bootstrap, dataset, createHash('sha256').update(bytes).digest('hex'));
+  const merged = applyReviewedLoadProjects(bootstrap, dataset, createHash('sha256').update(bytes).digest('hex'));
+  // Custom fixture/archive imports remain isolated from the production current-status overlay.
+  if (bootstrapPath !== resolve(ROOT, 'data/bootstrap.json') || datasetPath !== resolve(ROOT, 'data/reviewed-load-projects.json')) return merged;
+  const statuses = loadProjectStatusReviewDataset();
+  return applyProjectStatusReviewsToBootstrap(merged, statuses.dataset, statuses.sha256);
 }
 
 export function runReviewedLoadBuilder(args: string[]): { checked?: true; written?: string; reviewedRecords: number; summary: Record<string, unknown> } {

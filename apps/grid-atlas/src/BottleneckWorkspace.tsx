@@ -4,8 +4,9 @@ import { GATES, type DashboardResponse, type Gate, type GateStatus, type Project
 import { ratingPoint } from '../shared/scoring';
 import LoadBottleneckPanel from './LoadBottleneckPanel';
 import './bottleneck-workspace.css';
+import StageInferenceWorkspace from './StageInferenceWorkspace';
 
-export type ScoreTab = 'projects' | 'regional' | 'methodology';
+export type ScoreTab = 'projects' | 'inferences' | 'regional' | 'methodology';
 interface Props {
   data: DashboardResponse | null;
   revision: number;
@@ -60,18 +61,18 @@ function ProjectMatrix({ data, onProject }: { data: DashboardResponse; onProject
   return <section className="bw-matrix panel" aria-label="현재 검색 페이지의 프로젝트별 절차 점수">
     <header className="bw-section-heading"><div><span className="eyebrow">PROJECT PROGRESS</span><h2>프로젝트별 절차와 잔여점수</h2></div><span className="bw-page-count">검색 {number(data.total)}건 중 {number(first)}–{number(last)}건</span></header>
     <p className="bw-section-note">현재 검색 페이지의 {number(data.projects.length)}건입니다. 행을 선택하면 원문 단계·기준일·평가 이유를 확인할 수 있습니다. 아래 행의 분포를 전국 분포로 해석하지 않습니다.</p>
-    <div className="bw-matrix-legend"><span><i className="model" />원장 단계에 적용한 모형 가정</span><span><i className="evidence" />별도 입력된 요건별 근거</span><span><i className="unknown" />미확인 · 점수 없음</span></div>
+    <div className="bw-matrix-legend"><span><i className="model" />진행 자료에 적용한 모형 가정</span><span><i className="evidence" />별도 입력된 요건별 근거</span><span><i className="unknown" />미확인 · 점수 없음</span></div>
     <div className="bw-table-scroll" tabIndex={0} aria-label="프로젝트 절차 표 · 좁은 화면에서는 가로로 이동">
       <table className="bw-matrix-table"><thead><tr><th scope="col">프로젝트 · 원문 진행 상태</th>{GATES.map(gate => <th scope="col" key={gate}>{GATE_LABEL[gate]}<small>잔여 0–20점</small></th>)}<th scope="col">전체 병목점수</th></tr></thead>
         <tbody>{data.projects.map(score => {
           const point = ratingPoint(score);
           const model = score.point === null ? score.stageEstimate : null;
-          const basis = model ? '단계 추정' : score.point !== null ? score.estimated ? '요건별 근거 추정 포함' : '요건별 공식 근거' : '진행 근거 부족';
+          const basis = model ? model.modelVersion === 'qualitative-stage-v1' ? '자료 종합 추정' : '단계 추정' : score.point !== null ? score.estimated ? '요건별 근거 추정 포함' : '요건별 공식 근거' : '진행 근거 부족';
           return <tr key={score.project.id} onClick={() => onProject(score.project.id)} className={score.project.eligible ? '' : 'bw-excluded-row'}>
             <th scope="row"><button className="bw-project-button" onClick={event => { event.stopPropagation(); onProject(score.project.id); }}>{score.project.name}<ArrowRight size={13} /></button>
               <span className="bw-project-meta">{score.project.region} · {score.project.types.map(type => TYPE_LABEL[type]).join(' / ')} · {score.project.sourceRecordId}</span>
               <span className="bw-source-status">{score.project.rawStatus || '원장 단계 미공개'}</span>
-              {model && <span className="bw-model-stage">모형 분류: {model.label}</span>}
+              {model && <span className="bw-model-stage">모형 분류: {model.label}{model.modelVersion === 'qualitative-stage-v1' && ` · 신뢰도 ${{ high: '높음', medium: '보통', low: '낮음' }[model.confidence]}`}</span>}
               <small className="bw-source-date">{dateLabel(score.project.sourceAsOf)}</small>
             </th>
             {GATES.map(gate => <GateCell key={gate} score={score} gate={gate} />)}
@@ -97,10 +98,11 @@ export default function BottleneckWorkspace({ data, revision, onProject, project
   return <div className="bottleneck-workspace">
     <nav className="bw-tabs" aria-label="병목점수 보기">{([
       ['projects', selectedType === 'load' ? '개별 수용가 신청·계약' : '개별 프로젝트 평가', <Layers3 size={16} />],
+      ['inferences', '자료 종합·진행 판단', <FileSearch size={16} />],
       ['regional', '수용가 권역별 평가', <ChartNoAxesCombined size={16} />],
       ['methodology', '산정 기준', <CircleHelp size={16} />],
     ] as const).map(([key, label, icon]) => <button key={key} aria-pressed={tab === key} className={tab === key ? 'selected' : ''} onClick={() => selectTab(key)}>{icon}{label}</button>)}</nav>
-    {tab === 'regional' ? <LoadBottleneckPanel revision={revision} onCoverage={onCoverage} selectedRegion={selectedRegion} onRegionChange={onRegionChange} /> : tab === 'methodology' ? methodology : <>
+    {tab === 'inferences' ? <StageInferenceWorkspace region={selectedRegion} type={selectedType} onRegion={onRegionChange} onProject={onProject} /> : tab === 'regional' ? <LoadBottleneckPanel revision={revision} onCoverage={onCoverage} selectedRegion={selectedRegion} onRegionChange={onRegionChange} /> : tab === 'methodology' ? methodology : <>
       {(selectedType === 'all' || selectedType === 'load') && <LoadBottleneckPanel revision={revision} onCoverage={onCoverage} selectedRegion={selectedRegion} onRegionChange={onOpenRegional} overviewOnly />}
       {selectedType === 'load' && <div className="bw-scope-note bw-load-register-scope"><CircleHelp size={17} /><div><strong>개별 전력공급 요청과 검토된 주 규제기관 계약 사건입니다.</strong><p>공식 요청번호 또는 단일 사업의 계약 사건을 연결합니다. 진행 단계가 부족하면 점수는 미산출이며, 회사별 MW 집계는 위 권역별 카드에서 별도로 조회합니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>선택 권역의 수용가 평가 보기<ArrowRight size={13} /></button></div></div>}
       {!data?.available || !s ? projectFallback : <>

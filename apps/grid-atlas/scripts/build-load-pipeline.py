@@ -283,7 +283,39 @@ def validate(dataset: dict) -> None:
     validate_regional_coverage(dataset)
 
 
+def source_snapshot_projects(projects: list[dict], status_reviews: list[dict]) -> list[dict]:
+    """Keep this dated evidence index on source snapshots, before current-status opinions.
+
+    Only an exact, chained review may restore a source snapshot. Comparing fewer
+    identity fields would accidentally admit changed MW, URLs, dates or raw states.
+    """
+    changeable = {'status', 'state', 'eligible', 'exclusionReason'}
+    grouped = {}
+    for review in status_reviews:
+        base, target = review['baseProject'], review['project']
+        if not base or {k: v for k, v in base.items() if k not in changeable} != {k: v for k, v in target.items() if k not in changeable}:
+            raise ValueError('Status review changed original source fields')
+        grouped.setdefault(target['id'], []).append(review)
+    for reviews in grouped.values():
+        reviews.sort(key=lambda review: review['evaluatedAt'])
+        for previous, following in zip(reviews, reviews[1:]):
+            if previous['evaluatedAt'] >= following['evaluatedAt'] or previous['project'] != following['baseProject']:
+                raise ValueError('Status review history is not an exact chronological chain')
+    restored = []
+    for project in projects:
+        reviews = grouped.get(project['id'])
+        if not reviews:
+            restored.append(project)
+            continue
+        if project != reviews[-1]['project'] and not any(project == review['baseProject'] for review in reviews):
+            raise ValueError('Project does not match its reviewed source/status snapshot: ' + project['id'])
+        restored.append(reviews[0]['baseProject'])
+    return restored
+
+
 def build(bootstrap: dict, generated_at: str, regional_coverage: list | None = None) -> dict:
+    status_reviews = json.loads((APP / 'data/project-status-reviews.json').read_text())['reviews']
+    bootstrap = {**bootstrap, 'projects': source_snapshot_projects(bootstrap['projects'], status_reviews)}
     source_map = {s['id']: s for s in bootstrap['sources']}
     projects = [project_from_register(p, source_map[p['sourceId']]) for p in bootstrap['projects']
                 if 'load' in p['types'] and p['sourceId'] in REGISTER_SOURCES]
@@ -334,6 +366,7 @@ def build(bootstrap: dict, generated_at: str, regional_coverage: list | None = N
             'IT 부하, 부지 총전력, 발전설비, 계약 수요, 접속 요청, 혼합 단계 집계는 서로 다른 분모입니다. 전국 총계나 실시간 부하 비율로 합산하지 않습니다.',
             '유틸리티별 집계에는 중복 문의·복수 부지·기존 운영 용량이 포함될 수 있고 명명 사례와도 겹칠 수 있습니다.',
             'checkedAt은 실제 근거 확인일을 보존합니다. generatedAt은 이 파일을 조립한 시각이며 최신 원문 확인일이나 현재 진행상태가 아닙니다.',
+            '행의 상태·기준일은 원문 관측 기준입니다. 이후의 정성 단계·활성 여부 재판단은 별도 프로젝트 점수와 조사 자료에 표시하며 이 과거 근거를 덮어쓰지 않습니다.',
             '미국 본토의 비RTO 권역도 별도 West·Southeast로 표시합니다. 해당 사례를 인접 ISO의 수요에 임의 배정하지 않습니다.',
             '검토된 단일 사업의 공식 공급 신청·계약만 개별 원장과 연결합니다. 집계·미확인 사례는 점수 분모에 넣지 않으며, 목록의 중복 표시는 신규 사업을 추가하지 않습니다.',
         ],

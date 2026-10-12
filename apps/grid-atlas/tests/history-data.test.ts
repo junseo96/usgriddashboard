@@ -5,6 +5,7 @@ import { assembleHistoricalData } from '../scripts/build-history.ts';
 import { validateHistoricalDataset, type HistoricalDataset } from '../shared/history.ts';
 import { scoreProject, summarize } from '../shared/scoring.ts';
 import type { Project } from '../shared/types.ts';
+import type { ProjectStatusReviewDataset } from '../shared/project-status-reviews.ts';
 
 const read = (name: string) => JSON.parse(readFileSync(new URL('../data/' + name, import.meta.url), 'utf8'));
 const data = read('history.json') as HistoricalDataset;
@@ -37,17 +38,32 @@ test('annual scores use six different contemporary sources and expose changing a
   }
 });
 
-test('latest historical generation and customer means reconcile independently with the live inventory', () => {
+test('historical means reconcile with original source snapshots without applying later status corrections or opinions', () => {
   const projects = read('bootstrap.json').projects as Project[];
-  const generation = summarize(projects.filter(p => p.sourceId === 'lbnl-generation-storage-queues').map(p => scoreProject(p, [])));
-  const load = summarize(projects.filter(p => p.sourceId === 'nyiso-load-register').map(p => scoreProject(p, [])));
-  for (const [id, current] of [['lbnl-all-all-bottleneck-score', generation], ['nyiso-load-bottleneck-score', load]] as const) {
-    const last = series(id).points.at(-1)!;
-    assert.equal(last.projectCount, current.eligibleCount);
-    assert.equal(last.ratedCount, current.ratedCount);
-    assert.equal(last.unknownCount, current.ratingUnknownCount);
-    assert.ok(Math.abs(last.value! - current.ratingMean!) < 1e-8);
+  const statusReviews = read('project-status-reviews.json') as ProjectStatusReviewDataset;
+  const sourceIds = new Set(['lbnl-generation-storage-queues', 'nyiso-load-register']);
+  const original = new Map(projects.filter(p => sourceIds.has(p.sourceId)).map(p => [p.id, p]));
+  // Reverse exact, append-preserved status changes to recover each historical
+  // source row. Current withdrawals must not rewrite the 2025 source universe.
+  for (const review of [...statusReviews.reviews].sort((a, b) => b.evaluatedAt.localeCompare(a.evaluatedAt))) {
+    if (!original.has(review.project.id)) continue;
+    assert.deepEqual(original.get(review.project.id), review.project, 'Every correction must match its preserved target snapshot.');
+    assert.ok(review.baseProject);
+    original.set(review.project.id, review.baseProject);
   }
+  for (const [id, sourceId] of [['lbnl-all-all-bottleneck-score', 'lbnl-generation-storage-queues'], ['nyiso-load-bottleneck-score', 'nyiso-load-register']] as const) {
+    const last = series(id).points.at(-1)!;
+    const historical = summarize([...original.values()].filter(p => p.sourceId === sourceId).map(p => scoreProject(p, [], {
+      asOf: last.sourceAsOf ?? last.date, knownAt: last.source.retrievedAt,
+    })));
+    assert.equal(last.projectCount, historical.eligibleCount);
+    assert.equal(last.ratedCount, historical.ratedCount);
+    assert.equal(last.unknownCount, historical.ratingUnknownCount);
+    assert.ok(Math.abs(last.value! - historical.ratingMean!) < 1e-8);
+  }
+  const retiredGeneration = projects.filter(p => p.sourceId === 'lbnl-generation-storage-queues' && !p.eligible && original.get(p.id)?.eligible);
+  assert.ok(retiredGeneration.length > 0, 'Later reviewed closures remain excluded from the current inventory, while present in their historical source vintage.');
+  assert.ok(retiredGeneration.every(p => p.status === 'withdrawn' || p.status === 'operational'));
   // A mixed current national mean is not silently relabeled as an old LBNL mean.
   const mixed = summarize(projects.map(p => scoreProject(p, [])));
   assert.notEqual(series('lbnl-all-all-bottleneck-score').points.at(-1)!.value, mixed.ratingMean);

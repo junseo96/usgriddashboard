@@ -3,8 +3,12 @@ import { matchingReviewedLoadProject, type ReviewedLoadDataset } from '../shared
 import reviewedJson from '../data/reviewed-load-projects.json';
 import type { Project } from '../shared/types';
 import './reviewed-load.css';
+import { projectStatusReviews } from '../shared/project-status-review-data';
+import { latestProjectStatusReviews } from '../shared/project-status-reviews';
 
-const reviewed = reviewedJson as unknown as ReviewedLoadDataset;
+const originalReviewed = reviewedJson as unknown as ReviewedLoadDataset;
+const statusReviews = latestProjectStatusReviews(projectStatusReviews);
+const reviewed = { ...originalReviewed, projects: originalReviewed.projects.map(p => statusReviews.get(p.id)?.project ?? p) };
 const safeUrl = (raw: string) => { try { const url = new URL(raw); return url.protocol === 'https:' && !url.username && !url.password ? url.href : undefined; } catch { return undefined; } };
 const time = (raw: string) => new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(raw)) + ' KST';
 const BASIS = { requested_grid_mw: '공식 요청 부하', contracted_grid_mw: '전력공급 계약 수요', unknown: '용량 미확인' };
@@ -34,6 +38,7 @@ export function ReviewedLoadEvidence({ project }: { project: Project }) {
   if (!review) return null;
   return <section className="reviewed-load-evidence" aria-label="개별 신청과 규제기관 원문 검증">
     <h3>신청·공급계약의 식별 근거</h3><dl><div><dt>기관</dt><dd>{review.authority}</dd></div><div><dt>사건·요청번호</dt><dd>{review.docketId || project.sourceRecordId}</dd></div><div><dt>MW의 의미</dt><dd>{BASIS[review.capacityBasis]}</dd></div></dl>
+    {review.identityBasis === 'inferred_single_site_connection' && <p className="inference-note">개별 고객 공급설비·증설계획으로 접속 진행을 추정한 기록입니다. 고객 신청서나 공급계약 체결을 직접 확인한 기록과 구분합니다.</p>}
     <p>{review.stageRationale}</p><ul>{review.limitations.map(note => <li key={note}>{note}</li>)}</ul>
     {review.sourceEvidence.map((evidence, index) => <details key={`${evidence.sha256}-${index}`}><summary>{evidence.name}</summary><p>{evidence.excerpt}</p><small>원자료 {evidence.sourceAsOf || '미공개'} · 공개 {evidence.publishedAt || '미확인'}<br />실제 확인 {time(evidence.retrievedAt)}</small><a className="source-link" href={safeUrl(evidence.url)} target="_blank" rel="noreferrer">기관 원문 열기<ExternalLink size={12} /></a></details>)}
   </section>;

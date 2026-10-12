@@ -11,6 +11,8 @@ import type { Project, Source } from '../shared/types.ts';
 import { scoreProject, ratingPoint } from '../shared/scoring.ts';
 import { createLocalDatabase } from '../server/local-db.ts';
 import { handleApi } from '../server/api.ts';
+import { projectStageInferences } from '../shared/project-stage-inference-data.ts';
+import { selectLatestStageInferences } from '../shared/project-stage-inference.ts';
 
 const now = new Date('2026-10-12T00:00:00.000Z');
 const digest = 'b'.repeat(64);
@@ -138,7 +140,8 @@ test('shipped reviewed cases are exact matches accepted by the API; tampered and
     assert.equal(rejected.status, 400);
     const imported = await requestImport(importBody); assert.equal(imported.status, 200, await imported.text());
   } finally { db.close(); }
-  const unknownStage = reviewedLoadProjects.projects.find(p => p.eligible && matchingReviewedLoadProject(p)?.stage === null);
-  assert.ok(unknownStage, 'Unknown-stage active requests must be retained');
+  const unknownStage = reviewedLoadProjects.projects.find(p => p.eligible && matchingReviewedLoadProject(p)?.stage === null
+    && selectLatestStageInferences(projectStageInferences, { projectId: p.id }).length === 0);
+  assert.ok(unknownStage, 'Unknown-stage active requests without a separate project-specific qualitative judgement must be retained');
   assert.equal(ratingPoint(scoreProject(unknownStage, [])), null, 'In-progress alone does not mean zero progress or 100 points');
 });

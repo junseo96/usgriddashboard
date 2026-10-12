@@ -97,7 +97,7 @@ export default function NationalOverview({ data, revision, onProjects, onScores,
         <div className="no-coverage-track" role="img" aria-label={`공개 활성 신청 ${marketNumber(summary.eligibleCount)}건 중 ${marketNumber(summary.ratedCount)}건 평가, ${marketNumber(summary.ratingUnknownCount)}건 미산출`}><span style={{ width: `${fraction}%` }} /></div>
         <div className="no-coverage-key"><span><i />평가 가능</span><span><i />진행 근거 미확인</span></div>
         <div className="no-type-scores">{(['generation', 'storage', 'load'] as const).map(type => <div key={type}><span>{type === 'generation' ? '발전' : type === 'storage' ? '저장' : '수용가 원장'}<small>{marketNumber(summary.ratingTypeCounts[type])}건 평가{type === 'load' ? ' · 확보 범위' : ''}</small></span><strong>{score(summary.ratingTypeMeans[type])}<small>{summary.ratingTypeMeans[type] !== null ? '점' : ''}</small></strong></div>)}</div>
-        <p className="no-coverage-note">단계 추정 포함 {marketNumber(summary.ratingEstimatedCount)}건 · 미확인은 100점으로 대체하지 않습니다. 평가 비율은 확보한 원장 내부 기준입니다.</p>
+        <p className="no-coverage-note">원장·자료 종합 추정 포함 {marketNumber(summary.ratingEstimatedCount)}건 · 미확인은 100점으로 대체하지 않습니다. 평가 비율은 확보한 원장 내부 기준입니다.</p>
         <button className="no-text-link" type="button" onClick={onScores}>점수 산출 범위 살펴보기 <ArrowRight size={14} /></button>
       </section>
     </div>

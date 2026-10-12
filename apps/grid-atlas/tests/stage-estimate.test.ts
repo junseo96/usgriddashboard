@@ -3,6 +3,8 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { GATES, type Project } from '../shared/types.ts';
 import { estimateStage, STAGE_ESTIMATE_CATALOG, STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
+import { projectStageInferences } from '../shared/project-stage-inference-data.ts';
+import { matchingProjectStageInference, scoreStageInference } from '../shared/project-stage-inference.ts';
 
 const project: Project = {
   id: 'test:request', sourceId: 'lbnl-generation-storage-queues', sourceRecordId: 'request',
@@ -78,14 +80,32 @@ test('every score has all five explicit quarter-step assumptions and sums correc
 test('actual bootstrap contains many progressed estimates while ambiguous records remain unknown', () => {
   const bootstrap = JSON.parse(readFileSync(new URL('../data/bootstrap.json', import.meta.url), 'utf8')) as { projects: Project[]; assessments: unknown[] };
   const eligible = bootstrap.projects.filter(project => project.eligible);
-  const estimates = eligible.map(estimateStage);
+  const estimates = eligible.map(project => estimateStage(project));
   const rated = estimates.filter(estimate => estimate !== null);
   assert.ok(rated.length > eligible.length / 2, 'Reviewed real-source stages cover the majority of the baseline');
   assert.ok(rated.length < eligible.length, 'Ambiguous stages must remain unrated');
   assert.ok(rated.filter(estimate => estimate.point < 100).length > rated.filter(estimate => estimate.point === 100).length);
   assert.equal(estimateStage(bootstrap.projects.find(project => project.id === 'NYISO::0580')!)?.point, 25);
   assert.equal(estimateStage(bootstrap.projects.find(project => project.id === 'NYISO::205')!), null);
+  let newlyReviewed = 0, stillUnknown = 0;
   for (const record of eligible.filter(project => ['active', 'In Progress (unknown study)', 'Suspended'].includes(project.rawStatus))) {
-    assert.equal(estimateStage(record), null);
+    const estimate = estimateStage(record), review = matchingProjectStageInference(projectStageInferences, record);
+    if (estimate !== null) {
+      assert.ok(review, 'A generic original status needs a separate exact-project review before receiving a score.');
+      assert.equal(estimate.modelVersion, 'qualitative-stage-v1');
+      if (estimate.modelVersion !== 'qualitative-stage-v1') throw new Error('Expected a reviewed qualitative estimate.');
+      assert.equal(estimate.judgementId, review.id);
+      assert.equal(estimate.point, scoreStageInference(review)?.point);
+      assert.equal(review.applyToAverage, true);
+      assert.ok(review.sourceEvidence.length > 0);
+      assert.deepEqual(estimate.sourceEvidence, review.sourceEvidence);
+      assert.ok(review.sourceEvidence.every(e => /^https:\/\//.test(e.url) && /^[a-f0-9]{64}$/.test(e.sha256) && e.retrievedAt <= review.evaluatedAt));
+      newlyReviewed++;
+    } else {
+      assert.ok(!review || !review.applyToAverage || review.stage === null, 'A retained unknown must not silently discard an approved exact-project stage.');
+      stillUnknown++;
+    }
   }
+  assert.ok(newlyReviewed > 0, 'New official/project evidence resolves some previously ambiguous raw statuses.');
+  assert.ok(stillUnknown > 0, 'No default score is assigned to the remaining ambiguous records.');
 });

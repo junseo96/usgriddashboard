@@ -157,7 +157,7 @@ export function scoreProject(
   const estimated = gates.some(gate => gate.status !== 'unknown' && gate.assessment?.basis === 'estimate');
   // Saved evidence, including an explicit unknown correction, takes precedence
   // over a coarse source-status model. Never let that model mask a partial review.
-  const stageEstimate = project.eligible && selected.size === 0 ? estimateStage(project) : null;
+  const stageEstimate = project.eligible && selected.size === 0 ? estimateStage(project, { asOf, ...(options.knownAt ? { knownAt: new Date(knownAt).toISOString() } : {}) }) : null;
   // An all-exempt record has no defined denominator, not a proved zero score.
   if (!applicable.length) return { project, gates, point: null, lower: 0, upper: 100, assessedGates, estimated, stageEstimate };
   const scale = GATES.length / applicable.length;

@@ -226,16 +226,40 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(len(rows), len({(p['sourceId'], p['sourceRecordId']) for p in rows}))
         self.assertTrue(all(p['sourceAsOf'] is None for p in rows if p['sourceId'] == c.NYISO))
         reviewed = json.loads((ROOT / 'data/reviewed-load-projects.json').read_text())
+        status_bytes = (ROOT / 'data/project-status-reviews.json').read_bytes()
+        status_reviews = json.loads(status_bytes)['reviews']
+        imported_hashes = {r['datasetSha256'] for r in payload['provenance']['projectStatusImports']}
+        self.assertIn(hashlib.sha256(status_bytes).hexdigest(), imported_hashes)
+        # Current lifecycle opinions may retire or admit records, but the original
+        # source vintage and capacities must still be recoverable exactly.
+        source_rows = {p['id']: copy.deepcopy(p) for p in rows}
+        changeable = {'status', 'state', 'eligible', 'exclusionReason'}
+        for review in sorted(status_reviews, key=lambda r: r['evaluatedAt'], reverse=True):
+            base, current = review['baseProject'], review['project']
+            self.assertIsNotNone(base)
+            self.assertEqual(source_rows[current['id']], current)
+            self.assertEqual({k: v for k, v in base.items() if k not in changeable},
+                             {k: v for k, v in current.items() if k not in changeable})
+            if current['eligible'] and not base['eligible'] and 'load' in current['types']:
+                self.assertIn(review['identityBasis'], {'official_service_request', 'official_single_site_docket',
+                                                       'official_single_site_contract', 'inferred_single_site_connection'})
+            source_rows[current['id']] = base
+        for project in reviewed['projects']:
+            self.assertEqual(source_rows[project['id']], project)
+        rows_at_source = list(source_rows.values())
         reviewed_eligible = {p['id'] for p in reviewed['projects'] if p['eligible']}
-        active_load = {p['id'] for p in rows if p['eligible'] and 'load' in p['types']}
-        nyiso = {p['id'] for p in rows if p['eligible'] and p['sourceId'] == c.NYISO}
+        active_load = {p['id'] for p in rows_at_source if p['eligible'] and 'load' in p['types']}
+        nyiso = {p['id'] for p in rows_at_source if p['eligible'] and p['sourceId'] == c.NYISO}
         self.assertEqual(len(nyiso), 53)
         self.assertEqual(active_load, nyiso | reviewed_eligible)
         self.assertGreater(len(active_load), 53)
-        self.assertEqual(sum(p['eligible'] for p in rows), 8460 + len(active_load))
+        self.assertEqual(sum(p['eligible'] for p in rows_at_source), 8460 + len(active_load))
+        eligibility_delta = sum(int(r['project']['eligible']) - int(r['baseProject']['eligible']) for r in status_reviews)
+        self.assertEqual(sum(p['eligible'] for p in rows), 8460 + len(active_load) + eligibility_delta)
+        self.assertEqual(payload['provenance']['summary']['eligible'], sum(p['eligible'] for p in rows))
         self.assertEqual(payload['assessments'], [])
         self.assertEqual(len(payload['provenance']['sourceRefreshes']), 2)
-        self.assertEqual(sum(p['eligible'] and 'generation' in p['types'] for p in rows), 6134)
+        self.assertEqual(sum(p['eligible'] and 'generation' in p['types'] for p in rows_at_source), 6134)
         lge = next(p for p in rows if p['id'] == 'LG&E::NR_L_LGE_POE')
         self.assertEqual(lge['sourceId'], 'southeast-lge-case')
         self.assertEqual(lge['sourceAsOf'], '2025-01-16')
