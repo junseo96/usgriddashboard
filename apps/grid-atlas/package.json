@@ -36,7 +36,9 @@
     "data:history:check": "node scripts/build-history.ts --check && python3 scripts/build-historical-generation.py --check",
     "data:load-bottleneck:check": "node scripts/build-load-bottleneck.ts --check",
     "data:constraints:check": "python3 scripts/build-grid-constraints.py --check",
-    "collect:constraints": "python3 scripts/build-grid-constraints.py --refresh"
+    "collect:constraints": "python3 scripts/build-grid-constraints.py --refresh",
+    "collect:transmission": "python3 scripts/collect-transmission.py",
+    "data:transmission:check": "python3 scripts/collect-transmission.py --check"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

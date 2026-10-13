@@ -16,7 +16,7 @@
 | 권역별 프로젝트 | 개별 프로젝트, 수용가 파이프라인, 부하·피크 상세, 사업자·기관 수집범위, 출처·갱신 상태 |
 | 병목점수 | 개별 프로젝트의 다섯 요건별 잔여점수, 수용가 권역별 평가, 산정 기준 |
 | 통합 시계열 | 용량 가중 점수·건수·용량 시계열, 확인된 개별 프로젝트 생애주기, 실제 앱 관측 기록 |
-| 송배전 제약 | 송전 제약·시장 관측과 배전 접속 여유·보조 신뢰도 자료를 구분해 확인 |
+| 송배전 제약 | 시간별 혼잡가격·제약시간·운영한도 대비 이용률·출력제한, 연간 보조자료, 배전 접속 여유를 구분해 확인 |
 
 2026-10-13부터 평균 집계는 [용량 가중 방식](docs/CAPACITY_WEIGHTING.md)을 사용한다. 개별 절차 점수와 원자료 관측을 보존하고, 과거 평균도 해당 시점의 공개 MW로 재계산한다. 공개되지 않은 용량·단계·과거 시점을 만들지 않는다.
 
@@ -83,6 +83,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - [화면별 사용법·시계열·생애주기 범위](docs/DASHBOARD.md)
 - [용량 가중 점수와 과거 재계산](docs/CAPACITY_WEIGHTING.md)
 - [송배전 제약의 출처·관측 범위](docs/GRID_CONSTRAINTS.md)
+- [송전 운영 관측·산식·매일 갱신](docs/TRANSMISSION_OBSERVATIONS.md)
 - [배포·계정 연결](docs/DEPLOYMENT.md)
 - [Pages 게시와 실측 부하 갱신](docs/PAGES.md)
 - [부하 관측·일별 피크 산식](docs/DEMAND.md)

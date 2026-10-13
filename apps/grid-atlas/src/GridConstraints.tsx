@@ -1,8 +1,9 @@
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useState } from 'react';
 import { Activity, ArrowDownToLine, ArrowUpRight, Cable, CircleHelp, Database, History, Network, Search } from 'lucide-react';
 import { GRID_CONSTRAINTS, type ConstraintMetric, type ConstraintObservation, formatConstraintValue } from '../shared/grid-constraints';
 import { externalUrl, marketDate, marketNumber } from './market-format';
 import './grid-constraints.css';
+import TransmissionObservations from './TransmissionObservations';
 
 export type ConstraintPart = 'transmission' | 'distribution';
 interface Props { part: ConstraintPart; onPartChange: (part: ConstraintPart) => void; }
@@ -14,7 +15,11 @@ const sourceMap = new Map(GRID_CONSTRAINTS.sources.map(source => [source.id, sou
 const format = (row: ConstraintObservation, metric: ConstraintMetric) => formatConstraintValue(row.value, metric.unit);
 
 export default function GridConstraints({ part, onPartChange }: Props) {
-  return <div className="grid-constraints"><nav className="gc-tabs" aria-label="송배전 제약 구분"><button aria-pressed={part === 'transmission'} onClick={() => onPartChange('transmission')}><Network size={19} /><span>송전<small>권역 간 흐름과 혼잡</small></span></button><button aria-pressed={part === 'distribution'} onClick={() => onPartChange('distribution')}><Cable size={19} /><span>배전<small>지역 공급망과 수용 여력</small></span></button></nav><ConstraintWorkspace key={part} part={part} /></div>;
+  const readTab = () => window.location.hash.split('/')[2] === 'reports' ? 'reports' : 'operations';
+  const [tab, setTab] = useState(readTab);
+  useEffect(() => { const update = () => setTab(readTab()); window.addEventListener('hashchange', update); return () => window.removeEventListener('hashchange', update); }, []);
+  const selectTab = (next: 'operations' | 'reports') => { setTab(next); window.location.hash = `constraints/transmission/${next}`; };
+  return <div className="grid-constraints"><nav className="gc-tabs" aria-label="송배전 제약 구분"><button aria-pressed={part === 'transmission'} onClick={() => onPartChange('transmission')}><Network size={19} /><span>송전<small>권역 간 흐름과 혼잡</small></span></button><button aria-pressed={part === 'distribution'} onClick={() => onPartChange('distribution')}><Cable size={19} /><span>배전<small>지역 공급망과 수용 여력</small></span></button></nav>{part === 'transmission' ? <><nav className="to-subtabs" aria-label="송전 자료 구분"><button aria-pressed={tab === 'operations'} onClick={() => selectTab('operations')}><Activity size={16} />운영 관측 · 시간·가격·설비</button><button aria-pressed={tab === 'reports'} onClick={() => selectTab('reports')}><Database size={16} />연간 시장보고서 · 참고</button></nav>{tab === 'operations' ? <TransmissionObservations /> : <><p className="to-report-note">연간 혼잡 정산액·누적 제약시간을 확인하는 보조 자료입니다. 직접 운영지표의 현재 관측 범위와 구분합니다.</p><ConstraintWorkspace key={part} part={part} /></>}</> : <ConstraintWorkspace key={part} part={part} />}</div>;
 }
 function ConstraintWorkspace({ part }: { part: ConstraintPart }) {
   const metrics = GRID_CONSTRAINTS.metrics.filter(metric => metric.part === part);

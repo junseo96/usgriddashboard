@@ -1,0 +1,113 @@
+name: Grid Atlas operational transmission observations
+
+on:
+  schedule:
+    # Daily 17:35 Korea Standard Time; publication lags differ by source.
+    - cron: '35 8 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Recent operating days to revisit (2–30); older observations are retained'
+        default: '14'
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: grid-atlas-operational-transmission
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    defaults:
+      run:
+        working-directory: apps/grid-atlas
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/grid-atlas/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r requirements.txt
+      - run: npm ci
+      - name: Record previous source hashes
+        run: |
+          mkdir -p .local/transmission
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('data/transmission-observations.json').read_text())
+          Path('.local/transmission/source-baseline.json').write_text(json.dumps([s['sha256'] for s in data['sources']]))
+          PY
+      - name: Acquire and preserve actual interval evidence
+        env:
+          REQUESTED_DAYS: ${{ inputs.days || '14' }}
+        run: |
+          python3 - <<'PY'
+          import os, subprocess
+          value=os.environ['REQUESTED_DAYS']
+          if not value.isdigit() or not 2 <= int(value) <= 30:
+              raise SystemExit('days must be an integer from 2 to 30')
+          subprocess.run(['python3','scripts/collect-transmission.py','--days',value,'--refresh'],check=True)
+          PY
+      - name: Validate source reproduction and application
+        run: |
+          npm run data:transmission:check
+          npm run typecheck
+          npm test
+          npm run test:python
+          npm run build
+      - name: Package newly observed original source bytes
+        if: always()
+        run: python3 scripts/archive-transmission-evidence.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: transmission-evidence-${{ github.run_id }}
+          path: apps/grid-atlas/.local/transmission/audit/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Commit validated observations
+        id: publish
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data/transmission-fragments data/transmission-observations.json
+          if git diff --cached --quiet; then
+            printf 'changed=false\n' >> "$GITHUB_OUTPUT"
+          else
+            git commit -m 'data: refresh operational transmission observations'
+            # Concurrent main changes stop this push safely; never force generated data.
+            git push origin HEAD:main
+            printf 'changed=true\n' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish updated dashboard
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run grid-atlas-pages.yml --ref main
+      - name: Report actual metric coverage separately from publication
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          data=json.loads(Path('data/transmission-observations.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as summary:
+              summary.write('### Operational transmission evidence\n\n')
+              summary.write('Collection success is not nationwide completeness. Missing intervals and authenticated feeds remain explicit.\n\n')
+              for row in data['coverage']:
+                  summary.write(f"- {row['region']} / {row['metric']}: {row['status']}, {row['observationCount']} observations, latest {row['lastDate']}\n")
+          PY

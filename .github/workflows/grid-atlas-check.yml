@@ -47,6 +47,7 @@ jobs:
       - run: npm run data:history:check
       - run: npm run data:load-bottleneck:check
       - run: npm run data:constraints:check
+      - run: npm run data:transmission:check
       - run: npm test
       - run: npm run test:python
       - run: npm run build
