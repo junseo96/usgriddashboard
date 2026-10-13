@@ -7,6 +7,7 @@ Failures retain previous verified observations with an explicit failed attempt.
 from __future__ import annotations
 import argparse
 import copy
+from bisect import bisect_right
 from collections import defaultdict
 from datetime import date, datetime, time, timedelta, timezone
 import importlib
@@ -101,6 +102,61 @@ def record_key(kind, row):
             row['start'], row['end'])
 
 
+def interval_series_key(kind, row):
+    """Only observations measuring the same quantity may supersede one another."""
+    if kind == 'constraintWindows': return (row['region'],)
+    key = (row['region'], row['assetId'], row.get('contingency') or '')
+    if kind == 'utilizationIntervals':
+        key += ('instantaneous' if row.get('intervalNature') == 'instantaneous' else 'duration',
+                row.get('sourceUnit', 'MW / MW'))
+    return key
+
+
+def subtract_observed_windows(previous, observations, kind, *, complete_windows=False):
+    """Keep old state/rate evidence outside new observed effective windows.
+
+    Dispatch utilization and binding states remain valid until the next change.
+    Interval energy, average load, price hours, and instantaneous samples are
+    not subdivided; that would assume an unobserved finer temporal profile.
+    """
+    windows = defaultdict(list)
+    for row in observations:
+        key = (row['region'],) if complete_windows else interval_series_key(kind, row)
+        windows[key].append((stamp(row['start']), stamp(row['end'])))
+    indexed = {}
+    for key, intervals in windows.items():
+        union = []
+        for start, end in sorted(intervals):
+            if end <= start: raise ValueError('Invalid superseding observation interval')
+            if union and start <= union[-1][1]: union[-1] = (union[-1][0], max(end, union[-1][1]))
+            else: union.append((start, end))
+        indexed[key] = (union, [end for start, end in union])
+    retained = []
+    for row in previous:
+        if kind == 'utilizationIntervals' and row.get('intervalNature') == 'instantaneous':
+            retained.append(row); continue
+        key = (row['region'],) if complete_windows else interval_series_key(kind, row)
+        if key not in indexed:
+            retained.append(row); continue
+        start, end = stamp(row['start']), stamp(row['end'])
+        union, ends = indexed[key]
+        index = bisect_right(ends, start)
+        if index == len(union) or union[index][0] >= end:
+            retained.append(row); continue
+        pieces, cursor = [], start
+        while index < len(union) and union[index][0] < end:
+            left, right = union[index]
+            if cursor < left: pieces.append((cursor, min(left, end)))
+            cursor = max(cursor, right)
+            if cursor >= end: break
+            index += 1
+        if cursor < end: pieces.append((cursor, end))
+        for left, right in pieces:
+            piece = dict(row, start=iso(left), end=iso(right))
+            retained.append(piece)
+    return retained
+
+
 def version_fragment_sources(fragment):
     """A revised URL/report must not relabel old observations with new evidence."""
     result = copy.deepcopy(fragment)
@@ -127,8 +183,9 @@ def merge_fragment(old, fresh):
         # A complete new event report supersedes ALL old events in its time window,
         # including a constraint that disappeared from the corrected report.
         if kind == 'constraintIntervals' and fresh.get('constraintWindows'):
-            windows = [(stamp(row['start']), stamp(row['end'])) for row in fresh['constraintWindows']]
-            previous = [row for row in previous if not any(stamp(row['start']) < end and stamp(row['end']) > start for start, end in windows)]
+            previous = subtract_observed_windows(previous, fresh['constraintWindows'], kind, complete_windows=True)
+        if kind in ('constraintIntervals', 'constraintWindows', 'utilizationIntervals'):
+            previous = subtract_observed_windows(previous, fresh.get(kind, []), kind)
         merged = {record_key(kind, row): row for row in previous}
         merged.update({record_key(kind, row): row for row in fresh.get(kind, [])})
         result[kind] = sorted(merged.values(), key=lambda row: json.dumps(record_key(kind, row)))
@@ -430,8 +487,13 @@ def main():
     fragments = gather_fragments()
     existing = json.loads(Path(args.output).read_text()) if Path(args.output).exists() else {}
     earliest = min(str(start),existing.get('requestedStart',str(start)))
-    result = assemble(fragments,earliest,str(end))
-    atomic_json(args.output,result)
+    try:
+        result = assemble(fragments,earliest,str(end))
+        atomic_json(args.output,result)
+    except Exception as error:
+        report.update(status='failed', error=f'{type(error).__name__}: {error}', completedAt=iso(datetime.now(timezone.utc)))
+        atomic_json(APP/'.local/transmission/latest-run.json',report)
+        raise
     report['completedAt']=iso(datetime.now(timezone.utc)); report['status']='partial' if any(row['status']!='success' for row in report['groups'].values()) else 'success'
     atomic_json(APP/'.local/transmission/latest-run.json',report)
     print(json.dumps(dict(status=report['status'],priceHours=len(result['priceHours']),constraintDays=len(result['constraintDays']),sources=len(result['sources']))))

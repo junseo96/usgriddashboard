@@ -75,6 +75,31 @@ class TransmissionOrchestrationTests(unittest.TestCase):
             with self.subTest(group=group):
                 agg.validate_group_scope(group, [agg.empty_fragment(region) for region in reversed(regions)])
 
+    def test_final_assembly_failure_records_diagnosis_without_replacing_published_artifact(self):
+        with tempfile.TemporaryDirectory() as directory:
+            app = Path(directory)
+            fragments = app / 'data/transmission-fragments'
+            output = app / 'data/transmission-observations.json'
+            previous = [previous_fragment(region) for region in ['PJM', 'MISO']]
+            agg.store_group(fragments, 'midwest', previous)
+            original = '{"requestedStart":"2026-10-01","retained":"previous published observations"}\n'
+            output.write_text(original)
+            adapter = SimpleNamespace(collect=lambda *args, **kwargs: copy.deepcopy(previous))
+            arguments = ['collect-transmission.py', '--days', '2', '--groups', 'midwest', '--output', str(output)]
+            with (patch.object(agg, 'APP', app), patch.object(agg, 'FRAGMENTS', fragments),
+                  patch.object(agg, 'gather_fragments', side_effect=lambda: agg.stored_fragments(fragments)),
+                  patch.object(agg.importlib, 'import_module', return_value=adapter),
+                  patch.object(agg, 'assemble', side_effect=ValueError('Overlapping utilization intervals')),
+                  patch.object(sys, 'argv', arguments), self.assertRaisesRegex(ValueError, 'Overlapping utilization')):
+                agg.main()
+            report = json.loads((app / '.local/transmission/latest-run.json').read_text())
+            self.assertEqual(report['status'], 'failed')
+            self.assertEqual(report['error'], 'ValueError: Overlapping utilization intervals')
+            self.assertEqual(report['groups']['midwest']['status'], 'success')
+            self.assertGreaterEqual(agg.stamp(report['completedAt']), agg.stamp(report['startedAt']))
+            self.assertEqual(output.read_text(), original)
+            self.assertEqual(len(agg.load_group(fragments, 'midwest')), 2)
+
 
 if __name__ == '__main__':
     unittest.main()
