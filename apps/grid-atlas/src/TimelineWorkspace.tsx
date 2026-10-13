@@ -26,7 +26,7 @@ const scoreBasis = (s: TimelineSeries) => s.metric === 'score' ? s.weightBasis =
 type Selection = { seriesId: string; pointId: string };
 
 export default function TimelineWorkspace({ revision, observationContent }: { revision: number; observationContent?: ReactNode }) {
-  const [tab, setTab] = useState<'series' | 'projects' | 'facilities' | 'observations'>(() => window.location.hash.split('?')[0] === '#history/facilities' ? 'facilities' : 'series');
+  const [tab, setTab] = useState<'series' | 'projects' | 'facilities' | 'observations'>(() => { const mode = window.location.hash.split('?')[0].split('/')[1]; return mode === 'facilities' || mode === 'projects' || mode === 'observations' ? mode : 'series'; });
   useEffect(() => {
     const onHash = () => { const mode = window.location.hash.split('?')[0].split('/')[1]; setTab(mode === 'facilities' || mode === 'projects' || mode === 'observations' ? mode : 'series'); };
     window.addEventListener('hashchange', onHash);

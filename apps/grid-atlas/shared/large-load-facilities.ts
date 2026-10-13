@@ -10,6 +10,8 @@ export const FACILITY_SECTORS = ['data_center', 'semiconductor', 'battery', 'veh
 export type FacilitySector = typeof FACILITY_SECTORS[number];
 export type FacilityLifecycle = 'planned' | 'construction' | 'operating' | 'paused' | 'cancelled' | 'unknown';
 export type FacilityCapacityMeasure = 'requested_grid' | 'contracted_grid' | 'facility_power' | 'it_power' | 'onsite_generation' | 'unknown';
+export const FACILITY_WEIGHT_BASES = ['requested_grid', 'contracted_grid', 'facility_power', 'it_power'] as const;
+export type FacilityWeightBasis = typeof FACILITY_WEIGHT_BASES[number];
 export interface FacilitySource { id: string; name: string; url: string; retrievedAt: string; sha256: string; publishedAt: string | null; sourceAsOf: string | null; excerpt: string; }
 export interface FacilityCapacityFact { id: string; value: number | null; unit: 'MW' | 'MVA'; measure: FacilityCapacityMeasure; scope: 'facility' | 'campus' | 'phase'; asOf: string | null; sourceIds: string[]; note: string; }
 export interface FacilityEvent { id: string; date: string; status: FacilityLifecycle; sourceIds: string[]; note: string; }
@@ -33,7 +35,7 @@ export interface FacilityDataset {
   schemaVersion: 1; generatedAt: string; sources: FacilitySource[]; facilities: LargeLoadFacility[]; jurisdictions: FacilityJurisdiction[];
   decisions: FacilityDecision[]; inputs: Array<{ id: string; path: string; sha256: string }>; limitations: string[];
 }
-export interface FacilityFilters { q?: string; region?: string; state?: string; sector?: FacilitySector | 'all'; lifecycle?: FacilityLifecycle | 'all'; scoreBasis?: FacilityScore['basis'] | 'all'; asOf?: string; knownAt?: string; includeUnknownPrior?: boolean; }
+export interface FacilityFilters { q?: string; region?: string; state?: string; sector?: FacilitySector | 'all'; lifecycle?: FacilityLifecycle | 'all'; scoreBasis?: FacilityScore['basis'] | 'all'; asOf?: string; knownAt?: string; includeUnknownPrior?: boolean; capacityBasis?: FacilityWeightBasis; }
 export interface FacilityScore {
   point: number | null; range: [number, number] | null; gates: Array<{ gate: Gate; label: string; points: number; progress: number; assumption: string }>;
   confidence: 'high' | 'medium' | 'low' | null; basis: 'lifecycle' | 'grid_evidence' | 'jurisdiction_prior' | 'conservative_prior' | 'unassessed'; modelId: string | null;
@@ -44,11 +46,16 @@ export interface FacilitySummary {
   identityScope: 'current_reviewed_identity';
   facilityCount: number; developmentCount: number; operatingCount: number; pausedCount: number; cancelledCount: number; unknownCount: number;
   scoredCount: number; averageCount: number; mean: number | null; meanRange: [number, number] | null; priorCount: number; lifecycleCount: number; gridEvidenceCount: number; unassessedCount: number;
+  capacityBasis: FacilityWeightBasis; averageMw: number; countMean: number | null; countAverageCount: number;
+  weightedByRegion: Record<string, { count: number; mw: number }>;
+  excludedCapacityCount: number; capacityExclusionCounts: Record<string, number>;
   linkedProjectCount: number; possibleDuplicateCount: number; phaseCount: number;
   byLifecycle: Record<string, number>; byRegion: Record<string, number>; bySector: Record<string, number>;
   capacityByMeasure: Record<FacilityCapacityMeasure, { mw: number | null; knownCount: number; conflictCount: number }>;
 }
-export interface FacilityHistoryPoint { date: string; lifecycle: FacilityLifecycle; score: FacilityScore; sourceIds: string[]; knownAt: string; }
+export interface FacilityCapacityWeight { capacityBasis: FacilityWeightBasis; mw: number | null; factIds: string[]; sourceIds: string[]; capacityExclusionReason: string | null; eligibleForAverage: boolean; exclusionReason: string | null; }
+export interface FacilityHistoryPoint { date: string; lifecycle: FacilityLifecycle; score: FacilityScore; weight: FacilityCapacityWeight; sourceIds: string[]; knownAt: string; }
+export interface FacilityAggregateHistoryPoint { date: string; mode: 'events' | 'observations'; knownAt: string | null; summary: FacilitySummary; }
 
 const GATES: Gate[] = ['technical', 'commercial', 'permitting', 'construction', 'energization'];
 const LABELS = ['기술 검토', '계약·비용', '부지·인허가', '설비·계통 보강', '통전·운영'];
@@ -225,37 +232,91 @@ export function scoreFacility(data: FacilityDataset, original: LargeLoadFacility
     confidence, basis, modelId, rationale, assumptions, sourceIds: [...new Set([...f.sourceIds, ...grid.flatMap(e => e.sourceIds)])], jurisdictionIds: applicable.map(r => r.id), lifecycle: f.lifecycle, asOf: f.asOf, evaluatedAt: data.generatedAt,
     eligibleForAverage: point !== null && exclusionReason === null, exclusionReason };
 }
+/** A record contributes exactly one positive MW claim of one meaning and its own scope.
+ * Different quantities, conflicting values, partial campus phases and unresolved identities
+ * never become an implicit maximum, sum or fallback weight. */
+function selectCapacity(f: LargeLoadFacility, basis: FacilityCapacityMeasure): { mw: number | null; facts: FacilityCapacityFact[]; reason: string | null } {
+  const facts = f.capacityFacts.filter(c => c.measure === basis);
+  let reason: string | null = null;
+  if (f.parentId) reason = '상위 시설과 중첩되는 부분 범위';
+  else if (f.possibleDuplicateIds?.length) reason = '동일 시설 가능성이 미해결';
+  else if (f.identityKind === 'phase') reason = '독립 시설 범위가 확정되지 않은 개별 단계';
+  const compatible = facts.filter(c => c.scope === f.identityKind && c.unit === 'MW' && c.value !== null && c.value >= 0);
+  const values = new Set(compatible.map(c => c.value!));
+  if (!reason && values.size > 1) reason = '동일 범위·용량 기준의 공개 MW가 서로 상충';
+  if (!reason && values.size === 1 && values.has(0)) reason = '공개 용량 0 MW: 양수 가중치 없음';
+  if (!reason && !values.size) reason = facts.some(c => c.unit === 'MW' && c.value !== null && c.value > 0 && c.scope !== f.identityKind)
+    ? '공개 용량이 시설 전체와 다른 단계·캠퍼스 범위'
+    : facts.some(c => c.unit === 'MVA' && c.value !== null) ? 'MVA만 공개되어 MW 환산 불가' : '해당 기준의 MW 미공개';
+  return { mw: reason ? null : [...values][0], facts: compatible.length ? compatible : facts, reason };
+}
+export function facilityCapacityWeight(data: FacilityDataset, original: LargeLoadFacility, query: FacilityFilters = {}): FacilityCapacityWeight {
+  const capacityBasis = query.capacityBasis ?? 'requested_grid';
+  if (!FACILITY_WEIGHT_BASES.includes(capacityBasis)) throw new Error('Invalid facility capacity basis');
+  const f = selectedFacility(data, original, query), capacity = selectCapacity(f, capacityBasis), score = scoreFacility(data, original, query);
+  const exclusionReason = score.exclusionReason ?? capacity.reason;
+  return { capacityBasis, mw: capacity.mw, factIds: [...new Set(capacity.facts.map(c => c.id))], sourceIds: [...new Set(capacity.facts.flatMap(c => c.sourceIds))],
+    capacityExclusionReason: capacity.reason, eligibleForAverage: score.eligibleForAverage && capacity.mw !== null, exclusionReason };
+}
 export function facilityHistory(data: FacilityDataset, facility: LargeLoadFacility, query: FacilityFilters = {}): FacilityHistoryPoint[] {
   const sources = sourceMap(data), cutoff = queryCutoff(query), dates = [...new Set(facility.events.filter(e => (!query.asOf || e.date <= query.asOf) && visibleSources(e.sourceIds, sources, cutoff)).map(e => e.date))].sort();
   return dates.map(date => { const events = facility.events.filter(e => e.date === date && visibleSources(e.sourceIds, sources, cutoff)); const score = scoreFacility(data, facility, { ...query, asOf: date });
-    const sourceIds = [...new Set([...events.flatMap(e => e.sourceIds), ...score.sourceIds, ...score.jurisdictionIds.flatMap(id => data.jurisdictions.find(r => r.id === id)!.sourceIds)])].filter(id => visibleSources([id], sources, cutoff));
-    return { date, lifecycle: score.lifecycle, score, sourceIds, knownAt: sourceIds.map(id => sources.get(id)!.retrievedAt).sort().at(-1)! }; });
+    const weight = facilityCapacityWeight(data, facility, { ...query, asOf: date });
+    const sourceIds = [...new Set([...events.flatMap(e => e.sourceIds), ...score.sourceIds, ...weight.sourceIds, ...score.jurisdictionIds.flatMap(id => data.jurisdictions.find(r => r.id === id)!.sourceIds)])].filter(id => visibleSources([id], sources, cutoff));
+    return { date, lifecycle: score.lifecycle, score, weight, sourceIds, knownAt: sourceIds.map(id => sources.get(id)!.retrievedAt).sort().at(-1)! }; });
 }
 export function summarizeFacilities(data: FacilityDataset, filters: FacilityFilters = {}): FacilitySummary {
-  const facilities = filterFacilities(data, filters), scored = facilities.map(f => ({ f, score: scoreFacility(data, f, filters) }));
-  const average = scored.filter(s => s.score.eligibleForAverage), count = (life: FacilityLifecycle) => scored.filter(s => s.score.lifecycle === life).length;
+  const capacityBasis = filters.capacityBasis ?? 'requested_grid';
+  if (!FACILITY_WEIGHT_BASES.includes(capacityBasis)) throw new Error('Invalid facility capacity basis');
+  const facilities = filterFacilities(data, filters), scored = facilities.map(f => ({ f, score: scoreFacility(data, f, filters), weight: facilityCapacityWeight(data, f, filters) }));
+  const countAverage = scored.filter(s => s.score.eligibleForAverage), average = scored.filter(s => s.weight.eligibleForAverage);
+  const averageMw = average.reduce((sum, s) => sum + s.weight.mw!, 0), count = (life: FacilityLifecycle) => scored.filter(s => s.score.lifecycle === life).length;
+  const weightedByRegion: FacilitySummary['weightedByRegion'] = {};
+  for (const { f, weight } of average) { const region = weightedByRegion[f.region] ??= { count: 0, mw: 0 }; region.count++; region.mw += weight.mw!; }
   const capacityByMeasure = Object.fromEntries(MEASURES.map(m => [m, { mw: null, knownCount: 0, conflictCount: 0 }])) as FacilitySummary['capacityByMeasure'];
-  const byLifecycle: Record<string, number> = {}, byRegion: Record<string, number> = {}, bySector: Record<string, number> = {};
-  for (const { f, score } of scored) {
+  const byLifecycle: Record<string, number> = {}, byRegion: Record<string, number> = {}, bySector: Record<string, number> = {}, capacityExclusionCounts: Record<string, number> = {};
+  for (const { f, score, weight } of scored) {
     byLifecycle[score.lifecycle] = (byLifecycle[score.lifecycle] ?? 0) + 1; byRegion[f.region] = (byRegion[f.region] ?? 0) + 1; bySector[f.sector] = (bySector[f.sector] ?? 0) + 1;
-    if (f.parentId || f.possibleDuplicateIds?.length) continue;
-    const selected = selectedFacility(data, f, filters);
+    if (score.eligibleForAverage && weight.capacityExclusionReason) capacityExclusionCounts[weight.capacityExclusionReason] = (capacityExclusionCounts[weight.capacityExclusionReason] ?? 0) + 1;
     for (const measure of MEASURES) {
-      const values = new Set(selected.capacityFacts.filter(c => c.measure === measure && c.unit === 'MW' && c.value !== null && (c.scope === f.identityKind || c.scope === 'facility' && f.identityKind !== 'phase')).map(c => c.value!));
-      if (values.size > 1) capacityByMeasure[measure].conflictCount++;
-      else if (values.size === 1) { const item = capacityByMeasure[measure]; item.mw = (item.mw ?? 0) + [...values][0]; item.knownCount++; }
+      const selected = selectCapacity(f, measure), item = capacityByMeasure[measure];
+      if (selected.reason === '동일 범위·용량 기준의 공개 MW가 서로 상충') item.conflictCount++;
+      if (selected.mw !== null) { item.mw = (item.mw ?? 0) + selected.mw; item.knownCount++; }
     }
   }
   return { identityScope: 'current_reviewed_identity', facilityCount: facilities.length, developmentCount: count('planned') + count('construction'), operatingCount: count('operating'), pausedCount: count('paused'), cancelledCount: count('cancelled'), unknownCount: count('unknown'),
-    scoredCount: scored.filter(s => s.score.point !== null).length, averageCount: average.length, mean: average.length ? average.reduce((a, s) => a + s.score.point!, 0) / average.length : null,
-    meanRange: average.length ? [average.reduce((a, s) => a + s.score.range![0], 0) / average.length, average.reduce((a, s) => a + s.score.range![1], 0) / average.length] : null,
+    scoredCount: scored.filter(s => s.score.point !== null).length, capacityBasis, averageCount: average.length, averageMw, weightedByRegion,
+    mean: averageMw ? average.reduce((sum, s) => sum + s.score.point! * s.weight.mw!, 0) / averageMw : null,
+    meanRange: averageMw ? [average.reduce((sum, s) => sum + s.score.range![0] * s.weight.mw!, 0) / averageMw, average.reduce((sum, s) => sum + s.score.range![1] * s.weight.mw!, 0) / averageMw] : null,
+    countMean: countAverage.length ? countAverage.reduce((sum, s) => sum + s.score.point!, 0) / countAverage.length : null, countAverageCount: countAverage.length,
+    excludedCapacityCount: countAverage.length - average.length, capacityExclusionCounts,
     priorCount: scored.filter(s => ['jurisdiction_prior', 'conservative_prior'].includes(s.score.basis)).length, lifecycleCount: scored.filter(s => s.score.basis === 'lifecycle').length, gridEvidenceCount: scored.filter(s => s.score.basis === 'grid_evidence').length, unassessedCount: scored.filter(s => s.score.point === null).length,
     linkedProjectCount: new Set(facilities.flatMap(f => f.legacyProjectIds)).size, possibleDuplicateCount: facilities.filter(f => f.possibleDuplicateIds?.length).length, phaseCount: facilities.filter(f => f.parentId).length,
     byLifecycle, byRegion, bySector, capacityByMeasure };
 }
+/** Reevaluate only dates with source events/capacity facts, or actual retained observations.
+ * Unknown past MW stays missing. Current MW never supplies an earlier denominator. */
+export function facilityAggregateHistory(data: FacilityDataset, filters: FacilityFilters = {}, mode: 'events' | 'observations' = 'events'): FacilityAggregateHistoryPoint[] {
+  const cutoff = queryCutoff(filters), sources = sourceMap(data), candidates = new Set<string>();
+  for (const f of data.facilities) {
+    if (mode === 'observations') {
+      for (const o of f.observations ?? []) if (!cutoff || Date.parse(o.observedAt) <= Date.parse(cutoff)) candidates.add(calendarDayKst(o.observedAt));
+    } else {
+      const visible = (ids: string[]) => visibleSources(ids, sources, cutoff);
+      for (const e of f.events) if (visible(e.sourceIds)) candidates.add(e.date);
+      for (const c of [...f.capacityFacts, ...(f.observations ?? []).filter(o => !cutoff || Date.parse(o.observedAt) <= Date.parse(cutoff)).flatMap(o => o.capacityFacts)]) if (c.asOf && visible(c.sourceIds)) candidates.add(c.asOf);
+      for (const g of f.gridEvidence) if (g.date && visible(g.sourceIds)) candidates.add(g.date);
+    }
+  }
+  return [...candidates].filter(date => !filters.asOf || date <= filters.asOf).sort().map(date => {
+    const knownAt = mode === 'observations' ? (cutoff && Date.parse(cutoff) < Date.parse(endOfKstDay(date)) ? cutoff : endOfKstDay(date)) : filters.knownAt ?? null;
+    const query = mode === 'observations' ? { ...filters, asOf: undefined, knownAt: knownAt! } : { ...filters, asOf: date };
+    return { date, mode, knownAt, summary: summarizeFacilities(data, query) };
+  });
+}
 const csvCell = (v: unknown) => { let s = v === null || v === undefined ? '' : String(v); if (/^[\s]*[=+\-@]/.test(s)) s = "'" + s; return '"' + s.replaceAll('"', '""') + '"'; };
 export function facilitiesCsv(data: FacilityDataset, filters: FacilityFilters = {}): string {
-  const header = ['facility_id', 'identity_scope', 'name', 'operator', 'sector', 'region', 'region_basis', 'state', 'lifecycle', 'source_as_of', 'point', 'range', 'basis', 'confidence', 'development_average', 'exclusion', 'parent_id', 'possible_duplicates', 'legacy_project_ids', 'capacity_facts', 'source_evidence', 'model_assumptions', 'evaluated_at'];
-  const sources = sourceMap(data), rows = filterFacilities(data, filters).map(f => { const s = scoreFacility(data, f, filters); return [f.id, 'current_reviewed_identity', f.name, f.operator, f.sector, f.region, f.regionBasis ?? 'unknown', f.state, s.lifecycle, s.asOf, s.point, s.range?.join('–'), s.basis, s.confidence, s.eligibleForAverage, s.exclusionReason, f.parentId, (f.possibleDuplicateIds ?? []).join('|'), f.legacyProjectIds.join('|'), JSON.stringify(selectedFacility(data, f, filters).capacityFacts), JSON.stringify([...new Set([...s.sourceIds, ...s.jurisdictionIds.flatMap(id => data.jurisdictions.find(r => r.id === id)!.sourceIds)])].map(id => sources.get(id))), JSON.stringify(s.assumptions), s.evaluatedAt]; });
+  const header = ['facility_id', 'identity_scope', 'name', 'operator', 'sector', 'region', 'region_basis', 'state', 'lifecycle', 'source_as_of', 'point', 'range', 'basis', 'confidence', 'count_average_eligible', 'count_average_exclusion', 'capacity_basis', 'weight_mw', 'capacity_weighted_average_eligible', 'weighted_exclusion', 'capacity_fact_ids', 'capacity_source_ids', 'average_denominator_mw', 'parent_id', 'possible_duplicates', 'legacy_project_ids', 'capacity_facts', 'source_evidence', 'model_assumptions', 'evaluated_at'];
+  const sources = sourceMap(data), denominator = summarizeFacilities(data, filters).averageMw, rows = filterFacilities(data, filters).map(f => { const s = scoreFacility(data, f, filters), w = facilityCapacityWeight(data, f, filters); return [f.id, 'current_reviewed_identity', f.name, f.operator, f.sector, f.region, f.regionBasis ?? 'unknown', f.state, s.lifecycle, s.asOf, s.point, s.range?.join('–'), s.basis, s.confidence, s.eligibleForAverage, s.exclusionReason, w.capacityBasis, w.mw, w.eligibleForAverage, w.exclusionReason, w.factIds.join('|'), w.sourceIds.join('|'), denominator, f.parentId, (f.possibleDuplicateIds ?? []).join('|'), f.legacyProjectIds.join('|'), JSON.stringify(selectedFacility(data, f, filters).capacityFacts), JSON.stringify([...new Set([...s.sourceIds, ...w.sourceIds, ...s.jurisdictionIds.flatMap(id => data.jurisdictions.find(r => r.id === id)!.sourceIds)])].map(id => sources.get(id))), JSON.stringify(s.assumptions), s.evaluatedAt]; });
   return '\uFEFF' + [header, ...rows].map(row => row.map(csvCell).join(',')).join('\r\n') + '\r\n';
 }

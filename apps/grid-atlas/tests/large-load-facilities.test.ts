@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buildLargeLoadFacilities } from '../scripts/build-large-load-facilities.ts';
-import { facilityCanonicalJson, facilitiesCsv, facilityHistory, filterFacilities, scoreFacility, summarizeFacilities, validateFacilityFragment, validateLargeLoadFacilities,
+import { facilityCanonicalJson, facilityAggregateHistory, facilityCapacityWeight, facilitiesCsv, facilityHistory, filterFacilities, scoreFacility, summarizeFacilities, validateFacilityFragment, validateLargeLoadFacilities,
   type FacilityDataset, type FacilityFragment, type FacilityJurisdictionDataset, type FacilitySource, type LargeLoadFacility } from '../shared/large-load-facilities.ts';
 
 const NOW = new Date('2026-10-12T12:00:00.000Z');
@@ -16,7 +16,7 @@ test('development inventory includes announced facilities without turning them i
   assert.equal(d.facilities[0].legacyProjectIds.length, 0);
   assert.deepEqual(d.facilities.map(f => f.gridEvidence), [[], [], [], []]);
   const summary = summarizeFacilities(d);
-  assert.equal(summary.facilityCount, 4); assert.equal(summary.developmentCount, 1); assert.equal(summary.averageCount, 1); assert.equal(summary.mean, 90);
+  assert.equal(summary.facilityCount, 4); assert.equal(summary.developmentCount, 1); assert.equal(summary.countAverageCount, 1); assert.equal(summary.countMean, 90);
   assert.equal(scoreFacility(d, d.facilities.find(f => f.id === 'live')!).point, 0);
   assert.equal(summary.operatingCount, 1); assert.equal(summary.pausedCount, 1); assert.equal(summary.cancelledCount, 1);
 });
@@ -24,7 +24,7 @@ test('unknown phase has an explicitly uncertain jurisdiction scenario, optional 
   const d = dataset([facility('unknown', { lifecycle: 'unknown' }), facility('wrong-state', { lifecycle: 'unknown', state: 'PA' })], true);
   const score = scoreFacility(d, d.facilities.find(f => f.id === 'unknown')!);
   assert.equal(score.point, 90); assert.deepEqual(score.range, [0, 100]); assert.equal(score.basis, 'jurisdiction_prior'); assert.equal(score.confidence, 'low'); assert.equal(score.eligibleForAverage, false);
-  assert.equal(summarizeFacilities(d).mean, null); assert.equal(summarizeFacilities(d, { includeUnknownPrior: true }).mean, 90);
+  assert.equal(summarizeFacilities(d).countMean, null); assert.equal(summarizeFacilities(d, { includeUnknownPrior: true }).countMean, 90);
   const unlinked = scoreFacility(d, d.facilities.find(f => f.id === 'wrong-state')!); assert.equal(unlinked.point, 90); assert.equal(unlinked.basis, 'conservative_prior'); assert.deepEqual(unlinked.jurisdictionIds, []);
 });
 test('individual contract and permit affect only their gates; partial campus energization is not full operation', () => {
@@ -38,12 +38,12 @@ test('unknown capacity stays null, MW measures remain separate, contradictory cl
   const d = dataset([facility('a', { capacityFacts: [capacity('grid', 100, 'requested_grid'), capacity('duplicate-document', 100, 'requested_grid'), capacity('it', 70, 'it_power'), capacity('mva', 200, 'requested_grid', 'MVA')] }),
     facility('b', { capacityFacts: [capacity('grid1', 100, 'requested_grid'), capacity('grid2', 150, 'requested_grid')] }), facility('phase', { identityKind: 'phase', parentId: 'a', capacityFacts: [capacity('part', 100, 'requested_grid')] }), facility('unknown')]);
   const s = summarizeFacilities(d); assert.equal(s.capacityByMeasure.requested_grid.mw, 100); assert.equal(s.capacityByMeasure.requested_grid.knownCount, 1); assert.equal(s.capacityByMeasure.requested_grid.conflictCount, 1); assert.equal(s.capacityByMeasure.it_power.mw, 70);
-  assert.equal(s.capacityByMeasure.contracted_grid.mw, null); assert.equal(s.averageCount, 3);
+  assert.equal(s.capacityByMeasure.contracted_grid.mw, null); assert.equal(s.countAverageCount, 3);
 });
 test('four documents require an explicit same-site decision and preserve source evidence without four averages', () => {
   const facilities = ['a', 'b', 'c', 'd'].map(id => facility(id));
   const built = buildLargeLoadFacilities({ fragments: [fragment(facilities)], decisions: [{ id: 'same-site', kind: 'same_entity', facilityIds: ['a', 'b', 'c', 'd'], sourceIds: ['official'], reason: 'Exact address and cadastral parcel matched in four primary documents.' }], now: NOW });
-  assert.equal(built.facilities.length, 1); assert.equal(summarizeFacilities(built).averageCount, 1); assert.ok(built.facilities[0].aliases.includes('d')); assert.equal(built.decisions.length, 1);
+  assert.equal(built.facilities.length, 1); assert.equal(summarizeFacilities(built).countAverageCount, 1); assert.ok(built.facilities[0].aliases.includes('d')); assert.equal(built.decisions.length, 1);
   assert.equal(buildLargeLoadFacilities({ previous: built, fragments: [fragment(facilities)], decisions: [{ id: 'same-site', kind: 'same_entity', facilityIds: ['a', 'b', 'c', 'd'], sourceIds: ['official'], reason: 'Exact address and cadastral parcel matched in four primary documents.' }], now: NOW }).facilities.length, 1);
   assert.throws(() => buildLargeLoadFacilities({ fragments: [fragment(facilities)], decisions: [{ id: 'bad', kind: 'same_entity', facilityIds: ['a', 'b'], sourceIds: ['nonexistent'], reason: 'Claim without a real evidence link.' }], now: NOW }), /Missing source/);
   assert.throws(() => buildLargeLoadFacilities({ fragments: [fragment(facilities)], decisions: [{ id: 'bad', kind: 'same_entity', facilityIds: ['a', 'b'], sourceIds: [], reason: 'Claim without any evidence.' }], now: NOW }), /actual source/);
@@ -51,7 +51,7 @@ test('four documents require an explicit same-site decision and preserve source 
 test('same operator and city do not merge different sites; ambiguous links exclude both from means and MW', () => {
   const d = dataset([facility('one'), facility('two')]); assert.equal(d.facilities.length, 2);
   const uncertain = buildLargeLoadFacilities({ fragments: [fragment([facility('one'), facility('two')])], decisions: [{ id: 'suspect', kind: 'possible_duplicate', facilityIds: ['one', 'two'], sourceIds: ['official'], reason: 'Address incomplete; physical identity not established.' }], now: NOW });
-  assert.equal(summarizeFacilities(uncertain).facilityCount, 2); assert.equal(summarizeFacilities(uncertain).averageCount, 0);
+  assert.equal(summarizeFacilities(uncertain).facilityCount, 2); assert.equal(summarizeFacilities(uncertain).countAverageCount, 0);
 });
 test('an exact reviewed campus relationship survives a fresh operator page with no parent metadata', () => {
   const parent = facility('campus', { identityKind: 'campus' });
@@ -59,7 +59,7 @@ test('an exact reviewed campus relationship survives a fresh operator page with 
   const latestOperator = { ...fragment([facility('building')]), id: 'operators' };
   const d = buildLargeLoadFacilities({ fragments: [reviewed, latestOperator], now: NOW });
   assert.equal(d.facilities.find(f => f.id === 'building')!.parentId, 'campus');
-  assert.equal(summarizeFacilities(d).averageCount, 1);
+  assert.equal(summarizeFacilities(d).countAverageCount, 1);
   const conflicting = { ...fragment([facility('other-parent'), facility('building', { parentId: 'other-parent' })]), id: 'conflict' };
   assert.throws(() => buildLargeLoadFacilities({ fragments: [reviewed, conflicting], now: NOW }), /Conflicting parent/);
 });
@@ -124,8 +124,8 @@ test('historical points require dated events and are separately constrained by s
 });
 test('unknown current state with individual grid evidence joins only the explicitly selected provisional denominator', () => {
   const d = dataset([facility('contract', { lifecycle: 'unknown', gridEvidence: [{ id: 'supply', kind: 'contract', date: null, sourceIds: ['official'], note: 'Signed supply contract; present operation status not disclosed.' }] })]);
-  assert.equal(scoreFacility(d, d.facilities[0]).basis, 'grid_evidence'); assert.equal(summarizeFacilities(d).averageCount, 0);
-  assert.equal(summarizeFacilities(d, { includeUnknownPrior: true }).averageCount, 1);
+  assert.equal(scoreFacility(d, d.facilities[0]).basis, 'grid_evidence'); assert.equal(summarizeFacilities(d).countAverageCount, 0);
+  assert.equal(summarizeFacilities(d, { includeUnknownPrior: true }).countAverageCount, 1);
   assert.equal(filterFacilities(d, { scoreBasis: 'grid_evidence' }).length, 1); assert.equal(filterFacilities(d, { scoreBasis: 'lifecycle' }).length, 0);
 });
 test('a later status refresh preserves the earlier observation and never retroactively replaces it', () => {
@@ -183,10 +183,54 @@ test('source dates, future targets, broken evidence, duplicate IDs and parent cy
   const bad = dataset([facility()]); bad.facilities[0].capacityFacts = [{ id: 'negative', value: -1, unit: 'MW', measure: 'it_power', scope: 'facility', asOf: null, sourceIds: [bad.sources[0].id], note: 'Invalid.' }]; assert.throws(() => validateLargeLoadFacilities(bad, NOW), /capacity/);
 });
 test('unknown mainland location retains a score but cannot enter the mainland development mean', () => {
-  const d = dataset([facility('where', { state: null, region: 'Unknown' })]); assert.equal(scoreFacility(d, d.facilities[0]).point, 90); assert.equal(summarizeFacilities(d).averageCount, 0);
+  const d = dataset([facility('where', { state: null, region: 'Unknown' })]); assert.equal(scoreFacility(d, d.facilities[0]).point, 90); assert.equal(summarizeFacilities(d).countAverageCount, 0);
 });
 test('CSV keeps provenance and measure semantics, escapes formulas, and matches search filters', () => {
   const d = dataset([facility('formula', { name: '=HYPERLINK("https://evil.example")' }), facility('other', { state: 'OH' })]);
   assert.equal(filterFacilities(d, { state: 'VA' }).length, 1); const csv = facilitiesCsv(d, { state: 'VA' });
   assert.ok(csv.includes("'=HYPERLINK")); assert.ok(csv.includes('source_evidence')); assert.ok(csv.includes('a'.repeat(64))); assert.ok(!csv.includes('"other"')); assert.ok(csv.includes('lifecycle'));
+});
+
+const mw = (id: string, value: number | null, patch: Partial<LargeLoadFacility['capacityFacts'][number]> = {}): LargeLoadFacility['capacityFacts'][number] => ({ id, value, unit: 'MW', measure: 'requested_grid', scope: 'facility', asOf: null, sourceIds: ['official'], note: 'Same-scope requested capacity.', ...patch });
+test('capacity weighted facility score uses score × MW, keeps count mean auxiliary, and never substitutes another capacity meaning', () => {
+  const d = dataset([facility('large', { capacityFacts: [mw('request', 1000), mw('it', 50, { measure: 'it_power' })] }), facility('small', { lifecycle: 'construction', capacityFacts: [mw('request', 100), mw('contract', 900, { measure: 'contracted_grid' })] }), facility('missing', { capacityFacts: [mw('contract', 10000, { measure: 'contracted_grid' })] })]);
+  const s = summarizeFacilities(d);
+  assert.equal(s.mean, (90 * 1000 + 55 * 100) / 1100); assert.equal(s.averageMw, 1100); assert.equal(s.averageCount, 2);
+  assert.equal(s.countMean, (90 + 55 + 90) / 3); assert.equal(s.countAverageCount, 3); assert.equal(s.excludedCapacityCount, 1);
+  assert.deepEqual(s.meanRange, [(60 * 1000 + 15 * 100) / 1100, (100 * 1000 + 90 * 100) / 1100]);
+  const contract = summarizeFacilities(d, { capacityBasis: 'contracted_grid' }); assert.equal(contract.averageMw, 10900); assert.equal(contract.mean, (55 * 900 + 90 * 10000) / 10900);
+  const absent = summarizeFacilities(d, { capacityBasis: 'facility_power' }); assert.equal(absent.mean, null); assert.equal(absent.averageMw, 0); assert.equal(absent.countAverageCount, 3);
+  const csv = facilitiesCsv(d); assert.ok(csv.includes('capacity_basis')); assert.ok(csv.includes('average_denominator_mw')); assert.ok(csv.includes('capacity_source_ids'));
+  assert.ok(facilitiesCsv(d, { q: 'large' }).includes('"1000"'));
+});
+test('capacity weight excludes conflicting values, partial campus MW, zero, MVA and unresolved overlaps without max or summation', () => {
+  const d = dataset([facility('conflict', { capacityFacts: [mw('one', 100), mw('two', 500)] }), facility('campus', { identityKind: 'campus', capacityFacts: [mw('phase', 100)] }), facility('zero', { capacityFacts: [mw('zero', 0)] }), facility('mva', { capacityFacts: [mw('mva', 100, { unit: 'MVA' })] }), facility('good', { capacityFacts: [mw('one', 100), mw('duplicate', 100)] }), facility('part', { parentId: 'good', capacityFacts: [mw('one', 100)] }), facility('unresolved', { possibleDuplicateIds: ['good'], capacityFacts: [mw('one', 200)] })]);
+  const s = summarizeFacilities(d); assert.equal(s.averageCount, 1); assert.equal(s.averageMw, 100); assert.equal(s.mean, 90);
+  for (const id of ['conflict', 'campus', 'zero', 'mva', 'part', 'unresolved']) { const w = facilityCapacityWeight(d, d.facilities.find(f => f.id === id)!); assert.equal(w.eligibleForAverage, false); assert.ok(w.exclusionReason); }
+  assert.equal(facilityCapacityWeight(d, d.facilities.find(f => f.id === 'campus')!).mw, null);
+});
+test('unknown prior selection controls the same positive-MW denominator, and zero-score operating facilities never dilute development', () => {
+  const d = dataset([facility('unknown', { lifecycle: 'unknown', capacityFacts: [mw('request', 200)] }), facility('live', { lifecycle: 'operating', capacityFacts: [mw('request', 10000)] })]);
+  assert.equal(summarizeFacilities(d).mean, null); assert.equal(summarizeFacilities(d).averageMw, 0);
+  const included = summarizeFacilities(d, { includeUnknownPrior: true }); assert.equal(included.mean, 90); assert.equal(included.averageMw, 200); assert.equal(included.averageCount, 1);
+});
+test('zero MW is a disclosed value and conflicts with a positive same-scope claim instead of silently losing its source', () => {
+  const d = dataset([facility('zero-positive', { capacityFacts: [mw('zero', 0), mw('positive', 100)] }), facility('zero-only', { capacityFacts: [mw('zero', 0)] }), facility('missing')]);
+  const conflict = facilityCapacityWeight(d, d.facilities.find(f => f.id === 'zero-positive')!);
+  assert.equal(conflict.mw, null); assert.equal(conflict.eligibleForAverage, false); assert.match(conflict.capacityExclusionReason!, /상충/); assert.deepEqual(conflict.factIds.sort(), ['positive', 'zero']);
+  assert.match(facilityCapacityWeight(d, d.facilities.find(f => f.id === 'zero-only')!).capacityExclusionReason!, /공개 용량 0 MW/);
+  assert.match(facilityCapacityWeight(d, d.facilities.find(f => f.id === 'missing')!).capacityExclusionReason!, /미공개/);
+});
+test('event history recomputes with dated capacity changes and leaves absent past MW missing', () => {
+  const oldFragment = fragment([facility('history', { capacityFacts: [mw('request', 100, { asOf: '2022-01-01' })], events: [{ id: 'plan', date: '2020-01-01', status: 'planned', sourceIds: ['official'], note: 'Actual announcement.' }, { id: 'build', date: '2024-01-01', status: 'construction', sourceIds: ['official'], note: 'Actual construction start.' }] })]);
+  oldFragment.generatedAt = '2026-10-01T07:00:00.000Z'; oldFragment.sources[0].retrievedAt = '2026-10-01T06:00:00.000Z';
+  const old = buildLargeLoadFacilities({ fragments: [oldFragment], now: NOW });
+  const revised = structuredClone(oldFragment); revised.generatedAt = '2026-10-12T07:00:00.000Z'; revised.facilities[0].capacityFacts = [mw('request', 500, { asOf: '2025-01-01' })];
+  const d = buildLargeLoadFacilities({ previous: old, fragments: [revised], now: NOW });
+  const before = summarizeFacilities(d, { asOf: '2021-01-01' }); assert.equal(before.mean, null); assert.equal(before.countMean, 90); assert.equal(before.averageMw, 0);
+  assert.equal(summarizeFacilities(d, { asOf: '2023-01-01' }).averageMw, 100); assert.equal(summarizeFacilities(d, { asOf: '2025-01-01' }).averageMw, 500);
+  const events = facilityHistory(d, d.facilities[0]); assert.equal(events[0].weight.mw, null); assert.equal(events[1].weight.mw, 100);
+  const series = facilityAggregateHistory(d); assert.deepEqual(series.map(p => [p.date, p.summary.averageMw, p.summary.mean]), [['2020-01-01', 0, null], ['2022-01-01', 100, 90], ['2024-01-01', 100, 55], ['2025-01-01', 500, 55]]);
+  const observations = facilityAggregateHistory(d, {}, 'observations'); assert.deepEqual(observations.map(p => p.summary.averageMw), [100, 500]);
+  assert.equal(facilityAggregateHistory(d, { knownAt: '2026-10-05' }, 'observations').length, 1);
 });

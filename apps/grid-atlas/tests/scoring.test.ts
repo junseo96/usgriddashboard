@@ -156,7 +156,7 @@ test('stored assessments cannot conflict by id or precede the observation they c
   assert.equal(scoreProject(project, [evidence({ projectId: 'unrelated' })], at).assessedGates, 0);
 });
 
-test('summary uses an unweighted project mean with unknown and excluded counts separate', () => {
+test('summary weights positive MW and preserves the auxiliary count mean and exclusions', () => {
   const large = { ...project, id: 'nyiso:large', sourceRecordId: 'large', loadMw: 10000 };
   const small = { ...project, id: 'nyiso:small', sourceRecordId: 'small', loadMw: 1 };
   const unknown = { ...project, id: 'nyiso:unknown', sourceRecordId: 'unknown', loadMw: null, capacityStatus: 'unknown' as const };
@@ -172,9 +172,16 @@ test('summary uses an unweighted project mean with unknown and excluded counts s
   assert.equal(result.unknownCount, 1);
   assert.equal(result.excludedCount, 1);
   assert.equal(result.estimatedCount, 1);
-  assert.equal(result.pointMean, 50);
-  assert.equal(result.lowerMean, 33.3333333333);
-  assert.equal(result.upperMean, 66.6666666667);
+  assert.equal(result.pointMean, 99.9900009999);
+  assert.equal(result.ratingMean, 99.9900009999);
+  assert.equal(result.lowerMean, 99.9900009999);
+  assert.equal(result.upperMean, 99.9900009999);
+  assert.equal(result.projectCountPointMean, 50);
+  assert.equal(result.projectCountLowerMean, 33.3333333333);
+  assert.equal(result.projectCountUpperMean, 66.6666666667);
+  assert.equal(result.ratedCapacityMw, 10001);
+  assert.equal(result.ratingWeightedCount, 2);
+  assert.equal(result.missingCapacityCount, 1);
   assert.equal(result.loadMw, 10001);
   assert.equal(result.capacityUnknownCount, 1);
   assert.deepEqual(result.knownCapacityCounts, { generation: 0, storage: 0, load: 2 });

@@ -10,6 +10,8 @@ export interface HistoricalPoint {
   observedAt?: string | null; breakBefore?: boolean;
   value: number | null; qualifier: 'exact' | 'approximate' | 'greater_than' | 'at_least';
   projectCount: number | null; ratedCount: number | null; unknownCount: number | null;
+  aggregationVersion?: 'capacity-weighted-v1'; weightBasis?: 'capacity_mw'; ratedCapacityMw?: number; knownCapacityMw?: number; ratingUnscoredCapacityMw?: number;
+  ratingWeightedCount?: number; missingCapacityCount?: number; zeroCapacityCount?: number; projectCountRatingMean?: number | null;
   source: { name: string; url: string; retrievedAt: string; sha256: string; originalUrl?: string };
   notes: string[]; ratingModelVersion: string | null;
 }
@@ -114,9 +116,19 @@ export function validateHistoricalDataset(value: unknown, now: Date | string = n
       }
       if (series.metric === 'bottleneck_score') {
         ensure(text(point.ratingModelVersion), 'score model version');
+        ensure(point.weightBasis === 'capacity_mw' && point.aggregationVersion === 'capacity-weighted-v1', 'explicit capacity weighting version required');
         ensure(point.value === null || (point.value <= 100 && point.projectCount !== null
           && point.ratedCount !== null && point.ratedCount > 0 && point.unknownCount !== null), 'score value / denominator');
-        ensure(point.value !== null || point.ratedCount === null || point.ratedCount === 0, 'missing score cannot have rated projects');
+        if (point.weightBasis === 'capacity_mw') {
+          ensure(typeof point.ratedCapacityMw === 'number' && Number.isFinite(point.ratedCapacityMw) && point.ratedCapacityMw >= 0, 'weighted MW denominator');
+          ensure((point.value === null) === (point.ratedCapacityMw === 0), 'weighted value / MW denominator');
+          ensure(Number.isSafeInteger(point.ratingWeightedCount) && Number(point.ratingWeightedCount) >= 0 && Number(point.ratingWeightedCount) <= Number(point.ratedCount), 'weighted project count');
+          ensure((point.ratedCapacityMw > 0) === (Number(point.ratingWeightedCount) > 0), 'positive MW requires weighted members');
+          for (const field of ['knownCapacityMw', 'ratingUnscoredCapacityMw']) ensure(typeof point[field] === 'number' && Number.isFinite(point[field]) && Number(point[field]) >= 0, field);
+          ensure(Number(point.knownCapacityMw) + 1e-6 >= point.ratedCapacityMw + Number(point.ratingUnscoredCapacityMw), 'capacity denominator reconciliation');
+          for (const field of ['missingCapacityCount', 'zeroCapacityCount']) ensure(Number.isSafeInteger(point[field]) && Number(point[field]) >= 0 && Number(point[field]) <= Number(point.projectCount), field);
+          ensure(point.projectCountRatingMean === null || typeof point.projectCountRatingMean === 'number' && Number.isFinite(point.projectCountRatingMean) && point.projectCountRatingMean >= 0 && point.projectCountRatingMean <= 100, 'count auxiliary');
+        } else ensure(point.value !== null || point.ratedCount === null || point.ratedCount === 0, 'missing score cannot have rated projects');
       } else {
         ensure(point.ratingModelVersion === null, 'capacity/count points cannot carry a score model');
         if (series.metric === 'queue_count') ensure(point.value === null || Number.isSafeInteger(point.value), 'queue count');
@@ -179,7 +191,7 @@ export function parseHistoricalFilters(params: URLSearchParams): HistoricalFilte
 export function historicalCsv(dataset: HistoricalDataset, filters: HistoricalFilters = {}): string {
   const headers = ['series_id', 'series_name', 'region', 'project_types', 'metric', 'unit', 'scope', 'comparability',
     'point_id', 'plot_date', 'date_precision', 'date_basis', 'source_as_of', 'published_at', 'archive_captured_at', 'observed_at', 'break_before', 'value', 'qualifier',
-    'project_count', 'rated_count', 'unknown_count', 'rating_model_version', 'source_name', 'source_url', 'original_source_url', 'retrieved_at', 'source_sha256', 'notes'];
+    'aggregation_version', 'weight_basis', 'rated_capacity_mw', 'known_capacity_mw', 'rating_unscored_capacity_mw', 'rating_weighted_count', 'missing_capacity_count', 'zero_capacity_count', 'project_count_rating_mean', 'project_count', 'rated_count', 'unknown_count', 'rating_model_version', 'source_name', 'source_url', 'original_source_url', 'retrieved_at', 'source_sha256', 'notes'];
   const cell = (value: unknown) => {
     const raw = value === null || value === undefined ? '' : String(value);
     return '"' + (/^[=+\-@\t\r]/.test(raw) ? "'" + raw : raw).replaceAll('"', '""') + '"';
@@ -187,7 +199,7 @@ export function historicalCsv(dataset: HistoricalDataset, filters: HistoricalFil
   const rows = filterHistoricalSeries(dataset, filters).flatMap(series => series.points.map(point => [series.id, series.name,
     series.region, series.projectTypes.join('|'), series.metric, series.unit, series.scope, series.comparability,
     point.id, point.date, point.datePrecision, point.dateBasis, point.sourceAsOf, point.publishedAt, point.archiveCapturedAt, point.observedAt, point.breakBefore ?? false, point.value, point.qualifier,
-    point.projectCount, point.ratedCount, point.unknownCount, point.ratingModelVersion, point.source.name, point.source.url,
+    point.aggregationVersion, point.weightBasis, point.ratedCapacityMw, point.knownCapacityMw, point.ratingUnscoredCapacityMw, point.ratingWeightedCount, point.missingCapacityCount, point.zeroCapacityCount, point.projectCountRatingMean, point.projectCount, point.ratedCount, point.unknownCount, point.ratingModelVersion, point.source.name, point.source.url,
     point.source.originalUrl, point.source.retrievedAt, point.source.sha256, point.notes.join(' | ')].map(cell).join(',')));
   return '\uFEFF' + [headers.join(','), ...rows].join('\r\n');
 }

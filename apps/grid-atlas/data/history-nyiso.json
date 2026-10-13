@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-09T04:43:17.927Z",
+  "generatedAt": "2026-10-13T07:26:38.139Z",
   "modelVersion": "stage-proxy-v1",
   "vintages": [
     {
@@ -30,6 +30,24 @@
         "SRIS/SIS in Progress": 1,
         "Under Construction": 1
       },
+      "statusCapacities": {
+        "SRIS/SIS Approved": {
+          "capacityMw": 286.0,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Pending": {
+          "capacityMw": 1060.2,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS in Progress": {
+          "capacityMw": 200.0,
+          "missingCapacityCount": 0
+        },
+        "Under Construction": {
+          "capacityMw": 300.0,
+          "missingCapacityCount": 0
+        }
+      },
       "summaries": [
         {
           "region": "NYISO",
@@ -37,7 +55,15 @@
           "eligibleCount": 10,
           "ratedCount": 10,
           "unknownCount": 0,
-          "ratingMean": 75.5,
+          "projectCountRatingMean": 75.5,
+          "ratingMean": 73.15946268009967,
+          "ratedCapacityMw": 1846.2,
+          "ratingWeightedCount": 10,
+          "knownCapacityMw": 1846.2,
+          "ratingUnscoredCapacityMw": 0,
+          "missingCapacityCount": 0,
+          "zeroCapacityCount": 0,
+          "aggregationVersion": "capacity-weighted-v1",
           "loadMw": 1846.2,
           "capacityUnknownCount": 0,
           "winterMw": 1846.2
@@ -73,6 +99,32 @@
         "Scoping Meeting Pending": 1,
         "Under Construction": 1
       },
+      "statusCapacities": {
+        "FS Pending": {
+          "capacityMw": 110.0,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Approved": {
+          "capacityMw": 906.0,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Pending": {
+          "capacityMw": 300.5,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS in Progress": {
+          "capacityMw": 1506.0,
+          "missingCapacityCount": 0
+        },
+        "Scoping Meeting Pending": {
+          "capacityMw": 60.0,
+          "missingCapacityCount": 0
+        },
+        "Under Construction": {
+          "capacityMw": 300.0,
+          "missingCapacityCount": 0
+        }
+      },
       "summaries": [
         {
           "region": "NYISO",
@@ -80,7 +132,15 @@
           "eligibleCount": 19,
           "ratedCount": 19,
           "unknownCount": 0,
-          "ratingMean": 77.63157894736842,
+          "projectCountRatingMean": 77.63157894736842,
+          "ratingMean": 74.06834249803613,
+          "ratedCapacityMw": 3182.5,
+          "ratingWeightedCount": 19,
+          "knownCapacityMw": 3182.5,
+          "ratingUnscoredCapacityMw": 0,
+          "missingCapacityCount": 0,
+          "zeroCapacityCount": 0,
+          "aggregationVersion": "capacity-weighted-v1",
           "loadMw": 3182.5,
           "capacityUnknownCount": 0,
           "winterMw": 3113.5
@@ -115,6 +175,28 @@
         "SRIS/SIS in Progress": 9,
         "Under Construction": 1
       },
+      "statusCapacities": {
+        "FS Pending": {
+          "capacityMw": 110.0,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Approved": {
+          "capacityMw": 1664.0,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Pending": {
+          "capacityMw": 3418.0,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS in Progress": {
+          "capacityMw": 1313.1,
+          "missingCapacityCount": 0
+        },
+        "Under Construction": {
+          "capacityMw": 300.0,
+          "missingCapacityCount": 0
+        }
+      },
       "summaries": [
         {
           "region": "NYISO",
@@ -122,7 +204,15 @@
           "eligibleCount": 31,
           "ratedCount": 31,
           "unknownCount": 0,
-          "ratingMean": 78.38709677419355,
+          "projectCountRatingMean": 78.38709677419355,
+          "ratingMean": 78.78326549205742,
+          "ratedCapacityMw": 6805.1,
+          "ratingWeightedCount": 31,
+          "knownCapacityMw": 6805.1,
+          "ratingUnscoredCapacityMw": 0,
+          "missingCapacityCount": 0,
+          "zeroCapacityCount": 0,
+          "aggregationVersion": "capacity-weighted-v1",
           "loadMw": 6805.1,
           "capacityUnknownCount": 0,
           "winterMw": 6736.1
@@ -157,6 +247,28 @@
         "SRIS/SIS in Progress": 11,
         "Under Construction": 1
       },
+      "statusCapacities": {
+        "FS Pending": {
+          "capacityMw": 110.0,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Approved": {
+          "capacityMw": 2422.5,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Pending": {
+          "capacityMw": 6262.0,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS in Progress": {
+          "capacityMw": 2661.6,
+          "missingCapacityCount": 0
+        },
+        "Under Construction": {
+          "capacityMw": 300.0,
+          "missingCapacityCount": 0
+        }
+      },
       "summaries": [
         {
           "region": "NYISO",
@@ -164,7 +276,15 @@
           "eligibleCount": 47,
           "ratedCount": 47,
           "unknownCount": 0,
-          "ratingMean": 79.14893617021276,
+          "projectCountRatingMean": 79.14893617021276,
+          "ratingMean": 80.18267112392715,
+          "ratedCapacityMw": 11756.1,
+          "ratingWeightedCount": 47,
+          "knownCapacityMw": 11756.1,
+          "ratingUnscoredCapacityMw": 0,
+          "missingCapacityCount": 0,
+          "zeroCapacityCount": 0,
+          "aggregationVersion": "capacity-weighted-v1",
           "loadMw": 11756.1,
           "capacityUnknownCount": 0,
           "winterMw": 11687.1
@@ -205,6 +325,44 @@
         "Scoping Meeting Pending": 3,
         "Under Construction": 4
       },
+      "statusCapacities": {
+        "Accepted Cost Allocation/IA in Progress": {
+          "capacityMw": 302.3,
+          "missingCapacityCount": 0
+        },
+        "FS Pending": {
+          "capacityMw": 110,
+          "missingCapacityCount": 0
+        },
+        "FS in Progress": {
+          "capacityMw": 892.6,
+          "missingCapacityCount": 0
+        },
+        "Rejected Cost Allocation/Next FS Pending": {
+          "capacityMw": 120,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Approved": {
+          "capacityMw": 588,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS Pending": {
+          "capacityMw": 5503,
+          "missingCapacityCount": 0
+        },
+        "SRIS/SIS in Progress": {
+          "capacityMw": 4431,
+          "missingCapacityCount": 0
+        },
+        "Scoping Meeting Pending": {
+          "capacityMw": 771,
+          "missingCapacityCount": 0
+        },
+        "Under Construction": {
+          "capacityMw": 1515,
+          "missingCapacityCount": 0
+        }
+      },
       "summaries": [
         {
           "region": "NYISO",
@@ -212,7 +370,15 @@
           "eligibleCount": 53,
           "ratedCount": 52,
           "unknownCount": 1,
-          "ratingMean": 75.38461538461539,
+          "projectCountRatingMean": 75.38461538461539,
+          "ratingMean": 75.72281387950032,
+          "ratedCapacityMw": 14112.9,
+          "ratingWeightedCount": 52,
+          "knownCapacityMw": 14232.9,
+          "ratingUnscoredCapacityMw": 120,
+          "missingCapacityCount": 0,
+          "zeroCapacityCount": 0,
+          "aggregationVersion": "capacity-weighted-v1",
           "loadMw": 14232.9,
           "capacityUnknownCount": 0
         }

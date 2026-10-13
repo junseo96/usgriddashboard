@@ -110,7 +110,7 @@ class HistoricalNyisoTests(unittest.TestCase):
         self.assertEqual(vintages[-1]['capacityDefinition'], 'peak_mw')
         self.assertTrue(vintages[-1]['capacityBreakBefore'])
         self.assertEqual(vintages[-1]['summaries'][0]['unknownCount'], 1)
-        self.assertAlmostEqual(vintages[-1]['summaries'][0]['ratingMean'], 75.38461538461539)
+        self.assertAlmostEqual(vintages[-1]['summaries'][0]['projectCountRatingMean'], 75.38461538461539)
 
 
 if __name__ == '__main__':

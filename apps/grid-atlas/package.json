@@ -32,7 +32,11 @@
     "data:census:promote:check": "node scripts/promote-load-census.ts --check",
     "data:facilities": "node scripts/build-large-load-facilities.ts",
     "data:facilities:check": "node scripts/build-large-load-facilities.ts --check",
-    "collect:facilities": "python3 scripts/collect-large-load-facilities.py"
+    "collect:facilities": "python3 scripts/collect-large-load-facilities.py",
+    "data:history:check": "node scripts/build-history.ts --check && python3 scripts/build-historical-generation.py --check",
+    "data:load-bottleneck:check": "node scripts/build-load-bottleneck.ts --check",
+    "data:constraints:check": "python3 scripts/build-grid-constraints.py --check",
+    "collect:constraints": "python3 scripts/build-grid-constraints.py --refresh"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

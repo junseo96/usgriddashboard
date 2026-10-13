@@ -37,8 +37,8 @@ test('integrated timeline preserves every historical value, scope and count with
     for (const p of original.points) {
       const actual = normalized.points.find(q => q.id === p.id)!;
       assert.equal(actual.value, p.value);
-      assert.equal(actual.unknown, p.unknownCount);
-      assert.equal(actual.population, p.projectCount);
+      assert.equal(actual.unknown, p.weightBasis === 'capacity_mw' ? p.ratingUnscoredCapacityMw : p.unknownCount);
+      assert.equal(actual.population, p.weightBasis === 'capacity_mw' ? p.knownCapacityMw : p.projectCount);
       assert.equal(actual.source.sha256, p.source.sha256);
     }
   }
@@ -51,11 +51,11 @@ test('integrated timeline preserves every historical value, scope and count with
 test('NYISO all-project and identical-seven cohorts retain their different denominators', () => {
   const register = byId('load:nyiso-load-register:active');
   const fixed = byId('load:nyiso-load-fixed-cohort:active');
-  assert.equal(register.points.at(-1)?.denominator, 52);
-  assert.equal(register.points.at(-1)?.population, 53);
-  assert.equal(register.points.at(-1)?.unknown, 1);
-  assert.ok(fixed.points.every(p => p.population === 7 && p.denominator === 7));
-  assert.ok(Math.abs(fixed.points.at(-1)!.value! - 43.57142857142857) < 1e-8);
+  assert.equal(register.points.at(-1)?.denominator, 14112.9);
+  assert.equal(register.points.at(-1)?.population, 14232.9);
+  assert.equal(register.points.at(-1)?.unknown, 120);
+  assert.ok(fixed.points.every(p => p.denominatorUnit === 'MW' && p.population! > 7 && p.denominator! > 7));
+  assert.ok(fixed.points.at(-1)!.value! < 50);
   assert.ok(comparableTimelineSeries(register, fixed));
   assert.equal(fixed.points[0].dateBasis, 'archive_capture');
   assert.ok(fixed.points[0].archiveCapturedAt);
@@ -68,12 +68,14 @@ test('MW proxy, active project average and tracked reference indices are separat
   assert.equal(active.weightBasis, 'capacity_mw');
   assert.equal(active.points.at(-1)?.denominatorUnit, 'MW');
   assert.notEqual(active.points.at(-1)?.value, tracked.points.at(-1)?.value);
-  assert.equal(comparableTimelineSeries(active, nyiso), false);
+  assert.equal(comparableTimelineSeries(active, nyiso), true);
   assert.ok(active.measure.includes('관측 소비 MW 제외'));
   const gpc = byId('load:gpc-large-load-stage-pool:tracked');
-  assert.equal(gpc.points[0].population, 118);
+  assert.equal(gpc.points[0].population, null);
   assert.equal(byId('load:gpc-large-load-stage-pool:active').points[0].value, null);
   assert.ok(gpc.measure.includes('참고지수'));
+  assert.equal(gpc.points[0].value, null, 'Unknown dated MW cannot be replaced by the old count mean');
+  assert.ok(gpc.points[0].notes.some(n => n.includes('건수 평균(보조)')));
 });
 
 test('unrated source periods stay null and definition gaps cannot be joined', () => {

@@ -35,6 +35,7 @@ const GATE_STATUS: Record<GateStatus, string> = {
 };
 const number = (value: number) => value.toLocaleString('ko-KR');
 const decimal = (value: number) => value.toLocaleString('ko-KR', { maximumFractionDigits: 1 });
+const gw = (value: number) => (value / 1000).toLocaleString('ko-KR', { maximumFractionDigits: value > 0 && value < 1000 ? 3 : 2 });
 const pointLabel = (value: number | null) => value === null ? '미산출' : decimal(value);
 const dateLabel = (value: string | null) => value ? value.replaceAll('-', '.') : '원자료 기준일 미공개';
 
@@ -67,6 +68,9 @@ function ProjectMatrix({ data, onProject }: { data: DashboardResponse; onProject
       <table className="bw-matrix-table"><thead><tr><th scope="col">프로젝트 · 원문 진행 상태</th>{GATES.map(gate => <th scope="col" key={gate}>{GATE_LABEL[gate]}<small>잔여 0–20점</small></th>)}<th scope="col">전체 병목점수</th></tr></thead>
         <tbody>{data.projects.map(score => {
           const point = ratingPoint(score);
+          const components = (data.summary.weightingType === 'all' ? score.project.types : [data.summary.weightingType]).map(type => score.project[`${type}Mw`]);
+          const knownComponents = components.filter((value): value is number => value !== null);
+          const weightingMw = knownComponents.length ? knownComponents.reduce((sum, value) => sum + value, 0) : null;
           const model = score.point === null ? score.stageEstimate : null;
           const basis = model ? model.modelVersion === 'qualitative-stage-v1' ? '자료 종합 추정' : '단계 추정' : score.point !== null ? score.estimated ? '요건별 근거 추정 포함' : '요건별 공식 근거' : '진행 근거 부족';
           return <tr key={score.project.id} onClick={() => onProject(score.project.id)} className={score.project.eligible ? '' : 'bw-excluded-row'}>
@@ -78,6 +82,7 @@ function ProjectMatrix({ data, onProject }: { data: DashboardResponse; onProject
             </th>
             {GATES.map(gate => <GateCell key={gate} score={score} gate={gate} />)}
             <td className="bw-total-cell"><strong className={point !== null && point >= 70 ? 'high' : ''}>{pointLabel(point)}{point !== null && <small>/100</small>}</strong><span className={model ? 'bw-model-tag' : 'bw-direct-tag'}>{basis}</span>
+              {score.project.eligible && point !== null && <small className="bw-source-date">{weightingMw === null ? '가중평균 제외 · MW 미공개' : weightingMw <= 0 ? '가중평균 제외 · 0 MW' : `평균 가중치 ${decimal(weightingMw)} MW`}</small>}
               {!score.project.eligible && <small className="bw-exclusion">평균 제외 · {score.project.exclusionReason || '적격 범위 밖'}</small>}
               {score.point === null && !model && score.gates.some(gate => gate.assessment) && <small className="bw-partial-note">일부 근거만 확보</small>}
             </td>
@@ -109,19 +114,19 @@ export default function BottleneckWorkspace({ data, revision, onProject, project
       {selectedType === 'load' && <div className="bw-scope-note bw-load-register-scope"><CircleHelp size={17} /><div><strong>개별 전력공급 요청과 검토된 주 규제기관 계약 사건입니다.</strong><p>공식 요청번호 또는 단일 사업의 계약 사건을 연결합니다. 진행 단계가 부족하면 점수는 미산출이며, 회사별 MW 집계는 위 권역별 카드에서 별도로 조회합니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>선택 권역의 수용가 평가 보기<ArrowRight size={13} /></button></div></div>}
       {!data?.available || !s ? projectFallback : <>
       <section className="bw-summary" aria-label="선택 범위의 병목점수와 평가 분모">
-        <article className="bw-mean"><span>{selectedType === 'load' ? '수용가 개별 원장 평균' : '선택 범위 평균 병목점수'}</span><strong>{pointLabel(s.ratingMean)}{s.ratingMean !== null && <small>/ 100</small>}</strong><p>낮을수록 잔여 절차가 적음 · 신청별 동일 가중</p></article>
-        <article><span>평균에 포함한 신청</span><strong>{number(s.ratedCount)}<small>건</small></strong><p>적격 {number(s.eligibleCount)}건 중 평가 가능한 범위</p></article>
+        <article className="bw-mean"><span>{selectedType === 'load' ? '수용가 원장 용량 가중평균' : '선택 범위 용량 가중평균'}</span><strong>{pointLabel(s.ratingMean)}{s.ratingMean !== null && <small>/ 100</small>}</strong><p>낮을수록 잔여 절차가 적음 · 공개 MW로 가중</p></article>
+        <article><span>평균의 용량 분모</span><strong>{gw(s.ratedCapacityMw)}<small>GW</small></strong><p>{number(s.ratingWeightedCount)}건 · 건수 평균 {pointLabel(s.projectCountRatingMean)}점 ({number(s.ratedCount)}건)</p></article>
         <article><span>추정 포함 / 공식 근거</span><strong>{number(s.ratingEstimatedCount)}<em>/</em>{number(officialCount)}</strong><p>단계 모형 {number(modeledCount)}건 · 공식 근거만 완비 {number(officialCount)}건</p></article>
-        <article className="bw-unknown-card"><span>미산출 신청</span><strong>{number(s.ratingUnknownCount)}<small>건</small></strong><p>미공개·불명확 진행을 100점으로 채우지 않음</p></article>
+        <article className="bw-unknown-card"><span>미산출 신청</span><strong>{number(s.ratingUnknownCount)}<small>건</small></strong><p>공개 MW 중 점수 없음 {gw(s.ratingUnscoredCapacityMw)} GW</p></article>
       </section>
-      <div className="bw-summary-caption"><p>상단 평균·유형·권역 요약은 선택한 유형·권역의 전체 적격 신청을 집계합니다. 원장 검색어·평가 상태·현재 페이지의 행 수와 분모가 다릅니다.</p><span>원장 관측 {observedAt}</span></div>
-      <section className="bw-type-grid" aria-label="유형별 프로젝트 평균 병목점수">{TYPES.map(type => <article key={type} className={`bw-type-${type}`}><span>{type === 'load' ? '수용가 개별 원장 평균' : `${TYPE_LABEL[type]} 평균`}</span><strong>{pointLabel(s.ratingTypeMeans[type])}{s.ratingTypeMeans[type] !== null && <small>/ 100</small>}</strong><p>평균 분모 {number(s.ratingTypeCounts[type])}건 · 미산출 {number(s.typeCounts[type] - s.ratingTypeCounts[type])}건</p></article>)}</section>
-      <div className="bw-scope-note"><CircleHelp size={17} /><div><p>개별 수용가 평균은 공개 신청·공급계약 중 단계 평가가 가능한 기록의 평균입니다. 다른 권역의 회사별 자료·MW 가중 지수와 합치지 않습니다. 발전·저장 복합 신청은 각 유형에 포함되며 전체 평균에서는 한 번 셉니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>다른 권역의 수용가 진행 근거 보기<ArrowRight size={13} /></button></div></div>
+      <div className="bw-summary-caption"><p>선택한 유형·권역에서 점수와 양수 MW가 모두 있는 적격 신청을 집계합니다. 평가값이 있어도 MW 미공개 {number(s.ratedMissingCapacityCount)}건·0 MW {number(s.ratedZeroCapacityCount)}건은 가중평균에서 제외합니다. 용량 일부만 공개된 {number(s.partialCapacityCount)}건은 공개 성분만 사용합니다. 검색어·페이지와 평균 분모는 별도입니다.</p><span>원장 관측 {observedAt}</span></div>
+      <section className="bw-type-grid" aria-label="유형별 프로젝트 평균 병목점수">{TYPES.map(type => <article key={type} className={`bw-type-${type}`}><span>{type === 'load' ? '수용가 원장 MW 가중평균' : `${TYPE_LABEL[type]} MW 가중평균`}</span><strong>{pointLabel(s.ratingTypeMeans[type])}{s.ratingTypeMeans[type] !== null && <small>/ 100</small>}</strong><p>분모 {gw(s.ratingTypeCapacityMw[type])} GW · {number(s.ratingTypeWeightedCounts[type])}건<br />건수 평균 {pointLabel(s.projectCountRatingTypeMeans[type])}점 · 점수 미산출 {number(s.typeCounts[type] - s.ratingTypeCounts[type])}건</p></article>)}</section>
+      <div className="bw-scope-note"><CircleHelp size={17} /><div><p>유형별 평균은 해당 유형의 공개 MW로 가중합니다. 전체 평균은 같은 ID의 공개 발전·저장·수용 MW 성분을 합한 가중치이며 순계통접속 한도와 다릅니다. 수용가 시설·개발 원장 및 회사별 집계 지수는 별도 모집단으로 유지합니다.</p><button onClick={() => onOpenRegional(selectedRegion)}>다른 권역의 수용가 진행 근거 보기<ArrowRight size={13} /></button></div></div>
       <section className="bw-gate-guide" aria-label="다섯 요건의 동일 배점"><header><div><h2>5개 요건에 각 20점</h2><p>잔여점수 = 20 × (1 − 진행률). 확인된 미진행은 20점, 완전히 통과하면 0점입니다.</p></div><button onClick={() => selectTab('methodology')}>산정 기준<ArrowRight size={14} /></button></header><ol>{GATES.map((gate, index) => <li key={gate}><span>{String(index + 1).padStart(2, '0')}</span><strong>{GATE_LABEL[gate]}</strong><small>20 → 0점</small></li>)}</ol></section>
       {projectControls && <div className="bw-project-controls">{projectControls}</div>}
       <ProjectMatrix data={data} onProject={onProject} />
       <details className="bw-register"><summary><FileSearch size={18} /><span>원장 검색·필터·페이지 이동<small>현재 {number(data.page)}페이지 · 검색 {number(data.total)}건 · CSV 내보내기</small></span><ArrowRight size={16} /></summary><div>{projectTable}</div></details>
-      <details className="bw-regional-summary"><summary><ChartNoAxesCombined size={18} /><span>권역별 개별 프로젝트 평균<small>선택 범위의 전체 적격 신청 · {number(s.ratingRegions.length)}개 권역</small></span><ArrowRight size={16} /></summary><div className="bw-table-scroll"><table><thead><tr><th scope="col">권역</th><th scope="col">평균 병목점수</th><th scope="col">평균 분모</th><th scope="col">추정 포함</th><th scope="col">미산출</th></tr></thead><tbody>{s.ratingRegions.map(row => <tr key={row.region}><th scope="row">{row.region}</th><td><strong>{pointLabel(row.mean)}</strong>{row.mean !== null && <small>/100</small>}</td><td>{number(row.ratedCount)}건</td><td>{number(row.estimatedCount)}건</td><td>{number(row.unknownCount)}건</td></tr>)}</tbody></table>{!s.ratingRegions.length && <p className="bw-empty">선택 범위에 적격 프로젝트가 없습니다.</p>}</div></details>
+      <details className="bw-regional-summary"><summary><ChartNoAxesCombined size={18} /><span>권역별 개별 프로젝트 평균<small>선택 범위의 전체 적격 신청 · {number(s.ratingRegions.length)}개 권역</small></span><ArrowRight size={16} /></summary><div className="bw-table-scroll"><table><thead><tr><th scope="col">권역</th><th scope="col">용량 가중평균</th><th scope="col">용량 분모 / 건수</th><th scope="col">건수 평균 · 보조</th><th scope="col">추정 포함</th><th scope="col">미산출</th></tr></thead><tbody>{s.ratingRegions.map(row => <tr key={row.region}><th scope="row">{row.region}</th><td><strong>{pointLabel(row.mean)}</strong>{row.mean !== null && <small>/100</small>}</td><td>{gw(row.ratedCapacityMw)} GW<small className="muted-cell">{number(row.weightedCount)}건 · MW 미공개 {number(row.missingCapacityCount)}건</small></td><td>{pointLabel(row.projectCountMean)}점<small className="muted-cell">{number(row.ratedCount)}건</small></td><td>{number(row.estimatedCount)}건</td><td>{number(row.unknownCount)}건</td></tr>)}</tbody></table>{!s.ratingRegions.length && <p className="bw-empty">선택 범위에 적격 프로젝트가 없습니다.</p>}</div></details>
       <div className="bw-bottom-note"><BadgeCheck size={17} /><p>전체 원장 {number(s.recordCount)}건 중 평균 집계 제외 {number(s.excludedCount)}건. 출처별 신청 ID 기준으로 계산하며 미국 전체 물리 프로젝트의 전수 평균을 뜻하지 않습니다.</p><button onClick={onCoverage}>수집 범위 확인<ArrowRight size={13} /></button></div>
       </>}
     </>}

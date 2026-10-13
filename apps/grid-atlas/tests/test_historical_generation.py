@@ -55,6 +55,22 @@ class HistoricalGenerationTests(unittest.TestCase):
         self.assertEqual(total['capacityUnknownCount'], 2)
         self.assertEqual(total['knownGenerationCapacityCount'], 1)
 
+    def test_capacity_weighting_uses_dated_components_and_excludes_unknown_or_zero(self):
+        projects, _, _ = history.normalize_legacy([
+            row('large', mw1=1000, mw2=20, ia_status_clean='Feasibility Study'),
+            row('small', mw1=100, mw2=80, ia_status_clean='IA Executed'),
+            row('missing', mw1=None, mw2=None), row('zero', mw1=0, mw2=0),
+            row('unrated', mw1=400, mw2=None, ia_status_clean='Unknown')], 2022)
+        overall, generation, storage = history.summaries(projects, 2022)[:3]
+        self.assertAlmostEqual(overall['ratingMean'], (1020*90+180*50)/1200)
+        self.assertAlmostEqual(generation['ratingMean'], (1000*90+100*50)/1100)
+        self.assertAlmostEqual(storage['ratingMean'], (20*90+80*50)/100)
+        self.assertEqual(overall['ratedCapacityMw'], 1200)
+        self.assertEqual(overall['ratingUnscoredCapacityMw'], 400)
+        self.assertEqual(overall['missingCapacityCount'], 1)
+        self.assertEqual(overall['zeroCapacityCount'], 1)
+        self.assertEqual(overall['ratingWeightedCount'], 2)
+
     def test_resource_scope_and_closed_rows_not_invented(self):
         rows = [row('withdrawn', q_status='withdrawn'), row('canada', state='BC'),
                 row('unknown', type1='Unknown'), row('good', type1='Pumped Storage', type2=None, mw2=None)]
@@ -72,7 +88,7 @@ class HistoricalGenerationTests(unittest.TestCase):
             scored = [(score, count) for score, count in scores if score is not None]
             overall = vintage['summaries'][0]
             self.assertEqual(overall['ratedCount'], sum(count for _, count in scored))
-            self.assertAlmostEqual(overall['ratingMean'], sum(score * count for score, count in scored) / overall['ratedCount'])
+            self.assertAlmostEqual(overall['projectCountRatingMean'], sum(score * count for score, count in scored) / overall['ratedCount'])
             self.assertLess(vintage['sourceAsOf'], vintage['publishedAt'])
             self.assertGreater(vintage['source']['retrievedAt'], vintage['publishedAt'])
 
@@ -102,8 +118,10 @@ class HistoricalGenerationTests(unittest.TestCase):
           const options = {asOf:vintage.sourceAsOf,knownAt:vintage.source.retrievedAt};
           const scores = projects.map(p => estimateStage(p,options)?.point).filter(p => p !== undefined);
           const statuses = Object.fromEntries(['Not Started','Feasibility Study','Cluster Study','System Impact Study','Facility Study','IA Pending','IA Executed','Construction'].map(rawStatus => [rawStatus, estimateStage({...projects[0],rawStatus},options)?.point]));
+          const weighted = projects.map(p=>({score:estimateStage(p,options)?.point,mw:(p.generationMw??0)+(p.storageMw??0)})).filter(p=>p.score!==undefined && p.mw>0);
+          const capacityMean=weighted.reduce((n,p)=>n+p.score*p.mw,0)/weighted.reduce((n,p)=>n+p.mw,0);
           const currentEligible = data.projects.filter(p => p.sourceId === 'lbnl-generation-storage-queues' && p.eligible).length;
-          console.log(JSON.stringify({modelVersion:STAGE_ESTIMATE_VERSION,n:projects.length,currentEligible,rated:scores.length,mean:scores.reduce((a,b)=>a+b,0)/scores.length,statuses,generation:projects.reduce((n,p)=>n+(p.generationMw??0),0),storage:projects.reduce((n,p)=>n+(p.storageMw??0),0)}));
+          console.log(JSON.stringify({capacityMean,modelVersion:STAGE_ESTIMATE_VERSION,n:projects.length,currentEligible,rated:scores.length,mean:scores.reduce((a,b)=>a+b,0)/scores.length,statuses,generation:projects.reduce((n,p)=>n+(p.generationMw??0),0),storage:projects.reduce((n,p)=>n+(p.storageMw??0),0)}));
         """
         actual = json.loads(subprocess.check_output(['node', '--input-type=module', '-e', script], cwd=APP, text=True))
         latest = self.artifact['vintages'][-1]['summaries'][0]
@@ -112,7 +130,8 @@ class HistoricalGenerationTests(unittest.TestCase):
         self.assertEqual(actual['n'], latest['eligibleCount'])
         self.assertLess(actual['currentEligible'], actual['n'], 'Subsequent current-status withdrawals must not delete projects from the historical vintage')
         self.assertEqual(actual['rated'], latest['ratedCount'])
-        self.assertAlmostEqual(actual['mean'], latest['ratingMean'])
+        self.assertAlmostEqual(actual['mean'], latest['projectCountRatingMean'])
+        self.assertAlmostEqual(actual['capacityMean'], latest['ratingMean'])
         self.assertAlmostEqual(actual['generation'], latest['generationMw'], places=5)
         self.assertAlmostEqual(actual['storage'], latest['storageMw'], places=5)
 

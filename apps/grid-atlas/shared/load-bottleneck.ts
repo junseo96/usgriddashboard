@@ -16,6 +16,7 @@ export interface LoadStageDefinition {
 export interface LoadBottleneckSource { name: string; url: string; retrievedAt: string; sha256: string; originalUrl?: string; }
 export interface LoadBottleneckBin {
   id: string; rawStage: string; stage: LoadStage; membership: 'active' | 'operating' | 'withdrawn' | 'unresolved';
+  capacityMw?: number | null; missingCapacityCount?: number;
   weight: number | null; notes: string[]; source?: LoadBottleneckSource; sourceAsOf?: string | null;
 }
 export interface LoadBottleneckObservation {
@@ -23,7 +24,7 @@ export interface LoadBottleneckObservation {
   dateBasis: 'source_as_of' | 'publication' | 'archive_capture' | 'observation';
   sourceAsOf: string | null; publishedAt: string | null; archiveCapturedAt?: string | null; observedAt?: string | null;
   source: LoadBottleneckSource; bins: LoadBottleneckBin[]; totalWeight: number | null; completePartition: boolean;
-  breakBefore?: boolean; notes: string[];
+  breakBefore?: boolean; capacityBreakBefore?: boolean; notes: string[];
 }
 export interface LoadBottleneckSeries {
   id: string; name: string; region: LoadRegion;
@@ -40,6 +41,7 @@ export interface LoadBottleneckDataset {
 }
 export interface LoadBottleneckRating {
   point: number | null; trackedPoint: number | null;
+  projectCountPoint: number | null; projectCountTrackedPoint: number | null; missingCapacityCount: number | null; scoreWeightBasis: 'capacity_mw';
   activeWeight: number | null; ratedWeight: number; unknownWeight: number | null;
   operatingWeight: number | null; withdrawnWeight: number | null; unresolvedWeight: number | null;
   totalWeight: number | null; coverage: number | null;
@@ -136,6 +138,7 @@ export function validateLoadBottleneckDataset(input: unknown, now: Date | string
       if (observation.dateBasis !== 'archive_capture') ensure(observation.archiveCapturedAt === undefined || observation.archiveCapturedAt === null, 'unexpected archive timestamp');
       if (observation.dateBasis !== 'observation') ensure(observation.observedAt === undefined || observation.observedAt === null, 'unexpected observation timestamp');
       ensure(texts(observation.notes) && typeof observation.completePartition === 'boolean' && weight(observation.totalWeight)
+        && (observation.capacityBreakBefore === undefined || typeof observation.capacityBreakBefore === 'boolean')
         && (observation.breakBefore === undefined || typeof observation.breakBefore === 'boolean') && Array.isArray(observation.bins), 'partition metadata');
       if (series.weightBasis === 'project_count') ensure(observation.totalWeight === null || Number.isSafeInteger(observation.totalWeight), 'integer project total');
       const binIds = new Set<string>(); let knownSum = 0, allKnown = true;
@@ -143,6 +146,8 @@ export function validateLoadBottleneckDataset(input: unknown, now: Date | string
         ensure(object(bin) && text(bin.id) && !binIds.has(bin.id) && text(bin.rawStage) && CATALOG.has(bin.stage as LoadStage)
           && mappings.get(bin.rawStage) === bin.stage && ['active', 'operating', 'withdrawn', 'unresolved'].includes(bin.membership as string)
           && weight(bin.weight) && texts(bin.notes), 'bin identity / exact mapping / weight');
+        ensure(bin.capacityMw === undefined || weight(bin.capacityMw), 'dated bin MW');
+        ensure(bin.missingCapacityCount === undefined || (Number.isSafeInteger(bin.missingCapacityCount) && Number(bin.missingCapacityCount) >= 0), 'missing dated capacity count');
         binIds.add(bin.id);
         ensure((bin.stage !== 'operating' || bin.membership === 'operating') && (bin.membership !== 'operating' || bin.stage === 'operating')
           && (bin.stage !== 'withdrawn' || bin.membership === 'withdrawn') && (bin.membership !== 'withdrawn' || bin.stage === 'withdrawn'), 'operating / withdrawn membership');
@@ -175,7 +180,7 @@ export function isLoadBottleneckDataset(value: unknown): value is LoadBottleneck
 }
 
 /** Never combines series, regions, count weights and MW weights. */
-export function rateLoadObservation(series: LoadBottleneckSeries, observation: LoadBottleneckObservation): LoadBottleneckRating {
+function rateSourceWeights(series: LoadBottleneckSeries, observation: LoadBottleneckObservation): Omit<LoadBottleneckRating, 'projectCountPoint' | 'projectCountTrackedPoint' | 'missingCapacityCount' | 'scoreWeightBasis'> {
   const sum = (bins: LoadBottleneckBin[]) => bins.some(bin => bin.weight === null) ? null : bins.reduce((value, bin) => value + bin.weight!, 0);
   const active = observation.bins.filter(bin => bin.membership === 'active');
   const scored = active.filter(bin => CATALOG.get(bin.stage)?.point !== null && CATALOG.has(bin.stage) && bin.weight !== null);
@@ -206,6 +211,27 @@ export function rateLoadObservation(series: LoadBottleneckSeries, observation: L
     trackedRatedWeight, trackedUnknownWeight, reasons };
 }
 
+/** Default score denominator is contemporaneous positive MW, even when the source publishes project counts. */
+export function rateLoadObservation(series: LoadBottleneckSeries, observation: LoadBottleneckObservation): LoadBottleneckRating {
+  const original = rateSourceWeights(series, observation);
+  if (series.weightBasis === 'capacity_mw') return { ...original, projectCountPoint: null, projectCountTrackedPoint: null, missingCapacityCount: null, scoreWeightBasis: 'capacity_mw' };
+  const missingCapacityCount = observation.bins.reduce((n, bin) => n + (bin.missingCapacityCount ?? (bin.capacityMw == null ? bin.weight ?? 0 : 0)), 0);
+  const bins = observation.bins.map(bin => ({ ...bin, weight: bin.capacityMw ?? 0 }));
+  // Unknown MW contributes neither a fictitious zero-size project nor an invented current capacity.
+  // The count scope still controls partition and membership validity; MW sums cover disclosed subsets only.
+  const sourcePartitionValid = observation.completePartition && observation.totalWeight !== null && observation.bins.every(bin => bin.weight !== null)
+    && reconciles(observation.bins.reduce((n, bin) => n + bin.weight!, 0), observation.totalWeight);
+  const result = rateSourceWeights({ ...series, weightBasis: 'capacity_mw' }, { ...observation, bins, completePartition: sourcePartitionValid,
+    totalWeight: bins.reduce((n, bin) => n + bin.weight, 0) });
+  if (original.unresolvedWeight !== 0) { result.point = null; result.activeWeight = null; result.coverage = null;
+    if (!observation.bins.some(bin => bin.membership === 'unresolved' && bin.capacityMw != null)) result.unresolvedWeight = null;
+  }
+  if (!observation.bins.some(bin => bin.capacityMw != null)) { result.totalWeight = null; result.activeWeight = null; result.unknownWeight = null; result.unresolvedWeight = original.unresolvedWeight === 0 ? 0 : null; result.trackedUnknownWeight = null; }
+  result.reasons = [...new Set([...original.reasons.filter(reason => !reason.includes('분모가 없습니다')), ...result.reasons,
+    ...(missingCapacityCount ? [`당시 용량 미공개 ${missingCapacityCount}건은 MW 가중 평균에서 제외합니다. 현재 용량으로 과거를 채우지 않습니다.`] : [])])];
+  return { ...result, projectCountPoint: original.point, projectCountTrackedPoint: original.trackedPoint, missingCapacityCount, scoreWeightBasis: 'capacity_mw' };
+}
+
 export function parseLoadBottleneckFilters(params: URLSearchParams): LoadBottleneckFilters {
   const result = { region: params.get('region') || undefined, seriesId: params.get('seriesId') || undefined,
     start: params.get('start') || undefined, end: params.get('end') || undefined };
@@ -225,9 +251,9 @@ export function filterLoadBottleneckSeries(dataset: LoadBottleneckDataset, filte
 export function loadBottleneckCsv(dataset: LoadBottleneckDataset, filters: LoadBottleneckFilters = {}): string {
   const headers = ['series_id', 'series_name', 'region', 'scope_type', 'population', 'weight_basis', 'scope', 'comparability',
     'observation_id', 'plot_date', 'date_precision', 'date_basis', 'source_as_of', 'published_at', 'archive_captured_at', 'observed_at',
-    'active_point', 'tracked_pool_point', 'active_weight', 'rated_weight', 'unknown_weight', 'operating_weight', 'withdrawn_weight',
-    'unresolved_weight', 'reported_total_weight', 'rated_fraction', 'complete_partition', 'model_version', 'tracked_rated_weight', 'tracked_unknown_weight',
-    'bin_id', 'raw_stage', 'model_stage', 'membership', 'bin_weight', 'stage_model_point', 'stage_mapping_rationale',
+    'aggregation_version', 'score_weight_basis', 'source_total_weight', 'project_count_point', 'project_count_tracked_point', 'missing_capacity_count', 'active_point', 'tracked_pool_point', 'active_weight', 'rated_weight', 'unknown_weight', 'operating_weight', 'withdrawn_weight',
+    'unresolved_weight', 'score_total_known_capacity_mw', 'rated_fraction', 'complete_partition', 'model_version', 'tracked_rated_weight', 'tracked_unknown_weight',
+    'bin_id', 'raw_stage', 'model_stage', 'membership', 'bin_capacity_mw', 'bin_weight', 'stage_model_point', 'stage_mapping_rationale',
     'source_name', 'source_url', 'source_sha256', 'retrieved_at', 'bin_source_as_of', 'notes'];
   const cell = (value: unknown) => { const raw = value === null || value === undefined ? '' : String(value);
     return '"' + (/^[=+\-@\t\r]/.test(raw) ? "'" + raw : raw).replaceAll('"', '""') + '"'; };
@@ -236,10 +262,10 @@ export function loadBottleneckCsv(dataset: LoadBottleneckDataset, filters: LoadB
     return point.bins.map(bin => { const source = bin.source ?? point.source;
       return [series.id, series.name, series.region, series.scopeType, series.population, series.weightBasis, series.scope, series.comparability,
         point.id, point.date, point.datePrecision, point.dateBasis, point.sourceAsOf, point.publishedAt, point.archiveCapturedAt, point.observedAt,
-        rating.point, rating.trackedPoint, rating.activeWeight, rating.ratedWeight, rating.unknownWeight, rating.operatingWeight,
+        'capacity-weighted-v1', rating.scoreWeightBasis, point.totalWeight, rating.projectCountPoint, rating.projectCountTrackedPoint, rating.missingCapacityCount, rating.point, rating.trackedPoint, rating.activeWeight, rating.ratedWeight, rating.unknownWeight, rating.operatingWeight,
         rating.withdrawnWeight, rating.unresolvedWeight, rating.totalWeight, rating.coverage, point.completePartition, dataset.modelVersion,
         rating.trackedRatedWeight, rating.trackedUnknownWeight,
-        bin.id, bin.rawStage, bin.stage, bin.membership, bin.weight, CATALOG.get(bin.stage)?.point,
+        bin.id, bin.rawStage, bin.stage, bin.membership, bin.capacityMw ?? (series.weightBasis === 'capacity_mw' ? bin.weight : null), bin.weight, CATALOG.get(bin.stage)?.point,
         series.stageMappings.find(mapping => mapping.rawStage === bin.rawStage)?.rationale,
         source.name, source.url, source.sha256, source.retrievedAt, bin.sourceAsOf,
         [...point.notes, ...bin.notes, ...rating.reasons].join(' | ')].map(cell).join(',');

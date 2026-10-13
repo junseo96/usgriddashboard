@@ -30,7 +30,7 @@ function evidence(p: Project, gate: Assessment['gate'], values: Partial<Assessme
     modelVersion: MODEL_VERSION, ...values };
 }
 
-test('model ratings average equally across projects while preserving evidence counts, hybrid identity, types and regions', () => {
+test('model ratings use disclosed component MW while preserving count means and hybrid identity', () => {
   const hybrid = project('hybrid', 'IA Executed', { types: ['generation', 'storage'], generationMw: 10000, storageMw: 50 });
   const construction = project('construction', 'Construction');
   const load = project('load', 'Under Construction', { sourceId: 'nyiso-load-register', sourceUrl: 'https://www.nyiso.com/documents/20142/1407078/NYISO-Interconnection-Queue.xlsx', types: ['load'], region: 'NYISO', state: 'NY', generationMw: null, loadMw: 200 });
@@ -43,13 +43,17 @@ test('model ratings average equally across projects while preserving evidence co
   assert.equal(summary.ratedCount, 3);
   assert.equal(summary.ratingUnknownCount, 1);
   assert.equal(summary.ratingEstimatedCount, 3);
-  assert.equal(summary.ratingMean, 33.3333333333);
+  assert.equal(summary.ratingMean, Math.round((10050 * 50 + 201 * 25) / 10251 * 1e10) / 1e10);
+  assert.equal(summary.projectCountRatingMean, 33.3333333333);
+  assert.equal(summary.ratedCapacityMw, 10251);
+  assert.equal(summary.ratingUnscoredCapacityMw, 200);
   assert.equal(summary.pointMean, null);
   assert.equal(summary.scoredCount, 0);
   assert.equal(summary.unknownCount, 4);
   assert.deepEqual(summary.ratingTypeCounts, { generation: 2, storage: 1, load: 1 });
-  assert.deepEqual(summary.ratingTypeMeans, { generation: 37.5, storage: 50, load: 25 });
-  assert.deepEqual(summary.ratingRegions, [
+  assert.deepEqual(summary.ratingTypeMeans, { generation: 49.99750025, storage: 50, load: 25 });
+  assert.deepEqual(summary.projectCountRatingTypeMeans, { generation: 37.5, storage: 50, load: 25 });
+  assert.deepEqual(summary.ratingRegions.map(({ region, projectCountMean, ratedCount, unknownCount, estimatedCount }) => ({ region, mean: projectCountMean, ratedCount, unknownCount, estimatedCount })), [
     { region: 'NYISO', mean: 25, ratedCount: 1, unknownCount: 1, estimatedCount: 1 },
     { region: 'PJM', mean: 37.5, ratedCount: 2, unknownCount: 0, estimatedCount: 2 },
   ]);

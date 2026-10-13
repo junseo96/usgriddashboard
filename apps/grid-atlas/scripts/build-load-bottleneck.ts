@@ -18,13 +18,13 @@ const NYISO_STAGES: Record<string, LoadStage> = {
 interface NyisoVintage {
   id: string; dateBasis: 'archive_capture' | 'observation'; archiveCapturedAt?: string | null; observedAt?: string | null;
   sourceAsOf: string | null; publishedAt: string | null; source: LoadBottleneckSource; notes: string;
-  statusCounts: Record<string, number>;
-  summaries: { eligibleCount: number; ratedCount: number; ratingMean: number | null }[];
+  statusCounts: Record<string, number>; statusCapacities: Record<string, { capacityMw: number; missingCapacityCount: number }>; capacityBreakBefore?: boolean;
+  summaries: { eligibleCount: number; ratedCount: number; ratingMean: number | null; ratedCapacityMw: number }[];
 }
 interface CohortVintage {
   date: string; source: LoadBottleneckSource; projectCount: number; mean: number;
   queueIds: string[]; rawStatusCounts: Record<string, number>;
-  projects: { queueId: string; linkedQueueId: string; name: string; eligible: boolean; status: string; rawStatus: string; point: number }[];
+  projects: { queueId: string; linkedQueueId: string; name: string; eligible: boolean; status: string; rawStatus: string; point: number; loadMw: number | null }[];
 }
 interface Reviewed extends Pick<LoadBottleneckDataset, 'regions' | 'series' | 'limitations'> { schemaVersion: 1; }
 const source = (value: LoadBottleneckSource): LoadBottleneckSource => ({
@@ -52,10 +52,10 @@ function observation(vintage: NyisoVintage, id: string): LoadBottleneckObservati
   return { id, date: calendarDayKst(timestamp), datePrecision: 'day', dateBasis: vintage.dateBasis,
     sourceAsOf: vintage.sourceAsOf, publishedAt: vintage.publishedAt,
     ...(vintage.dateBasis === 'archive_capture' ? { archiveCapturedAt: timestamp } : { observedAt: timestamp }),
-    source: source(vintage.source), totalWeight: vintage.summaries[0].eligibleCount, completePartition: true,
+    breakBefore: vintage.capacityBreakBefore === true, capacityBreakBefore: vintage.capacityBreakBefore === true, source: source(vintage.source), totalWeight: vintage.summaries[0].eligibleCount, completePartition: true,
     notes: [vintage.notes, '점수는 당시 저장된 원문 상태의 현재 모형 재평가이며 당시 공식 발표 점수가 아닙니다.'],
     bins: Object.entries(vintage.statusCounts).map(([rawStage, weight], index) => ({
-      id: `${id}-stage-${index}`, rawStage, stage: mapped(rawStage), membership: 'active', weight, notes: [],
+      id: `${id}-stage-${index}`, rawStage, stage: mapped(rawStage), membership: 'active', weight, ...vintage.statusCapacities[rawStage], notes: [],
     })),
   };
 }
@@ -69,7 +69,7 @@ export function assembleLoadBottleneck(reviewed: Reviewed, nyiso: { vintages: Ny
   for (const vintage of nyiso.vintages) {
     const point = observation(vintage, `load-${vintage.id}`);
     const rating = rateLoadObservation(all, point), expected = vintage.summaries[0];
-    if (rating.ratedWeight !== expected.ratedCount || rating.point === null || expected.ratingMean === null
+    if (Math.abs(rating.ratedWeight - expected.ratedCapacityMw) > 1e-7 || rating.point === null || expected.ratingMean === null
       || Math.abs(rating.point - expected.ratingMean) > 1e-9) throw new Error('NYISO stage bins disagree with verified original historical score.');
     all.points.push(point);
     const stamp = vintage.archiveCapturedAt ?? vintage.observedAt;
@@ -83,17 +83,17 @@ export function assembleLoadBottleneck(reviewed: Reviewed, nyiso: { vintages: Ny
     }
     const counts: Record<string, number> = {};
     const fixedPoint: LoadBottleneckObservation = { ...point, id: `fixed-${vintage.id}`, totalWeight: fixedIds.length,
-      notes: [...point.notes, '모든 다섯 시점에서 활성·평가 가능한 신청만 선택했습니다. 생존편향이 있어 전체 신청의 평균으로 사용할 수 없습니다.',
+      notes: [...point.notes, '평균은 각 시점의 공개 MW로 가중합니다. 모든 다섯 시점에서 활성·평가 가능한 신청만 선택했습니다. 생존편향이 있어 전체 신청의 평균으로 사용할 수 없습니다.',
         `동일 원장 ID: ${fixedIds.join(', ')}. 숫자 ID의 선행 0만 정규화했으며 이름 유사도로 합치지 않았습니다.`],
       bins: evidence.projects.map(row => {
         counts[row.rawStatus] = (counts[row.rawStatus] ?? 0) + 1;
-        return { id: row.linkedQueueId, rawStage: row.rawStatus, stage: mapped(row.rawStatus), membership: 'active', weight: 1,
+        return { id: row.linkedQueueId, rawStage: row.rawStatus, stage: mapped(row.rawStatus), membership: 'active', weight: 1, capacityMw: row.loadMw,
           notes: [`${row.name} · 원문 ID ${row.queueId} · 연결 ID ${row.linkedQueueId}`] };
       }),
     };
     if (Object.keys(counts).length !== Object.keys(evidence.rawStatusCounts).length
       || Object.entries(counts).some(([status, count]) => evidence.rawStatusCounts[status] !== count)
-      || Math.abs(rateLoadObservation(fixed, fixedPoint).point! - evidence.mean) > 1e-9) throw new Error('Fixed cohort states or mean do not reproduce.');
+      || Math.abs(rateLoadObservation(fixed, fixedPoint).projectCountPoint! - evidence.mean) > 1e-9) throw new Error('Fixed cohort states or mean do not reproduce.');
     fixed.points.push(fixedPoint);
   }
   const dataset: LoadBottleneckDataset = { schemaVersion: 1, modelVersion: LOAD_STAGE_MODEL_VERSION, generatedAt,

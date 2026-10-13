@@ -105,4 +105,4 @@ function CensusDrawer({ entity: e, onClose, onOpen, onScore }: { entity: CensusE
   </div></div>;
 }
 
-function CensusInferencePoint({ id, onClick }: { id: string; onClick: () => void }) { const j = inferenceByCensus.get(id), score = j && scoreStageInference(j); return <button className="text-button census-inference-point" onClick={onClick}>{score ? `${count(score.point)}점 · 정성 추정` : '점수 미산출'}{score && <small>{j!.applyToAverage ? '활성 평균 반영' : '활성 평균 제외'}</small>}</button>; }
+function CensusInferencePoint({ id, onClick }: { id: string; onClick: () => void }) { const j = inferenceByCensus.get(id), score = j && scoreStageInference(j); return <button className="text-button census-inference-point" onClick={onClick}>{score ? `${count(score.point)}점 · 정성 추정` : '점수 미산출'}{score && <small>{j!.applyToAverage ? '활성 평가 대상' : '활성 평가 제외'}</small>}</button>; }

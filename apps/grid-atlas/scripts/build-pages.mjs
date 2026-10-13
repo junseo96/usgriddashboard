@@ -6,6 +6,7 @@ import { createServer } from 'node:net';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { setTimeout as delay } from 'node:timers/promises';
+import { AGGREGATION_VERSION } from '../shared/types.ts';
 
 const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const outputDirectory = join(appRoot, '.state/pages');
@@ -140,6 +141,7 @@ try {
     input: 'checked-in data/bootstrap.json + data/reviewed-load-projects.json',
     readOnly: true,
     collectionPerformed: false,
+    aggregationVersion: AGGREGATION_VERSION,
   }, null, 2));
 } catch (error) {
   console.error('Pages build failed:', error instanceof Error ? error.message : String(error));

@@ -504,5 +504,7 @@
         }
       ]
     }
-  ]
+  ],
+  "meanWeightBasis": "project_count",
+  "meanUse": "Preserved count-mean evidence only. Primary capacity-weighted history is recalculated from each dated projects[].loadMw; never from current MW."
 }

@@ -82,15 +82,28 @@ function validateObservation(data) {
   if (data.ratingMethodVersion !== undefined && data.ratingMethodVersion !== STAGE_ESTIMATE_VERSION) throw new Error('Unsupported cached stage rating model; re-export a verified API observation.');
   if (data.ratingMethodVersion === undefined && Object.hasOwn(data.summary, 'ratingMean')) throw new Error('Cached stage ratings require their model version.');
   const reproduced = summarize(data.projects.map(project => scoreProject(project, [], { asOf: calendarDayKst(data.exportedAt), knownAt: data.exportedAt })));
-  // Older verified exports predate per-type disclosure counts. Validate every
-  // stored summary field, then derive the new counts from the preserved rows.
+  // Preserve/verify old observations against their original arithmetic summary,
+  // then recalculate with the current capacity aggregation using preserved MW.
+  // Re-exported snapshots carry the new version and must reproduce exactly.
+  const hasAggregationVersion = Object.hasOwn(data.summary, 'aggregationVersion');
   const comparable = { ...reproduced };
-  if (!Object.hasOwn(data.summary, 'knownCapacityCounts')) delete comparable.knownCapacityCounts;
-  if (data.ratingMethodVersion === undefined) {
-    for (const field of ['ratingMean', 'ratedCount', 'ratingUnknownCount', 'ratingEstimatedCount', 'ratingTypeMeans', 'ratingTypeCounts', 'ratingRegions']) delete comparable[field];
+  if (!hasAggregationVersion) {
+    Object.assign(comparable, {
+      pointMean: reproduced.projectCountPointMean, ratingMean: reproduced.projectCountRatingMean,
+      lowerMean: reproduced.projectCountLowerMean, upperMean: reproduced.projectCountUpperMean,
+      ratingTypeMeans: reproduced.projectCountRatingTypeMeans,
+      ratingRegions: reproduced.ratingRegions.map(({ region, ratedCount, unknownCount, estimatedCount, projectCountMean }) => ({ region, ratedCount, unknownCount, estimatedCount, mean: projectCountMean })),
+    });
+    const legacyFields = new Set(['recordCount', 'eligibleCount', 'scoredCount', 'unknownCount', 'excludedCount', 'estimatedCount', 'pointMean', 'lowerMean', 'upperMean', 'generationMw', 'storageMw', 'loadMw', 'capacityUnknownCount', 'typeCounts', 'knownCapacityCounts', 'ratingMean', 'ratedCount', 'ratingUnknownCount', 'ratingEstimatedCount', 'ratingTypeMeans', 'ratingTypeCounts', 'ratingRegions']);
+    for (const field of Object.keys(comparable)) if (!legacyFields.has(field)) delete comparable[field];
+    if (!Object.hasOwn(data.summary, 'knownCapacityCounts')) delete comparable.knownCapacityCounts;
+    if (data.ratingMethodVersion === undefined) {
+      for (const field of ['ratingMean', 'ratedCount', 'ratingUnknownCount', 'ratingEstimatedCount', 'ratingTypeMeans', 'ratingTypeCounts', 'ratingRegions']) delete comparable[field];
+    }
   }
   if (reproduced.recordCount !== data.projects.length || stable(comparable) !== stable(data.summary)) throw new Error('Cached observation does not reproduce the verified API summary.');
   data.summary = reproduced;
+  if (!hasAggregationVersion) data.limitations = data.limitations.map(value => value === '평균은 공개 진행 단계로 평가 가능한 신청의 동일 가중 평균입니다. 단계 모델 추정과 요건별 근거 평가는 구분하며, 단계 미공개는 별도 집계합니다.' ? '대표 평균은 보존된 점수와 양의 공개 MW로 재계산한 용량 가중 평균입니다. 전체는 공개 성분 합계이며 유형별 평균은 해당 유형 MW를 사용합니다.' : value);
   data.ratingMethodVersion = STAGE_ESTIMATE_VERSION;
   if (data.demand && !isDemandDataset(data.demand)) throw new Error('Invalid demand observations.');
   if (data.historical !== undefined) validateHistoricalDataset(data.historical);
@@ -169,11 +182,11 @@ function installOffline(data, scoring, pagesMode) {
   }
   const available = filter => data.snapshot.capturedAt <= [endOfKstDay(filter.asOf), filter.knownAt].sort()[0];
   function dashboard(filter) {
-    const result = { available: false, modelVersion: data.modelVersion, ratingMethodVersion: data.ratingMethodVersion, snapshot: null, summary: summarize([]), regions: [], projects: [], total: 0, page: filter.page, pageSize: filter.pageSize, sources: [], history: [], historyTruncated: false, nationalComplete: false, identityScope: 'source_record', limitations: [...data.limitations, extraLimit] };
+    const result = { available: false, modelVersion: data.modelVersion, ratingMethodVersion: data.ratingMethodVersion, snapshot: null, summary: summarize([], { type: filter.type }), regions: [], projects: [], total: 0, page: filter.page, pageSize: filter.pageSize, sources: [], history: [], historyTruncated: false, nationalComplete: false, identityScope: 'source_record', limitations: [...data.limitations, extraLimit] };
     if (!available(filter)) return result;
-    const scope = scoped(filter), projects = visible(scope, filter), summary = summarize(scope);
+    const scope = scoped(filter), projects = visible(scope, filter), summary = summarize(scope, { type: filter.type });
     const historical = { ...filter, asOf: calendarDayKst(data.snapshot.capturedAt), knownAt: [filter.knownAt, data.snapshot.capturedAt].sort()[0] };
-    return { ...result, available: true, snapshot: data.snapshot, summary, regions: [...new Set(data.projects.map(project => project.region))].sort(), projects: projects.slice((filter.page - 1) * filter.pageSize, filter.page * filter.pageSize), total: projects.length, sources: data.sources, history: [{ snapshot: data.snapshot, summary: summarize(scoped(historical)) }] };
+    return { ...result, available: true, snapshot: data.snapshot, summary, regions: [...new Set(data.projects.map(project => project.region))].sort(), projects: projects.slice((filter.page - 1) * filter.pageSize, filter.page * filter.pageSize), total: projects.length, sources: data.sources, history: [{ snapshot: data.snapshot, summary: summarize(scoped(historical), { type: filter.type }) }] };
   }
   window.fetch = async (input, init = {}) => {
     const requested = input instanceof Request ? input.url : String(input);
@@ -227,7 +240,7 @@ function installOffline(data, scoring, pagesMode) {
         if (!available(filter)) return json({ error: 'No inventory observed at selected time' }, 404);
         const items = visible(scoped(filter), filter);
         if (items.length > 25000) return json({ error: 'Export exceeds 25000 rows; narrow type or region' }, 413);
-        return new Response(projectCsv(items, { snapshotCapturedAt: data.snapshot.capturedAt, asOf: filter.asOf, knownAt: filter.knownAt, modelVersion: data.modelVersion }), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-preview.csv"' } });
+        return new Response(projectCsv(items, { snapshotCapturedAt: data.snapshot.capturedAt, asOf: filter.asOf, knownAt: filter.knownAt, modelVersion: data.modelVersion, type: filter.type }), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-preview.csv"' } });
       }
       return json({ error: 'API is unavailable in the read-only offline preview' }, 404);
     } catch (error) { return json({ error: error.message || 'Invalid preview request' }, 400); }
@@ -310,4 +323,4 @@ if (options.pages) {
   await writeFile(resolve(dirname(output), 'grid-demand.json'), JSON.stringify(observation.demand));
 }
 if (options['save-snapshot']) { const path = resolve(options['save-snapshot']); await mkdir(dirname(path), { recursive: true }); await writeFile(path, JSON.stringify(observation)); }
-console.log(JSON.stringify({ output, bytes: (await stat(output)).size, sha256: createHash('sha256').update(html).digest('hex'), exportedAt: observation.exportedAt, snapshotAt: observation.snapshot.capturedAt, recordCount: observation.projects.length, scoredCount: observation.summary.scoredCount, ratedCount: observation.summary.ratedCount, ratingMean: observation.summary.ratingMean, ratingMethodVersion: observation.ratingMethodVersion, readOnly: true, observationCount: 1 }, null, 2));
+console.log(JSON.stringify({ output, bytes: (await stat(output)).size, sha256: createHash('sha256').update(html).digest('hex'), exportedAt: observation.exportedAt, snapshotAt: observation.snapshot.capturedAt, recordCount: observation.projects.length, scoredCount: observation.summary.scoredCount, ratedCount: observation.summary.ratedCount, ratingMean: observation.summary.ratingMean, aggregationVersion: observation.summary.aggregationVersion, ratedCapacityMw: observation.summary.ratedCapacityMw, weightingBasis: observation.summary.weightingBasis, ratingMethodVersion: observation.ratingMethodVersion, readOnly: true, observationCount: 1 }, null, 2));

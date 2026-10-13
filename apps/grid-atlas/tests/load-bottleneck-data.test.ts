@@ -40,8 +40,8 @@ test('NYISO load-stage indices independently retain prior historical and current
     const rating = rateLoadObservation(customer, point);
     assert.ok(prior);
     close(rating.point, prior.value!);
-    assert.equal(rating.ratedWeight, prior.ratedCount);
-    assert.equal(rating.unknownWeight, prior.unknownCount);
+    assert.equal(rating.ratedWeight, prior.ratedCapacityMw);
+    assert.equal(rating.unknownWeight, prior.ratingUnscoredCapacityMw);
     assert.equal(point.totalWeight, prior.projectCount);
     assert.equal(point.source.sha256, prior.source.sha256);
     assert.equal(point.dateBasis, prior.dateBasis);
@@ -51,7 +51,7 @@ test('NYISO load-stage indices independently retain prior historical and current
     .filter(project => project.sourceId === 'nyiso-load-register').map(project => scoreProject(project, [])));
   const latest = rateLoadObservation(customer, customer.points.at(-1)!);
   close(latest.point, original.ratingMean!);
-  assert.equal(latest.activeWeight, 53); assert.equal(latest.ratedWeight, 52); assert.equal(latest.unknownWeight, 1);
+  assert.equal(latest.activeWeight, 14232.9); assert.equal(latest.ratedWeight, 14112.9); assert.equal(latest.unknownWeight, 120);
   assert.equal(customer.points.at(-1)!.observedAt, '2026-10-08T03:59:18.332Z');
 });
 
@@ -66,7 +66,12 @@ test('NYISO fixed cohort follows the same seven source IDs instead of mistaking 
     assert.deepEqual(point.bins.map(bin => bin.id).sort(), ids);
     assert.ok(point.bins.every(bin => bin.membership === 'active' && bin.weight === 1));
     assert.equal(point.totalWeight, 7);
-    close(rateLoadObservation(fixed, point).point, expected[index]);
+    const rating = rateLoadObservation(fixed, point);
+    close(rating.projectCountPoint, expected[index]);
+    const dated = read('load-cohort-nyiso.json').vintages[index].projects;
+    const denominator = dated.reduce((n: number, p: {loadMw: number}) => n + p.loadMw, 0);
+    close(rating.point, dated.reduce((n: number, p: {loadMw:number; point:number}) => n + p.loadMw * p.point, 0) / denominator);
+    close(rating.ratedWeight, denominator);
   });
   assert.notEqual(rateLoadObservation(fixed, fixed.points.at(-1)!).point,
     rateLoadObservation(series('nyiso-load-register'), series('nyiso-load-register').points.at(-1)!).point);
@@ -95,8 +100,8 @@ test('ERCOT ambiguous and unreconciled vintages stay unscored while current MW e
 test('PJM construction commitments remain contracts, ambiguous customers are excluded, and MISO campus works do not become grid works', () => {
   const pjm = series('pjm-aes-ohio-selected-loads'), older = rateLoadObservation(pjm, pjm.points[0]);
   const latestPoint = pjm.points.at(-1)!, latest = rateLoadObservation(pjm, latestPoint);
-  assert.equal(older.point, 80); assert.equal(older.ratedWeight, 4); assert.equal(older.unknownWeight, 4);
-  assert.equal(latest.point, 50); assert.equal(latest.ratedWeight, 5); assert.equal(latest.unknownWeight, 4);
+  assert.equal(older.point, 80); assert.equal(older.ratedWeight, 2535); assert.equal(older.unknownWeight, 3800);
+  assert.equal(latest.point, 50); assert.equal(latest.ratedWeight, 3935); assert.equal(latest.unknownWeight, 2700);
   assert.equal(latestPoint.totalWeight, 9);
   assert.ok(latestPoint.bins.filter(bin => bin.rawStage.includes('Construction Commitment')).every(bin => bin.stage === 'agreement'));
   assert.ok(latestPoint.bins.filter(bin => ['Other', 'Memorandum of Understanding (MOU)'].includes(bin.rawStage)).every(bin => bin.stage === 'unknown'));
@@ -141,9 +146,10 @@ test('Georgia Power physical and commercial subdivisions cover the same 118 cust
   assert.ok(point.bins.filter(bin => ['Broken ground', 'Pending construction'].includes(bin.rawStage)).every(bin => bin.stage === 'agreement'));
   const rating = rateLoadObservation(gpc, point);
   assert.equal(rating.point, null); assert.equal(rating.activeWeight, null);
-  assert.equal(rating.operatingWeight, 0); assert.equal(rating.unresolvedWeight, 10);
-  assert.equal(rating.trackedRatedWeight, 118);
-  close(rating.trackedPoint, (86 * 80 + 22 * 50 + 10 * 10) / 118);
+  assert.equal(rating.operatingWeight, 0); assert.equal(rating.unresolvedWeight, null);
+  assert.equal(rating.trackedRatedWeight, 0);
+  assert.equal(rating.trackedPoint, null);
+  close(rating.projectCountTrackedPoint, (86 * 80 + 22 * 50 + 10 * 10) / 118);
   assert.match(gpc.comparability, /실제 가동률/);
 });
 
@@ -168,7 +174,10 @@ test('BPA history counts only explicit mainland customer rows and stops at the l
   }
   const latest = bpa.points.at(-1)!;
   assert.equal(latest.date, '2026-02-21'); assert.equal(latest.archiveCapturedAt, '2026-02-20T23:44:25.000Z');
-  close(rateLoadObservation(bpa, latest).point, (11 * 80 + 4 * 75 + 50) / 16);
+  close(rateLoadObservation(bpa, latest).projectCountPoint, (11 * 80 + 4 * 75 + 50) / 16);
+  const mw = latest.bins.reduce((n, b) => n + (b.capacityMw ?? 0), 0);
+  close(rateLoadObservation(bpa, latest).ratedWeight, mw);
+  assert.ok(mw > 1000);
   assert.match(bpa.comparability, /2026년 2월/);
   assert.match(latest.notes.join(' '), /주 미확인 20건/);
 });
@@ -193,7 +202,7 @@ test('Duquesne uses the disclosed three studies and keeps forecast likelihood se
   assert.equal(point.bins.length, 1, 'Only an aggregate is disclosed, not invented per-project IDs');
   assert.equal(point.totalWeight, 3);
   assert.equal(rateLoadObservation(duquesne, point).point, 80);
-  assert.equal(rateLoadObservation(duquesne, point).ratedWeight, 3);
+  assert.equal(rateLoadObservation(duquesne, point).ratedWeight, 1145);
   assert.match(duquesne.comparability, /실현확률/);
   assert.match(point.notes.join(' '), /1,145MW/);
 });

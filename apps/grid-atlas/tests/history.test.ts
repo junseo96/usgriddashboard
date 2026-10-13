@@ -24,7 +24,7 @@ function fixture(): HistoricalDataset {
         points: [point('requests-2024', '2024-12-31', 0), point('requests-2020', '2020-12-31', 1000), point('requests-2022', '2022-12-31', null)] },
       { id: 'score', name: 'Annual archived generation score', region: 'US', projectTypes: ['generation'], metric: 'bottleneck_score', unit: 'score',
         scope: 'Active applications in each archived year', description: 'Current model applied to retained historical statuses.', comparability: 'Changing active populations.',
-        points: [point('score-2024', '2024-12-31', 70, { projectCount: 10, ratedCount: 8, unknownCount: 2, ratingModelVersion: 'stage-proxy-v1' })] },
+        points: [point('score-2024', '2024-12-31', 70, { projectCount: 10, ratedCount: 8, unknownCount: 2, ratingModelVersion: 'stage-proxy-v1', aggregationVersion: 'capacity-weighted-v1', weightBasis: 'capacity_mw', ratedCapacityMw: 800, knownCapacityMw: 1000, ratingUnscoredCapacityMw: 200, ratingWeightedCount: 8, missingCapacityCount: 0, zeroCapacityCount: 0, projectCountRatingMean: 70 })] },
     ] };
 }
 
@@ -64,14 +64,14 @@ test('signed load contracts remain a separate MW metric from gross connection re
 
 test('history rejects impossible values, fabricated denominators and unversioned scores', () => {
   for (const fields of [
-    { value: -1 }, { value: 101 }, { ratingModelVersion: null }, { ratedCount: 0 },
+    { value: -1 }, { value: 101 }, { weightBasis: undefined }, { aggregationVersion: undefined }, { ratedCapacityMw: 0 }, { ratingModelVersion: null }, { ratedCount: 0 },
     { ratedCount: 11 }, { unknownCount: 1 }, { projectCount: null }, { value: null, ratedCount: 8 },
   ]) {
     const data = fixture(); Object.assign(data.series[1].points[0], fields);
     assert.equal(isHistoricalDataset(data), false, JSON.stringify(fields));
   }
   const missing = fixture();
-  Object.assign(missing.series[1].points[0], { value: null, ratedCount: 0, unknownCount: 10 });
+  Object.assign(missing.series[1].points[0], { value: null, ratedCount: 0, unknownCount: 10, ratedCapacityMw: 0, ratingWeightedCount: 0 });
   assert.ok(isHistoricalDataset(missing));
 });
 

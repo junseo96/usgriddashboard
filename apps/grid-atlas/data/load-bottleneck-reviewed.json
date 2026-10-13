@@ -6,7 +6,8 @@
     "건수 가중 평균과 MW 가중 단계 지수는 분모가 다르므로 서로 합산하거나 권역 순위로 해석하지 않습니다.",
     "모든 단계 점수는 공개 상태에 배정한 5요건 모형 가정입니다. 실제 공정률·허가 취득률·대기시간 또는 완료확률이 아닙니다.",
     "신규 진입·완료·철회·자료공개율 변화로 전체 평균이 바뀔 수 있습니다. 동일 사업 진행과 전체 신청 평균을 구분하고 기대한 곡선에 맞추지 않습니다.",
-    "미공개·모호한 상태와 불일치 분모는 0이나 100으로 채우지 않습니다. 과거 원장 없이 현재 상태를 접수일로 소급하지 않습니다."
+    "미공개·모호한 상태와 불일치 분모는 0이나 100으로 채우지 않습니다. 과거 원장 없이 현재 상태를 접수일로 소급하지 않습니다.",
+    "대표 점수는 각 시점 MW 가중 평균입니다. 건수만 공개된 단계표는 용량 가중 미산출이며 동일 가중 평균을 보조값으로 보존합니다. 당시 미공개 MW를 현재 용량으로 채우지 않습니다."
   ],
   "regions": [
     {
@@ -1909,7 +1910,8 @@
               "stage": "unknown",
               "membership": "active",
               "weight": null,
-              "notes": []
+              "notes": [],
+              "capacityMw": null
             }
           ],
           "totalWeight": null,
@@ -1918,7 +1920,8 @@
           "notes": [
             "All the projects that we are currently aware of are in the first phase. ... no new large data centers (or other large electrification projects) have committed to proceeding with construction.",
             "파악된 제안의 전체 수는 공개하지 않음. 평균100점·0MW·0건으로 만들지 않음.",
-            "2026년 선별2건과의 동일ID 연결이 없어 같은 코호트로 연결할 수 없음."
+            "2026년 선별2건과의 동일ID 연결이 없어 같은 코호트로 연결할 수 없음.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         },
         {
@@ -1941,7 +1944,8 @@
               "stage": "technical_pending",
               "membership": "active",
               "weight": 2,
-              "notes": []
+              "notes": [],
+              "capacityMw": 285
             }
           ],
           "totalWeight": 2,
@@ -1954,7 +1958,8 @@
             "정격MW는전망할인전 용량. 2027/2040은예정이므로실제진척이나완료날짜가아님.",
             "Maine CMP 문의10건과 출처범위·시점이 달라 서로 합산하지 않음.",
             "연구계약 정의: https://www.iso-ne.com/static-assets/documents/100032/fx2026_large_loads_intro.pdf",
-            "동일한 사업을 공통 코호트로 연결할 근거가 없어 앞선 정성 공시와 선을 잇지 않습니다."
+            "동일한 사업을 공통 코호트로 연결할 근거가 없어 앞선 정성 공시와 선을 잇지 않습니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         }
       ]
@@ -2033,7 +2038,8 @@
                 "미래부하램프의2026–2046년예상수치를과거관측으로변환하지않음.",
                 "2026익명표와용량·순서가유사하나공식연결ID가없어개별고객의동일성/진척전이를확정하지않음.",
                 "TEAC필요·해결안제시일은상태근거의개별사건일이며전체원장기준일/공사착공일로사용하지않음."
-              ]
+              ],
+              "capacityMw": 1500.0
             },
             {
               "id": "AES Ohio::PJM-AES-20250916-C2",
@@ -2048,7 +2054,8 @@
                 "미래부하램프의2026–2046년예상수치를과거관측으로변환하지않음.",
                 "2026익명표와용량·순서가유사하나공식연결ID가없어개별고객의동일성/진척전이를확정하지않음.",
                 "TEAC필요·해결안제시일은상태근거의개별사건일이며전체원장기준일/공사착공일로사용하지않음."
-              ]
+              ],
+              "capacityMw": 500.0
             },
             {
               "id": "AES Ohio::PJM-AES-20250916-C3",
@@ -2063,7 +2070,8 @@
                 "미래부하램프의2026–2046년예상수치를과거관측으로변환하지않음.",
                 "2026익명표와용량·순서가유사하나공식연결ID가없어개별고객의동일성/진척전이를확정하지않음.",
                 "TEAC필요·해결안제시일은상태근거의개별사건일이며전체원장기준일/공사착공일로사용하지않음."
-              ]
+              ],
+              "capacityMw": 135.0
             },
             {
               "id": "AES Ohio::PJM-AES-20250916-C4",
@@ -2078,7 +2086,8 @@
                 "미래부하램프의2026–2046년예상수치를과거관측으로변환하지않음.",
                 "2026익명표와용량·순서가유사하나공식연결ID가없어개별고객의동일성/진척전이를확정하지않음.",
                 "TEAC필요·해결안제시일은상태근거의개별사건일이며전체원장기준일/공사착공일로사용하지않음."
-              ]
+              ],
+              "capacityMw": 400.0
             },
             {
               "id": "AES Ohio::PJM-AES-20250916-C5",
@@ -2093,7 +2102,8 @@
                 "미래부하램프의2026–2046년예상수치를과거관측으로변환하지않음.",
                 "2026익명표와용량·순서가유사하나공식연결ID가없어개별고객의동일성/진척전이를확정하지않음.",
                 "TEAC필요·해결안제시일은상태근거의개별사건일이며전체원장기준일/공사착공일로사용하지않음."
-              ]
+              ],
+              "capacityMw": 300.0
             },
             {
               "id": "AES Ohio::PJM-AES-20250916-C6",
@@ -2108,7 +2118,8 @@
                 "미래부하램프의2026–2046년예상수치를과거관측으로변환하지않음.",
                 "2026익명표와용량·순서가유사하나공식연결ID가없어개별고객의동일성/진척전이를확정하지않음.",
                 "TEAC필요·해결안제시일은상태근거의개별사건일이며전체원장기준일/공사착공일로사용하지않음."
-              ]
+              ],
+              "capacityMw": 1400.0
             },
             {
               "id": "AES Ohio::PJM-AES-20250916-C7",
@@ -2123,7 +2134,8 @@
                 "미래부하램프의2026–2046년예상수치를과거관측으로변환하지않음.",
                 "2026익명표와용량·순서가유사하나공식연결ID가없어개별고객의동일성/진척전이를확정하지않음.",
                 "TEAC필요·해결안제시일은상태근거의개별사건일이며전체원장기준일/공사착공일로사용하지않음."
-              ]
+              ],
+              "capacityMw": 800.0
             },
             {
               "id": "AES Ohio::PJM-AES-20250916-C8",
@@ -2138,7 +2150,8 @@
                 "미래부하램프의2026–2046년예상수치를과거관측으로변환하지않음.",
                 "2026익명표와용량·순서가유사하나공식연결ID가없어개별고객의동일성/진척전이를확정하지않음.",
                 "TEAC필요·해결안제시일은상태근거의개별사건일이며전체원장기준일/공사착공일로사용하지않음."
-              ]
+              ],
+              "capacityMw": 1300.0
             }
           ],
           "totalWeight": 8,
@@ -2147,7 +2160,8 @@
           "notes": [
             "원자료 전체 기준일은 미공개이며 공식 제출·공개일을 사용합니다. 작성일이나 미래 통전 예정일을 진행일로 사용하지 않습니다.",
             "Construction Commitment는 공사 약정이며 실제 계통 공사로 판정하지 않습니다. MOU·기타 단계 미확인은 100점 대신 평균에서 제외합니다.",
-            "표의 MW와 전망 총량 차이가 있어 용량 가중 평균은 만들지 않습니다. 실제 선별 사이트 행 수만 점수의 분모로 사용합니다."
+            "표의 개별 사이트 MW와 할인·시점별 전망 총량은 서로 다른 분모입니다. 용량 가중 평균에는 해당 표의 단계 확인 사이트 MW만 사용하며 전망 총량으로 확대하거나 보정하지 않습니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         },
         {
@@ -2181,7 +2195,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 1500.0
             },
             {
               "id": "AES Ohio::PJM-AES-20260929-C2",
@@ -2200,7 +2215,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 500.0
             },
             {
               "id": "AES Ohio::PJM-AES-20260929-C3",
@@ -2219,7 +2235,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 135.0
             },
             {
               "id": "AES Ohio::PJM-AES-20260929-C4",
@@ -2238,7 +2255,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 400.0
             },
             {
               "id": "AES Ohio::PJM-AES-20260929-C5",
@@ -2257,7 +2275,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 300.0
             },
             {
               "id": "AES Ohio::PJM-AES-20260929-C6",
@@ -2276,7 +2295,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 1400.0
             },
             {
               "id": "AES Ohio::PJM-AES-20260929-C7",
@@ -2295,7 +2315,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 800.0
             },
             {
               "id": "AES Ohio::PJM-AES-20260929-C8",
@@ -2314,7 +2335,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 1300.0
             },
             {
               "id": "AES Ohio::PJM-AES-20260929-C9",
@@ -2333,7 +2355,8 @@
                 "CC는Construction Commitment(약정)이며실제공사착수로판정하거나25점을부여하면안됨.",
                 "전망에선택한9개계획사이트부분집계이며AESOhio전체초기문의·PJM전체접속신청전수분모아님.",
                 "PDF표지9월21일은자료작성일표현이며단일원자료기준일로간주하지않음. 9월29일공식회의공개기준점에배치하고과거사업진척발생일로소급하지않음."
-              ]
+              ],
+              "capacityMw": 300.0
             }
           ],
           "totalWeight": 9,
@@ -2342,7 +2365,8 @@
           "notes": [
             "원자료 전체 기준일은 미공개이며 공식 제출·공개일을 사용합니다. 작성일이나 미래 통전 예정일을 진행일로 사용하지 않습니다.",
             "Construction Commitment는 공사 약정이며 실제 계통 공사로 판정하지 않습니다. MOU·기타 단계 미확인은 100점 대신 평균에서 제외합니다.",
-            "표의 MW와 전망 총량 차이가 있어 용량 가중 평균은 만들지 않습니다. 실제 선별 사이트 행 수만 점수의 분모로 사용합니다."
+            "표의 개별 사이트 MW와 할인·시점별 전망 총량은 서로 다른 분모입니다. 용량 가중 평균에는 해당 표의 단계 확인 사이트 MW만 사용하며 전망 총량으로 확대하거나 보정하지 않습니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         }
       ]
@@ -2396,7 +2420,8 @@
               "weight": 1,
               "notes": [
                 "Oracle Green Chile Ventures, Saline Township. 원문 계약부하 1,383 MW. 조건부 승인으로 조건 이행 완료·통전 여부는 확인하지 않습니다."
-              ]
+              ],
+              "capacityMw": 1383
             }
           ],
           "totalWeight": 1,
@@ -2404,7 +2429,8 @@
           "notes": [
             "원문: The Michigan Public Service Commission today conditionally approved ... special contracts to supply power ... 1,383-megawatt (MW) data center in Saline Township.",
             "Oracle만 공개된 이 관측을 당시 DTE 전체 계약고객 분모로 간주하지 않습니다.",
-            "계약 이후 전력인입·계통보강 착수 근거는 미확보이므로 캠퍼스 건물 공사를 25점의 계통공사 단계로 해석하지 않습니다. 공개된 계획 사업의 마지막 확인 단계에 따른 모형 추정입니다."
+            "계약 이후 전력인입·계통보강 착수 근거는 미확보이므로 캠퍼스 건물 공사를 25점의 계통공사 단계로 해석하지 않습니다. 공개된 계획 사업의 마지막 확인 단계에 따른 모형 추정입니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         },
         {
@@ -2429,7 +2455,8 @@
               "weight": 1,
               "notes": [
                 "원문: 1.4 GW Oracle data center (in plan) approved and construction started. 공사 대상은 data center이며 망보강 공사로 확인되지 않았습니다. 1.4GW는 반올림 공시값입니다."
-              ]
+              ],
+              "capacityMw": 1400
             },
             {
               "id": "google-van-buren",
@@ -2439,7 +2466,8 @@
               "weight": 1,
               "notes": [
                 "원문: 2.4 GW of executed agreements today; 1 GW Google agreement in MPSC approval process."
-              ]
+              ],
+              "capacityMw": 1000
             }
           ],
           "totalWeight": 2,
@@ -2447,7 +2475,8 @@
           "notes": [
             "추가 5–6GW opportunities(2GW advanced discussions, 3–4GW additional pipeline)는 고객수·공식 검토단계·현재 활성 여부가 미공개여서 계약부분집합과 합산하지 않습니다.",
             "용량 2.4GW는 Oracle+Google 합계입니다. 기존 개별 사례나 다른 MISO/유틸리티 집계와 중복 합산하지 않습니다.",
-            "계약 이후 전력인입·계통보강 착수 근거는 미확보이므로 캠퍼스 건물 공사를 25점의 계통공사 단계로 해석하지 않습니다. 공개된 계획 사업의 마지막 확인 단계에 따른 모형 추정입니다."
+            "계약 이후 전력인입·계통보강 착수 근거는 미확보이므로 캠퍼스 건물 공사를 25점의 계통공사 단계로 해석하지 않습니다. 공개된 계획 사업의 마지막 확인 단계에 따른 모형 추정입니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         },
         {
@@ -2480,7 +2509,8 @@
                 "retrievedAt": "2026-10-09T05:14:05.647Z",
                 "sha256": "2840ec99f5119ba8c5dca1be6ab551a8c9f96e3f3c634760d1651caf6c2f6c66"
               },
-              "sourceAsOf": null
+              "sourceAsOf": null,
+              "capacityMw": 1400
             },
             {
               "id": "google-van-buren",
@@ -2490,7 +2520,8 @@
               "weight": 1,
               "notes": [
                 "MPSC는 20년 PSA·CCAA 계약조건을 승인했습니다. 서비스 개시 2027-12/최대부하2028-12는 계획으로 현재 통전을 뜻하지 않습니다."
-              ]
+              ],
+              "capacityMw": null
             }
           ],
           "totalWeight": 2,
@@ -2498,7 +2529,8 @@
           "notes": [
             "Google 계약승인 사실만 2026-10-01 갱신. Oracle의 마지막 확인 근거는 2026-09-28입니다.",
             "Google용 발전1600MW·저장480MW는 수용가 부하 용량에 합산하지 않습니다.",
-            "계약 이후 전력인입·계통보강 착수 근거는 미확보이므로 캠퍼스 건물 공사를 25점의 계통공사 단계로 해석하지 않습니다. 공개된 계획 사업의 마지막 확인 단계에 따른 모형 추정입니다."
+            "계약 이후 전력인입·계통보강 착수 근거는 미확보이므로 캠퍼스 건물 공사를 25점의 계통공사 단계로 해석하지 않습니다. 공개된 계획 사업의 마지막 확인 단계에 따른 모형 추정입니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         }
       ]
@@ -2835,8 +2867,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Data Storage Facility · WA · 원문 ID L0630 · 행 20"
-              ]
+                "Data Storage Facility · WA · 원문 ID L0630 · 행 20",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0629",
@@ -2845,8 +2879,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 21"
-              ]
+                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 21",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 154
             },
             {
               "id": "L0628",
@@ -2855,8 +2891,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 22"
-              ]
+                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 22",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 28
             },
             {
               "id": "L0627",
@@ -2865,8 +2903,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "University of Oregon Loads · OR · 원문 ID L0627 · 행 23"
-              ]
+                "University of Oregon Loads · OR · 원문 ID L0627 · 행 23",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 19
             },
             {
               "id": "L0621",
@@ -2875,8 +2915,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 26"
-              ]
+                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 26",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 912
             },
             {
               "id": "L0611",
@@ -2885,8 +2927,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 42"
-              ]
+                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 42",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 150
             },
             {
               "id": "L0608",
@@ -2895,8 +2939,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Port Angeles 20 MW Load Addition · WA · 원문 ID L0608 · 행 45"
-              ]
+                "Port Angeles 20 MW Load Addition · WA · 원문 ID L0608 · 행 45",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 20
             },
             {
               "id": "L0606",
@@ -2905,8 +2951,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Industrial Load Addition · OR · 원문 ID L0606 · 행 48"
-              ]
+                "Industrial Load Addition · OR · 원문 ID L0606 · 행 48",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 50
             },
             {
               "id": "L0605",
@@ -2915,8 +2963,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Lower Valley Load Growth · WY · 원문 ID L0605 · 행 49"
-              ]
+                "Lower Valley Load Growth · WY · 원문 ID L0605 · 행 49",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 0
             },
             {
               "id": "L0599",
@@ -2925,8 +2975,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 58"
-              ]
+                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 58",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14.5
             },
             {
               "id": "L0598",
@@ -2935,8 +2987,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Green Hydrogen Project · WA · 원문 ID L0598 · 행 59"
-              ]
+                "Green Hydrogen Project · WA · 원문 ID L0598 · 행 59",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 304
             },
             {
               "id": "L0596",
@@ -2945,8 +2999,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 61"
-              ]
+                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 61",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 110
             },
             {
               "id": "L0591",
@@ -2955,8 +3011,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 66"
-              ]
+                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 66",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 38
             },
             {
               "id": "L0572",
@@ -2965,8 +3023,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "GLP Data Center · WA · 원문 ID L0572 · 행 231"
-              ]
+                "GLP Data Center · WA · 원문 ID L0572 · 행 231",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 600
             },
             {
               "id": "L0566",
@@ -2975,8 +3035,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 284"
-              ]
+                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 284",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14
             },
             {
               "id": "L0564",
@@ -2985,8 +3047,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 290"
-              ]
+                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 290",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 80.7
             },
             {
               "id": "L0560",
@@ -2995,8 +3059,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 292"
-              ]
+                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 292",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1400
             },
             {
               "id": "L0561",
@@ -3005,8 +3071,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 293"
-              ]
+                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 293",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1800
             },
             {
               "id": "L0554",
@@ -3015,8 +3083,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Burley Loads · ID · 원문 ID L0554 · 행 312"
-              ]
+                "West Burley Loads · ID · 원문 ID L0554 · 행 312",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0553",
@@ -3025,8 +3095,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Burley Loads · ID · 원문 ID L0553 · 행 313"
-              ]
+                "Burley Loads · ID · 원문 ID L0553 · 행 313",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0545",
@@ -3035,8 +3107,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 347"
-              ]
+                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 347",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 958
             },
             {
               "id": "L0497",
@@ -3045,8 +3119,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 536"
-              ]
+                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 536",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 200
             },
             {
               "id": "L0493",
@@ -3055,8 +3131,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center · WA · 원문 ID L0493 · 행 546"
-              ]
+                "Energizer Data Center · WA · 원문 ID L0493 · 행 546",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 77.5
             },
             {
               "id": "L0483",
@@ -3065,8 +3143,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery · OR · 원문 ID L0483 · 행 585"
-              ]
+                "Diesel Refinery · OR · 원문 ID L0483 · 행 585",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 43
             },
             {
               "id": "L0433",
@@ -3075,8 +3155,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 704"
-              ]
+                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 704",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0402",
@@ -3085,8 +3167,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Hood River Loads · OR · 원문 ID L0402 · 행 761"
-              ]
+                "Hood River Loads · OR · 원문 ID L0402 · 행 761",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5
             }
           ],
           "totalWeight": 26,
@@ -3096,7 +3180,8 @@
             "원문 LL 전체 391행에는 선로·부하·목적 미확인이 섞입니다. 그 전체를 수용가 건수로 전환하지 않습니다.",
             "용도 명시 활성 행 중 주 미확인 3건은 본토 분모에서 제외합니다.",
             "당시 보관된 상태를 현재 모형으로 재평가했습니다. 실제 접수일부터 같은 상태였다고 소급하지 않습니다.",
-            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다."
+            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ],
           "archiveCapturedAt": "2025-01-12T16:39:58.000Z"
         },
@@ -3122,8 +3207,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Data Storage Facility · WA · 원문 ID L0630 · 행 23"
-              ]
+                "Data Storage Facility · WA · 원문 ID L0630 · 행 23",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0629",
@@ -3132,8 +3219,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 24"
-              ]
+                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 24",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 154
             },
             {
               "id": "L0628",
@@ -3142,8 +3231,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 26"
-              ]
+                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 26",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 28
             },
             {
               "id": "L0627",
@@ -3152,8 +3243,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "University of Oregon Loads · OR · 원문 ID L0627 · 행 27"
-              ]
+                "University of Oregon Loads · OR · 원문 ID L0627 · 행 27",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 19
             },
             {
               "id": "L0621",
@@ -3162,8 +3255,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 30"
-              ]
+                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 30",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 912
             },
             {
               "id": "L0611",
@@ -3172,8 +3267,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 46"
-              ]
+                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 46",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 150
             },
             {
               "id": "L0606",
@@ -3182,8 +3279,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Industrial Load Addition · OR · 원문 ID L0606 · 행 52"
-              ]
+                "Industrial Load Addition · OR · 원문 ID L0606 · 행 52",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 50
             },
             {
               "id": "L0599",
@@ -3192,8 +3291,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 62"
-              ]
+                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 62",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14.5
             },
             {
               "id": "L0598",
@@ -3202,8 +3303,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Green Hydrogen Project · WA · 원문 ID L0598 · 행 63"
-              ]
+                "Green Hydrogen Project · WA · 원문 ID L0598 · 행 63",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 304
             },
             {
               "id": "L0596",
@@ -3212,8 +3315,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 65"
-              ]
+                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 65",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 110
             },
             {
               "id": "L0591",
@@ -3222,8 +3327,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 70"
-              ]
+                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 70",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 38
             },
             {
               "id": "L0572",
@@ -3232,8 +3339,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "GLP Data Center · WA · 원문 ID L0572 · 행 235"
-              ]
+                "GLP Data Center · WA · 원문 ID L0572 · 행 235",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 600
             },
             {
               "id": "L0566",
@@ -3242,8 +3351,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 288"
-              ]
+                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 288",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14
             },
             {
               "id": "L0564",
@@ -3252,8 +3363,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 294"
-              ]
+                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 294",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 80.7
             },
             {
               "id": "L0560",
@@ -3262,8 +3375,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 296"
-              ]
+                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 296",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1400
             },
             {
               "id": "L0561",
@@ -3272,8 +3387,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 297"
-              ]
+                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 297",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1800
             },
             {
               "id": "L0554",
@@ -3282,8 +3399,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Burley Loads · ID · 원문 ID L0554 · 행 316"
-              ]
+                "West Burley Loads · ID · 원문 ID L0554 · 행 316",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0553",
@@ -3292,8 +3411,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Burley Loads · ID · 원문 ID L0553 · 행 317"
-              ]
+                "Burley Loads · ID · 원문 ID L0553 · 행 317",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0545",
@@ -3302,8 +3423,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 351"
-              ]
+                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 351",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 958
             },
             {
               "id": "L0497",
@@ -3312,8 +3435,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 540"
-              ]
+                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 540",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 200
             },
             {
               "id": "L0493",
@@ -3322,8 +3447,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center · WA · 원문 ID L0493 · 행 550"
-              ]
+                "Energizer Data Center · WA · 원문 ID L0493 · 행 550",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 77.5
             },
             {
               "id": "L0483",
@@ -3332,8 +3459,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery · OR · 원문 ID L0483 · 행 589"
-              ]
+                "Diesel Refinery · OR · 원문 ID L0483 · 행 589",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 43
             },
             {
               "id": "L0433",
@@ -3342,8 +3471,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 708"
-              ]
+                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 708",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0402",
@@ -3352,8 +3483,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Hood River Loads · OR · 원문 ID L0402 · 행 765"
-              ]
+                "Hood River Loads · OR · 원문 ID L0402 · 행 765",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5
             }
           ],
           "totalWeight": 24,
@@ -3363,7 +3496,8 @@
             "원문 LL 전체 393행에는 선로·부하·목적 미확인이 섞입니다. 그 전체를 수용가 건수로 전환하지 않습니다.",
             "용도 명시 활성 행 중 주 미확인 3건은 본토 분모에서 제외합니다.",
             "당시 보관된 상태를 현재 모형으로 재평가했습니다. 실제 접수일부터 같은 상태였다고 소급하지 않습니다.",
-            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다."
+            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ],
           "archiveCapturedAt": "2025-02-19T19:36:41.000Z"
         },
@@ -3389,8 +3523,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Data Storage Facility · WA · 원문 ID L0630 · 행 23"
-              ]
+                "Data Storage Facility · WA · 원문 ID L0630 · 행 23",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0629",
@@ -3399,8 +3535,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 24"
-              ]
+                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 24",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 154
             },
             {
               "id": "L0628",
@@ -3409,8 +3547,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 26"
-              ]
+                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 26",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 28
             },
             {
               "id": "L0627",
@@ -3419,8 +3559,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "University of Oregon Loads · OR · 원문 ID L0627 · 행 27"
-              ]
+                "University of Oregon Loads · OR · 원문 ID L0627 · 행 27",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 19
             },
             {
               "id": "L0621",
@@ -3429,8 +3571,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 30"
-              ]
+                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 30",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 912
             },
             {
               "id": "L0611",
@@ -3439,8 +3583,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 46"
-              ]
+                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 46",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 150
             },
             {
               "id": "L0606",
@@ -3449,8 +3595,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Industrial Load Addition · OR · 원문 ID L0606 · 행 52"
-              ]
+                "Industrial Load Addition · OR · 원문 ID L0606 · 행 52",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 50
             },
             {
               "id": "L0599",
@@ -3459,8 +3607,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 62"
-              ]
+                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 62",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14.5
             },
             {
               "id": "L0598",
@@ -3469,8 +3619,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Green Hydrogen Project · WA · 원문 ID L0598 · 행 63"
-              ]
+                "Green Hydrogen Project · WA · 원문 ID L0598 · 행 63",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 304
             },
             {
               "id": "L0596",
@@ -3479,8 +3631,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 65"
-              ]
+                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 65",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 110
             },
             {
               "id": "L0591",
@@ -3489,8 +3643,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 70"
-              ]
+                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 70",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 38
             },
             {
               "id": "L0572",
@@ -3499,8 +3655,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "GLP Data Center · WA · 원문 ID L0572 · 행 235"
-              ]
+                "GLP Data Center · WA · 원문 ID L0572 · 행 235",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 600
             },
             {
               "id": "L0566",
@@ -3509,8 +3667,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 288"
-              ]
+                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 288",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14
             },
             {
               "id": "L0564",
@@ -3519,8 +3679,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 294"
-              ]
+                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 294",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 80.7
             },
             {
               "id": "L0560",
@@ -3529,8 +3691,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 296"
-              ]
+                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 296",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1400
             },
             {
               "id": "L0561",
@@ -3539,8 +3703,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 297"
-              ]
+                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 297",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1800
             },
             {
               "id": "L0554",
@@ -3549,8 +3715,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Burley Loads · ID · 원문 ID L0554 · 행 316"
-              ]
+                "West Burley Loads · ID · 원문 ID L0554 · 행 316",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0553",
@@ -3559,8 +3727,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Burley Loads · ID · 원문 ID L0553 · 행 317"
-              ]
+                "Burley Loads · ID · 원문 ID L0553 · 행 317",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0545",
@@ -3569,8 +3739,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 351"
-              ]
+                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 351",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 958
             },
             {
               "id": "L0497",
@@ -3579,8 +3751,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 540"
-              ]
+                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 540",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 200
             },
             {
               "id": "L0493",
@@ -3589,8 +3763,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center · WA · 원문 ID L0493 · 행 550"
-              ]
+                "Energizer Data Center · WA · 원문 ID L0493 · 행 550",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 77.5
             },
             {
               "id": "L0483",
@@ -3599,8 +3775,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery · OR · 원문 ID L0483 · 행 589"
-              ]
+                "Diesel Refinery · OR · 원문 ID L0483 · 행 589",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 43
             },
             {
               "id": "L0433",
@@ -3609,8 +3787,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 708"
-              ]
+                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 708",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0402",
@@ -3619,8 +3799,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Hood River Loads · OR · 원문 ID L0402 · 행 765"
-              ]
+                "Hood River Loads · OR · 원문 ID L0402 · 행 765",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5
             }
           ],
           "totalWeight": 24,
@@ -3630,7 +3812,8 @@
             "원문 LL 전체 393행에는 선로·부하·목적 미확인이 섞입니다. 그 전체를 수용가 건수로 전환하지 않습니다.",
             "용도 명시 활성 행 중 주 미확인 3건은 본토 분모에서 제외합니다.",
             "당시 보관된 상태를 현재 모형으로 재평가했습니다. 실제 접수일부터 같은 상태였다고 소급하지 않습니다.",
-            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다."
+            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ],
           "archiveCapturedAt": "2025-03-11T03:52:22.000Z"
         },
@@ -3656,8 +3839,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Data Storage Facility · WA · 원문 ID L0630 · 행 37"
-              ]
+                "Data Storage Facility · WA · 원문 ID L0630 · 행 37",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0629",
@@ -3666,8 +3851,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 38"
-              ]
+                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 38",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 154
             },
             {
               "id": "L0628",
@@ -3676,8 +3863,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 40"
-              ]
+                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 40",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 28
             },
             {
               "id": "L0621",
@@ -3686,8 +3875,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 44"
-              ]
+                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 44",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 912
             },
             {
               "id": "L0611",
@@ -3696,8 +3887,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 60"
-              ]
+                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 60",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 150
             },
             {
               "id": "L0606",
@@ -3706,8 +3899,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Industrial Load Addition · OR · 원문 ID L0606 · 행 66"
-              ]
+                "Industrial Load Addition · OR · 원문 ID L0606 · 행 66",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 50
             },
             {
               "id": "L0599",
@@ -3716,8 +3911,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 76"
-              ]
+                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 76",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14.5
             },
             {
               "id": "L0596",
@@ -3726,8 +3923,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 79"
-              ]
+                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 79",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 110
             },
             {
               "id": "L0591",
@@ -3736,8 +3935,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 84"
-              ]
+                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 84",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 38
             },
             {
               "id": "L0566",
@@ -3746,8 +3947,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 302"
-              ]
+                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 302",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14
             },
             {
               "id": "L0564",
@@ -3756,8 +3959,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 308"
-              ]
+                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 308",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 80.7
             },
             {
               "id": "L0560",
@@ -3766,8 +3971,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 310"
-              ]
+                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 310",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1400
             },
             {
               "id": "L0561",
@@ -3776,8 +3983,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 311"
-              ]
+                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 311",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1800
             },
             {
               "id": "L0554",
@@ -3786,8 +3995,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Burley Loads · ID · 원문 ID L0554 · 행 330"
-              ]
+                "West Burley Loads · ID · 원문 ID L0554 · 행 330",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0553",
@@ -3796,8 +4007,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Burley Loads · ID · 원문 ID L0553 · 행 331"
-              ]
+                "Burley Loads · ID · 원문 ID L0553 · 행 331",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0545",
@@ -3806,8 +4019,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 365"
-              ]
+                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 365",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 958
             },
             {
               "id": "L0497",
@@ -3816,8 +4031,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 554"
-              ]
+                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 554",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 200
             },
             {
               "id": "L0493",
@@ -3826,8 +4043,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center · WA · 원문 ID L0493 · 행 564"
-              ]
+                "Energizer Data Center · WA · 원문 ID L0493 · 행 564",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 77.5
             },
             {
               "id": "L0483",
@@ -3836,8 +4055,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery · OR · 원문 ID L0483 · 행 603"
-              ]
+                "Diesel Refinery · OR · 원문 ID L0483 · 행 603",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 43
             },
             {
               "id": "L0433",
@@ -3846,8 +4067,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 722"
-              ]
+                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 722",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             }
           ],
           "totalWeight": 20,
@@ -3857,7 +4080,8 @@
             "원문 LL 전체 404행에는 선로·부하·목적 미확인이 섞입니다. 그 전체를 수용가 건수로 전환하지 않습니다.",
             "용도 명시 활성 행 중 주 미확인 7건은 본토 분모에서 제외합니다.",
             "당시 보관된 상태를 현재 모형으로 재평가했습니다. 실제 접수일부터 같은 상태였다고 소급하지 않습니다.",
-            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다."
+            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ],
           "archiveCapturedAt": "2025-06-14T07:10:32.000Z"
         },
@@ -3883,8 +4107,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Data Storage Facility · WA · 원문 ID L0630 · 행 52"
-              ]
+                "Data Storage Facility · WA · 원문 ID L0630 · 행 52",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0629",
@@ -3893,8 +4119,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 53"
-              ]
+                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 53",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 154
             },
             {
               "id": "L0628",
@@ -3903,8 +4131,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 55"
-              ]
+                "Thompson Creek Mine Load · ID · 원문 ID L0628 · 행 55",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 28
             },
             {
               "id": "L0621",
@@ -3913,8 +4143,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 59"
-              ]
+                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 59",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 912
             },
             {
               "id": "L0611",
@@ -3923,8 +4155,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 75"
-              ]
+                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 75",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 150
             },
             {
               "id": "L0606",
@@ -3933,8 +4167,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Industrial Load Addition · OR · 원문 ID L0606 · 행 81"
-              ]
+                "Industrial Load Addition · OR · 원문 ID L0606 · 행 81",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 50
             },
             {
               "id": "L0599",
@@ -3943,8 +4179,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 91"
-              ]
+                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 91",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14.5
             },
             {
               "id": "L0596",
@@ -3953,8 +4191,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 94"
-              ]
+                "Nucor Steel Mill · WA · 원문 ID L0596 · 행 94",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 110
             },
             {
               "id": "L0591",
@@ -3963,8 +4203,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 99"
-              ]
+                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 99",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 38
             },
             {
               "id": "L0566",
@@ -3973,8 +4215,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 317"
-              ]
+                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 317",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14
             },
             {
               "id": "L0564",
@@ -3983,8 +4227,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 323"
-              ]
+                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 323",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 80.7
             },
             {
               "id": "L0560",
@@ -3993,8 +4239,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 325"
-              ]
+                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 325",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1400
             },
             {
               "id": "L0561",
@@ -4003,8 +4251,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 326"
-              ]
+                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 326",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1800
             },
             {
               "id": "L0554",
@@ -4013,8 +4263,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Burley Loads · ID · 원문 ID L0554 · 행 345"
-              ]
+                "West Burley Loads · ID · 원문 ID L0554 · 행 345",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0553",
@@ -4023,8 +4275,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Burley Loads · ID · 원문 ID L0553 · 행 346"
-              ]
+                "Burley Loads · ID · 원문 ID L0553 · 행 346",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 5.2
             },
             {
               "id": "L0545",
@@ -4033,8 +4287,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 380"
-              ]
+                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 380",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 958
             },
             {
               "id": "L0497",
@@ -4043,8 +4299,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 569"
-              ]
+                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 569",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 200
             },
             {
               "id": "L0493",
@@ -4053,8 +4311,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center · WA · 원문 ID L0493 · 행 579"
-              ]
+                "Energizer Data Center · WA · 원문 ID L0493 · 행 579",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 77.5
             },
             {
               "id": "L0483",
@@ -4063,8 +4323,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery · OR · 원문 ID L0483 · 행 618"
-              ]
+                "Diesel Refinery · OR · 원문 ID L0483 · 행 618",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 43
             },
             {
               "id": "L0433",
@@ -4073,8 +4335,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 737"
-              ]
+                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 737",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             }
           ],
           "totalWeight": 20,
@@ -4084,7 +4348,8 @@
             "원문 LL 전체 412행에는 선로·부하·목적 미확인이 섞입니다. 그 전체를 수용가 건수로 전환하지 않습니다.",
             "용도 명시 활성 행 중 주 미확인 12건은 본토 분모에서 제외합니다.",
             "당시 보관된 상태를 현재 모형으로 재평가했습니다. 실제 접수일부터 같은 상태였다고 소급하지 않습니다.",
-            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다."
+            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ],
           "archiveCapturedAt": "2025-08-19T11:45:43.000Z"
         },
@@ -4110,8 +4375,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Data Storage Facility · WA · 원문 ID L0630 · 행 83"
-              ]
+                "Data Storage Facility · WA · 원문 ID L0630 · 행 83",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             },
             {
               "id": "L0629",
@@ -4120,8 +4387,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 84"
-              ]
+                "Basalt 230 kV Load · OR · 원문 ID L0629 · 행 84",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 154
             },
             {
               "id": "L0621",
@@ -4130,8 +4399,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 90"
-              ]
+                "West Richland Data Center Campus · WA · 원문 ID L0621 · 행 90",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 912
             },
             {
               "id": "L0611",
@@ -4140,8 +4411,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 106"
-              ]
+                "Kitsap Peninsula Load · WA · 원문 ID L0611 · 행 106",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 150
             },
             {
               "id": "L0606",
@@ -4150,8 +4423,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Industrial Load Addition · OR · 원문 ID L0606 · 행 112"
-              ]
+                "Industrial Load Addition · OR · 원문 ID L0606 · 행 112",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 50
             },
             {
               "id": "L0599",
@@ -4160,8 +4435,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 122"
-              ]
+                "Pacific Northwest Renewable Energy's 22 MW Load · WA · 원문 ID L0599 · 행 122",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14.5
             },
             {
               "id": "L0591",
@@ -4170,8 +4447,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 130"
-              ]
+                "Diesel Refinery Additional Load · WA · 원문 ID L0591 · 행 130",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 38
             },
             {
               "id": "L0566",
@@ -4180,8 +4459,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 348"
-              ]
+                "Waste Management RNG Facilities · OR · 원문 ID L0566 · 행 348",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 14
             },
             {
               "id": "L0564",
@@ -4190,8 +4471,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 354"
-              ]
+                "Alfalfa Substation -230 kV Load · WA · 원문 ID L0564 · 행 354",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 80.7
             },
             {
               "id": "L0560",
@@ -4200,8 +4483,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 356"
-              ]
+                "West Hillsboro Data Center Project (Phase 1) · OR · 원문 ID L0560 · 행 356",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1400
             },
             {
               "id": "L0561",
@@ -4210,8 +4495,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 357"
-              ]
+                "NW Hillsboro-North Plains Semiconductor Plants Project (Phase 2) · OR · 원문 ID L0561 · 행 357",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 1800
             },
             {
               "id": "L0545",
@@ -4220,8 +4507,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 411"
-              ]
+                "Stack IPI Data Center · WA · 원문 ID L0545 · 행 411",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 958
             },
             {
               "id": "L0497",
@@ -4230,8 +4519,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 600"
-              ]
+                "Energizer Data Center Expanded Capacity · WA · 원문 ID L0497 · 행 600",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 200
             },
             {
               "id": "L0493",
@@ -4240,8 +4531,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Energizer Data Center · WA · 원문 ID L0493 · 행 610"
-              ]
+                "Energizer Data Center · WA · 원문 ID L0493 · 행 610",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 77.5
             },
             {
               "id": "L0483",
@@ -4250,8 +4543,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Diesel Refinery · OR · 원문 ID L0483 · 행 649"
-              ]
+                "Diesel Refinery · OR · 원문 ID L0483 · 행 649",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 43
             },
             {
               "id": "L0433",
@@ -4260,8 +4555,10 @@
               "membership": "active",
               "weight": 1,
               "notes": [
-                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 768"
-              ]
+                "Network Load Expansion 4 Quenett Creek Substation · OR · 원문 ID L0433 · 행 768",
+                "해당 보관본 Max Summer MW를 평균 가중치로 사용. 겨울 MW·최신 MW로 대체하지 않습니다."
+              ],
+              "capacityMw": 300
             }
           ],
           "totalWeight": 16,
@@ -4271,7 +4568,8 @@
             "원문 LL 전체 435행에는 선로·부하·목적 미확인이 섞입니다. 그 전체를 수용가 건수로 전환하지 않습니다.",
             "용도 명시 활성 행 중 주 미확인 20건은 본토 분모에서 제외합니다.",
             "당시 보관된 상태를 현재 모형으로 재평가했습니다. 실제 접수일부터 같은 상태였다고 소급하지 않습니다.",
-            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다."
+            "보관본 CDX 다이제스트와 취득 파일 해시를 검증했습니다. 이름 기반 용도 분류는 개별 고객의 실제 최종 용도를 독립적으로 확인한 결과가 아닙니다.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ],
           "archiveCapturedAt": "2026-02-20T23:44:25.000Z"
         }
@@ -4332,7 +4630,8 @@
               "weight": 86,
               "notes": [
                 "원문 Main 시트 Technical Review86건. 단계 평균용이며 모든 다섯 요건의 실제 진척률을 확인한 것은 아닙니다."
-              ]
+              ],
+              "capacityMw": null
             },
             {
               "id": "physical-0",
@@ -4343,7 +4642,8 @@
               "notes": [
                 "공식 보고서 표1 PDF7쪽: 데이터센터 7건, 산업 3건.",
                 "Main 시트 CES22+RFS10=32건의 대체 분포입니다. 익명 개별 행과 물리단계를 연결하지 않았으며 32건을 추가하지 않습니다."
-              ]
+              ],
+              "capacityMw": null
             },
             {
               "id": "physical-1",
@@ -4354,7 +4654,8 @@
               "notes": [
                 "공식 보고서 표1 PDF7쪽: 데이터센터 11건, 산업 0건.",
                 "Main 시트 CES22+RFS10=32건의 대체 분포입니다. 익명 개별 행과 물리단계를 연결하지 않았으며 32건을 추가하지 않습니다."
-              ]
+              ],
+              "capacityMw": null
             },
             {
               "id": "physical-2",
@@ -4365,7 +4666,8 @@
               "notes": [
                 "공식 보고서 표1 PDF7쪽: 데이터센터 9건, 산업 2건.",
                 "Main 시트 CES22+RFS10=32건의 대체 분포입니다. 익명 개별 행과 물리단계를 연결하지 않았으며 32건을 추가하지 않습니다."
-              ]
+              ],
+              "capacityMw": null
             }
           ],
           "totalWeight": 118,
@@ -4374,7 +4676,8 @@
           "notes": [
             "Main 단계분포 기술검토86+RFS10+CES22=118건. 표1 물리분포10+11+11=32건은 RFS·CES의 대체 분할이며 합계150건으로 만들지 않습니다.",
             "부분 통전 사업이 포함돼 활성 신청 분모는 미확정입니다. 혼합 추적군 참고지수만 제공하며 전국 평균에 합치지 않습니다.",
-            "원문 ZIP SHA-256을 보존합니다. XLSX SHA-256 d5727a5b3c33cce6ab1e67c6b6f8ba671c15d3695be5adb7c174ce4a7dd92bcd; PDF SHA-256 7f5ba8f547dbbc24ebbf8182f783048e1e1d8e29a96a240dca3608336488be32."
+            "원문 ZIP SHA-256을 보존합니다. XLSX SHA-256 d5727a5b3c33cce6ab1e67c6b6f8ba671c15d3695be5adb7c174ce4a7dd92bcd; PDF SHA-256 7f5ba8f547dbbc24ebbf8182f783048e1e1d8e29a96a240dca3608336488be32.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         }
       ]
@@ -4419,15 +4722,17 @@
               "notes": [
                 "원문 p2: three data centers currently under study. p4: cumulative capacity requested by the three projects is1,145 MW.",
                 "3건 집계만 공개되어 가상의 개별 ID를 만들지 않았습니다."
-              ]
+              ],
+              "capacityMw": 1145
             }
           ],
           "totalWeight": 3,
           "completePartition": true,
           "notes": [
-            "전체 Duquesne·PJM 신청 전수가 아닌 공식 전망 선별3건의 평균. 요청1,145MW는 별도용량이며3건 동일가중 점수분모에 혼합하지 않음.",
+            "전체 Duquesne·PJM 신청 전수가 아닌 공식 전망 선별3건의 평균. 동일 기술검토 구간의 요청1,145MW를 용량 가중 분모로 사용.",
             "원문 p4 상업운전 실현확률9.5–27.5%는 병목점수 또는 실제진행률로 사용하지 않음.",
-            "완전분할은 공개선별3건 내에서만 성립."
+            "완전분할은 공개선별3건 내에서만 성립.",
+            "용량 가중 평균은 이 관측 원문에 연결된 공개 MW만 사용합니다. MW 미공개는 제외하고 건수 평균은 보조값으로 보존합니다."
           ]
         }
       ]

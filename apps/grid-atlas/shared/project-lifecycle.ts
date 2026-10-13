@@ -54,7 +54,7 @@ export function projectLifecycles(dataset: LoadBottleneckDataset): ProjectLifecy
           observedAt: reusedEvidence ? earlierSourcePoint?.observedAt ?? null : observation.observedAt ?? null,
           observed: !!bin, rawStage: bin?.rawStage ?? null, membership: bin?.membership ?? null,
           point: scoreAllowed ? definition?.point ?? null : null, definition: scoreAllowed ? definition : null,
-          source, reusedEvidence, breakBefore: observation.breakBefore ?? false,
+          source, reusedEvidence, breakBefore: (observation.breakBefore ?? false) && !observation.capacityBreakBefore,
           notes: [...observation.notes, ...(bin?.notes ?? []),
             ...(!bin ? ['해당 시점의 선별 자료에서 이 ID를 확인하지 못했습니다. 신청 전·철회·완료 중 어느 상태인지 추정하지 않습니다.'] : []),
             ...(bin && bin.weight !== 1 ? ['해당 행이 단일 프로젝트라는 분모를 확인할 수 없어 점수를 산출하지 않습니다.'] : []),

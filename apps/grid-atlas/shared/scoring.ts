@@ -1,5 +1,5 @@
-import { GATES, MODEL_VERSION } from './types.ts';
-import type { Assessment, GateScore, Project, ProjectScore, Summary } from './types.ts';
+import { AGGREGATION_VERSION, GATES, MODEL_VERSION } from './types.ts';
+import type { Assessment, GateScore, Project, ProjectScore, ProjectType, Summary } from './types.ts';
 import { calendarDayKst, isCalendarDay as calendarDay, startOfKstDay } from './time.ts';
 import { estimateStage } from './stage-estimate.ts';
 
@@ -175,11 +175,31 @@ export function ratingIsEstimated(score: ProjectScore): boolean {
   return score.point !== null ? score.estimated : score.stageEstimate != null;
 }
 
-/** Arithmetic project-count mean. Unknown projects never receive an invented
- * 100 or 0. Capacity totals contain disclosed MW only and do not weight scores.
- * Identical source-record duplicates collapse; conflicting identities fail.
+const CAPACITY_FIELDS = { generation: 'generationMw', storage: 'storageMw', load: 'loadMw' } as const;
+const PROJECT_TYPES = ['generation', 'storage', 'load'] as const;
+
+/** Disclosed member-component MW; null and disclosed zero remain distinct.
+ * Overall sums components once per record, not a physical shared-POI capacity.
  */
-export function summarize(scores: readonly ProjectScore[]): Summary {
+export function projectCapacityMw(project: Project, type: ProjectType | 'all' = 'all'): number | null {
+  const components = (type === 'all' ? [...new Set(project.types)] : project.types.includes(type) ? [type] : [])
+    .map(member => project[CAPACITY_FIELDS[member]]).filter(value => value !== null);
+  if (components.some(value => !Number.isFinite(value) || value < 0)) throw new Error(`Invalid capacity for ${project.id}.`);
+  if (!components.length) return null;
+  const total = components.reduce((sum, value) => sum + value, 0);
+  if (!Number.isFinite(total)) throw new Error(`Invalid capacity total for ${project.id}.`);
+  return total;
+}
+
+/** Capacity-weighted means with the original project-count means retained as
+ * explicitly named auxiliary metrics. Positive disclosed MW are required for
+ * weighting; absent or zero MW never contribute to the numerator/denominator.
+ * Bounds cover all eligible positive MW; point/rating means cover only scored
+ * positive MW. Identical records collapse; conflicting identities fail.
+ */
+export function summarize(scores: readonly ProjectScore[], options: { type?: ProjectType | 'all' } = {}): Summary {
+  const weightingType = options.type ?? 'all';
+  if (weightingType !== 'all' && !PROJECT_TYPES.includes(weightingType)) throw new Error('Invalid weighting type.');
   const records = new Map<string, ProjectScore>();
   const sourceIds = new Map<string, string>();
   for (const score of scores) {
@@ -192,7 +212,19 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
     if (existing && canonical(existing) !== canonical(score)) throw new Error(`Conflicting duplicate project: ${project.id}.`);
     records.set(project.id, score);
   }
+  if (weightingType !== 'all') for (const [id, score] of records) if (!score.project.types.includes(weightingType)) records.delete(id);
   const summary: Summary = {
+    aggregationVersion: AGGREGATION_VERSION, weightingType,
+    weightingBasis: weightingType === 'all' ? 'disclosed_component_mw' : `${weightingType}_mw`,
+    ratedCapacityMw: 0, scoredCapacityMw: 0, boundsCapacityMw: 0,
+    ratingWeightedCount: 0, scoredWeightedCount: 0, capacityWeightedCount: 0,
+    ratingUnscoredCapacityMw: 0, missingCapacityCount: 0, zeroCapacityCount: 0,
+    ratedMissingCapacityCount: 0, ratedZeroCapacityCount: 0, partialCapacityCount: 0,
+    projectCountRatingMean: null, projectCountPointMean: null, projectCountLowerMean: null, projectCountUpperMean: null,
+    projectCountRatingTypeMeans: { generation: null, storage: null, load: null },
+    ratingTypeCapacityMw: { generation: 0, storage: 0, load: 0 },
+    ratingTypeWeightedCounts: { generation: 0, storage: 0, load: 0 },
+    ratingTypeUnscoredCapacityMw: { generation: 0, storage: 0, load: 0 },
     recordCount: records.size, eligibleCount: 0, scoredCount: 0, unknownCount: 0, excludedCount: 0,
     estimatedCount: 0, pointMean: null, lowerMean: null, upperMean: null,
     generationMw: 0, storageMw: 0, loadMw: 0, capacityUnknownCount: 0,
@@ -203,12 +235,11 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
     ratingTypeCounts: { generation: 0, storage: 0, load: 0 },
     ratingRegions: [],
   };
-  let pointTotal = 0;
-  let ratingTotal = 0;
+  let pointTotal = 0, ratingTotal = 0, lowerTotal = 0, upperTotal = 0;
+  let pointWeightedTotal = 0, ratingWeightedTotal = 0, lowerWeightedTotal = 0, upperWeightedTotal = 0;
   const ratingTypeTotals = { generation: 0, storage: 0, load: 0 };
-  const ratingRegions = new Map<string, { region: string; total: number; ratedCount: number; unknownCount: number; estimatedCount: number }>();
-  let lowerTotal = 0;
-  let upperTotal = 0;
+  const ratingTypeWeightedTotals = { generation: 0, storage: 0, load: 0 };
+  const ratingRegions = new Map<string, { region: string; total: number; weightedTotal: number; ratedCount: number; unknownCount: number; estimatedCount: number; ratedCapacityMw: number; weightedCount: number; unscoredCapacityMw: number; missingCapacityCount: number; zeroCapacityCount: number; partialCapacityCount: number }>();
   for (const score of records.values()) {
     const project = score.project;
     if (!project.eligible) { summary.excludedCount++; continue; }
@@ -216,6 +247,19 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
       (score.point !== null && (!Number.isFinite(score.point) || score.point < 0 || score.point > 100 || score.point !== score.lower || score.point !== score.upper))) {
       throw new Error(`Invalid score bounds for ${project.id}.`);
     }
+    const types = new Set(project.types);
+    for (const type of types) if (!(type in summary.typeCounts)) throw new Error(`Invalid project type for ${project.id}.`);
+    let missing = project.capacityStatus !== 'known';
+    for (const [type, field] of Object.entries(CAPACITY_FIELDS) as [ProjectType, typeof CAPACITY_FIELDS[ProjectType]][]) {
+      const capacity = project[field];
+      if (capacity !== null && (!Number.isFinite(capacity) || capacity < 0)) throw new Error(`Invalid ${field} for ${project.id}.`);
+      if (!types.has(type)) continue;
+      if (capacity === null) missing = true;
+      else { summary[field] += capacity; summary.knownCapacityCounts[type]++; }
+    }
+    if (missing) summary.capacityUnknownCount++;
+    const weight = projectCapacityMw(project, weightingType);
+    const isPartial = weightingType === 'all' && weight !== null && [...types].some(type => project[CAPACITY_FIELDS[type]] === null);
     summary.eligibleCount++;
     if (score.point === null) summary.unknownCount++;
     else { summary.scoredCount++; pointTotal += score.point; }
@@ -223,7 +267,7 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
     const rating = ratingPoint(score);
     if (rating !== null && (!Number.isFinite(rating) || rating < 0 || rating > 100)) throw new Error(`Invalid rating for ${project.id}.`);
     const ratingEstimated = ratingIsEstimated(score);
-    const region = ratingRegions.get(project.region) ?? { region: project.region, total: 0, ratedCount: 0, unknownCount: 0, estimatedCount: 0 };
+    const region = ratingRegions.get(project.region) ?? { region: project.region, total: 0, weightedTotal: 0, ratedCount: 0, unknownCount: 0, estimatedCount: 0, ratedCapacityMw: 0, weightedCount: 0, unscoredCapacityMw: 0, missingCapacityCount: 0, zeroCapacityCount: 0, partialCapacityCount: 0 };
     ratingRegions.set(project.region, region);
     if (rating === null) { summary.ratingUnknownCount++; region.unknownCount++; }
     else {
@@ -231,41 +275,57 @@ export function summarize(scores: readonly ProjectScore[]): Summary {
       region.ratedCount++; region.total += rating;
       if (ratingEstimated) { summary.ratingEstimatedCount++; region.estimatedCount++; }
     }
-    lowerTotal += score.lower;
-    upperTotal += score.upper;
-    const types = new Set(project.types);
+    lowerTotal += score.lower; upperTotal += score.upper;
+    if (weight === null) {
+      summary.missingCapacityCount++; region.missingCapacityCount++;
+      if (rating !== null) summary.ratedMissingCapacityCount++;
+    } else if (weight === 0) {
+      summary.zeroCapacityCount++; region.zeroCapacityCount++;
+      if (rating !== null) summary.ratedZeroCapacityCount++;
+    } else {
+      summary.capacityWeightedCount++; summary.boundsCapacityMw += weight;
+      lowerWeightedTotal += weight * score.lower; upperWeightedTotal += weight * score.upper;
+      if (score.point !== null) { summary.scoredWeightedCount++; summary.scoredCapacityMw += weight; pointWeightedTotal += weight * score.point; }
+      if (rating !== null) {
+        summary.ratingWeightedCount++; summary.ratedCapacityMw += weight; ratingWeightedTotal += weight * rating;
+        region.weightedCount++; region.ratedCapacityMw += weight; region.weightedTotal += weight * rating;
+      } else { summary.ratingUnscoredCapacityMw += weight; region.unscoredCapacityMw += weight; }
+    }
+    if (isPartial) { summary.partialCapacityCount++; region.partialCapacityCount++; }
     for (const type of types) {
-      if (!(type in summary.typeCounts)) throw new Error(`Invalid project type for ${project.id}.`);
       summary.typeCounts[type]++;
-      if (rating !== null) { summary.ratingTypeCounts[type]++; ratingTypeTotals[type] += rating; }
+      const capacity = project[CAPACITY_FIELDS[type]];
+      if (rating !== null) {
+        summary.ratingTypeCounts[type]++; ratingTypeTotals[type] += rating;
+        if (capacity !== null && capacity > 0) {
+          summary.ratingTypeWeightedCounts[type]++; summary.ratingTypeCapacityMw[type] += capacity;
+          ratingTypeWeightedTotals[type] += rating * capacity;
+        }
+      } else if (capacity !== null && capacity > 0) summary.ratingTypeUnscoredCapacityMw[type] += capacity;
     }
-    let missing = project.capacityStatus !== 'known';
-    for (const [type, field] of [['generation', 'generationMw'], ['storage', 'storageMw'], ['load', 'loadMw']] as const) {
-      const capacity = project[field];
-      if (capacity !== null && (!Number.isFinite(capacity) || capacity < 0)) throw new Error(`Invalid ${field} for ${project.id}.`);
-      if (!types.has(type)) continue;
-      if (capacity === null) missing = true;
-      else {
-        summary[field] += capacity;
-        summary.knownCapacityCounts[type]++;
-      }
-    }
-    if (missing) summary.capacityUnknownCount++;
   }
-  if (summary.scoredCount) summary.pointMean = precise(pointTotal / summary.scoredCount);
-  if (summary.ratedCount) summary.ratingMean = precise(ratingTotal / summary.ratedCount);
-  for (const type of ['generation', 'storage', 'load'] as const) {
-    if (summary.ratingTypeCounts[type]) summary.ratingTypeMeans[type] = precise(ratingTypeTotals[type] / summary.ratingTypeCounts[type]);
+  const mean = (total: number, denominator: number): number | null => {
+    if (!Number.isFinite(total) || !Number.isFinite(denominator)) throw new Error('Capacity aggregation exceeds finite numeric range.');
+    return denominator > 0 ? precise(total / denominator) : null;
+  };
+  summary.pointMean = mean(pointWeightedTotal, summary.scoredCapacityMw);
+  summary.ratingMean = mean(ratingWeightedTotal, summary.ratedCapacityMw);
+  summary.lowerMean = mean(lowerWeightedTotal, summary.boundsCapacityMw);
+  summary.upperMean = mean(upperWeightedTotal, summary.boundsCapacityMw);
+  summary.projectCountPointMean = mean(pointTotal, summary.scoredCount);
+  summary.projectCountRatingMean = mean(ratingTotal, summary.ratedCount);
+  summary.projectCountLowerMean = mean(lowerTotal, summary.eligibleCount);
+  summary.projectCountUpperMean = mean(upperTotal, summary.eligibleCount);
+  for (const type of PROJECT_TYPES) {
+    summary.ratingTypeMeans[type] = mean(ratingTypeWeightedTotals[type], summary.ratingTypeCapacityMw[type]);
+    summary.projectCountRatingTypeMeans[type] = mean(ratingTypeTotals[type], summary.ratingTypeCounts[type]);
+    summary.ratingTypeCapacityMw[type] = precise(summary.ratingTypeCapacityMw[type]);
+    summary.ratingTypeUnscoredCapacityMw[type] = precise(summary.ratingTypeUnscoredCapacityMw[type]);
   }
-  summary.ratingRegions = [...ratingRegions.values()].sort((a, b) => a.region.localeCompare(b.region)).map(({ total, ...region }) => ({
-    ...region, mean: region.ratedCount ? precise(total / region.ratedCount) : null,
+  summary.ratingRegions = [...ratingRegions.values()].sort((a, b) => a.region.localeCompare(b.region)).map(({ total, weightedTotal, ...region }) => ({
+    ...region, ratedCapacityMw: precise(region.ratedCapacityMw), unscoredCapacityMw: precise(region.unscoredCapacityMw),
+    mean: mean(weightedTotal, region.ratedCapacityMw), projectCountMean: mean(total, region.ratedCount),
   }));
-  if (summary.eligibleCount) {
-    summary.lowerMean = precise(lowerTotal / summary.eligibleCount);
-    summary.upperMean = precise(upperTotal / summary.eligibleCount);
-  }
-  summary.generationMw = precise(summary.generationMw);
-  summary.storageMw = precise(summary.storageMw);
-  summary.loadMw = precise(summary.loadMw);
+  for (const field of ['generationMw', 'storageMw', 'loadMw', 'ratedCapacityMw', 'scoredCapacityMw', 'boundsCapacityMw', 'ratingUnscoredCapacityMw'] as const) summary[field] = precise(summary[field]);
   return summary;
 }

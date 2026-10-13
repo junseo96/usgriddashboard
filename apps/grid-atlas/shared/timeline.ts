@@ -13,7 +13,7 @@ export interface TimelinePoint {
   archiveCapturedAt: string | null; value: number | null; qualifier: HistoricalPoint['qualifier'];
   denominator: number | null; population: number | null; unknown: number | null;
   denominatorUnit: 'projects' | 'MW' | 'observations' | null;
-  complete: boolean | null; breakBefore: boolean; modelVersion: string | null;
+  complete: boolean | null; breakBefore: boolean; modelVersion: string | null; aggregationVersion?: 'capacity-weighted-v1' | null;
   source: { name: string; url: string; retrievedAt: string | null; sha256: string | null };
   notes: string[];
 }
@@ -36,6 +36,7 @@ export function timelineMetricTransition(next: TimelineMetric, current: { region
 }
 const metricMap = { bottleneck_score: 'score', queue_count: 'count', queue_capacity: 'capacity', load_requests: 'capacity', load_contracts: 'capacity' } as const;
 const measureMap = { bottleneck_score: '공개 원장 단계 평균', queue_count: '공개 원장 신청 건수', queue_capacity: '공개 원장 신청 용량', load_requests: '수용가 요청·파이프라인', load_contracts: '수용가 계약 용량' } as const;
+const pointWeightBasis = (points: HistoricalPoint[]) => points.some(p => p.weightBasis === 'capacity_mw') ? 'capacity_mw' : 'project_count';
 const sortPoints = (points: TimelinePoint[]) => points.toSorted((a, b) => a.timestamp - b.timestamp || a.id.localeCompare(b.id));
 export const timelineRegionLabel = (region: string) => region === '미국 본토' ? '전국 · 공개 원장 범위' : region === 'West' ? '서부 · 공개된 일부 범위' : region === 'Southeast' ? '남동부 · 공개된 일부 범위' : region;
 
@@ -45,20 +46,20 @@ export function buildTimelineSeries(input: { historical?: HistoricalDataset | nu
     result.push({ id: `history:${series.id}`, originalId: series.id, name: series.name, region: series.region,
       projectTypes: series.projectTypes, metric: metricMap[series.metric], unit: series.unit, origin: 'historical',
       scope: series.scope, comparability: series.comparability, measure: measureMap[series.metric],
-      weightBasis: series.metric === 'bottleneck_score' ? 'project_count' : 'source_value', intervalMinutes: null, timezone: null,
+      weightBasis: series.metric === 'bottleneck_score' ? pointWeightBasis(series.points) : 'source_value', intervalMinutes: null, timezone: null,
       points: sortPoints(series.points.map(point => ({ id: point.id, date: point.date, timestamp: Date.parse(point.date), precision: point.datePrecision,
         dateBasis: point.dateBasis, sourceAsOf: point.sourceAsOf, publishedAt: point.publishedAt,
         observedAt: point.observedAt ?? null, archiveCapturedAt: point.archiveCapturedAt ?? null,
         value: point.value, qualifier: point.qualifier,
-        denominator: series.metric === 'bottleneck_score' ? point.ratedCount : point.projectCount,
-        population: point.projectCount, unknown: point.unknownCount, denominatorUnit: 'projects',
-        complete: null, breakBefore: point.breakBefore ?? false, modelVersion: point.ratingModelVersion,
-        source: point.source, notes: [...point.notes, ...(series.metric === 'bottleneck_score' ? ['당시 원장 상태에 현재 공통 단계 모형을 적용한 과거 재평가입니다. 그때 발표된 점수가 아닙니다.'] : [])] }))) });
+        denominator: series.metric === 'bottleneck_score' ? point.weightBasis === 'capacity_mw' ? point.ratedCapacityMw ?? null : point.ratedCount : point.projectCount,
+        population: series.metric === 'bottleneck_score' && point.weightBasis === 'capacity_mw' ? point.knownCapacityMw ?? null : point.projectCount, unknown: series.metric === 'bottleneck_score' && point.weightBasis === 'capacity_mw' ? point.ratingUnscoredCapacityMw ?? null : point.unknownCount, denominatorUnit: series.metric === 'bottleneck_score' && point.weightBasis === 'capacity_mw' ? 'MW' : 'projects',
+        complete: null, breakBefore: point.breakBefore ?? false, modelVersion: point.ratingModelVersion, aggregationVersion: point.aggregationVersion ?? null,
+        source: point.source, notes: [...point.notes, ...(point.weightBasis === 'capacity_mw' ? [`당시 MW 가중 분모 ${point.ratedCapacityMw} MW · 용량 미공개 ${point.missingCapacityCount}건 · 0 MW ${point.zeroCapacityCount}건. 건수 평균(보조) ${point.projectCountRatingMean ?? '미산출'}점.`] : []), ...(series.metric === 'bottleneck_score' ? ['당시 원장 상태에 현재 공통 단계 모형을 적용한 과거 재평가입니다. 그때 발표된 점수가 아닙니다.'] : [])] }))) });
   }
   for (const series of input.load?.series ?? []) {
     const ratings = series.points.map(point => ({ point, rating: rateLoadObservation(series, point) }));
     const variants: ('active' | 'tracked' | 'population')[] = ['active'];
-    if (ratings.some(row => row.rating.trackedPoint !== null)) variants.push('tracked');
+    if (ratings.some(row => row.rating.trackedPoint !== null || row.rating.projectCountTrackedPoint !== null)) variants.push('tracked');
     if (series.points.some(point => point.totalWeight !== null)) variants.push('population');
     for (const variant of variants) {
       const consumptionProxy = series.id === 'ercot-load-stages';
@@ -67,17 +68,17 @@ export function buildTimelineSeries(input: { historical?: HistoricalDataset | nu
       result.push({ id: `load:${series.id}:${variant}`, originalId: series.id, name: `${series.name} · ${measure}`,
         region: series.region, projectTypes: ['load'], metric: variant === 'population' ? series.weightBasis === 'capacity_mw' ? 'capacity' : 'count' : 'score',
         unit: variant === 'population' ? series.weightBasis === 'capacity_mw' ? 'MW' : 'projects' : 'score', origin: 'load_stage',
-        scope: series.scope, comparability: series.comparability, measure, weightBasis: series.weightBasis,
+        scope: series.scope, comparability: series.comparability, measure, weightBasis: variant === 'population' ? series.weightBasis : 'capacity_mw',
         intervalMinutes: null, timezone: null,
         points: sortPoints(ratings.map(({ point, rating }) => ({ id: point.id, date: point.date, timestamp: Date.parse(point.date), precision: point.datePrecision,
           dateBasis: point.dateBasis, sourceAsOf: point.sourceAsOf, publishedAt: point.publishedAt,
           observedAt: point.observedAt ?? null, archiveCapturedAt: point.archiveCapturedAt ?? null,
           value: variant === 'population' ? point.totalWeight : variant === 'tracked' ? rating.trackedPoint : rating.point,
           qualifier: 'exact', denominator: variant === 'tracked' ? rating.trackedRatedWeight : variant === 'population' ? null : rating.ratedWeight,
-          population: point.totalWeight, unknown: variant === 'tracked' ? rating.trackedUnknownWeight : rating.unknownWeight,
-          denominatorUnit: series.weightBasis === 'capacity_mw' ? 'MW' : 'projects', complete: null,
-          breakBefore: point.breakBefore ?? false, modelVersion: variant === 'population' ? null : input.load!.modelVersion, source: point.source,
-          notes: [...point.notes, ...rating.reasons, ...point.bins.flatMap(bin => bin.source && bin.source.url !== point.source.url ? [`개별 단계 추가 근거: ${bin.source.name} — ${bin.source.url}`] : []),
+          population: variant === 'population' ? point.totalWeight : rating.totalWeight, unknown: variant === 'tracked' ? rating.trackedUnknownWeight : rating.unknownWeight,
+          denominatorUnit: variant !== 'population' || series.weightBasis === 'capacity_mw' ? 'MW' : 'projects', complete: null,
+          breakBefore: point.breakBefore ?? false, modelVersion: variant === 'population' ? null : input.load!.modelVersion, aggregationVersion: variant === 'population' ? null : 'capacity-weighted-v1', source: point.source,
+          notes: [...point.notes, ...rating.reasons, ...(series.weightBasis === 'project_count' ? [`건수 평균(보조) ${rating.projectCountPoint ?? '미산출'}점 · 추적군 건수 평균(보조) ${rating.projectCountTrackedPoint ?? '미산출'}점 · 당시 용량 미공개 ${rating.missingCapacityCount}건.`] : []), ...point.bins.flatMap(bin => bin.source && bin.source.url !== point.source.url ? [`개별 단계 추가 근거: ${bin.source.name} — ${bin.source.url}`] : []),
             variant === 'population' ? `원문 집단: ${series.population}. 전체 현재 대기 신청과 동일한 분모인지 범위를 확인하세요.`
               : variant === 'tracked' ? '운영 또는 활성 여부 미분류를 포함할 수 있는 추적군 지수입니다. 활성 신청 평균과 구별합니다.'
                 : consumptionProxy ? '공개된 비동시 최대 소비 MW만 제외합니다. 운영 프로젝트 전체 계약용량을 제외한 대기 프로젝트 평균이 아닙니다.'
@@ -135,10 +136,10 @@ export function comparableTimelineSeries(a: TimelineSeries, b: TimelineSeries): 
   return a.id !== b.id && a.metric === b.metric && a.unit === b.unit && (a.metric !== 'score' || a.weightBasis === b.weightBasis);
 }
 export function timelineCsv(series: TimelineSeries[]): string {
-  const headers = ['series_id','series_name','region','project_types','metric','unit','measure','weight_basis','scope','comparability','point_id','date','precision','date_basis','source_as_of','published_at','observed_at','archive_captured_at','value','qualifier','denominator','population','unknown','denominator_unit','complete','break_before','model_version','source_name','source_url','retrieved_at','source_sha256','notes'];
+  const headers = ['series_id','series_name','region','project_types','metric','unit','measure','weight_basis','scope','comparability','point_id','date','precision','date_basis','source_as_of','published_at','observed_at','archive_captured_at','value','qualifier','denominator','population','unknown','denominator_unit','complete','break_before','model_version','aggregation_version','source_name','source_url','retrieved_at','source_sha256','notes'];
   const cell = (v: unknown) => { const raw = v == null ? '' : String(v); return '"' + (/^[\s]*[=+\-@]|^[\t\r\n]/.test(raw) ? "'" + raw : raw).replaceAll('"','""') + '"'; };
   const rows = series.flatMap(s => s.points.map(p => [s.id,s.name,s.region,s.projectTypes.join('|'),s.metric,s.unit,s.measure,s.weightBasis,s.scope,s.comparability,
     p.id,p.date,p.precision,p.dateBasis,p.sourceAsOf,p.publishedAt,p.observedAt,p.archiveCapturedAt,p.value,p.qualifier,p.denominator,p.population,p.unknown,p.denominatorUnit,
-    p.complete,p.breakBefore,p.modelVersion,p.source.name,p.source.url,p.source.retrievedAt,p.source.sha256,p.notes.join(' | ')].map(cell).join(',')));
+    p.complete,p.breakBefore,p.modelVersion,p.aggregationVersion,p.source.name,p.source.url,p.source.retrievedAt,p.source.sha256,p.notes.join(' | ')].map(cell).join(',')));
   return '\uFEFF' + [headers.join(','), ...rows].join('\r\n');
 }

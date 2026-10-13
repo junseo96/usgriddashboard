@@ -1,5 +1,5 @@
-import { ratingPoint } from './scoring.ts';
-import type { ProjectScore } from './types.ts';
+import { projectCapacityMw, ratingPoint } from './scoring.ts';
+import { AGGREGATION_VERSION, type ProjectScore, type ProjectType } from './types.ts';
 
 /** Keep the original columns in place; append review provenance for existing consumers. */
 export const PROJECT_CSV_HEADERS = [
@@ -12,6 +12,8 @@ export const PROJECT_CSV_HEADERS = [
   'stage_inference_evaluated_at', 'stage_inference_status', 'stage_inference_status_basis',
   'stage_inference_apply_to_average', 'stage_inference_identity_status',
   'stage_inference_assumptions', 'stage_inference_limitations', 'stage_inference_source_evidence',
+  'aggregation_version', 'weighting_type', 'weighting_basis', 'score_weight_mw',
+  'capacity_weight_eligible', 'weight_exclusion_reason', 'weighted_contribution', 'capacity_component_partial',
 ] as const;
 
 export interface ProjectCsvContext {
@@ -19,6 +21,7 @@ export interface ProjectCsvContext {
   asOf?: string;
   knownAt?: string;
   modelVersion: string;
+  type?: ProjectType | 'all';
 }
 
 function csvValue(value: unknown): string {
@@ -31,6 +34,10 @@ export function projectCsv(scores: readonly ProjectScore[], context: ProjectCsvC
   const rows = scores.map(score => {
     const project = score.project, stage = score.stageEstimate;
     const review = stage?.modelVersion === 'qualitative-stage-v1' ? stage : null;
+    const type = context.type ?? 'all', weight = projectCapacityMw(project, type), rating = ratingPoint(score);
+    const reason = !project.eligible ? 'project_excluded' : type !== 'all' && !project.types.includes(type) ? 'outside_type_scope' : rating === null ? 'score_unknown' : weight === null ? 'capacity_undisclosed' : weight === 0 ? 'zero_capacity' : '';
+    const included = reason === '';
+    const partial = type === 'all' && weight !== null && project.types.some(member => project[`${member}Mw`] === null);
     return [
       project.id, project.name, project.types.join('|'), project.region, project.state, project.status,
       project.eligible, project.generationMw, project.storageMw, project.loadMw,
@@ -44,6 +51,8 @@ export function projectCsv(scores: readonly ProjectScore[], context: ProjectCsvC
       review?.status, review?.statusBasis, review?.applyToAverage, review?.identityStatus,
       review ? JSON.stringify(review.assumptions) : '', review ? JSON.stringify(review.limitations) : '',
       review ? JSON.stringify(review.sourceEvidence) : '',
+      AGGREGATION_VERSION, type, type === 'all' ? 'disclosed_component_mw' : `${type}_mw`, weight,
+      included, reason, included ? weight! * rating! : null, partial,
     ].map(csvValue).join(',');
   });
   return '\uFEFF' + [PROJECT_CSV_HEADERS.join(','), ...rows].join('\r\n');

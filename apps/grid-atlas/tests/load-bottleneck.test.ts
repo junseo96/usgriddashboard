@@ -64,8 +64,9 @@ test('project-count and capacity-weighted indices stay separate without a region
   countSeries.points[0].id = 'count-2025'; countSeries.points[0].totalWeight = 2;
   countSeries.points[0].bins = [bin('application', 1), bin('construction', 1)];
   data.series.push(countSeries); validateLoadBottleneckDataset(data);
-  assert.equal(rateLoadObservation(countSeries, countSeries.points[0]).point, 62.5);
+  assert.equal(rateLoadObservation(countSeries, countSeries.points[0]).projectCountPoint, 62.5);
   assert.equal(rateLoadObservation(countSeries, countSeries.points[0]).trackedPoint, null);
+  assert.equal(rateLoadObservation(countSeries, countSeries.points[0]).point, null, 'Count-only evidence is not a MW average');
   assert.equal(rated(data).point, 43.75);
   assert.deepEqual(filterLoadBottleneckSeries(data, { seriesId: 'project-count' }).map(row => row.id), ['project-count']);
   assert.ok(!('nationalMean' in data));
@@ -89,9 +90,11 @@ test('partially energized customer bins receive only a tracked model index, not 
   validateLoadBottleneckDataset(data);
   const value = rated(data);
   assert.equal(value.point, null); assert.equal(value.activeWeight, null);
-  assert.equal(value.trackedPoint, (86 * 80 + 22 * 50 + 10 * 10) / 118);
-  assert.equal(value.operatingWeight, 0); assert.equal(value.unresolvedWeight, 10);
-  assert.equal(value.trackedRatedWeight, 118, 'commercial and physical subdivisions must not duplicate the same 32 customers');
+  assert.equal(value.trackedPoint, null);
+  assert.equal(value.projectCountTrackedPoint, (86 * 80 + 22 * 50 + 10 * 10) / 118);
+  assert.equal(value.operatingWeight, 0); assert.equal(value.unresolvedWeight, null);
+  assert.equal(value.trackedRatedWeight, 0, 'Unknown MW must not become a synthetic capacity denominator');
+  assert.equal(value.missingCapacityCount, 118);
   point.bins[2].membership = 'active'; assert.equal(isLoadBottleneckDataset(data), false);
   point.bins[2].membership = 'operating'; assert.equal(isLoadBottleneckDataset(data), false);
 });
@@ -170,7 +173,7 @@ test('CSV retains quantity basis, excluded weights, exact source mapping and unk
   assert.match(csv, /"capacity_mw"/);
   assert.match(csv, /active_point,tracked_pool_point,active_weight,rated_weight,unknown_weight,operating_weight/);
   assert.match(csv, /"43.75","12.5","60","40","20","100","20"/);
-  assert.match(csv, /"Source unknown","unknown","active","20",""/);
+  assert.match(csv, /"Source unknown","unknown","active","20","20",""/);
   assert.equal(loadBottleneckCsv(data, { start: '2026-01-01' }).split('\r\n').length, 1);
   assert.throws(() => parseLoadBottleneckFilters(new URLSearchParams('region=US')), RangeError);
   assert.throws(() => parseLoadBottleneckFilters(new URLSearchParams('start=2026-01-01&end=2025-01-01')), RangeError);
@@ -201,4 +204,41 @@ test('live and exported load bottleneck APIs match without changing or requiring
     assert.equal((await window.fetch('/api/load-bottleneck')).status, 503);
     assert.equal((await db.prepare("SELECT COUNT(*) AS n FROM sqlite_master WHERE type='table'").first<{ n: number }>())?.n, 0);
   } finally { db.close(); }
+});
+
+
+test('dated MW changes the default mean while missing, zero, and unknown-stage capacity stay excluded', () => {
+  const data = fixture(), series = data.series[0], point = series.points[0];
+  series.weightBasis = 'project_count'; series.population = 'active_queue';
+  point.totalWeight = 5;
+  point.bins = [
+    { ...bin('application', 1), capacityMw: 1000 },
+    { ...bin('construction', 1), capacityMw: 100 },
+    { ...bin('agreement', 1), capacityMw: null },
+    { ...bin('design', 1), capacityMw: 0 },
+    { ...bin('unknown', 1), capacityMw: 500 },
+  ];
+  const value = rated(data);
+  assert.equal(value.point, (1000 * 100 + 100 * 25) / 1100);
+  assert.equal(value.projectCountPoint, (100 + 25 + 50 + 70) / 4);
+  assert.equal(value.ratedWeight, 1100); assert.equal(value.unknownWeight, 500);
+  assert.equal(value.missingCapacityCount, 1);
+  assert.equal(value.coverage, 1100 / 1600);
+  const later = structuredClone(point); later.bins[0].capacityMw = 5000;
+  assert.notEqual(rateLoadObservation(series, later).point, value.point);
+  assert.equal(rateLoadObservation(series, point).point, value.point, 'Later MW cannot backfill an earlier observation');
+});
+
+test('known MW cannot repair an unknown source-count partition for active or tracked means', () => {
+  for (const population of ['active_queue', 'tracked_pool'] as const) {
+    for (const missing of ['total', 'bin'] as const) {
+      const data = fixture(), series = data.series[0], point = series.points[0];
+      series.weightBasis = 'project_count'; series.population = population;
+      point.completePartition = true; point.totalWeight = missing === 'total' ? null : 1;
+      point.bins = [{ ...bin('application', missing === 'bin' ? null : 1), capacityMw: 1000 }];
+      const result = rated(data);
+      assert.equal(result.point, null); assert.equal(result.trackedPoint, null);
+      assert.equal(result.projectCountPoint, null); assert.equal(result.projectCountTrackedPoint, null);
+    }
+  }
 });

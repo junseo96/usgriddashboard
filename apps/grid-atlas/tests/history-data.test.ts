@@ -79,7 +79,7 @@ test('NYISO archive capture and current observation retain distinct dates and se
   const capacity = series('nyiso-load-queue-capacity').points;
   assert.deepEqual(capacity.map(point => point.value), [1846.2, 3182.5, 6805.1, 11756.1, 14232.9]);
   assert.equal(capacity.at(-1)!.breakBefore, true);
-  assert.equal(series('nyiso-load-bottleneck-score').points[0].value, 75.5);
+  assert.equal(series('nyiso-load-bottleneck-score').points[0].projectCountRatingMean, 75.5);
 });
 
 test('request histories preserve missing months, scope breaks, restatements, and contracts as different metrics', () => {

@@ -65,31 +65,30 @@ export default function NationalOverview({ data, revision, onProjects, onScores,
   const { summary } = data;
   const fraction = summary.eligibleCount ? Math.min(100, summary.ratedCount / summary.eligibleCount * 100) : 0;
   const lbnl = data.sources.find(source => source.id === 'lbnl-generation-storage-queues');
-  const nyiso = data.sources.find(source => source.id === 'nyiso-load-register');
   const availableRegions = demand?.regions.filter(row => row.latestMw !== null && row.observedAt).length ?? 0;
   const currentRegions = demand?.regions.filter(row => observationStatus(row, now) === '최근 관측').length ?? 0;
   return <div className="national-overview">
     <div className="no-context"><span><i />미국 본토 · 공개 접속 자료</span><span>원장 관측 {marketDate(data.snapshot?.capturedAt)} KST</span></div>
     <section className="no-kpis" aria-label="전국 핵심 지표">
       <article className="no-kpi no-kpi-score">
-        <div className="no-kpi-label"><Activity size={17} /><span>접속 원장 평균</span><button type="button" onClick={onScores} aria-label="병목점수 계산과 평가 범위 보기"><ArrowUpRight size={17} /></button></div>
+        <div className="no-kpi-label"><Activity size={17} /><span>접속 원장 용량 가중평균</span><button type="button" onClick={onScores} aria-label="병목점수 계산과 평가 범위 보기"><ArrowUpRight size={17} /></button></div>
         <div className="no-kpi-value">{score(summary.ratingMean)}{summary.ratingMean !== null && <small>/ 100</small>}</div>
-        <p>평가 가능한 공개 신청의 동일 가중 평균</p>
+        <p>점수 × 공개 MW의 합 ÷ 산출 대상 MW</p>
         <div className="no-score-meter" aria-hidden="true"><span style={{ width: `${summary.ratingMean ?? 0}%` }} /></div>
-        <div className="no-kpi-foot"><span>평가 {marketNumber(summary.ratedCount)}건</span><span>미산출 {marketNumber(summary.ratingUnknownCount)}건</span></div>
+        <div className="no-kpi-foot"><span>분모 {formatGw(summary.ratedCapacityMw)} GW · {marketNumber(summary.ratingWeightedCount)}건</span><span>건수 평균 {score(summary.projectCountRatingMean)}점</span></div>
       </article>
       <CapacityCard icon="generation" title="발전 접속 신청" value={summary.knownCapacityCounts.generation ? summary.generationMw : null} count={summary.typeCounts.generation} date={lbnl?.sourceAsOf} onClick={() => onProjects(undefined, 'generation')} />
       <CapacityCard icon="storage" title="저장 접속 신청" value={summary.knownCapacityCounts.storage ? summary.storageMw : null} count={summary.typeCounts.storage} date={lbnl?.sourceAsOf} onClick={() => onProjects(undefined, 'storage')} />
       <LargeLoadKpi onOpen={() => onProjects('', 'load')} />
     </section>
-    <p className="no-kpi-caption">공개 원장 범위의 지표입니다. 복합 발전·저장 신청은 유형별로 겹치며, 용량은 실제 소비·공급 전망이 아닙니다.</p>
+    <p className="no-kpi-caption">점수와 양수 MW가 모두 있는 적격 신청으로 가중평균을 계산합니다. 전체 가중치는 공개된 발전·저장·수용 MW 성분의 합이며, 복합 사업의 순계통접속 한도나 실제 소비·공급 전망과 다릅니다.</p>
 
     <LargeLoadSummary onOpen={() => onProjects('', 'load')} />
     <div className="no-insight-grid">
       <section className="no-panel no-history-panel" aria-labelledby="national-history-heading">
-        <div className="no-panel-heading"><div><span className="no-eyebrow">HISTORICAL VIEW</span><h2 id="national-history-heading">병목점수의 변화</h2></div><button className="no-text-link" type="button" onClick={onTimeline}>시계열 전체 <ArrowUpRight size={15} /></button></div>
+        <div className="no-panel-heading"><div><span className="no-eyebrow">HISTORICAL VIEW</span><h2 id="national-history-heading">용량 가중 병목점수의 변화</h2></div><button className="no-text-link" type="button" onClick={onTimeline}>시계열 전체 <ArrowUpRight size={15} /></button></div>
         <div className="no-history-modes" role="group" aria-label="전국 평균 점수 시계열 범위"><button type="button" aria-pressed={historyMode === 'long-term'} onClick={() => setHistoryMode('long-term')}>발전·저장 장기</button><button type="button" aria-pressed={historyMode === 'observations'} onClick={() => setHistoryMode('observations')}>전체 평균 관측</button></div>
-        <p className="no-panel-subtitle">{historyMode === 'long-term' ? 'LBNL 연말 공개 원장 · 당시 단계에 동일한 추정 모형 적용' : '발전·저장·수용가 전체 · 실제 저장한 원장의 평가 가능 평균'}</p>
+        <p className="no-panel-subtitle">{historyMode === 'long-term' ? 'LBNL 연말 공개 원장 · 당시 단계와 당시 공개 MW로 재평가' : '발전·저장·수용가 전체 · 관측 시점의 점수와 공개 MW로 재평가'}</p>
         {historyMode === 'observations' ? <AppObservationMini history={data.history} truncated={data.historyTruncated} /> : series ? <MiniHistory series={series} /> : <div className="no-chart-empty" role="status"><History size={24} /><span>{loading ? '과거 연말 자료를 불러오는 중…' : '과거 점수 자료를 불러오지 못했습니다.'}</span></div>}
         <p className="no-chart-note">{historyMode === 'long-term' ? '연도마다 신청 구성·단계 공개율이 달라집니다. 위의 발전·저장·수용가 평균과는 별도 계열입니다.' : '실제 관측한 시점만 표시합니다. 첫 관측 이전의 전체 평균을 과거 발전·저장 점수로 채우지 않습니다.'}</p>
       </section>
@@ -98,8 +97,8 @@ export default function NationalOverview({ data, revision, onProjects, onScores,
         <div className="no-coverage-number"><strong>{marketNumber(summary.ratedCount)}</strong><span>/ {marketNumber(summary.eligibleCount)}건</span><b>{marketNumber(fraction)}%</b></div>
         <div className="no-coverage-track" role="img" aria-label={`공개 활성 신청 ${marketNumber(summary.eligibleCount)}건 중 ${marketNumber(summary.ratedCount)}건 평가, ${marketNumber(summary.ratingUnknownCount)}건 미산출`}><span style={{ width: `${fraction}%` }} /></div>
         <div className="no-coverage-key"><span><i />평가 가능</span><span><i />진행 근거 미확인</span></div>
-        <div className="no-type-scores">{(['generation', 'storage', 'load'] as const).map(type => <div key={type}><span>{type === 'generation' ? '발전' : type === 'storage' ? '저장' : '수용가 원장'}<small>{marketNumber(summary.ratingTypeCounts[type])}건 평가{type === 'load' ? ' · 확보 범위' : ''}</small></span><strong>{score(summary.ratingTypeMeans[type])}<small>{summary.ratingTypeMeans[type] !== null ? '점' : ''}</small></strong></div>)}</div>
-        <p className="no-coverage-note">원장·자료 종합 추정 포함 {marketNumber(summary.ratingEstimatedCount)}건 · 미확인은 100점으로 대체하지 않습니다. 평가 비율은 확보한 원장 내부 기준입니다.</p>
+        <div className="no-type-scores">{(['generation', 'storage', 'load'] as const).map(type => <div key={type}><span>{type === 'generation' ? '발전' : type === 'storage' ? '저장' : '수용가 원장'}<small>{formatGw(summary.ratingTypeCapacityMw[type])} GW · {marketNumber(summary.ratingTypeWeightedCounts[type])}건{type === 'load' ? ' · 확보 범위' : ''}</small></span><strong>{score(summary.ratingTypeMeans[type])}<small>{summary.ratingTypeMeans[type] !== null ? '점' : ''}</small></strong></div>)}</div>
+        <p className="no-coverage-note">위 비율은 점수 평가 건수 기준입니다. 용량 가중평균에는 {marketNumber(summary.ratingWeightedCount)}건을 포함하고, 평가값이 있어도 MW 미공개 {marketNumber(summary.ratedMissingCapacityCount)}건·0 MW {marketNumber(summary.ratedZeroCapacityCount)}건은 제외합니다. 점수 미산출 공개 용량은 {formatGw(summary.ratingUnscoredCapacityMw)} GW입니다.</p>
         <button className="no-text-link" type="button" onClick={onScores}>점수 산출 범위 살펴보기 <ArrowRight size={14} /></button>
       </section>
     </div>
@@ -113,7 +112,7 @@ export default function NationalOverview({ data, revision, onProjects, onScores,
       <div className="no-regional-actions"><span>부하 게시 자료는 1분마다 다시 확인합니다. {demand ? `최근 수집 시도 ${marketDate(demand.lastAttemptAt)} KST` : ''}</span><button className="no-text-link" type="button" onClick={onTimeline}>통합 시계열 탐색 <ArrowRight size={14} /></button></div>
     </section>
 
-    <details className="no-source-details"><summary><span><BookOpen size={17} />자료의 출처와 기준일</span><span>공개 범위 확인</span></summary><div className="no-source-body"><div><strong>발전·저장 신청</strong><p>LBNL 공개 원장 · 원자료 {marketDate(lbnl?.sourceAsOf, false)}<br />원문 확인 {marketDate(lbnl?.lastCheckedAt)}{lbnl?.lastCheckedAt?.includes('T') ? ' KST' : ''}</p>{lbnl && <a href={externalUrl(lbnl.url)} target="_blank" rel="noreferrer">원장 출처 <ArrowUpRight size={13} /></a>}</div><div><strong>수용가 개별 점수</strong><p>NYISO 원장과 검토된 개별 전력공급 요청·계약<br />NYISO 확인 {marketDate(nyiso?.lastCheckedAt)}</p>{nyiso && <a href={externalUrl(nyiso.url)} target="_blank" rel="noreferrer">원장 출처 <ArrowUpRight size={13} /></a>}</div><div><strong>권역별 집계·부하</strong><p>각 권역 행의 ‘범위·출처’에서 확인합니다. 자료 게시일·신청 기준일·실제 부하 관측일은 서로 다릅니다.</p><button className="no-text-link" type="button" onClick={onScores}><Database size={13} />점수 산출 범위</button></div></div></details>
+    <details className="no-source-details"><summary><span><BookOpen size={17} />자료의 출처와 기준일</span><span>공개 범위 확인</span></summary><div className="no-source-body"><div><strong>발전·저장 신청</strong><p>LBNL 공개 원장 · 원자료 {marketDate(lbnl?.sourceAsOf, false)}<br />원문 확인 {marketDate(lbnl?.lastCheckedAt)}{lbnl?.lastCheckedAt?.includes('T') ? ' KST' : ''}</p>{lbnl && <a href={externalUrl(lbnl.url)} target="_blank" rel="noreferrer">원장 출처 <ArrowUpRight size={13} /></a>}</div><div><strong>수용가 시설·개발과 접속 원장</strong><p>전국 시설 원장은 회사·정부·산업협회 공개 자료를 연결합니다. 접속 신청·계약 원장과는 모집단과 용량 기준이 다르며 평균을 합치지 않습니다.</p><button className="no-text-link" type="button" onClick={() => onProjects('', 'load')}>시설별 출처·취득 시각 <ArrowUpRight size={13} /></button></div><div><strong>권역별 집계·부하</strong><p>각 권역 행의 ‘범위·출처’에서 확인합니다. 자료 게시일·신청 기준일·실제 부하 관측일은 서로 다릅니다.</p><button className="no-text-link" type="button" onClick={onScores}><Database size={13} />점수 산출 범위</button></div></div></details>
   </div>;
 }
 
@@ -145,7 +144,7 @@ function MiniHistory({ series }: { series: HistoricalSeries }) {
   </div>;
 }
 function HistoricalScope({ point }: { point: HistoricalPoint }) {
-  return <div className="no-history-scope" aria-live="polite"><strong>{point.date.slice(0, 4)}년 말 <span>{score(point.value)}점</span></strong><span>평가 {marketNumber(point.ratedCount)} / {marketNumber(point.projectCount)}건 <i>·</i> 미산출 {marketNumber(point.unknownCount)}건</span><a href={externalUrl(point.source.url)} target="_blank" rel="noreferrer" aria-label={`${point.date.slice(0, 4)}년 LBNL 원문 보기`}>원문 <ArrowUpRight size={12} /></a></div>;
+  return <div className="no-history-scope" aria-live="polite"><strong>{point.date.slice(0, 4)}년 말 <span>{score(point.value)}점</span></strong><span>분모 {formatGw(point.ratedCapacityMw ?? null)} GW · {marketNumber(point.ratingWeightedCount ?? null)}건 <i>·</i> 건수 평균 {score(point.projectCountRatingMean)}점</span><a href={externalUrl(point.source.url)} target="_blank" rel="noreferrer" aria-label={`${point.date.slice(0, 4)}년 LBNL 원문 보기`}>원문 <ArrowUpRight size={12} /></a></div>;
 }
 
 function AppObservationMini({ history, truncated }: { history: HistoryPoint[]; truncated: boolean }) {
@@ -161,7 +160,7 @@ function AppObservationMini({ history, truncated }: { history: HistoryPoint[]; t
   return <div className="no-mini-history no-app-observations">
     <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby={chartId}><title id={chartId}>전체 평균 실제 관측 {points.length}개. {points.map(point => `${marketDate(point.snapshot.capturedAt)} KST ${score(point.summary.ratingMean)}점`).join(', ')}. 관측 사이의 점수를 보간하지 않습니다.</title>{[0, 50, 100].map(value => <g key={value}><line x1={left} x2={width - right} y1={y(value)} y2={y(value)} className="no-chart-grid" /><text x={left - 10} y={y(value) + 4} textAnchor="end">{value}</text></g>)}{points.map(point => point.summary.ratingMean === null ? null : <g key={point.snapshot.id}><circle cx={x(point)} cy={y(point.summary.ratingMean)} r={selected.snapshot.id === point.snapshot.id ? 6 : 4} className={selected.snapshot.id === point.snapshot.id ? 'no-chart-point is-selected' : 'no-chart-point'} />{selected.snapshot.id === point.snapshot.id && <text x={x(point)} y={y(point.summary.ratingMean) - 15} textAnchor="middle" className="no-chart-value">{score(point.summary.ratingMean)}</text>}</g>)}<text x={left} y={height - 5} textAnchor="start">{shortStamp(points[0].snapshot.capturedAt)}</text>{first !== last && <text x={width - right} y={height - 5} textAnchor="end">{shortStamp(points.at(-1)!.snapshot.capturedAt)}</text>}</svg>
     <label className="no-observation-selector">실제 관측 시점<select aria-label="전체 평균 실제 관측 시점" value={selected.snapshot.id} onChange={event => setSelectedId(event.target.value)}>{points.map(point => <option key={point.snapshot.id} value={point.snapshot.id}>{marketDate(point.snapshot.capturedAt)} KST · {score(point.summary.ratingMean)}점</option>)}</select></label>
-    <div className="no-history-scope" aria-live="polite"><strong>전체 평균 <span>{score(selected.summary.ratingMean)}점</span></strong><span>평가 {marketNumber(selected.summary.ratedCount)} / {marketNumber(selected.summary.eligibleCount)}건 <i>·</i> 미산출 {marketNumber(selected.summary.ratingUnknownCount)}건</span></div>
+    <div className="no-history-scope" aria-live="polite"><strong>용량 가중평균 <span>{score(selected.summary.ratingMean)}점</span></strong><span>분모 {formatGw(selected.summary.ratedCapacityMw)} GW · {marketNumber(selected.summary.ratingWeightedCount)}건 <i>·</i> 건수 평균 {score(selected.summary.projectCountRatingMean)}점</span></div>
     <p className="no-observation-note">{points.length === 1 ? '실제 저장된 관측 1개 · 한 시점만 표시' : `실제 저장된 관측 ${marketNumber(points.length)}개 · 시각 KST`}{truncated ? ' · 전체 기록 중 조회된 범위' : ''}</p>
   </div>;
 }

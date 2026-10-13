@@ -1,5 +1,6 @@
 import type { StageEstimate } from './stage-estimate.ts';
 
+export const AGGREGATION_VERSION = 'capacity-weighted-v1' as const;
 export const MODEL_VERSION = 'grid-atlas-v1' as const;
 export const GATES = ['technical', 'commercial', 'permitting', 'construction', 'energization'] as const;
 export type Gate = typeof GATES[number];
@@ -30,6 +31,20 @@ export interface ProjectScore {
   estimated: boolean; gates: GateScore[]; stageEstimate: StageEstimate | null;
 }
 export interface Summary {
+  aggregationVersion: typeof AGGREGATION_VERSION;
+  weightingType: ProjectType | 'all';
+  weightingBasis: 'disclosed_component_mw' | 'generation_mw' | 'storage_mw' | 'load_mw';
+  /** Positive disclosed MW only. Overall combines disclosed member components, not physical POI capacity. */
+  ratedCapacityMw: number; scoredCapacityMw: number; boundsCapacityMw: number;
+  ratingWeightedCount: number; scoredWeightedCount: number; capacityWeightedCount: number;
+  ratingUnscoredCapacityMw: number; missingCapacityCount: number; zeroCapacityCount: number;
+  ratedMissingCapacityCount: number; ratedZeroCapacityCount: number; partialCapacityCount: number;
+  projectCountRatingMean: number | null; projectCountPointMean: number | null;
+  projectCountLowerMean: number | null; projectCountUpperMean: number | null;
+  projectCountRatingTypeMeans: Record<ProjectType, number | null>;
+  ratingTypeCapacityMw: Record<ProjectType, number>;
+  ratingTypeWeightedCounts: Record<ProjectType, number>;
+  ratingTypeUnscoredCapacityMw: Record<ProjectType, number>;
   recordCount: number; eligibleCount: number; scoredCount: number; unknownCount: number; excludedCount: number;
   estimatedCount: number; pointMean: number | null; lowerMean: number | null; upperMean: number | null;
   generationMw: number; storageMw: number; loadMw: number; capacityUnknownCount: number;
@@ -38,7 +53,12 @@ export interface Summary {
   ratingMean: number | null; ratedCount: number; ratingUnknownCount: number; ratingEstimatedCount: number;
   ratingTypeMeans: Record<ProjectType, number | null>;
   ratingTypeCounts: Record<ProjectType, number>;
-  ratingRegions: Array<{ region: string; mean: number | null; ratedCount: number; unknownCount: number; estimatedCount: number }>;
+  ratingRegions: Array<{
+    region: string; mean: number | null; ratedCount: number; unknownCount: number; estimatedCount: number;
+    projectCountMean: number | null; ratedCapacityMw: number; weightedCount: number;
+    unscoredCapacityMw: number; missingCapacityCount: number; zeroCapacityCount: number;
+    partialCapacityCount: number;
+  }>;
 }
 export interface SnapshotMeta {
   id: string; capturedAt: string; contentHash: string; projectCount: number; sourceCount: number;

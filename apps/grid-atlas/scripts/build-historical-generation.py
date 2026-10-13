@@ -134,6 +134,24 @@ def normalize_legacy(rows, year):
     return projects, dict(stats), len(active)
 
 
+def capacity_rating(projects, year, kind):
+    # Each dated workbook supplies its own MW. No present-day backfill.
+    def mw(p):
+        values = [p.get(kind + 'Mw')] if kind != 'all' else [p.get(t + 'Mw') for t in p['types']]
+        known = [v for v in values if v is not None and math.isfinite(v) and v >= 0]
+        return sum(known) if known else None
+    weighted = [(stage_point(p['rawStatus'], year), mw(p)) for p in projects]
+    rated = [(score, size) for score, size in weighted if score is not None and size is not None and size > 0]
+    denominator = sum(size for _, size in rated)
+    return {'ratingMean': sum(score * size for score, size in rated) / denominator if denominator else None,
+            'ratedCapacityMw': denominator, 'ratingWeightedCount': len(rated),
+            'knownCapacityMw': sum(size for _, size in weighted if size is not None),
+            'ratingUnscoredCapacityMw': sum(size for score, size in weighted if score is None and size is not None),
+            'missingCapacityCount': sum(size is None for _, size in weighted),
+            'zeroCapacityCount': sum(size == 0 for _, size in weighted),
+            'aggregationVersion': 'capacity-weighted-v1'}
+
+
 def summaries(projects, year):
     result = []
     for region in ['all', *sorted(REGIONS)]:
@@ -145,7 +163,8 @@ def summaries(projects, year):
                           for key in ('generationMw', 'storageMw')}
             result.append({'region': region, 'type': kind, 'eligibleCount': len(selected),
                            'ratedCount': len(scores), 'unknownCount': len(selected) - len(scores),
-                           'ratingMean': sum(scores) / len(scores) if scores else None,
+                           'projectCountRatingMean': sum(scores) / len(scores) if scores else None,
+                           **capacity_rating(selected, year, kind),
                            'generationMw': round(sum(capacities['generationMw']), 6) if capacities['generationMw'] else None,
                            'storageMw': round(sum(capacities['storageMw']), 6) if capacities['storageMw'] else None,
                            'knownGenerationCapacityCount': len(capacities['generationMw']),
@@ -201,7 +220,9 @@ def build_vintage(raw_dir, year):
                            'assessmentBasis': 'contemporary_annual_register_reassessed_with_current_model',
                            'stageAliases': STAGE_ALIASES if year < 2025 else {},
                            'resourceAliases': TYPE_ALIASES if year < 2025 else {},
-                           'ratingCoverage': summary[0]['ratedCount'] / summary[0]['eligibleCount']}}
+                           'ratingCoverage': summary[0]['ratedCount'] / summary[0]['eligibleCount'],
+                           'aggregationVersion': 'capacity-weighted-v1',
+                           'capacityWeightBasis': 'contemporaneous component MW; all = disclosed generation + storage components'}}
 
 
 def validate_artifact(value):
@@ -219,7 +240,7 @@ def validate_artifact(value):
         for row in vintage['summaries']:
             if row['ratedCount'] + row['unknownCount'] != row['eligibleCount']:
                 raise ValueError('Historical denominator mismatch')
-            if (row['ratingMean'] is None) != (row['ratedCount'] == 0):
+            if (row['ratingMean'] is None) != (row['ratedCapacityMw'] == 0):
                 raise ValueError('Historical null score mismatch')
             if row['ratingMean'] is not None and not 0 <= row['ratingMean'] <= 100:
                 raise ValueError('Historical score outside range')

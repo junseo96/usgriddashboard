@@ -143,6 +143,23 @@ def estimate_points(projects):
     return parsed['points']
 
 
+def capacity_summary(active, points):
+    rated = [(score, p['loadMw']) for p, score in zip(active, points) if score is not None and p['loadMw'] is not None and p['loadMw'] > 0]
+    denominator = sum(mw for _, mw in rated)
+    return dict(ratingMean=sum(score * mw for score, mw in rated) / denominator if denominator else None,
+                ratedCapacityMw=denominator, ratingWeightedCount=len(rated),
+                knownCapacityMw=sum(p['loadMw'] for p in active if p['loadMw'] is not None),
+                ratingUnscoredCapacityMw=sum(p['loadMw'] for p, score in zip(active, points) if score is None and p['loadMw'] is not None),
+                missingCapacityCount=sum(p['loadMw'] is None for p in active), zeroCapacityCount=sum(p['loadMw'] == 0 for p in active),
+                aggregationVersion='capacity-weighted-v1')
+
+
+def capacity_bins(active):
+    return {stage: dict(capacityMw=sum(p['loadMw'] for p in active if p['rawStatus'] == stage and p['loadMw'] is not None),
+                        missingCapacityCount=sum(p['rawStatus'] == stage and p['loadMw'] is None for p in active))
+            for stage in sorted({p['rawStatus'] for p in active})}
+
+
 def build_vintage(data, meta):
     match = re.fullmatch(r'archive-(\d{14})\.xlsx', meta.get('id', ''))
     if not match:
@@ -171,9 +188,10 @@ def build_vintage(data, meta):
         capacityDefinition='summer_mw', capacityDefinitionLabel='SP (MW) · 여름 용량',
         excludedCounts=dict(withdrawnSheet=ended['Withdrawn'], inServiceSheet=ended['In Service'],
                             ineligibleActiveSheet=len(projects) - len(active)),
-        statusCounts=status_counts,
+        statusCounts=status_counts, statusCapacities=capacity_bins(active),
         summaries=[dict(region='NYISO', type='load', eligibleCount=len(active), ratedCount=len(rated),
-                        unknownCount=len(active)-len(rated), ratingMean=sum(rated)/len(rated) if rated else None,
+                        unknownCount=len(active)-len(rated), projectCountRatingMean=sum(rated)/len(rated) if rated else None,
+                        **capacity_summary(active, points),
                         loadMw=sum(p['loadMw'] for p in active if p['loadMw'] is not None),
                         capacityUnknownCount=sum(p['loadMw'] is None for p in active),
                         winterMw=sum(p['winterMw'] for p in active if p['winterMw'] is not None))])
@@ -208,9 +226,10 @@ def build_current(bootstrap):
         excludedCounts=dict(withdrawn=sum(p['status'] == 'withdrawn' for p in projects),
                             operational=sum(p['status'] == 'operational' for p in projects),
                             ineligible=len(projects)-len(active)),
-        statusCounts=dict(sorted(Counter(p['rawStatus'] for p in active).items())),
+        statusCounts=dict(sorted(Counter(p['rawStatus'] for p in active).items())), statusCapacities=capacity_bins(active),
         summaries=[dict(region='NYISO', type='load', eligibleCount=len(active), ratedCount=len(rated),
-                        unknownCount=len(active)-len(rated), ratingMean=sum(rated)/len(rated) if rated else None,
+                        unknownCount=len(active)-len(rated), projectCountRatingMean=sum(rated)/len(rated) if rated else None,
+                        **capacity_summary(active, points),
                         loadMw=sum(p['loadMw'] for p in active if p['loadMw'] is not None),
                         capacityUnknownCount=sum(p['loadMw'] is None for p in active))])
 

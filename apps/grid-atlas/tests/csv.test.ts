@@ -124,3 +124,31 @@ test('the static project export route includes the same qualitative metadata as 
   // Response.text() decodes the UTF-8 BOM; the download bytes retain it.
   assert.equal(await response.text(), projectCsv([score], context).replace(/^\uFEFF/, ''));
 });
+
+test('capacity CSV reproduces overall and type-filtered means and separates missing/zero/unscored exclusions', () => {
+  const hybrid: Project = { ...project('hybrid-weight', 'Not Started'), types: ['generation', 'storage'], generationMw: 1000, storageMw: 10 };
+  const small: Project = { ...project('small-weight', 'Construction'), types: ['generation', 'storage'], generationMw: 100, storageMw: 90 };
+  const missing = { ...project('missing-weight', 'Not Started'), generationMw: null, capacityStatus: 'unknown' as const };
+  const zero = { ...project('zero-weight', 'Not Started'), generationMw: 0 };
+  const unknown = project('unknown-score', 'unknown');
+  const excluded = { ...project('excluded-record', 'Not Started'), eligible: false, status: 'withdrawn' as const };
+  const scores = [hybrid, small, missing, zero, unknown, excluded].map(p => scoreProject(p, [], context));
+  for (const type of ['all', 'generation', 'storage'] as const) {
+    const summary = summarize(scores, { type });
+    const output = records(projectCsv(scores, { ...context, type }));
+    const included = output.filter(r => r.capacity_weight_eligible === 'true');
+    const total = included.reduce((sum, row) => sum + Number(row.score_weight_mw), 0);
+    assert.equal(total, summary.ratedCapacityMw);
+    const mean = included.reduce((sum, row) => sum + Number(row.weighted_contribution), 0) / total;
+    assert.equal(Math.round(mean * 1e10) / 1e10, summary.ratingMean);
+    assert.ok(output.every(r => r.aggregation_version === 'capacity-weighted-v1' && r.weighting_type === type));
+    if (type === 'all') {
+      assert.equal(output.find(r => r.id === missing.id)?.weight_exclusion_reason, 'capacity_undisclosed');
+      assert.equal(output.find(r => r.id === zero.id)?.weight_exclusion_reason, 'zero_capacity');
+      assert.equal(output.find(r => r.id === unknown.id)?.weight_exclusion_reason, 'score_unknown');
+      assert.equal(output.find(r => r.id === excluded.id)?.weight_exclusion_reason, 'project_excluded');
+      assert.equal(output.find(r => r.id === missing.id)?.score_weight_mw, '');
+      assert.equal(output.find(r => r.id === zero.id)?.score_weight_mw, '0');
+    }
+  }
+});
