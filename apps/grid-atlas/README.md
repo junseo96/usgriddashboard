@@ -25,6 +25,9 @@
 이 디렉터리(`apps/grid-atlas`)에서 Node.js 24 및 Python 3.12로 실행한다.
 
 ```sh
+python3 -m venv .local/venv
+source .local/venv/bin/activate
+python3 -m pip install -r requirements.txt
 npm ci
 npm run dev
 ```
