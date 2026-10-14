@@ -48,6 +48,18 @@ export function buildLargeLoadFacilities(input: FacilityBuildInput): FacilityDat
   if (!generatedAt) throw new Error('A real facility fragment, jurisdiction dataset or previous observation is required');
   const sources = new Map((input.previous?.sources ?? []).map(s => [s.id, structuredClone(s)]));
   const aliasSources = new Map<string, Set<string>>();
+  const preservedAliases = new Map<string, Set<string>>();
+  // Source adapters may replace an old content-addressed document ID when a
+  // page changes. Reviewed identity decisions must continue to cite the exact
+  // preserved evidence, not the latest document at the same URL. Recover only
+  // aliases whose suffix verifies against the original source object using the
+  // same canonical hashing rule as registerSources below.
+  for (const s of sources.values()) {
+    const version = /^(.*)@([a-f0-9]{16})$/.exec(s.id);
+    if (!version || hash(facilityCanonicalJson({ ...s, id: version[1] })).slice(0, 16) !== version[2]) continue;
+    const aliases = preservedAliases.get(version[1]) ?? new Set<string>();
+    aliases.add(s.id); preservedAliases.set(version[1], aliases);
+  }
   const registerSources = (items: FacilitySource[]): Map<string, string> => {
     const ids = new Map<string, string>();
     for (const s of items) {
@@ -77,7 +89,7 @@ export function buildLargeLoadFacilities(input: FacilityBuildInput): FacilityDat
   }
   let jurisdictions = structuredClone(input.previous?.jurisdictions ?? []);
   if (input.jurisdictions) { const ids = registerSources(input.jurisdictions.sources); jurisdictions = input.jurisdictions.rules.map(r => ({ ...r, sourceIds: r.sourceIds.map(id => ids.get(id)!) })); }
-  const decisionSources = (ids: string[]) => union(...ids.map(id => { if (sources.has(id)) return [id]; const matches = [...(aliasSources.get(id) ?? [])]; if (!matches.length) throw new Error('Missing source in facility identity decision: ' + id); return matches; })).sort();
+  const decisionSources = (ids: string[]) => union(...ids.map(id => { if (sources.has(id)) return [id]; const matches = [...(aliasSources.get(id) ?? preservedAliases.get(id) ?? [])]; if (!matches.length) throw new Error('Missing source in facility identity decision: ' + id); return matches; })).sort();
   const decisions = sourceLinkedRecords(input.previous?.decisions ?? [], (input.decisions ?? []).map(d => ({ ...d, sourceIds: decisionSources(d.sourceIds) })), 'identity decision');
   const aliases = new Map<string, string>();
   for (const d of decisions.filter(d => d.kind === 'same_entity')) { const target = d.facilityIds[0]; for (const alias of d.facilityIds.slice(1)) { const previous = aliases.get(alias); if (previous && previous !== target) throw new Error('Conflicting canonical facility: ' + alias); aliases.set(alias, target); } }
