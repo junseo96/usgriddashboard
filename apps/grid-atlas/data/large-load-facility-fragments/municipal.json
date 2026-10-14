@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "municipal",
-  "generatedAt": "2026-10-14T13:54:22.139Z",
+  "generatedAt": "2026-10-14T14:17:18.672Z",
   "sources": [
     {
       "id": "municipal-pwc-buildings-0-e980a52d96833093",
@@ -15,6 +15,16 @@
     },
     {
       "id": "municipal-pwc-buildings-100-35cbd1ed4bc249f9",
+      "name": "Prince William County — Data Center Buildings (buildings-100)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&objectIds=107,108,109,110,111,112,113,114,116,118,121,122,123,124,125,126,127,128,129,130,131,132,134,135,136,137,138,139,140,141,143,144,153,154,155,156,157,158,160,161,162,163,164,165,166,167,168,169,170,171,172,204,205,206,207,208,209,210,215,216,217,218,219,220,221,222,223,224,225,226,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,251,252,253,254,255,258,259,260,262,263,264,265,271&outFields=OBJECTID,GlobalID,BuildingName,Address,BuildingID,BuildingStatus,YearBuilt,PermitCase,PermitStatus,OCCDate,CreateDate,LastEditDate,PlanningCaseNumber,PlanningCaseName&returnGeometry=false&orderByFields=OBJECTID+ASC&resultRecordCount=100",
+      "retrievedAt": "2026-10-14T13:54:21.237Z",
+      "sha256": "35cbd1ed4bc249f90e4a985a28953b718c6098c4f312c2a4c5be8bf74efff99c",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
+      "id": "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f",
       "name": "Prince William County — Data Center Buildings (buildings-100)",
       "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&objectIds=107,108,109,110,111,112,113,114,116,118,121,122,123,124,125,126,127,128,129,130,131,132,134,135,136,137,138,139,140,141,143,144,153,154,155,156,157,158,160,161,162,163,164,165,166,167,168,169,170,171,172,204,205,206,207,208,209,210,215,216,217,218,219,220,221,222,223,224,225,226,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,251,252,253,254,255,258,259,260,262,263,264,265,271&outFields=OBJECTID,GlobalID,BuildingName,Address,BuildingID,BuildingStatus,YearBuilt,PermitCase,PermitStatus,OCCDate,CreateDate,LastEditDate,PlanningCaseNumber,PlanningCaseName&returnGeometry=false&orderByFields=OBJECTID+ASC&resultRecordCount=100",
       "retrievedAt": "2026-10-14T13:54:21.237Z",
@@ -64,7 +74,27 @@
       "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
     },
     {
+      "id": "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5",
+      "name": "Prince William County — Data Center Buildings (ids-before)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&where=1%3D1&returnIdsOnly=true",
+      "retrievedAt": "2026-10-14T13:54:19.762Z",
+      "sha256": "4a203e24fd0420b6477235794ac53fa26d66a079677fef518afec67a15218ee9",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
       "id": "municipal-pwc-layer-da37937b93fe92d0",
+      "name": "Prince William County — Data Center Buildings (layer)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9?f=json",
+      "retrievedAt": "2026-10-14T13:54:19.544Z",
+      "sha256": "da37937b93fe92d006a6c49a27af3febe171af0d91f9fceb6ad4492a19e8b926",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
+      "id": "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07",
       "name": "Prince William County — Data Center Buildings (layer)",
       "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9?f=json",
       "retrievedAt": "2026-10-14T13:54:19.544Z",
@@ -134,7 +164,27 @@
       "sourceAsOf": null
     },
     {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T08:19:43.534Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
       "id": "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T09:24:52.152Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
       "retrievedAt": "2026-10-12T09:24:52.152Z",
@@ -154,6 +204,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T09:21:12.373Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
       "id": "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
@@ -164,7 +224,27 @@
       "sourceAsOf": null
     },
     {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T09:12:16.552Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
       "id": "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T09:02:11.812Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
       "retrievedAt": "2026-10-12T09:02:11.812Z",
@@ -194,11 +274,19 @@
         "municipal-pwc-layer-da37937b93fe92d0",
         "municipal-pwc-ids-before-4a203e24fd0420b6",
         "municipal-pwc-buildings-100-35cbd1ed4bc249f9",
+        "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f",
+        "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5",
+        "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07",
         "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb",
+        "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946",
         "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554",
+        "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64",
         "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d",
+        "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2",
         "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3",
-        "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f"
+        "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87",
+        "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f",
+        "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71"
       ],
       "capacityFacts": [],
       "events": [],
@@ -211,11 +299,19 @@
             "municipal-pwc-layer-da37937b93fe92d0",
             "municipal-pwc-ids-before-4a203e24fd0420b6",
             "municipal-pwc-buildings-100-35cbd1ed4bc249f9",
+            "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f",
+            "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5",
+            "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07",
             "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb",
+            "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946",
             "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554",
+            "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64",
             "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d",
+            "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2",
             "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3",
-            "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f"
+            "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87",
+            "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f",
+            "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71"
           ],
           "note": "지방 건축허가 BLD2006-05319 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
         }
