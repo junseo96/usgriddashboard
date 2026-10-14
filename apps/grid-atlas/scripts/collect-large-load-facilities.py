@@ -2,7 +2,7 @@
 """Discover facilities through source parsers, validate, and preserve real observations.
 
 The output is a public facility inventory, not a verified grid-application queue.
-Parsers fetch official indexes/lists anew; byte-only monitoring is not used here.
+Parsers fetch public indexes/lists anew; byte-only monitoring is not used here.
 """
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ import time
 from urllib.parse import urlsplit
 
 APP = Path(__file__).resolve().parents[1]
-GROUPS = ('operators', 'hyperscale', 'industrial')
+GROUPS = ('operators', 'hyperscale', 'industrial', 'epoch', 'municipal')
 STATUSES = {'planned', 'construction', 'operating', 'paused', 'cancelled', 'unknown'}
 TIMED_FIELDS = ('name', 'operator', 'sector', 'region', 'state', 'county', 'city', 'lat', 'lon',
                 'identityKind', 'parentId', 'lifecycle', 'asOf', 'capacityFacts', 'gridEvidence', 'events')
@@ -179,7 +179,7 @@ def collect_locked(args, runner):
     run_dir.mkdir(parents=True, exist_ok=False)
     groups = list(GROUPS) if args.source == 'all' else [args.source]
     report = {'schemaVersion': 1, 'runId': run_id, 'startedAt': started, 'finishedAt': None,
-              'status': 'running', 'mode': 'official_source_facility_discovery',
+              'status': 'running', 'mode': 'public_source_facility_discovery',
               'sourceGroups': [], 'discoveredCount': 0, 'lifecycleChangeCount': 0,
               'detailChangeCount': 0, 'publishedFilesUpdated': False,
               'limitations': ['Facility discovery does not establish a grid application or nationwide completeness.',

@@ -89,6 +89,7 @@ node scripts/export-preview.mjs --output .state/grid-atlas-preview.html
 - [부하 관측·일별 피크 산식](docs/DEMAND.md)
 - [전국 시설·개발 원장과 보수적 단계 모형](docs/LARGE_LOAD_FACILITIES.md)
 - [공식 시설 목록의 주간 발굴·갱신](docs/FACILITY_COLLECTION.md)
+- [수용가 API·공개 CSV의 정기 수집과 발표본 이력](docs/LOAD_API_COLLECTION.md)
 - [수용가 조사 자료·단위·중복](docs/LOAD_PIPELINE.md)
 - [ISO/RTO별 수용가 대표 지표와 전체 요청 공백](docs/REGIONAL_LOAD.md)
 - [전국 신고기관·ISO/RTO 명부와 수용가 수집범위](docs/LOAD_COVERAGE.md)

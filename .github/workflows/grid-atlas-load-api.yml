@@ -1,0 +1,133 @@
+name: Grid Atlas large-load API observations
+
+on:
+  schedule:
+    # Monday 10:40 Korea Standard Time. Source releases are not necessarily weekly.
+    - cron: '40 1 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: grid-atlas-large-load-refresh
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: apps/grid-atlas
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/grid-atlas/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: python3 -m pip install -r requirements.txt
+      - name: Acquire API observations and preserve prior vintages
+        id: collection
+        run: |
+          printf 'started_epoch=%s\n' "$(date -u +%s)" >> "$GITHUB_OUTPUT"
+          set +e
+          python3 scripts/collect-load-api.py
+          result=$?
+          printf 'exit_code=%s\n' "$result" >> "$GITHUB_OUTPUT"
+          # A handled acquisition failure keeps old data and publishes its health.
+          # Unexpected exceptions stop before any data commit.
+          if [ "$result" -ne 0 ] && [ "$result" -ne 1 ]; then exit "$result"; fi
+      - name: Archive original API responses and acquisition outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: large-load-api-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            apps/grid-atlas/.local/load-api/runs/**
+            apps/grid-atlas/data/load-api-observations.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Rebuild history and validate publication
+        run: |
+          python3 scripts/collect-load-api.py --check
+          node scripts/build-history.ts
+          npm run data:history:check
+          npm run typecheck
+          npm test
+          npm run test:python
+          npm run build
+      - name: Commit the validated data and collection health
+        id: publish
+        env:
+          COLLECTION_EXIT: ${{ steps.collection.outputs.exit_code }}
+          COLLECTION_STARTED: ${{ steps.collection.outputs.started_epoch }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os
+          from pathlib import Path
+          report = json.loads(Path('data/load-api-observations.json').read_text())['collection']
+          started = datetime.datetime.fromisoformat(report['startedAt'].replace('Z', '+00:00')).timestamp()
+          if started < int(os.environ['COLLECTION_STARTED']):
+              raise SystemExit('No collection report from this attempt; publication refused.')
+          expected = {'0': 'success', '1': 'failed'}
+          if report['status'] != expected.get(os.environ['COLLECTION_EXIT']):
+              raise SystemExit('Exit status disagrees with acquisition report; publication refused.')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data/load-api-observations.json data/history.json
+          if git diff --cached --quiet; then
+            printf 'changed=false\n' >> "$GITHUB_OUTPUT"
+          else
+            git commit -m 'data: refresh large-load API observations and history'
+            # A concurrent main change fails safely. No unvalidated rebase/force push.
+            git push origin HEAD:main
+            printf 'changed=true\n' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Deploy the refreshed dashboard
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run grid-atlas-pages.yml --ref main
+      - name: Summarize acquisition and publication separately
+        if: always()
+        env:
+          COLLECTION_STARTED: ${{ steps.collection.outputs.started_epoch }}
+          DATA_COMMITTED: ${{ steps.publish.outputs.changed }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os
+          from pathlib import Path
+          path = Path('data/load-api-observations.json')
+          data = json.loads(path.read_text()) if path.exists() else None
+          report = data and data['collection']
+          fresh = report and os.environ.get('COLLECTION_STARTED') and datetime.datetime.fromisoformat(report['startedAt'].replace('Z', '+00:00')).timestamp() >= int(os.environ['COLLECTION_STARTED'])
+          lines = ['### 수용가 API 정기 수집', '']
+          if fresh:
+              latest = max((r['snapshotMonth'] for r in data['records']), default='자료 없음')
+              lines += [f"수집 결과: **{report['status']}** · 추가 발표본/정정 {report['addedCount']}개", f"최신 원자료 기준월: {latest}", f"보존된 발표본/정정: {len(data['records'])}개", '']
+              if report['error']:
+                  lines += [f"실패 사유: {report['error']}"]
+          else:
+              lines += ['이번 실행의 보고서를 만들지 못했습니다.']
+          lines += ['', '수집 성공과 원자료 최신성은 다릅니다. API 집계는 개별 시설이나 접속신청 원장에 더하지 않습니다.', '실패한 경우 기존 관측을 보존합니다. 원문 API 응답은 artifact에 90일간 보관됩니다.', '데이터 커밋: ' + os.environ.get('DATA_COMMITTED', ''), 'Pages 배포 결과는 별도 실행에서 확인합니다.']
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write('\n'.join(lines) + '\n')
+          PY
+      - name: Mark acquisition failure explicitly
+        if: steps.collection.outputs.exit_code == '1'
+        run: |
+          echo 'API acquisition failed. Previous observations and failure health were preserved.'
+          exit 1

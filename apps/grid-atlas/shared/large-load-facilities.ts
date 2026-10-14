@@ -14,7 +14,7 @@ export const FACILITY_WEIGHT_BASES = ['requested_grid', 'contracted_grid', 'faci
 export type FacilityWeightBasis = typeof FACILITY_WEIGHT_BASES[number];
 export interface FacilitySource { id: string; name: string; url: string; retrievedAt: string; sha256: string; publishedAt: string | null; sourceAsOf: string | null; excerpt: string; }
 export interface FacilityCapacityFact { id: string; value: number | null; unit: 'MW' | 'MVA'; measure: FacilityCapacityMeasure; scope: 'facility' | 'campus' | 'phase'; asOf: string | null; sourceIds: string[]; note: string; }
-export interface FacilityEvent { id: string; date: string; status: FacilityLifecycle; sourceIds: string[]; note: string; }
+export interface FacilityEvent { id: string; date: string; status: FacilityLifecycle; sourceIds: string[]; note: string; evidenceOnly?: boolean; }
 export interface FacilityGridEvidence { id: string; kind: 'application' | 'study' | 'contract' | 'energized' | 'permit' | 'unknown'; date: string | null; sourceIds: string[]; note: string; }
 export interface FacilityObservationIdentity { name: string; operator: string | null; sector: FacilitySector; region: string; regionBasis?: 'reported' | 'geographic_estimate' | 'unknown'; state: string | null; city: string | null; county: string | null; lat: number | null; lon: number | null; identityKind: 'campus' | 'facility' | 'phase'; aliases: string[]; legacyProjectIds: string[]; }
 export interface FacilityObservation { id: string; originId?: string; evidenceOnly?: boolean; identity?: FacilityObservationIdentity; observedAt: string; lifecycle: FacilityLifecycle; asOf: string | null; sourceIds: string[]; capacityFacts: FacilityCapacityFact[]; gridEvidence: FacilityGridEvidence[]; }
@@ -103,7 +103,7 @@ function validateFacilities(facilities: LargeLoadFacility[], sources: Map<string
     } };
     validateFacts(f.capacityFacts); validateGrid(f.gridEvidence);
     check(Array.isArray(f.events), 'events'); const eventIds = new Set<string>(); for (const e of f.events) {
-      check(text(e.id) && !eventIds.has(e.id) && isCalendarDay(e.date) && e.date <= cutoff && LIFECYCLES.includes(e.status) && text(e.note), 'actual milestone event/date: ' + f.id); refs(e.sourceIds, sources, e.id); eventIds.add(e.id);
+      check(text(e.id) && !eventIds.has(e.id) && isCalendarDay(e.date) && e.date <= cutoff && LIFECYCLES.includes(e.status) && text(e.note) && (e.evidenceOnly === undefined || typeof e.evidenceOnly === 'boolean'), 'actual milestone event/date: ' + f.id); refs(e.sourceIds, sources, e.id); eventIds.add(e.id);
       check(e.sourceIds.some(id => e.date <= calendarDayKst(sources.get(id)!.retrievedAt)), 'future target cannot be a milestone event');
     }
     const observationIds = new Set<string>(); for (const o of f.observations ?? []) {
@@ -167,7 +167,7 @@ function selectedFacility(data: FacilityDataset, facility: LargeLoadFacility, qu
   const knownIds = (ids: string[]) => ids.filter(id => visibleSources([id], sources, cutoff));
   result.events = facility.events.filter(e => (!query.asOf || e.date <= query.asOf) && visibleSources(e.sourceIds, sources, cutoff)).map(e => ({ ...e, sourceIds: knownIds(e.sourceIds) }));
   if (query.asOf) {
-    const event = [...result.events].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id)).at(-1);
+    const event = result.events.filter(e => !e.evidenceOnly).sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id)).at(-1);
     result = { ...result, lifecycle: event?.status ?? 'unknown', asOf: event?.date ?? null, sourceIds: event?.sourceIds ?? [] };
     if (knownObservations.length) {
       const capacity = new Map<string, FacilityCapacityFact>(), grid = new Map<string, FacilityGridEvidence>();
@@ -205,7 +205,7 @@ export function scoreFacility(data: FacilityDataset, original: LargeLoadFacility
   if (f.lifecycle === 'planned') { points = [15, 15, 20, 20, 20]; range = [60, 100]; basis = 'lifecycle'; confidence = 'low'; modelId = 'planned'; rationale = '발표·개발계획에 따른 초기 개발 시나리오입니다. 실제 접수·계약·허가의 진척은 별도 근거가 있어야 합니다.'; }
   if (f.lifecycle === 'construction') { points = [10, 10, 0, 15, 20]; range = [15, 90]; basis = 'lifecycle'; confidence = 'medium'; modelId = 'site_construction'; rationale = '부지·건물 공사 근거를 반영합니다. 계통 보강 공사나 공급 계약 완료를 증명하지 않습니다.'; assumptions.push('부지·인허가 0점도 건물 공사 단계 모형의 가정이며 모든 허가가 확인됐다는 의미가 아닙니다.'); }
   if (f.lifecycle === 'operating') { points = [0, 0, 0, 0, 0]; range = [0, 0]; basis = 'lifecycle'; confidence = 'medium'; modelId = 'operating'; rationale = '이 시설 범위의 운영 확인에 따른 완료 모형입니다. ISO 신청서나 각 허가의 직접 확인과 구분합니다.'; }
-  const allowPrior = visibleSources(original.sourceIds, sources, cutoff) && (!query.asOf || f.events.length > 0);
+  const allowPrior = visibleSources(original.sourceIds, sources, cutoff) && (!query.asOf || f.events.some(e => !e.evidenceOnly));
   if (f.lifecycle === 'unknown' && applicable.length && allowPrior) { points = [18, 18, 18, 18, 18]; range = [0, 100]; basis = 'jurisdiction_prior'; confidence = 'low'; modelId = 'jurisdiction_conservative'; rationale = '관할 절차를 참고한 보수적 90점 시나리오입니다. 규정의 존재는 이 시설의 개별 진척을 증명하지 않습니다.'; assumptions.push('각 18점은 확인된 진행률이 아닌 시나리오 가정입니다. 가능한 범위 0~100은 확인된 미진행 100점과 다릅니다.'); }
   if (f.lifecycle === 'unknown' && !applicable.length && allowPrior) { points = [18, 18, 18, 18, 18]; range = [0, 100]; basis = 'conservative_prior'; confidence = 'low'; modelId = 'common_conservative'; rationale = '관할 규정이 연결되지 않은 공통 다섯 절차의 잠정 90점 시나리오입니다. 개별 진척이나 해당 주·ISO 규정을 확인했다는 의미가 아닙니다.'; assumptions.push('각 18점은 미공개 단계의 보수적 가정이며 확인된 미진행 100점이 아닙니다. 가능한 범위는 0~100입니다.'); }
   const grid = f.gridEvidence.filter(e => e.kind !== 'unknown');
@@ -224,6 +224,7 @@ export function scoreFacility(data: FacilityDataset, original: LargeLoadFacility
   let exclusionReason: string | null = null;
   if (original.parentId) exclusionReason = '상위 시설과 중복되는 단계·부분 범위';
   else if (original.possibleDuplicateIds?.length) exclusionReason = '동일 시설 가능성이 미해결';
+  else if (f.identityKind === 'phase') exclusionReason = '독립 시설 범위가 확정되지 않은 개별 단계';
   else if (f.state === null || f.state === 'AK' || f.state === 'HI') exclusionReason = '본토 48주/DC의 위치가 확인되지 않은 시설';
   else if (['operating', 'paused', 'cancelled'].includes(f.lifecycle)) exclusionReason = '현재 개발중인 시설의 평균에서 운영·중단·취소 제외';
   else if (f.lifecycle === 'unknown' && !(query.includeUnknownPrior && point !== null)) exclusionReason = '현재 개발 상태 미확인; 잠정 점수는 별도 집계';
@@ -259,7 +260,7 @@ export function facilityCapacityWeight(data: FacilityDataset, original: LargeLoa
     capacityExclusionReason: capacity.reason, eligibleForAverage: score.eligibleForAverage && capacity.mw !== null, exclusionReason };
 }
 export function facilityHistory(data: FacilityDataset, facility: LargeLoadFacility, query: FacilityFilters = {}): FacilityHistoryPoint[] {
-  const sources = sourceMap(data), cutoff = queryCutoff(query), dates = [...new Set(facility.events.filter(e => (!query.asOf || e.date <= query.asOf) && visibleSources(e.sourceIds, sources, cutoff)).map(e => e.date))].sort();
+  const sources = sourceMap(data), cutoff = queryCutoff(query), dates = [...new Set(facility.events.filter(e => !e.evidenceOnly && (!query.asOf || e.date <= query.asOf) && visibleSources(e.sourceIds, sources, cutoff)).map(e => e.date))].sort();
   return dates.map(date => { const events = facility.events.filter(e => e.date === date && visibleSources(e.sourceIds, sources, cutoff)); const score = scoreFacility(data, facility, { ...query, asOf: date });
     const weight = facilityCapacityWeight(data, facility, { ...query, asOf: date });
     const sourceIds = [...new Set([...events.flatMap(e => e.sourceIds), ...score.sourceIds, ...weight.sourceIds, ...score.jurisdictionIds.flatMap(id => data.jurisdictions.find(r => r.id === id)!.sourceIds)])].filter(id => visibleSources([id], sources, cutoff));
@@ -291,7 +292,7 @@ export function summarizeFacilities(data: FacilityDataset, filters: FacilityFilt
     countMean: countAverage.length ? countAverage.reduce((sum, s) => sum + s.score.point!, 0) / countAverage.length : null, countAverageCount: countAverage.length,
     excludedCapacityCount: countAverage.length - average.length, capacityExclusionCounts,
     priorCount: scored.filter(s => ['jurisdiction_prior', 'conservative_prior'].includes(s.score.basis)).length, lifecycleCount: scored.filter(s => s.score.basis === 'lifecycle').length, gridEvidenceCount: scored.filter(s => s.score.basis === 'grid_evidence').length, unassessedCount: scored.filter(s => s.score.point === null).length,
-    linkedProjectCount: new Set(facilities.flatMap(f => f.legacyProjectIds)).size, possibleDuplicateCount: facilities.filter(f => f.possibleDuplicateIds?.length).length, phaseCount: facilities.filter(f => f.parentId).length,
+    linkedProjectCount: new Set(facilities.flatMap(f => f.legacyProjectIds)).size, possibleDuplicateCount: facilities.filter(f => f.possibleDuplicateIds?.length).length, phaseCount: facilities.filter(f => f.parentId || f.identityKind === 'phase').length,
     byLifecycle, byRegion, bySector, capacityByMeasure };
 }
 /** Reevaluate only dates with source events/capacity facts, or actual retained observations.
@@ -303,7 +304,7 @@ export function facilityAggregateHistory(data: FacilityDataset, filters: Facilit
       for (const o of f.observations ?? []) if (!cutoff || Date.parse(o.observedAt) <= Date.parse(cutoff)) candidates.add(calendarDayKst(o.observedAt));
     } else {
       const visible = (ids: string[]) => visibleSources(ids, sources, cutoff);
-      for (const e of f.events) if (visible(e.sourceIds)) candidates.add(e.date);
+      for (const e of f.events) if (!e.evidenceOnly && visible(e.sourceIds)) candidates.add(e.date);
       for (const c of [...f.capacityFacts, ...(f.observations ?? []).filter(o => !cutoff || Date.parse(o.observedAt) <= Date.parse(cutoff)).flatMap(o => o.capacityFacts)]) if (c.asOf && visible(c.sourceIds)) candidates.add(c.asOf);
       for (const g of f.gridEvidence) if (g.date && visible(g.sourceIds)) candidates.add(g.date);
     }

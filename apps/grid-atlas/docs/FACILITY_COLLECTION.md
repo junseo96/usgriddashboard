@@ -6,7 +6,7 @@
 
 ## 실행
 
-기본 일정은 매주 월요일 **10:10 KST**다. 저장소 Actions → **Grid Atlas facility discovery** → **Run workflow**에서 `all`, `operators`, `hyperscale`, `industrial` 중 수집할 그룹을 선택할 수 있다. GitHub 일정은 지연될 수 있으므로 최근 실행 결과를 함께 확인한다.
+기본 일정은 매주 월요일 **10:10 KST**다. 저장소 Actions → **Grid Atlas facility discovery** → **Run workflow**에서 `all`, `operators`, `hyperscale`, `industrial`, `epoch`, `municipal` 중 수집할 그룹을 선택할 수 있다. GitHub 일정은 지연될 수 있으므로 최근 실행 결과를 함께 확인한다.
 
 앱 디렉터리에서 로컬 실행:
 
@@ -23,7 +23,11 @@ python3 scripts/facility-sources/operators.py --output /path/to/operators.json -
 
 일부 고객·공공기관 PDF의 사실 추출에는 `pdftotext`가 필요하다. Ubuntu의 `poppler-utils` 패키지가 제공하며 workflow에서 설치한다. 로컬에 없으면 해당 PDF의 단계 추출은 실패·미확인으로 남고 기존 정상 자료를 유지한다.
 
-`--output`에 이전 자료가 있으면 수집기가 출처별 마지막 정상 자료를 복원한다. 총괄 실행기는 기존 세 그룹의 fragment를 임시 디렉터리에 복사한 뒤 수집기를 호출하므로, 검증 전 자료가 공개 원장을 덮어쓰지 않는다. 그룹별 시간 상한은 기본 12분이며 `--parser-timeout`으로 1~1,200초 범위에서 조정할 수 있다.
+`--output`에 이전 자료가 있으면 수집기가 출처별 마지막 정상 자료를 복원한다. 총괄 실행기는 기존 그룹의 fragment를 임시 디렉터리에 복사한 뒤 수집기를 호출하므로, 검증 전 자료가 공개 원장을 덮어쓰지 않는다. 그룹별 시간 상한은 기본 12분이며 `--parser-timeout`으로 1~1,200초 범위에서 조정할 수 있다.
+
+`epoch`는 [Epoch AI AI data centers](https://epoch.ai/data/ai-data-centers)의 공개 CSV를 읽는 별도 그룹이다. CC BY 4.0 출처표시를 유지하며, 회사 공식 신청 원장과 구분되는 연구 자료다. 운영 전력 추정과 캠퍼스 전체 계획 용량을 혼합하지 않고 미래 목표일만으로 운영 완료를 판단하지 않는다. [API·공개 CSV 통합 기준](LOAD_API_COLLECTION.md)을 참고한다.
+
+`municipal`은 PJM 권역의 프린스윌리엄 카운티 공개 ArcGIS에서 데이터센터 건물별 인허가를 수집한다. 건물은 시설 단계로 표시하며, 원문에 없는 MW와 계통 접속신청·통전 완료를 만들지 않는다. 페이지 누락·중복 ID·응답 건수 차이는 수집 실패로 처리한다.
 
 실제 공개 파일을 바꾸지 않는 시험은 입력 fragment를 별도 디렉터리에 먼저 복사하고 모든 출력 경로를 지정한다.
 

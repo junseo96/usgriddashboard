@@ -4,7 +4,7 @@ import { projectCsv } from '../shared/csv.ts';
 import { STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
 import { calendarDayKst, endOfKstDay, isCalendarDay as date } from '../shared/time.ts';
 import { compareMarkets } from '../shared/market.ts';
-import { publicDemand, publicPipeline, publicHistorical, publicLoadBottleneck, publicLoadCoverage } from './market-data.ts';
+import { publicDemand, publicPipeline, publicHistorical, publicLoadBottleneck, publicLoadCoverage, publicLoadApi } from './market-data.ts';
 import { filterHistoricalSeries, historicalCsv, parseHistoricalFilters } from '../shared/history.ts';
 import { loadBottleneckCsv, parseLoadBottleneckFilters } from '../shared/load-bottleneck.ts';
 import { loadCoverageCsv, parseLoadCoverageFilters } from '../shared/load-coverage.ts';
@@ -162,6 +162,7 @@ export async function handleApi(request: Request, env: ApiEnvironment): Promise<
     if (request.method === 'POST' && !canWrite(request, env)) throw new ApiError(401, 'An administrator bearer token is required');
     if (path === '/api/demand' && request.method === 'GET') return json(publicDemand());
     if (path === '/api/load-pipeline' && request.method === 'GET') return json(publicPipeline());
+    if (path === '/api/load-api' && request.method === 'GET') return json(publicLoadApi());
     if (path === '/api/load-coverage' && request.method === 'GET') return json(publicLoadCoverage());
     if (path === '/api/load-coverage/export' && request.method === 'GET') {
       let filters;

@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 import { calendarDayKst } from '../shared/time.ts';
 import { validateHistoricalDataset, type HistoricalDataset, type HistoricalPoint, type HistoricalSeries } from '../shared/history.ts';
 import { STAGE_ESTIMATE_VERSION } from '../shared/stage-estimate.ts';
+import { buildLoadApiHistoricalSeries } from '../shared/load-api-history.ts';
+import type { LoadApiDataset } from '../shared/load-api.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const file = (name: string) => resolve(root, 'data', name);
@@ -39,6 +41,7 @@ function source(value: Source): Source {
 
 export function assembleHistoricalData(
   generation: Vintages, nyiso: Vintages, reviewed: { series: HistoricalSeries[] }, generatedAt: string,
+  loadApi?: LoadApiDataset,
 ): HistoricalDataset {
   for (const dataset of [generation, nyiso]) {
     if (dataset.schemaVersion !== 1 || dataset.modelVersion !== STAGE_ESTIMATE_VERSION || !dataset.vintages.length) {
@@ -111,6 +114,10 @@ export function assembleHistoricalData(
     if (series.has(item.id)) throw new Error(`Duplicate reviewed series ${item.id}`);
     series.set(item.id, { ...item, points: item.points.map(point => ({ ...point, source: source(point.source) })) });
   }
+  for (const item of loadApi ? buildLoadApiHistoricalSeries(loadApi) : []) {
+    if (series.has(item.id)) throw new Error(`Provider history cannot replace reviewed series ${item.id}`);
+    series.set(item.id, item);
+  }
   const entries = [...series.values()].map(item => ({ ...item, points: item.points.toSorted((a, b) => a.date.localeCompare(b.date)) }));
   const dates = entries.flatMap(item => item.points.map(point => point.date)).sort();
   const dataset: HistoricalDataset = { schemaVersion: 1, generatedAt,
@@ -121,7 +128,8 @@ export function assembleHistoricalData(
       '평균은 각 과거 원문 시점의 MW × 점수 합 / 평가 가능 MW 합입니다. 현재 용량으로 과거 공백을 채우지 않으며 용량 미공개·0 MW와 단계 미확인은 분모에서 제외합니다.',
       '과거 단계 점수는 당시 원문 상태에 현재 모형을 적용한 추정입니다. 실제 허가·공정률이나 당시 공식 발표 점수가 아니며 관측 공백은 보간하지 않습니다.',
       '원자료 기준일, 발행일, 웹 보관본 포착일, 실제 취득일은 서로 다릅니다. 월·분기 자료의 차트 날짜는 정렬 기준이며 정확한 관측일이 아닙니다.',
-      '과거 자료는 검토해 추가한 별도 자료입니다. 현재 앱 DB에 가짜 과거 관측을 저장하지 않았으며 반복 사이트 빌드가 새로운 프로젝트 관측을 뜻하지 않습니다.',
+      '공식 원문 검토 계열은 검토해 추가한 별도 자료입니다. 현재 앱 DB에 가짜 과거 관측을 저장하지 않았으며 반복 사이트 빌드가 새로운 프로젝트 관측을 뜻하지 않습니다.',
+      ...(loadApi ? ['Kardashev API의 ERCOT 대형 부하 추출값은 공식 원문 검토 계열과 별도입니다. 응답 해시는 API 원문을 확인하며 ERCOT 보고서의 독립 검증 완료를 뜻하지 않습니다. 제공자 월별 총량에서 개별 프로젝트나 병목점수를 만들지 않습니다.'] : []),
     ],
   };
   validateHistoricalDataset(dataset);
@@ -130,11 +138,11 @@ export function assembleHistoricalData(
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const check = process.argv.slice(2).includes('--check');
-  const [generation, nyiso, reviewed] = await Promise.all(['history-generation.json', 'history-nyiso.json', 'history-load-reviewed.json']
+  const [generation, nyiso, reviewed, loadApi] = await Promise.all(['history-generation.json', 'history-nyiso.json', 'history-load-reviewed.json', 'load-api-observations.json']
     .map(async name => JSON.parse(await readFile(file(name), 'utf8'))));
   const output = file('history.json');
   const existing = check ? JSON.parse(await readFile(output, 'utf8')) as HistoricalDataset : null;
-  const dataset = assembleHistoricalData(generation, nyiso, reviewed, existing?.generatedAt ?? new Date().toISOString());
+  const dataset = assembleHistoricalData(generation, nyiso, reviewed, existing?.generatedAt ?? new Date().toISOString(), loadApi);
   if (check) {
     if (JSON.stringify(dataset) !== JSON.stringify(existing)) throw new Error('Published historical dataset differs from reviewed inputs.');
   } else await writeFile(output, JSON.stringify(dataset, null, 2) + '\n');

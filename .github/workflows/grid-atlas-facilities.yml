@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       source:
-        description: 'Official facility source group to discover and refresh'
+        description: 'Public facility source group to discover and refresh'
         type: choice
-        options: [all, operators, hyperscale, industrial]
+        options: [all, operators, hyperscale, industrial, epoch, municipal]
         default: all
 
 permissions:
@@ -17,14 +17,14 @@ permissions:
   actions: write
 
 concurrency:
-  group: grid-atlas-facility-discovery
+  group: grid-atlas-large-load-refresh
   cancel-in-progress: false
 
 jobs:
   discover:
     if: github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 80
     defaults:
       run:
         working-directory: apps/grid-atlas
@@ -103,7 +103,7 @@ jobs:
           if git diff --cached --quiet; then
             printf 'changed=false\n' >> "$GITHUB_OUTPUT"
           else
-            git commit -m 'data: refresh official large-load facility observations'
+            git commit -m 'data: refresh public large-load facility observations'
             # A concurrent main update makes this fail safely; no forced push or
             # unvalidated merge of generated data is attempted.
             git push origin HEAD:main
@@ -124,7 +124,7 @@ jobs:
           import datetime, json, os
           from pathlib import Path
           path = Path('data/large-load-facility-collection.json')
-          lines = ['### 공식 대형 수용가 시설 발굴', '']
+          lines = ['### 공개 대형 수용가 시설 발굴', '']
           report = json.loads(path.read_text()) if path.exists() else None
           fresh = report and os.environ.get('COLLECTION_STARTED') and datetime.datetime.fromisoformat(report['startedAt'].replace('Z', '+00:00')).timestamp() >= int(os.environ['COLLECTION_STARTED'])
           if fresh:
@@ -133,7 +133,7 @@ jobs:
                   lines += [f"- {group['id']}: {group['status']} · 보존/확보 시설 {group['facilityCount']}개"]
           else:
               lines += ['이번 실행의 수집 보고서를 만들지 못했습니다.']
-          lines += ['', '공식 목록을 다시 파싱하여 신규 항목을 찾습니다. 시설 등재는 접속신청 확인을 뜻하지 않습니다.',
+          lines += ['', '운영사·공공기관 목록과 명시된 공개 연구자료를 다시 파싱하여 신규 항목을 찾습니다. 시설 등재는 접속신청 확인을 뜻하지 않습니다.',
                     '실패한 출처의 이전 자료는 유지합니다. 관측일을 착공·통전일로 사용하지 않습니다.',
                     '데이터 커밋: ' + os.environ.get('DATA_COMMITTED', ''),
                     'Pages 재배포는 별도 workflow 실행 결과를 확인해야 합니다.']

@@ -6,6 +6,7 @@ import { handleApi, type ApiEnvironment } from '../server/api.ts';
 import { captureSnapshot, inventoryRevisionGuard, readInventory, readInventoryWithRevision, seedDatabase, sourceReplacementStatements } from '../server/database.ts';
 import { GATES, MODEL_VERSION, type Assessment, type ImportPayload, type Project, type Source } from '../shared/types.ts';
 import { isDemandDataset } from '../shared/market.ts';
+import { isLoadApiDataset } from '../shared/load-api.ts';
 
 const migration = readFileSync(new URL('../migrations/0001_initial.sql', import.meta.url), 'utf8');
 const today = new Date().toISOString().slice(0,10);
@@ -84,6 +85,12 @@ test('public market APIs serve evidence separately and compare only eligible sna
     const evidence = await pipeline.json();
     assert.ok(evidence.projects.some((p: { sector: string }) => p.sector === 'manufacturing'));
     assert.ok(evidence.aggregates.some((a: { region: string }) => a.region === 'ERCOT'));
+    const loadApiResponse = await call(env, '/api/load-api');
+    assert.equal(loadApiResponse.status, 200);
+    const loadApi = await loadApiResponse.json();
+    assert.ok(isLoadApiDataset(loadApi));
+    assert.ok(loadApi.records.every((record: { scope: string }) => record.scope === 'regional_aggregate'));
+    // Aggregate observations never become customer rows in the application DB.
     assert.equal((await readInventory(db)).projects.length, 2);
   } finally { db.close(); }
 });

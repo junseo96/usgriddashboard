@@ -1,0 +1,1490 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-14T13:36:02.179946Z",
+  "provider": "kardashev",
+  "records": [
+    {
+      "id": "kardashev:909367866d801ad440cfe40407f0b8da24c1210c0665625ada21a68e213bed90",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2022-08-01",
+      "reportDate": "2022-08-22",
+      "sourceUrl": "https://www.ercot.com/files/docs/2022/08/22/LLI%20Queue%20Status%20Update%20-%202022-08-22_.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:19.994420Z",
+      "totalMw": 35142.0,
+      "colocatedMw": 6393.0,
+      "standaloneMw": 28749.0,
+      "approvedToEnergizeMw": null,
+      "planningStudiesApprovedMw": null,
+      "byStatus": null,
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2022-05": 20986.0,
+        "2022-06": 23936.0,
+        "2022-07": 26774.0,
+        "2022-08": 35142.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "a0befd624e37975440814b9a317b3e04643adcdc419859197370d087e4da28ab",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_incomplete",
+          "severity": "warning",
+          "detail": "Provider stage table is absent or contains unknown categories; no complete stage score is derived."
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:0390b6c85e30ca84a73a479462aaf754e528dacc891c15c17615ed0e8ab6b361",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2022-09-01",
+      "reportDate": "2022-09-26",
+      "sourceUrl": "https://www.ercot.com/files/docs/2022/09/26/LLI%20Queue%20Status%20Update%20-%202022-09-26.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:20.352388Z",
+      "totalMw": 38142.0,
+      "colocatedMw": 6693.0,
+      "standaloneMw": 31449.0,
+      "approvedToEnergizeMw": null,
+      "planningStudiesApprovedMw": null,
+      "byStatus": null,
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2022-05": 20986.0,
+        "2022-06": 23936.0,
+        "2022-07": 26774.0,
+        "2022-08": 35142.0,
+        "2022-09": 38142.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "a331805bc95885435ed3822d16a8db12d97d8d20eb32a15d414360d51fde3c80",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_incomplete",
+          "severity": "warning",
+          "detail": "Provider stage table is absent or contains unknown categories; no complete stage score is derived."
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:251818c8f1471beb3e6de890f4d229d0b44c9a83efa231cef85e06f219d6169a",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2022-10-01",
+      "reportDate": "2022-10-24",
+      "sourceUrl": "https://www.ercot.com/files/docs/2022/10/24/LLI%20Queue%20Update%20-%202022-10-24.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:21.259943Z",
+      "totalMw": 37323.0,
+      "colocatedMw": 7035.0,
+      "standaloneMw": 30288.0,
+      "approvedToEnergizeMw": null,
+      "planningStudiesApprovedMw": null,
+      "byStatus": null,
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2022-05": 20986.0,
+        "2022-06": 23936.0,
+        "2022-07": 26774.0,
+        "2022-08": 35142.0,
+        "2022-09": 38142.0,
+        "2022-10": 37323.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "336179562c0c8e3b327880597496f0d586786aff4f989bc0e9fb73ccbea6f0de",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_incomplete",
+          "severity": "warning",
+          "detail": "Provider stage table is absent or contains unknown categories; no complete stage score is derived."
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:d963dbc17ad1afeb7e65402b248f9584f199cd59870d9eac3e6c33c123c7c13b",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-01-01",
+      "reportDate": "2023-01-23",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/01/22/Jan%2023_2023%20LLI%20Queue%20Status%20Update%20-%202023-01-23.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:21.845830Z",
+      "totalMw": 38143.0,
+      "colocatedMw": 7651.0,
+      "standaloneMw": 30492.0,
+      "approvedToEnergizeMw": 2370.0,
+      "planningStudiesApprovedMw": null,
+      "byStatus": null,
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2022-05": 20986.0,
+        "2022-06": 23936.0,
+        "2022-07": 26774.0,
+        "2022-08": 35142.0,
+        "2022-09": 38142.0,
+        "2022-10": 37073.0,
+        "2022-12": 36254.0,
+        "2023-01": 38143.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "cc900fac46112424451e6e2f05e410594aeb07f5392e677edb3f0a56a5d174b3",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_incomplete",
+          "severity": "warning",
+          "detail": "Provider stage table is absent or contains unknown categories; no complete stage score is derived."
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:29c9e1c012818ba6df70b80416f31f3c8d04400b814b0d25244e96a312a3a7a4",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-02-01",
+      "reportDate": "2023-02-17",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/02/17/LLI%20Queue%20Status%20Update%20-%202023-02-17.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:22.187369Z",
+      "totalMw": 37673.0,
+      "colocatedMw": 7651.0,
+      "standaloneMw": 30022.0,
+      "approvedToEnergizeMw": 2370.0,
+      "planningStudiesApprovedMw": 5996.0,
+      "byStatus": {
+        "planned": 12791.0,
+        "in_study": 16516.0,
+        "met_planning": 5996.0,
+        "approved_to_energize": 2370.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2022-08": 35142.0,
+        "2022-09": 38142.0,
+        "2022-10": 36598.0,
+        "2022-12": 36254.0,
+        "2023-01": 38143.0,
+        "2023-02": 37673.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "1ca179e40438b188c16360dc843e1592e911c1721702b9f02d497e239e69ed13",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:cfd0605b8e3c741e7446a07a0fa1a6e4f68ec1115d6c8c1cd515a8131b63013a",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-03-01",
+      "reportDate": "2023-03-20",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/03/20/LLI%20Queue%20Status%20Update%20-%202023-03-20.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:22.526133Z",
+      "totalMw": 39351.0,
+      "colocatedMw": 7936.0,
+      "standaloneMw": 31415.0,
+      "approvedToEnergizeMw": 2570.0,
+      "planningStudiesApprovedMw": 6036.0,
+      "byStatus": {
+        "planned": 11241.0,
+        "in_study": 19504.0,
+        "met_planning": 6036.0,
+        "approved_to_energize": 2570.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2022-09": 38142.0,
+        "2022-10": 36598.0,
+        "2022-12": 36254.0,
+        "2023-01": 38143.0,
+        "2023-02": 37673.0,
+        "2023-03": 39351.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "dc57591071f458f44da1b0e8c25e79c6e1eb34d18389780dcf3f120d4642b6a8",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:979da2de973f2d1f4f024050040ef804c3488f23a1c5bd7239cac32957bff864",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-04-01",
+      "reportDate": "2023-04-12",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/04/12/LLI-Queue-Status-Update---2023-04-12.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:23.016132Z",
+      "totalMw": 39645.0,
+      "colocatedMw": 8130.0,
+      "standaloneMw": 31515.0,
+      "approvedToEnergizeMw": 2570.0,
+      "planningStudiesApprovedMw": 6077.0,
+      "byStatus": {
+        "planned": 11241.0,
+        "in_study": 19757.0,
+        "met_planning": 6077.0,
+        "approved_to_energize": 2570.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2022-10": 36598.0,
+        "2022-12": 36254.0,
+        "2023-01": 38143.0,
+        "2023-02": 37673.0,
+        "2023-03": 39351.0,
+        "2023-04": 39645.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "a1369b5c99a82f1d4fbcdfe6de0affc714d46db100fbdb1c9b3d7e9e1bc5b39f",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:27d91737ead6d78f7647d6cb278c835ba95dcc04f1fe4211efe39f1aea08367c",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-05-01",
+      "reportDate": "2023-05-31",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/05/31/LLI%20Queue%20Status%20Update%20-%202023-05-31.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:23.563917Z",
+      "totalMw": 41766.0,
+      "colocatedMw": 8322.0,
+      "standaloneMw": 33444.0,
+      "approvedToEnergizeMw": 2620.0,
+      "planningStudiesApprovedMw": 6467.0,
+      "byStatus": {
+        "under_ercot_review": 19597.0,
+        "approved_to_energize": 2620.0,
+        "no_studies_submitted": 13082.0,
+        "planning_studies_approved": 6467.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2022-12": 36254.0,
+        "2023-01": 38143.0,
+        "2023-02": 37673.0,
+        "2023-03": 39351.0,
+        "2023-04": 39645.0,
+        "2023-05": 41766.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "9a5ae796aef8866dc2cf733bd2e85bb0ac611176d7f271374665cf570412d584",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:76f9c52766294b622ddde064f37aa6c86f93713f73c6ff485f3d96903e4b1f50",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-08-01",
+      "reportDate": "2023-08-04",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/08/09/July%202023%20LLI%20Queue%20Status%20Update.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:24.676341Z",
+      "totalMw": 42546.0,
+      "colocatedMw": 8752.0,
+      "standaloneMw": 33794.0,
+      "approvedToEnergizeMw": 2973.0,
+      "planningStudiesApprovedMw": 8648.0,
+      "byStatus": {
+        "under_ercot_review": 18399.0,
+        "approved_to_energize": 2973.0,
+        "no_studies_submitted": 12526.0,
+        "planning_studies_approved": 8648.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2023-01": 38143.0,
+        "2023-02": 37673.0,
+        "2023-03": 39351.0,
+        "2023-04": 39645.0,
+        "2023-05": 41766.0,
+        "2023-08": 42546.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "4c162eda21249e4049dde252818c6e08370db3e769639ba9551a46715b52ccc9",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:00009836cffedf870d180ae4df93af4c89f054606ed1bebd52e192ed8c6d8436",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-09-01",
+      "reportDate": "2023-09-25",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/09/25/LLI%20Queue%20Status%20Update%20-%202023-09-25.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:25.310606Z",
+      "totalMw": 39559.0,
+      "colocatedMw": 8817.0,
+      "standaloneMw": 30742.0,
+      "approvedToEnergizeMw": 3077.0,
+      "planningStudiesApprovedMw": 11092.0,
+      "byStatus": {
+        "under_ercot_review": 17790.0,
+        "approved_to_energize": 3077.0,
+        "no_studies_submitted": 7600.0,
+        "planning_studies_approved": 11092.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2023-02": 37673.0,
+        "2023-03": 39351.0,
+        "2023-04": 39645.0,
+        "2023-05": 41766.0,
+        "2023-08": 42546.0,
+        "2023-09": 39559.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "6cc329bc0eabc8e28757a8c4ff5e0a2379e92ecad60e1d86ba93a4d285221cbe",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:0f97adc2726e8b5e7e394aa5143773875a7133df2ee1cfa7b3154941526f66dc",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-10-01",
+      "reportDate": "2023-10-23",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/10/20/LLI%20Queue%20Status%20Update%20-%202023-10-23.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:25.680843Z",
+      "totalMw": 39336.0,
+      "colocatedMw": 8605.0,
+      "standaloneMw": 30731.0,
+      "approvedToEnergizeMw": 3077.0,
+      "planningStudiesApprovedMw": 11715.0,
+      "byStatus": {
+        "under_ercot_review": 17532.0,
+        "approved_to_energize": 3077.0,
+        "no_studies_submitted": 7012.0,
+        "planning_studies_approved": 11715.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2023-03": 39351.0,
+        "2023-04": 39645.0,
+        "2023-05": 41766.0,
+        "2023-08": 42546.0,
+        "2023-09": 39559.0,
+        "2023-10": 39336.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "8614c81c16fff41a57829ceb018d312b90796c24a423a542b0e292a4c67e462d",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:18b68cb6de899852c04aad26e73b4785e2f5fb6a48d5362230677543fc722cc1",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2023-12-01",
+      "reportDate": "2023-12-11",
+      "sourceUrl": "https://www.ercot.com/files/docs/2023/12/08/LLI%20Queue%20Status%20Update%20-%202023-12-11.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:26.621193Z",
+      "totalMw": 39238.0,
+      "colocatedMw": 8507.0,
+      "standaloneMw": 30731.0,
+      "approvedToEnergizeMw": 3188.0,
+      "planningStudiesApprovedMw": 11617.5,
+      "byStatus": {
+        "under_ercot_review": 17213.0,
+        "approved_to_energize": 3188.0,
+        "no_studies_submitted": 7219.5,
+        "planning_studies_approved": 11617.5
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2023-03": 39351.0,
+        "2023-04": 39645.0,
+        "2023-05": 41766.0,
+        "2023-08": 42546.0,
+        "2023-09": 39559.0,
+        "2023-10": 39336.0,
+        "2023-12": 39238.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "ac28ab5e8484cde4aa17c7d83f16fd684f26bbc917a1df052c26918eea9927d7",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:1567cd4b6d28d664e57c31978e677e0e0382f192701865e4d4fce0e0d2499fae",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2024-01-01",
+      "reportDate": "2024-01-25",
+      "sourceUrl": "https://www.ercot.com/files/docs/2024/02/27/LLI%20Queue%20Status%20Update%20-%202024-1-25%201_.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:28.142774Z",
+      "totalMw": 39271.0,
+      "colocatedMw": 8507.0,
+      "standaloneMw": 30764.0,
+      "approvedToEnergizeMw": 4479.0,
+      "planningStudiesApprovedMw": 9326.5,
+      "byStatus": {
+        "under_ercot_review": 17221.0,
+        "approved_to_energize": 4479.0,
+        "no_studies_submitted": 8244.5,
+        "planning_studies_approved": 9326.5
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2023-03": 39351.0,
+        "2023-04": 39645.0,
+        "2023-05": 41766.0,
+        "2023-08": 42546.0,
+        "2023-09": 39559.0,
+        "2023-10": 39336.0,
+        "2023-12": 39238.0,
+        "2024-01": 39271.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "a21273a25d764e43f77a28f621c03f87dc446a336a3f85595d70edcd197870c1",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:bfd6070b0584b2ec71afbbfbc5d36bf27e1b88c6e7c77dd2548215fe4bfbe891",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2024-03-01",
+      "reportDate": "2024-04-01",
+      "sourceUrl": "https://www.ercot.com/files/docs/2024/03/26/LLI%20Queue%20Status%20Update%20-%202024-4-1.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:28.321962Z",
+      "totalMw": 40808.0,
+      "colocatedMw": 8507.0,
+      "standaloneMw": 32301.0,
+      "approvedToEnergizeMw": 4479.0,
+      "planningStudiesApprovedMw": 9773.0,
+      "byStatus": {
+        "under_ercot_review": 18362.0,
+        "approved_to_energize": 4479.0,
+        "no_studies_submitted": 8245.0,
+        "planning_studies_approved": 9773.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2022-04": 17376.0,
+        "2023-03": 39351.0,
+        "2023-04": 39645.0,
+        "2023-05": 41766.0,
+        "2023-08": 42546.0,
+        "2023-09": 39559.0,
+        "2023-10": 39336.0,
+        "2023-12": 39238.0,
+        "2024-01": 39271.0,
+        "2024-03": 40808.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "07878c5c14fc72c189b442b2d2169502ef8cd1f723c582236f84273cca1cd937",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported stage amounts do not reconcile to the headline. Missing categories, scope, report revision, rounding or extraction require source review; values are preserved. ERCOT 9.4/9.5 categories are not inferred. ",
+          "reportedSumMw": 40859.0,
+          "expectedMw": 40808.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:521a67bd8424d3849707dd4070baf11187966a1a54bb38f6bbabc1e949eb7705",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2024-05-01",
+      "reportDate": "2024-05-06",
+      "sourceUrl": "https://www.ercot.com/files/docs/2024/05/05/LLI%20Queue%20Status%20Update%20-%202024_5_2.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:28.676104Z",
+      "totalMw": 41492.0,
+      "colocatedMw": 8687.0,
+      "standaloneMw": 32805.0,
+      "approvedToEnergizeMw": 4479.0,
+      "planningStudiesApprovedMw": 10288.0,
+      "byStatus": {
+        "under_ercot_review": 18482.0,
+        "approved_to_energize": 4479.0,
+        "no_studies_submitted": 8245.0,
+        "planning_studies_approved": 10288.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2023-05": 41766.0,
+        "2023-08": 42546.0,
+        "2023-09": 39559.0,
+        "2023-10": 39336.0,
+        "2023-12": 39238.0,
+        "2024-01": 39271.0,
+        "2024-03": 40808.0,
+        "2024-05": 41492.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "70b5739a935fd18b33f62b895c8a1767c22873b418e5291d42f433171dff771c",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported stage amounts do not reconcile to the headline. Missing categories, scope, report revision, rounding or extraction require source review; values are preserved. ERCOT 9.4/9.5 categories are not inferred. ",
+          "reportedSumMw": 41494.0,
+          "expectedMw": 41492.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:cf672e81fb5b6cc04c2caf6dabc2a771ebd8d7473fc51e44e93cacb4c1cdf874",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2024-06-01",
+      "reportDate": "2024-06-03",
+      "sourceUrl": "https://www.ercot.com/files/docs/2024/06/02/LLI%20Queue%20Status%20Update%20-%202024-6-3.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:29.191414Z",
+      "totalMw": 43683.0,
+      "colocatedMw": 9977.0,
+      "standaloneMw": 33706.0,
+      "approvedToEnergizeMw": 5479.0,
+      "planningStudiesApprovedMw": 10259.0,
+      "byStatus": {
+        "under_ercot_review": 19236.0,
+        "approved_to_energize": 5479.0,
+        "no_studies_submitted": 8710.0,
+        "planning_studies_approved": 10259.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2023-08": 42546.0,
+        "2023-09": 39559.0,
+        "2023-10": 39336.0,
+        "2023-12": 39238.0,
+        "2024-01": 39271.0,
+        "2024-03": 40808.0,
+        "2024-05": 41492.0,
+        "2024-06": 43683.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "5c7507f090beeefa0ff209d05b0f3e1ff8364652898bd7747b9f8451739672f9",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported stage amounts do not reconcile to the headline. Missing categories, scope, report revision, rounding or extraction require source review; values are preserved. ERCOT 9.4/9.5 categories are not inferred. ",
+          "reportedSumMw": 43684.0,
+          "expectedMw": 43683.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:7ecaa3c5e6f8b82afd333850eb2310901f1bdc176bd3768da772b4021f41cd2a",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2024-07-01",
+      "reportDate": "2024-07-08",
+      "sourceUrl": "https://www.ercot.com/files/docs/2024/07/05/LLI%20Queue%20Status%20Update%20-%202024-7-8.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:29.534975Z",
+      "totalMw": 47879.0,
+      "colocatedMw": 9298.0,
+      "standaloneMw": 38581.0,
+      "approvedToEnergizeMw": 5479.0,
+      "planningStudiesApprovedMw": 9859.0,
+      "byStatus": {
+        "under_ercot_review": 22850.0,
+        "approved_to_energize": 5479.0,
+        "no_studies_submitted": 9692.0,
+        "planning_studies_approved": 9859.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2023-08": 42546.0,
+        "2023-09": 39559.0,
+        "2023-10": 39336.0,
+        "2023-12": 39238.0,
+        "2024-01": 39271.0,
+        "2024-03": 40808.0,
+        "2024-05": 41492.0,
+        "2024-06": 43683.0,
+        "2024-07": 47879.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "9b436cbdac901821619f07f20b400fd36c0725592ff34a85c8969c3c2343e1c0",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported stage amounts do not reconcile to the headline. Missing categories, scope, report revision, rounding or extraction require source review; values are preserved. ERCOT 9.4/9.5 categories are not inferred. ",
+          "reportedSumMw": 47880.0,
+          "expectedMw": 47879.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:445f6eb8ad1b9ce8c9deeaef00206854fa9c04441e85f22cb1ccfd6cd460eb7d",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2024-09-01",
+      "reportDate": "2024-09-06",
+      "sourceUrl": "https://www.ercot.com/files/docs/2024/09/05/LLI%20Queue%20Status%20Update%20-%202024-9-6.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:30.539414Z",
+      "totalMw": 56954.0,
+      "colocatedMw": 9885.0,
+      "standaloneMw": 47069.0,
+      "approvedToEnergizeMw": 5496.0,
+      "planningStudiesApprovedMw": 8598.0,
+      "byStatus": {
+        "under_ercot_review": 29782.0,
+        "approved_to_energize": 5496.0,
+        "no_studies_submitted": 12582.0,
+        "planning_studies_approved": 8598.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2023-10": 39336.0,
+        "2023-12": 39238.0,
+        "2024-01": 39271.0,
+        "2024-03": 40808.0,
+        "2024-05": 41492.0,
+        "2024-06": 43683.0,
+        "2024-07": 47879.0,
+        "2024-08": 52515.0,
+        "2024-09": 56954.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "2429cdea23f4ceea315ffbb8186c920525801c28fffb1202afeefc457a84dde8",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported stage amounts do not reconcile to the headline. Missing categories, scope, report revision, rounding or extraction require source review; values are preserved. ERCOT 9.4/9.5 categories are not inferred. ",
+          "reportedSumMw": 56458.0,
+          "expectedMw": 56954.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:e729820e49778d204ce92b9c8a12f745144b0a019178a587967e93725717075f",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2026-02-01",
+      "reportDate": "2026-02-25",
+      "sourceUrl": "https://www.ercot.com/files/docs/2026/03/05/February-TAC-Report.pdf",
+      "providerExtractedAt": "2026-07-18T00:55:38.300593Z",
+      "totalMw": 237711.0,
+      "colocatedMw": 28149.0,
+      "standaloneMw": 209562.0,
+      "approvedToEnergizeMw": 8876.0,
+      "planningStudiesApprovedMw": 17902.0,
+      "byStatus": {
+        "observed_energized": 5732.0,
+        "under_ercot_review": 82047.0,
+        "no_studies_submitted": 128887.0,
+        "planning_studies_approved": 17902.0,
+        "approved_to_energize_not_operational": 3144.0
+      },
+      "byZone": null,
+      "bySizeBucket": null,
+      "byType": null,
+      "trailing12mo": {
+        "2025-04": 136625.0,
+        "2025-05": 169615.0,
+        "2025-06": 172828.0,
+        "2025-07": 182408.0,
+        "2025-08": 189328.0,
+        "2025-09": 195423.0,
+        "2025-10": 212095.0,
+        "2025-11": 230799.0,
+        "2025-12": 237189.0,
+        "2026-01": 233125.0,
+        "2026-02": 237711.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "695ab1c77f0a0d24b39200218531caf0630f48f831d6ab351b99b3738535a4e9",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported stage amounts do not reconcile to the headline. Missing categories, scope, report revision, rounding or extraction require source review; values are preserved. ERCOT 9.4/9.5 categories are not inferred. ",
+          "reportedSumMw": 237712.0,
+          "expectedMw": 237711.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:0f5efd9fdfb96bc60412189522881fb79546a4b5bc8c17cf306b1c2f48575ac4",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2026-03-01",
+      "reportDate": "2026-03-26",
+      "sourceUrl": "https://www.ercot.com/files/docs/2026/03/27/March-TAC-Report-Updated_03262026.pptx",
+      "providerExtractedAt": "2026-08-05T03:43:08.458981Z",
+      "totalMw": 410618.0,
+      "colocatedMw": 45489.0,
+      "standaloneMw": 365129.0,
+      "approvedToEnergizeMw": 9042.0,
+      "planningStudiesApprovedMw": 18661.0,
+      "byStatus": null,
+      "byZone": {
+        "Other": 26215.0,
+        "LZ_WEST": 38256.0,
+        "LZ_NORTH": 35370.0
+      },
+      "bySizeBucket": {
+        "1000_plus": {
+          "mw": 271857.0,
+          "count": null
+        },
+        "75_to_250": {
+          "mw": 17469.0,
+          "count": null
+        },
+        "250_to_500": {
+          "mw": 43952.0,
+          "count": null
+        },
+        "500_to_1000": {
+          "mw": 92382.0,
+          "count": null
+        }
+      },
+      "byType": {
+        "none": {
+          "mw": 25869.0,
+          "pct": 6.3
+        },
+        "crypto": {
+          "mw": 15604.0,
+          "pct": 3.8
+        },
+        "hydrogen": {
+          "mw": 1232.0,
+          "pct": 0.3
+        },
+        "industrial": {
+          "mw": 5338.0,
+          "pct": 1.3
+        },
+        "data_center": {
+          "mw": 355830.0,
+          "pct": 86.7
+        },
+        "data_center_crypto": {
+          "mw": 2464.0,
+          "pct": 0.6
+        }
+      },
+      "trailing12mo": {
+        "2025-05": 169615.0,
+        "2025-06": 172828.0,
+        "2025-07": 182408.0,
+        "2025-08": 189328.0,
+        "2025-09": 195423.0,
+        "2025-10": 212095.0,
+        "2025-11": 230799.0,
+        "2025-12": 237189.0,
+        "2026-01": 233125.0,
+        "2026-02": 241748.0,
+        "2026-03": 410618.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "a5875679306d6e01b184c7e7f37f108fe1d14196a97740f638b7285d52191962",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_incomplete",
+          "severity": "warning",
+          "detail": "Provider stage table is absent or contains unknown categories; no complete stage score is derived."
+        },
+        {
+          "code": "size_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported size buckets do not reconcile to the headline; bucket counts are aggregate source counts, not identified projects.",
+          "reportedSumMw": 425660.0,
+          "expectedMw": 410618.0
+        },
+        {
+          "code": "type_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported type amounts do not reconcile to the headline; provider extraction may calculate rounded percentage × total.",
+          "reportedSumMw": 406337.0,
+          "expectedMw": 410618.0
+        },
+        {
+          "code": "type_capacity_derivation_unverified",
+          "severity": "warning",
+          "detail": "Type MW may be derived from chart percentages by the provider; not independently verified requested capacity per customer."
+        },
+        {
+          "code": "zone_scope_unverified",
+          "severity": "warning",
+          "detail": "Reported zones are not a verified complete allocation of the regional total; do not use them as a complete ERCOT zone denominator.",
+          "reportedSumMw": 99841.0,
+          "expectedMw": 410618.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:7757f920501fc1d7c389c11bf52bc2450015dde3d1e94651d678389fa80e49cc",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2026-04-01",
+      "reportDate": "2026-04-22",
+      "sourceUrl": "https://www.ercot.com/files/docs/2026/04/22/April-24-LLWG-Report_042426.pptx",
+      "providerExtractedAt": "2026-08-05T03:43:08.458981Z",
+      "totalMw": 445793.0,
+      "colocatedMw": 52687.0,
+      "standaloneMw": 393106.0,
+      "approvedToEnergizeMw": 9042.0,
+      "planningStudiesApprovedMw": 23010.0,
+      "byStatus": null,
+      "byZone": {
+        "Other": 28201.0,
+        "LZ_WEST": 37606.0,
+        "LZ_NORTH": 36582.0
+      },
+      "bySizeBucket": {
+        "1000_plus": {
+          "mw": 291036.0,
+          "count": null
+        },
+        "75_to_250": {
+          "mw": 17966.0,
+          "count": null
+        },
+        "250_to_500": {
+          "mw": 45929.0,
+          "count": null
+        },
+        "500_to_1000": {
+          "mw": 98670.0,
+          "count": null
+        }
+      },
+      "byType": {
+        "none": {
+          "mw": 22735.0,
+          "pct": 5.1
+        },
+        "crypto": {
+          "mw": 14711.0,
+          "pct": 3.3
+        },
+        "hydrogen": {
+          "mw": 3566.0,
+          "pct": 0.8
+        },
+        "industrial": {
+          "mw": 4458.0,
+          "pct": 1.0
+        },
+        "data_center": {
+          "mw": 388690.0,
+          "pct": 87.2
+        },
+        "data_center_crypto": {
+          "mw": 892.0,
+          "pct": 0.2
+        }
+      },
+      "trailing12mo": {
+        "2025-06": 172828.0,
+        "2025-07": 182408.0,
+        "2025-08": 189328.0,
+        "2025-09": 195423.0,
+        "2025-10": 212095.0,
+        "2025-11": 230799.0,
+        "2025-12": 237189.0,
+        "2026-01": 233125.0,
+        "2026-02": 241748.0,
+        "2026-03": 418998.0,
+        "2026-04": 445793.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "0ffd465ea40627f6c74677911d37ce66456dc378e55bced0a12ff13cd5b32a10",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_incomplete",
+          "severity": "warning",
+          "detail": "Provider stage table is absent or contains unknown categories; no complete stage score is derived."
+        },
+        {
+          "code": "size_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported size buckets do not reconcile to the headline; bucket counts are aggregate source counts, not identified projects.",
+          "reportedSumMw": 453601.0,
+          "expectedMw": 445793.0
+        },
+        {
+          "code": "type_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported type amounts do not reconcile to the headline; provider extraction may calculate rounded percentage × total.",
+          "reportedSumMw": 435052.0,
+          "expectedMw": 445793.0
+        },
+        {
+          "code": "type_capacity_derivation_unverified",
+          "severity": "warning",
+          "detail": "Type MW may be derived from chart percentages by the provider; not independently verified requested capacity per customer."
+        },
+        {
+          "code": "zone_scope_unverified",
+          "severity": "warning",
+          "detail": "Reported zones are not a verified complete allocation of the regional total; do not use them as a complete ERCOT zone denominator.",
+          "reportedSumMw": 102389.0,
+          "expectedMw": 445793.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:e4cc64dc9f47efcd902a159e3b32d0e578bcb392ab89a193e27d8c403f2519e6",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2026-05-01",
+      "reportDate": "2026-05-20",
+      "sourceUrl": "https://www.ercot.com/files/docs/2026/05/20/May-21-LLWG-Report.pptx",
+      "providerExtractedAt": "2026-08-05T03:43:08.458981Z",
+      "totalMw": 438595.0,
+      "colocatedMw": 55966.0,
+      "standaloneMw": 382629.0,
+      "approvedToEnergizeMw": 9062.0,
+      "planningStudiesApprovedMw": 46385.0,
+      "byStatus": {
+        "section_9_4_only": 9300.0,
+        "observed_energized": 7100.0,
+        "under_ercot_review": 75400.0,
+        "section_9_4_9_5_met": 37100.0,
+        "no_studies_submitted": 307700.0,
+        "approved_to_energize_not_operational": 2000.0
+      },
+      "byZone": null,
+      "bySizeBucket": {
+        "1000_plus": {
+          "mw": 283748.0,
+          "count": null
+        },
+        "75_to_250": {
+          "mw": 18414.0,
+          "count": null
+        },
+        "250_to_500": {
+          "mw": 47790.0,
+          "count": null
+        },
+        "500_to_1000": {
+          "mw": 107108.0,
+          "count": null
+        }
+      },
+      "byType": {
+        "none": {
+          "mw": 24123.0,
+          "pct": 5.5
+        },
+        "crypto": {
+          "mw": 14474.0,
+          "pct": 3.3
+        },
+        "hydrogen": {
+          "mw": 3509.0,
+          "pct": 0.8
+        },
+        "industrial": {
+          "mw": 4825.0,
+          "pct": 1.1
+        },
+        "data_center": {
+          "mw": 391059.0,
+          "pct": 89.2
+        },
+        "data_center_crypto": {
+          "mw": 877.0,
+          "pct": 0.2
+        }
+      },
+      "trailing12mo": {
+        "2025-07": 182408.0,
+        "2025-08": 189328.0,
+        "2025-09": 195423.0,
+        "2025-10": 212095.0,
+        "2025-11": 230799.0,
+        "2025-12": 237189.0,
+        "2026-01": 233125.0,
+        "2026-02": 241748.0,
+        "2026-03": 418998.0,
+        "2026-04": 438028.0,
+        "2026-05": 438595.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "fa9da276b127986586bb11dfa2f1db3fe5316d108ed87697744039319020c4e7",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported stage amounts do not reconcile to the headline. Missing categories, scope, report revision, rounding or extraction require source review; values are preserved. ERCOT 9.4/9.5 categories are not inferred. ",
+          "reportedSumMw": 438600.0,
+          "expectedMw": 438595.0
+        },
+        {
+          "code": "size_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported size buckets do not reconcile to the headline; bucket counts are aggregate source counts, not identified projects.",
+          "reportedSumMw": 457060.0,
+          "expectedMw": 438595.0
+        },
+        {
+          "code": "type_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported type amounts do not reconcile to the headline; provider extraction may calculate rounded percentage × total.",
+          "reportedSumMw": 438867.0,
+          "expectedMw": 438595.0
+        },
+        {
+          "code": "type_capacity_derivation_unverified",
+          "severity": "warning",
+          "detail": "Type MW may be derived from chart percentages by the provider; not independently verified requested capacity per customer."
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    },
+    {
+      "id": "kardashev:178a248770dbf29bf6f0ebc67b1e2f380c354e75d535b87592c54afaa61ab692",
+      "region": "ERCOT",
+      "scope": "regional_aggregate",
+      "snapshotMonth": "2026-06-01",
+      "reportDate": "2026-06-19",
+      "sourceUrl": "https://www.ercot.com/files/docs/2026/06/18/June-19-LLWG-Report.pptx",
+      "providerExtractedAt": "2026-08-05T03:43:08.458981Z",
+      "totalMw": 466497.0,
+      "colocatedMw": 69708.0,
+      "standaloneMw": 396789.0,
+      "approvedToEnergizeMw": 8926.0,
+      "planningStudiesApprovedMw": 37085.0,
+      "byStatus": {
+        "observed_energized": 5700.0,
+        "under_ercot_review": 151100.0,
+        "no_studies_submitted": 257600.0,
+        "planning_studies_approved": null,
+        "approved_to_energize_not_operational": 3200.0
+      },
+      "byZone": {
+        "other": 60927.0,
+        "lz_west": 82247.0,
+        "lz_north": 56788.0
+      },
+      "bySizeBucket": {
+        "75_250mw": {
+          "mw": 18686.0,
+          "count": 115
+        },
+        "250_500mw": {
+          "mw": 50198.0,
+          "count": 144
+        },
+        "500_1000mw": {
+          "mw": 114851.0,
+          "count": 175
+        },
+        "1000mw_plus": {
+          "mw": 305149.0,
+          "count": 207
+        }
+      },
+      "byType": {
+        "none": {
+          "mw": 22392.0,
+          "pct": 4.8
+        },
+        "crypto": {
+          "mw": 13995.0,
+          "pct": 3.0
+        },
+        "hydrogen": {
+          "mw": 3732.0,
+          "pct": 0.8
+        },
+        "industrial": {
+          "mw": 4665.0,
+          "pct": 1.0
+        },
+        "data_center": {
+          "mw": 420812.0,
+          "pct": 90.2
+        },
+        "data_center_crypto": {
+          "mw": 933.0,
+          "pct": 0.2
+        }
+      },
+      "trailing12mo": {
+        "2025-08": 189328.0,
+        "2025-09": 195423.0,
+        "2025-10": 212095.0,
+        "2025-11": 230799.0,
+        "2025-12": 237189.0,
+        "2026-01": 233125.0,
+        "2026-02": 241748.0,
+        "2026-03": 418998.0,
+        "2026-04": 438028.0,
+        "2026-05": 471415.0,
+        "2026-06": 466497.0
+      },
+      "fetchedAt": "2026-10-14T13:36:01.727448Z",
+      "payloadSha256": "1ce9588a6c30a7e60bd449a597e85dbb4b3626a7adc75ac7288a0b8e83703352",
+      "receipt": {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d"
+      },
+      "verification": "provider_extraction_unverified",
+      "qualityIssues": [
+        {
+          "code": "stages_incomplete",
+          "severity": "warning",
+          "detail": "Provider stage table is absent or contains unknown categories; no complete stage score is derived."
+        },
+        {
+          "code": "stages_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported stage amounts do not reconcile to the headline. Missing categories, scope, report revision, rounding or extraction require source review; values are preserved. ERCOT 9.4/9.5 categories are not inferred. ",
+          "reportedSumMw": 417600.0,
+          "expectedMw": 466497.0
+        },
+        {
+          "code": "size_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported size buckets do not reconcile to the headline; bucket counts are aggregate source counts, not identified projects.",
+          "reportedSumMw": 488884.0,
+          "expectedMw": 466497.0
+        },
+        {
+          "code": "type_total_mismatch",
+          "severity": "warning",
+          "detail": "Reported type amounts do not reconcile to the headline; provider extraction may calculate rounded percentage × total.",
+          "reportedSumMw": 466529.0,
+          "expectedMw": 466497.0
+        },
+        {
+          "code": "type_capacity_derivation_unverified",
+          "severity": "warning",
+          "detail": "Type MW may be derived from chart percentages by the provider; not independently verified requested capacity per customer."
+        },
+        {
+          "code": "zone_scope_unverified",
+          "severity": "warning",
+          "detail": "Reported zones are not a verified complete allocation of the regional total; do not use them as a complete ERCOT zone denominator.",
+          "reportedSumMw": 199962.0,
+          "expectedMw": 466497.0
+        },
+        {
+          "code": "trend_vintage_difference",
+          "severity": "warning",
+          "detail": "Trailing-month figures belong to this report vintage and can restate earlier reports. Do not mix report vintages into a month-on-month change."
+        }
+      ]
+    }
+  ],
+  "collection": {
+    "startedAt": "2026-10-14T13:36:00.883273Z",
+    "completedAt": "2026-10-14T13:36:02.179946Z",
+    "status": "success",
+    "lastSuccessAt": "2026-10-14T13:36:02.179946Z",
+    "addedCount": 23,
+    "error": null,
+    "endpointReceipts": [
+      {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/history",
+        "fetchedAt": "2026-10-14T13:36:01.727448Z",
+        "httpStatus": 200,
+        "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d",
+        "bytes": 16426,
+        "recordCount": 23
+      },
+      {
+        "url": "https://data.kardashevlabs.org/ercot/large-load/latest",
+        "fetchedAt": "2026-10-14T13:36:02.176024Z",
+        "httpStatus": 200,
+        "sha256": "a0edd0788f007acdfb4718f13dcc0773d9d219db1becf72315f90ce24d156763",
+        "bytes": 1162,
+        "recordCount": 1
+      }
+    ],
+    "warnings": [
+      "Latest source report date is 2026-06-19; successful API acquisition does not make source observations current."
+    ]
+  }
+}

@@ -48,6 +48,22 @@ test('four documents require an explicit same-site decision and preserve source 
   assert.throws(() => buildLargeLoadFacilities({ fragments: [fragment(facilities)], decisions: [{ id: 'bad', kind: 'same_entity', facilityIds: ['a', 'b'], sourceIds: ['nonexistent'], reason: 'Claim without a real evidence link.' }], now: NOW }), /Missing source/);
   assert.throws(() => buildLargeLoadFacilities({ fragments: [fragment(facilities)], decisions: [{ id: 'bad', kind: 'same_entity', facilityIds: ['a', 'b'], sourceIds: [], reason: 'Claim without any evidence.' }], now: NOW }), /actual source/);
 });
+test('unlinked municipal building phases remain visible without inflating either project average', () => {
+  const d = dataset([facility('campus'), ...Array.from({ length: 10 }, (_, i) => facility(`permit-building-${i}`, {
+    identityKind: 'phase', parentId: null, lifecycle: 'construction',
+  }))]);
+  const summary = summarizeFacilities(d);
+  assert.equal(summary.facilityCount, 11);
+  assert.equal(summary.phaseCount, 10);
+  assert.equal(summary.countAverageCount, 1);
+  assert.equal(summary.countMean, 90);
+  assert.equal(summary.averageMw, 0);
+  assert.equal(summary.mean, null);
+  const building = d.facilities.find(f => f.id === 'permit-building-0')!;
+  assert.equal(scoreFacility(d, building).point, 55);
+  assert.equal(scoreFacility(d, building).eligibleForAverage, false);
+  assert.match(scoreFacility(d, building).exclusionReason!, /개별 단계/);
+});
 test('same operator and city do not merge different sites; ambiguous links exclude both from means and MW', () => {
   const d = dataset([facility('one'), facility('two')]); assert.equal(d.facilities.length, 2);
   const uncertain = buildLargeLoadFacilities({ fragments: [fragment([facility('one'), facility('two')])], decisions: [{ id: 'suspect', kind: 'possible_duplicate', facilityIds: ['one', 'two'], sourceIds: ['official'], reason: 'Address incomplete; physical identity not established.' }], now: NOW });
@@ -82,6 +98,18 @@ test('fresh primary collection updates status while genuinely new legacy facilit
   const current = buildLargeLoadFacilities({ previous: old, fragments: [fresh, legacy], now: NOW });
   assert.equal(current.facilities.find(f => f.id === 'site')!.lifecycle, 'operating'); assert.equal(current.facilities.find(f => f.id === 'new-legacy')!.lifecycle, 'construction');
   assert.equal(summarizeFacilities(current).developmentCount, 1); assert.equal(summarizeFacilities(current).operatingCount, 1);
+});
+test('dated partial-site enrichment cannot replace the primary facility historical lifecycle', () => {
+  const d = dataset([facility('site', { lifecycle: 'operating', events: [
+    { id: 'primary-open', date: '2025-01-01', status: 'operating', sourceIds: ['official'], note: 'Matched facility began operating.' },
+    { id: 'partial-research', date: '2026-01-01', status: 'construction', sourceIds: ['official'], note: 'Research describes a different campus subset.', evidenceOnly: true },
+  ] })]);
+  const f = d.facilities[0];
+  assert.equal(f.events.length, 2);
+  assert.equal(scoreFacility(d, f, { asOf: '2026-02-01' }).lifecycle, 'operating');
+  assert.deepEqual(facilityHistory(d, f).map(p => p.date), ['2025-01-01']);
+  const referenceOnly = dataset([facility('reference', { events: [{ id: 'partial-only', date: '2025-01-01', status: 'operating', sourceIds: ['official'], note: 'Unmatched partial operation only.', evidenceOnly: true }] })]);
+  assert.equal(scoreFacility(referenceOnly, referenceOnly.facilities[0], { asOf: '2026-01-01' }).point, null);
 });
 test('copied enrichment capacity cannot create a false conflict after the primary value changes', () => {
   const oldFact = { id: 'primary-power', value: 100, unit: 'MW' as const, measure: 'facility_power' as const, scope: 'facility' as const, asOf: '2020-01-01', sourceIds: ['official'], note: 'Original reported capacity.' };

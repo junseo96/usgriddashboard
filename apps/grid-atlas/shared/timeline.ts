@@ -14,7 +14,7 @@ export interface TimelinePoint {
   denominator: number | null; population: number | null; unknown: number | null;
   denominatorUnit: 'projects' | 'MW' | 'observations' | null;
   complete: boolean | null; breakBefore: boolean; modelVersion: string | null; aggregationVersion?: 'capacity-weighted-v1' | null;
-  source: { name: string; url: string; retrievedAt: string | null; sha256: string | null };
+  source: { name: string; url: string; originalUrl?: string | null; retrievedAt: string | null; sha256: string | null };
   notes: string[];
 }
 export interface TimelineSeries {

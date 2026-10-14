@@ -12,6 +12,7 @@ import { compareMarkets, isDemandDataset } from '../shared/market.ts';
 import { validateHistoricalDataset } from '../shared/history.ts';
 import { validateLoadBottleneckDataset } from '../shared/load-bottleneck.ts';
 import { validateLoadCoverageDataset } from '../shared/load-coverage.ts';
+import { validateLoadApiDataset } from '../shared/load-api.ts';
 
 const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -42,7 +43,7 @@ async function getObservation() {
     return response.json();
   }
   const params = new URLSearchParams({ pageSize: '100', knownAt: exportedAt, asOf: calendarDayKst(exportedAt) });
-  const [first, health, runs, demand, pipeline, historical, loadBottleneck, loadCoverage] = await Promise.all([get(`/api/dashboard?${params}`), get('/api/health'), get('/api/runs?limit=100'), get('/api/demand'), get('/api/load-pipeline'), get('/api/historical'), get('/api/load-bottleneck'), get('/api/load-coverage')]);
+  const [first, health, runs, demand, pipeline, historical, loadBottleneck, loadCoverage, loadApi] = await Promise.all([get(`/api/dashboard?${params}`), get('/api/health'), get('/api/runs?limit=100'), get('/api/demand'), get('/api/load-pipeline'), get('/api/historical'), get('/api/load-bottleneck'), get('/api/load-coverage'), get('/api/load-api')]);
   if (!first.available || !first.snapshot) throw new Error('A real initialized snapshot is required. Run seed:local first.');
   const pages = Math.ceil(first.total / 100);
   if (!Number.isInteger(first.total) || first.total < 1 || first.total > 100_000) throw new Error('Unexpected inventory size.');
@@ -68,7 +69,7 @@ async function getObservation() {
     projects: scores.map(score => score.project), sources: first.sources,
     summary: first.summary, limitations: first.limitations,
     originalHistoryCount: first.history.length, originalHistoryTruncated: first.historyTruncated,
-    health, runs, demand, pipeline, historical, loadBottleneck, loadCoverage,
+    health, runs, demand, pipeline, historical, loadBottleneck, loadCoverage, loadApi,
     comparison: compareMarkets(scores.map(score => score.project), first.snapshot.capturedAt),
     verification: { actualApiProjectCount: scores.length, assessedGateCount: 0, allGatesVerifiedUnknown: true },
   };
@@ -108,6 +109,7 @@ function validateObservation(data) {
   if (data.demand && !isDemandDataset(data.demand)) throw new Error('Invalid demand observations.');
   if (data.historical !== undefined) validateHistoricalDataset(data.historical);
   if (data.loadBottleneck !== undefined) validateLoadBottleneckDataset(data.loadBottleneck);
+  if (data.loadApi !== undefined) validateLoadApiDataset(data.loadApi);
   if (data.loadCoverage !== undefined) validateLoadCoverageDataset(data.loadCoverage, new Date(), data.loadBottleneck ? new Set(data.loadBottleneck.series.map(s => s.id)) : undefined);
   if (data.comparison && stable(data.comparison) !== stable(compareMarkets(data.projects, data.snapshot.capturedAt))) throw new Error('Market comparison does not match the exported inventory.');
 }
@@ -207,6 +209,7 @@ function installOffline(data, scoring, pagesMode) {
           headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="grid-atlas-load-coverage.csv"', 'Cache-Control': 'no-store' },
         });
       }
+      if (path === '/api/load-api') return data.loadApi ? json(data.loadApi) : json({ error: '이 내보내기에 수용가 API 수집 자료가 없습니다.' }, 503);
       if (path === '/api/load-bottleneck') return data.loadBottleneck ? json(data.loadBottleneck) : json({ error: '이 내보내기에 권역별 수용가 병목 자료가 없습니다.' }, 503);
       if (path === '/api/load-bottleneck/export') {
         if (!data.loadBottleneck) return json({ error: '이 내보내기에 권역별 수용가 병목 자료가 없습니다.' }, 503);

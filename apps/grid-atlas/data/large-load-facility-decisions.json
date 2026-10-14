@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T08:50:13Z",
+  "generatedAt": "2026-10-14T13:38:34.464Z",
   "decisions": [
     {
       "id": "identity-nucor-brandenburg-doe-city-correction-20261012",
@@ -27,6 +27,986 @@
         "industrial-primary-e78348480015-b0ff4f334563"
       ],
       "reason": "DOE의 Georgia Register 투자 발표 두 행을 SEC 2026년 2분기 공시의 단일 Statesboro 공장과 대조했습니다. 같은 공장의 투자 발표를 별도 시설로 세지 않도록 병합하고, 건설 중단·자산 매각 근거 및 이전 ID의 관측 이력을 보존합니다."
+    },
+    {
+      "id": "identity-epoch-colossus-1-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-xai-colossus-memphis",
+        "LLF-EPOCH-colossus-1"
+      ],
+      "sourceIds": [
+        "llf-hs-src-7f86772c67f5-02fc764ddec5",
+        "llf-hs-src-f5d4251eed68-25f9af428181",
+        "llf-hs-src-f5d4251eed68-64e5c8e80f66",
+        "llf-hs-src-f5d4251eed68-e18cb726557b",
+        "reviewed-facility-556b6c7b4d45492b",
+        "reviewed-facility-f9206437d24eacff",
+        "epoch-source-aaf850c01a2347bd-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: Colossus 1 / xAI Colossus — former Electrolux Memphis. Epoch 주소: 3231 Riverport Rd, Memphis, TN 38109."
+    },
+    {
+      "id": "identity-epoch-qts-richmond-1-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-qts-richmond-1",
+        "LLF-EPOCH-qts-richmond-1"
+      ],
+      "sourceIds": [
+        "operator-source:3623716acc9ba046:435c9c482006",
+        "epoch-source-25f51ea123f5b388-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: QTS Richmond 1 / QTS Richmond 1. Epoch 주소: 6000 Technology Blvd, Sandston, VA 23150."
+    },
+    {
+      "id": "identity-epoch-qts-richmond-2-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-qts-richmond-2",
+        "LLF-EPOCH-qts-richmond-2"
+      ],
+      "sourceIds": [
+        "operator-source:bc5abd3f17744084:6c0cf69b85a0",
+        "epoch-source-c7eb762dfee6998c-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: QTS Richmond 2 / QTS Richmond 2. Epoch 주소: 6030–6070 Technology Blvd, Sandston, VA 23150."
+    },
+    {
+      "id": "identity-epoch-qts-richmond-3-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-qts-richmond-3",
+        "LLF-EPOCH-qts-richmond-3"
+      ],
+      "sourceIds": [
+        "operator-source:279d521be07860ea:ccefe7bb3664",
+        "epoch-source-8f0c62a407663906-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: QTS Richmond 3 / QTS Richmond 3. Epoch 주소: 3525–3543 Portugee Rd, Sandston, VA 23150."
+    },
+    {
+      "id": "identity-epoch-qts-eagle-mountain-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-qts-eagle-mountain",
+        "LLF-EPOCH-qts-eagle-mountain"
+      ],
+      "sourceIds": [
+        "operator-source:f777558161a66b29:69c599de08bc",
+        "epoch-source-5b70d7f670cb367a-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: QTS Eagle Mountain / QTS Eagle Mountain City, Utah. Epoch 주소: 652 E Hyperscale Way, Eagle Mountain, UT 84013."
+    },
+    {
+      "id": "identity-epoch-meta-qts-hillsboro-2-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-meta-qts-hillsboro-2",
+        "LLF-qts-hillsboro-2"
+      ],
+      "sourceIds": [
+        "operator-source:be2ae1a4f32ce56e:cf8e7afdf3f5",
+        "epoch-source-d2e03f2c5817562f-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Meta-QTS Hillsboro 2 / QTS Hillsboro 2. Epoch 주소: 4755 NE Huffman St, Hillsboro, OR 97124."
+    },
+    {
+      "id": "identity-epoch-meta-sarpy-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-sarpy-ne",
+        "LLF-EPOCH-meta-sarpy"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b9624f9194cd-c006e395043d",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-80b99d1cda406b23-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: Meta Sarpy / Meta Sarpy Data Center. Epoch 주소: 14436-14998 Fairview Rd, Springfield, NE 68059, USA."
+    },
+    {
+      "id": "identity-epoch-meta-hyperion-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-richland-parish-la",
+        "LLF-EPOCH-meta-hyperion"
+      ],
+      "sourceIds": [
+        "legacy-facility:12787dedfbe75d5ffffe",
+        "legacy-facility:1dd5a871506956d630f4",
+        "legacy-facility:2e2a3052a7c05a5328a6",
+        "legacy-facility:4af2f9e3343229eccd52",
+        "legacy-facility:67132232eb400c1666fc",
+        "legacy-facility:75d2c0fe7f5182a49d37",
+        "legacy-facility:d057ed48c4b1488ec3d4",
+        "legacy-facility:fc930e277c7d00a30f03",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "llf-hs-src-fec866e1c421-92590f9115b6",
+        "reviewed-facility-12787dedfbe75d5f",
+        "reviewed-facility-1dd5a871506956d6",
+        "reviewed-facility-2e2a3052a7c05a53",
+        "reviewed-facility-4af2f9e3343229ec",
+        "reviewed-facility-67132232eb400c16",
+        "reviewed-facility-75d2c0fe7f5182a4",
+        "reviewed-facility-d057ed48c4b1488e",
+        "reviewed-facility-fc930e277c7d00a3",
+        "epoch-source-1dfc66d1c7392b0b-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: Meta Hyperion / Meta Richland Parish Data Center. Epoch 주소: Holly Ridge, LA 71269."
+    },
+    {
+      "id": "identity-epoch-meta-prometheus-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-meta-prometheus",
+        "LLF-HS-meta-new-albany-oh"
+      ],
+      "sourceIds": [
+        "llf-hs-src-7c4432f4bc8b-86fad34a53e4",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-d744aac8f0ec4ead-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Meta Prometheus / Meta New Albany Data Center. Epoch 주소: 1 Community Cir, New Albany, OH 43054."
+    },
+    {
+      "id": "identity-epoch-openai-stargate-michigan-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-oracle-saline-township",
+        "LLF-EPOCH-openai-stargate-michigan"
+      ],
+      "sourceIds": [
+        "legacy-facility:3416e558c9a237142f0a",
+        "legacy-facility:86946669a5e41ff41765",
+        "legacy-facility:b951eae45ad5f4083c2a",
+        "legacy-facility:bc709334c513ee68f502",
+        "legacy-facility:c5517cb600f545010f53",
+        "legacy-facility:f7e11b0d9459c87ba304",
+        "llf-hs-src-bf6985c99fea-0f890f157714",
+        "llf-hs-src-bf6985c99fea-833a0c78795d",
+        "llf-hs-src-bf6985c99fea-99466179840f",
+        "llf-hs-src-bf6985c99fea-ba00dce36886",
+        "llf-hs-src-bf6985c99fea-e01b95ec3ac2",
+        "llf-hs-src-bf6985c99fea-fb4af87ea370",
+        "reviewed-facility-3416e558c9a23714",
+        "reviewed-facility-86946669a5e41ff4",
+        "reviewed-facility-b951eae45ad5f408",
+        "reviewed-facility-bc709334c513ee68",
+        "reviewed-facility-c5517cb600f54501",
+        "reviewed-facility-f7e11b0d9459c87b",
+        "epoch-source-22d1147a190c3177-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: OpenAI Stargate Michigan / Oracle / Stargate Saline Township. Epoch 주소: 미공개; 사업별 공시 링크로 대조."
+    },
+    {
+      "id": "identity-epoch-openai-stargate-wisconsin-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-oracle-port-washington",
+        "LLF-EPOCH-openai-stargate-wisconsin"
+      ],
+      "sourceIds": [
+        "legacy-facility:056cfd0f94db83ca8752",
+        "legacy-facility:156b63e0d92ba01dd16a",
+        "legacy-facility:73c229b9378b8d7cdc4b",
+        "legacy-facility:7e88bf4956766d06d4c7",
+        "legacy-facility:9e3b239ffb7ef7b46865",
+        "legacy-facility:c96d0866a1309991d83b",
+        "legacy-facility:dfa003161f4c75b4d304",
+        "legacy-facility:f3d89c3a3b88431b50c4",
+        "llf-hs-src-bda0c0acdd62-4a0ab134694b",
+        "llf-hs-src-bda0c0acdd62-6299917cdea9",
+        "llf-hs-src-bda0c0acdd62-730f697d09bf",
+        "llf-hs-src-bda0c0acdd62-7bca4a32cda9",
+        "llf-hs-src-bda0c0acdd62-868707ec336d",
+        "llf-hs-src-bda0c0acdd62-908482a1d2a4",
+        "reviewed-facility-056cfd0f94db83ca",
+        "reviewed-facility-156b63e0d92ba01d",
+        "reviewed-facility-73c229b9378b8d7c",
+        "reviewed-facility-7e88bf4956766d06",
+        "reviewed-facility-9e3b239ffb7ef7b4",
+        "reviewed-facility-c96d0866a1309991",
+        "reviewed-facility-dfa003161f4c75b4",
+        "reviewed-facility-f3d89c3a3b88431b",
+        "epoch-source-1d4f68ca796d6510-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: OpenAI Stargate Wisconsin / Oracle / Stargate Port Washington. Epoch 주소: 미공개; 사업별 공시 링크로 대조."
+    },
+    {
+      "id": "identity-epoch-openai-stargate-new-mexico-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-oracle-dona-ana-county",
+        "LLF-EPOCH-openai-stargate-new-mexico"
+      ],
+      "sourceIds": [
+        "llf-hs-src-25e580176911-0aeb5a2330ff",
+        "llf-hs-src-25e580176911-34faf462eda9",
+        "llf-hs-src-25e580176911-4183667907a1",
+        "llf-hs-src-25e580176911-4cb938d6a9bc",
+        "llf-hs-src-25e580176911-516c283c8fa8",
+        "llf-hs-src-25e580176911-5b81bf129d17",
+        "epoch-source-43fb3c3cdaa26c43-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: OpenAI Stargate New Mexico / Oracle / Stargate Dona Ana County. Epoch 주소: 미공개; 사업별 공시 링크로 대조."
+    },
+    {
+      "id": "identity-epoch-openai-stargate-milam-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-stargate-milam-county",
+        "LLF-EPOCH-openai-stargate-milam"
+      ],
+      "sourceIds": [
+        "llf-hs-src-775a7d4e10e6-1d113c974e2b",
+        "llf-hs-src-775a7d4e10e6-68711c92a76e",
+        "llf-hs-src-775a7d4e10e6-90838ad70e86",
+        "epoch-source-3735e66808d93c73-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: OpenAI Stargate Milam / OpenAI / SoftBank Stargate Milam County. Epoch 주소: 미공개; 사업별 공시 링크로 대조."
+    },
+    {
+      "id": "identity-epoch-openai-stargate-shackelford-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-oracle-shackelford-county",
+        "LLF-EPOCH-openai-stargate-shackelford"
+      ],
+      "sourceIds": [
+        "llf-hs-src-24ddd3fbe221-920929464d3e",
+        "llf-hs-src-24ddd3fbe221-b4e4aa63e227",
+        "llf-hs-src-24ddd3fbe221-b7a507710948",
+        "llf-hs-src-24ddd3fbe221-b96068fdd06f",
+        "llf-hs-src-24ddd3fbe221-bb5c7db3db2c",
+        "llf-hs-src-24ddd3fbe221-f5caaef15b91",
+        "epoch-source-d3ddc11dd5f3a13d-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: OpenAI Stargate Shackelford / Oracle / Stargate Shackelford County. Epoch 주소: 175 Private Road 1604, Abilene, TX 79601, Shackelford County."
+    },
+    {
+      "id": "identity-epoch-openai-stargate-abilene-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-oracle-abilene",
+        "LLF-EPOCH-openai-stargate-abilene"
+      ],
+      "sourceIds": [
+        "llf-hs-src-1cfbcdd8d079-2220894be7bd",
+        "llf-hs-src-1cfbcdd8d079-4e486fe57d3c",
+        "llf-hs-src-1cfbcdd8d079-890576152f18",
+        "llf-hs-src-1cfbcdd8d079-b35b9233a98f",
+        "llf-hs-src-1cfbcdd8d079-c298428feedd",
+        "llf-hs-src-1cfbcdd8d079-d5911f40ebb0",
+        "epoch-source-e9ee3d9a7dc9bcee-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: OpenAI Stargate Abilene / Oracle / Stargate Abilene. Epoch 주소: 5502 Spinks Rd, Abilene, TX 79601."
+    },
+    {
+      "id": "identity-epoch-crusoe-abilene-expansion-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-crusoe-abilene-expansion",
+        "LLF-legacy-site-crusoe-microsoft-abilene"
+      ],
+      "sourceIds": [
+        "legacy-facility:22e7b81a443f29ffa87b",
+        "legacy-facility:e0fab82ac708824dcb4a",
+        "epoch-source-737a1ac14409a41d-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Crusoe Abilene Expansion / Crusoe Abilene — Microsoft 전용 캠퍼스. Epoch 주소: 5502 Spinks Rd, Abilene, TX 79601."
+    },
+    {
+      "id": "identity-epoch-anthropic-barber-lake-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-anthropic-barber-lake",
+        "LLF-HS-cipher-barber-lake"
+      ],
+      "sourceIds": [
+        "legacy-facility:1db8861e6b1087631bba",
+        "legacy-facility:e27b8e189f1ecfface21",
+        "llf-hs-src-75808617777a-4049ddd4c580",
+        "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30",
+        "llf-hs-src-f4d0310cb8ae-f476c44b127a",
+        "epoch-source-ff7a70b17db33b9b-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Anthropic Barber Lake / Cipher Barber Lake. Epoch 주소: 미공개; 사업별 공시 링크로 대조."
+    },
+    {
+      "id": "identity-epoch-coreweave-lancaster-greenfield-site-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-coreweave-lancaster-greenfield-site",
+        "LLF-HS-coreweave-lancaster"
+      ],
+      "sourceIds": [
+        "legacy-facility:67c62f3f00e8b4b82c2c",
+        "llf-hs-src-c12a16a0be49-8ba805f68a38",
+        "epoch-source-e6f4ce9897563d2b-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: CoreWeave Lancaster Greenfield site / CoreWeave / Chirisa Lancaster campus. Epoch 주소: 216 Greenfield Rd, Lancaster, PA."
+    },
+    {
+      "id": "identity-epoch-qts-cedar-rapids-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-legacy-site-alliant-qts-cedar-rapids",
+        "LLF-EPOCH-qts-cedar-rapids"
+      ],
+      "sourceIds": [
+        "legacy-facility:14d895a47641a9d84b73",
+        "legacy-facility:26e3b71cc269cb68052c",
+        "epoch-source-23b43695d32790e2-2820f8e22d0f4db5"
+      ],
+      "reason": "시설별 사업자·캠퍼스 번호·주소 또는 동일 사업 공시로 기존 시설과 대조했습니다. 연구 추정 전력과 공식 요청·계약 MW는 분리합니다. 대조한 목록: QTS Cedar Rapids / QTS Cedar Rapids data center campus. Epoch 주소: 6200 76th Ave SW, Fairfax, IA 52228."
+    },
+    {
+      "id": "identity-epoch-microsoft-fairwater-wisconsin-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-microsoft-fairwater-wisconsin",
+        "LLF-HS-microsoft-mount-pleasant"
+      ],
+      "sourceIds": [
+        "legacy-facility:8e6a5d6e3e63d86db182",
+        "llf-hs-src-013f52eb39a5-0c8dd61cd64b",
+        "llf-hs-src-013f52eb39a5-1cfce6ac1e82",
+        "llf-hs-src-013f52eb39a5-63fa212b374c",
+        "llf-hs-src-013f52eb39a5-8f33edd2c3f9",
+        "llf-hs-src-013f52eb39a5-ab5be777fdb2",
+        "llf-hs-src-92b58f58e983-0b4281721f80",
+        "llf-hs-src-92b58f58e983-8a63580ba83c",
+        "llf-hs-src-92b58f58e983-98a8be7b5290",
+        "llf-hs-src-92b58f58e983-9f2836a0ede1",
+        "llf-hs-src-92b58f58e983-d6b7c849f886",
+        "llf-hs-src-92b58f58e983-e8e78375a8fe",
+        "epoch-source-552a3da5b5487646-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Microsoft Fairwater Wisconsin / Microsoft Mount Pleasant. Epoch 주소: 4800 90th St, Mount Pleasant, WI 53403."
+    },
+    {
+      "id": "identity-epoch-microsoft-fairwater-atlanta-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-microsoft-fairwater-atlanta",
+        "LLF-qts-fayetteville"
+      ],
+      "sourceIds": [
+        "operator-source:c1fd6a931a16749a:1f896b06b558",
+        "epoch-source-a69fe6616333f9a2-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Microsoft Fairwater Atlanta / QTS Fayetteville, Georgia. Epoch 주소: 1435 Hwy 54 W, Fayetteville, GA 30214."
+    },
+    {
+      "id": "identity-epoch-microsoft-sat40-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-microsoft-sat40",
+        "LLF-HS-microsoft-lambda-drive"
+      ],
+      "sourceIds": [
+        "llf-hs-src-47e6c8d2fdf1-0cd430c5315e",
+        "llf-hs-src-47e6c8d2fdf1-182a1a864a77",
+        "llf-hs-src-47e6c8d2fdf1-46ccfc6978c8",
+        "llf-hs-src-47e6c8d2fdf1-5fc336061498",
+        "llf-hs-src-47e6c8d2fdf1-d00224dcd1bd",
+        "llf-hs-src-47e6c8d2fdf1-d9bad524aef1",
+        "llf-hs-src-e08f6066771a-0090fdded716",
+        "llf-hs-src-e08f6066771a-0ac3dd6f10ac",
+        "llf-hs-src-e08f6066771a-49aae8563536",
+        "llf-hs-src-e08f6066771a-89f90ee196b4",
+        "llf-hs-src-e08f6066771a-910c9ae25378",
+        "epoch-source-1f16209427b089c3-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Microsoft SAT40 / Microsoft Lambda Drive. Epoch 주소: 15000 Lambda Drive, San Antonio, TX 78245."
+    },
+    {
+      "id": "identity-epoch-microsoft-sat14-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-microsoft-sat14",
+        "LLF-HS-microsoft-wiseman-boulevard"
+      ],
+      "sourceIds": [
+        "llf-hs-src-467a79515123-11403d7f7b03",
+        "llf-hs-src-467a79515123-22a7e0c0b9b8",
+        "llf-hs-src-467a79515123-b25795f7bbd3",
+        "llf-hs-src-467a79515123-c8a84b9483bf",
+        "llf-hs-src-467a79515123-cf333f8741c1",
+        "llf-hs-src-467a79515123-d2c10ec74f6c",
+        "llf-hs-src-e08f6066771a-0090fdded716",
+        "llf-hs-src-e08f6066771a-0ac3dd6f10ac",
+        "llf-hs-src-e08f6066771a-49aae8563536",
+        "llf-hs-src-e08f6066771a-89f90ee196b4",
+        "llf-hs-src-e08f6066771a-910c9ae25378",
+        "epoch-source-f2fecbf1a0986c57-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Microsoft SAT14 / Microsoft Wiseman Boulevard. Epoch 주소: 3545 Wiseman Boulevard, San Antonio, TX 78251."
+    },
+    {
+      "id": "identity-epoch-anthropic-amazon-new-carlisle-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-anthropic-amazon-new-carlisle",
+        "LLF-HS-aws-new-carlisle"
+      ],
+      "sourceIds": [
+        "llf-hs-src-5447313a836b-447fa0dbd662",
+        "llf-hs-src-5447313a836b-eaf10b7ace8c",
+        "epoch-source-e6c5544bf5dedd59-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Anthropic-Amazon New Carlisle / AWS Indiana Enterprise Center campus. Epoch 주소: 55001 Larrison Blvd, New Carlisle, IN 46552."
+    },
+    {
+      "id": "identity-epoch-amazon-madison-mega-site-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-amazon-madison-mega-site",
+        "LLF-HS-aws-canton"
+      ],
+      "sourceIds": [
+        "llf-hs-src-eac40091fd35-08fbd831f002",
+        "llf-hs-src-eac40091fd35-9982ca78fd09",
+        "epoch-source-f876badacf56bc27-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Amazon Madison Mega Site / AWS Canton campus. Epoch 주소: Amazon Data Services Inc, Madison Mega Site Nissan Parkway and Highway 22 Canton, Mississippi Madison County."
+    },
+    {
+      "id": "identity-epoch-aws-berwick-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-aws-berwick",
+        "LLF-HS-aws-salem"
+      ],
+      "sourceIds": [
+        "llf-hs-src-62ff652ec494-35fb89821a98",
+        "llf-hs-src-62ff652ec494-777d194a0b57",
+        "llf-hs-src-62ff652ec494-e391eaf85deb",
+        "epoch-source-60b51d7425f8f665-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: AWS Berwick / AWS Salem Township campus. Epoch 주소: 1125 Electron Ave, Berwick, PA 18603."
+    },
+    {
+      "id": "identity-epoch-google-pryor-north-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-google-pryor-north",
+        "LLF-HS-google-pryor-mayes-county-oklahoma"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-17089287a9cffbfc-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Google Pryor (North) / Google Pryor, Mayes County, Oklahoma. Epoch 주소: 4581 Webb St, Pryor, OK 74361."
+    },
+    {
+      "id": "identity-epoch-google-council-bluffs-east-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-google-council-bluffs-east",
+        "LLF-HS-google-council-bluffs-iowa"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-a3b3c66dd5c8d3ef-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Google Council Bluffs (East) / Google Council Bluffs, Iowa. Epoch 주소: 10410 Bunge Ave, Council Bluffs, IA 51503."
+    },
+    {
+      "id": "identity-epoch-google-the-dalles-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-google-the-dalles",
+        "LLF-HS-google-the-dalles-oregon"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-0629d25ae02313d8-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Google The Dalles / Google The Dalles, Oregon. Epoch 주소: 3500 River Rd, The Dalles, OR."
+    },
+    {
+      "id": "identity-epoch-google-arcola-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-google-arcola",
+        "LLF-HS-google-loudoun-county-virginia"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-fbe1beb560aa38a1-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Google Arcola / Google Loudoun County, Virginia. Epoch 주소: 42575 Arcola Blvd, Sterling, VA 20166."
+    },
+    {
+      "id": "identity-epoch-google-bristow-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-google-bristow",
+        "LLF-HS-google-prince-william-county-virginia"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-bf8559317c1bfcaa-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Google Bristow / Google Prince William County, Virginia. Epoch 주소: 13001 Rollins Ford Road, Bristow, VA 20136."
+    },
+    {
+      "id": "identity-epoch-google-kansas-city-east-20261014",
+      "kind": "part_of",
+      "facilityIds": [
+        "LLF-EPOCH-google-kansas-city-east",
+        "LLF-HS-google-kansas-city-missouri"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-c7c3459784275a32-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 AI 건물·임차인·확장 단계가 기존 캠퍼스의 일부로 확인됩니다. 전체 캠퍼스와 독립 프로젝트로 중복 합산하지 않습니다. 대조한 목록: Google Kansas City East / Google Kansas City, Missouri. Epoch 주소: 미공개; 사업별 공시 링크로 대조."
+    },
+    {
+      "id": "identity-epoch-google-columbus-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-columbus",
+        "LLF-HS-google-columbus-ohio"
+      ],
+      "sourceIds": [
+        "legacy-facility:57006779d7c9c9c43e79",
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-ba9e1d739aaacaee-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Columbus / Google Columbus, Ohio. Epoch 주소: 5076 S High St, Columbus, OH 43207."
+    },
+    {
+      "id": "identity-epoch-google-new-albany-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-new-albany",
+        "LLF-HS-google-new-albany-ohio"
+      ],
+      "sourceIds": [
+        "legacy-facility:57006779d7c9c9c43e79",
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-ca6d128240c35482-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google New Albany / Google New Albany, Ohio. Epoch 주소: 1101 Beech Rd SW, New Albany, OH 43054."
+    },
+    {
+      "id": "identity-epoch-google-mesa-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-mesa",
+        "LLF-HS-google-mesa-arizona"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-1f26ddff611cf8d5-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Mesa / Google Mesa, Arizona. Epoch 주소: 미공개; 사업별 공시 링크로 대조."
+    },
+    {
+      "id": "identity-epoch-google-omaha-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-omaha",
+        "LLF-HS-google-omaha-nebraska"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-175b3b523d6f25bb-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Omaha / Google Omaha, Nebraska. Epoch 주소: 11110 State St, Omaha, NE 68142."
+    },
+    {
+      "id": "identity-epoch-google-lincoln-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-lincoln",
+        "LLF-HS-google-lincoln-nebraska"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-341388b0ef7ed475-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Lincoln / Google Lincoln, Nebraska. Epoch 주소: 5475 Cloud Ct, Lincoln, NE 68514."
+    },
+    {
+      "id": "identity-epoch-google-midlothian-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-midlothian",
+        "LLF-HS-google-midlothian-texas"
+      ],
+      "sourceIds": [
+        "legacy-facility:a9a9505842faebbbe8fa",
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-6bbc74aa50c9c984-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Midlothian / Google Midlothian, Texas. Epoch 주소: 3250 Railport Parkway, Midlothian, TX 76065."
+    },
+    {
+      "id": "identity-epoch-google-storey-county-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-storey-county",
+        "LLF-HS-google-storey-county-nevada"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-ef4fbd7eb1ec98d8-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Storey County / Google Storey County, Nevada. Epoch 주소: 미공개; 사업별 공시 링크로 대조."
+    },
+    {
+      "id": "identity-epoch-google-lancaster-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-lancaster",
+        "LLF-HS-google-lancaster-ohio"
+      ],
+      "sourceIds": [
+        "legacy-facility:57006779d7c9c9c43e79",
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-e1f4b4d16c3b1e02-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Lancaster / Google Lancaster, Ohio. Epoch 주소: 105 Whiley Rd, Lancaster, OH 43130."
+    },
+    {
+      "id": "identity-epoch-google-red-oak-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-red-oak",
+        "LLF-HS-google-red-oak-texas"
+      ],
+      "sourceIds": [
+        "legacy-facility:a9a9505842faebbbe8fa",
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-d400745805444211-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Red Oak / Google Red Oak, Texas. Epoch 주소: 330 Austin Blvd, Red Oak, TX 75154."
+    },
+    {
+      "id": "identity-epoch-google-papillion-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-papillion",
+        "LLF-HS-google-papillion-nebraska"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-62d7a9c215602bb3-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Papillion / Google Papillion, Nebraska. Epoch 주소: 14651-15249 Gold Coast Rd 68138 Papillion Nebraska, USA."
+    },
+    {
+      "id": "identity-epoch-google-cedar-rapids-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-cedar-rapids",
+        "LLF-HS-google-cedar-rapids-iowa"
+      ],
+      "sourceIds": [
+        "legacy-facility:df337be0ab2ffde57444",
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-09a6cea0a98389a0-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Cedar Rapids / Google Cedar Rapids, Iowa. Epoch 주소: 5800 EDGEWOOD RD SW CEDAR RAPIDS, IA 52404."
+    },
+    {
+      "id": "identity-epoch-google-fort-wayne-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-google-fort-wayne",
+        "LLF-HS-google-fort-wayne-indiana"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-11108c9fe14b",
+        "llf-hs-src-b960ff7beab6-1eeae940ed2f",
+        "llf-hs-src-b960ff7beab6-34712e163e14",
+        "llf-hs-src-b960ff7beab6-5e3c2829661b",
+        "llf-hs-src-b960ff7beab6-aa491140642b",
+        "llf-hs-src-b960ff7beab6-e68d1c71a7d3",
+        "epoch-source-f9006d4e5d19f62c-2820f8e22d0f4db5"
+      ],
+      "reason": "사업자와 지역 또는 발표가 겹치지만 AI 세부시설과 기존 캠퍼스의 물리 경계가 확정되지 않았습니다. 이름만으로 병합하지 않고 중복 가능성을 표시합니다. 대조한 목록: Google Fort Wayne / Google Fort Wayne, Indiana. Epoch 주소: 6015 Adams Center Road, Fort Wayne, IN 46806."
+    },
+    {
+      "id": "identity-epoch-meta-rosemount-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-rosemount-mn",
+        "LLF-EPOCH-meta-rosemount"
+      ],
+      "sourceIds": [
+        "legacy-facility:13d937332965b945552e",
+        "legacy-facility:639af33fb19d3ffa27d9",
+        "legacy-facility:b6eeefbca580747fc650",
+        "legacy-facility:db641cc8fdca01693ce4",
+        "llf-hs-src-43bfbf4bac46-2aae63212baa",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "reviewed-facility-13d937332965b945",
+        "reviewed-facility-639af33fb19d3ffa",
+        "reviewed-facility-b6eeefbca580747f",
+        "reviewed-facility-db641cc8fdca0169",
+        "epoch-source-ea04823fb39927df-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Rosemount / Meta Rosemount Data Center. Epoch 주소: 1772-2396 145th St, Rosemount, MN 55068, USA."
+    },
+    {
+      "id": "identity-epoch-meta-jeffersonville-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-jeffersonville-in",
+        "LLF-EPOCH-meta-jeffersonville"
+      ],
+      "sourceIds": [
+        "llf-hs-src-78574629315e-a90340ad225c",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-7bafed8e7c80f76a-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Jeffersonville / Meta Jeffersonville Data Center. Epoch 주소: 500 8th St, Jeffersonville, IN 47130, USA."
+    },
+    {
+      "id": "identity-epoch-meta-temple-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-temple-tx",
+        "LLF-EPOCH-meta-temple"
+      ],
+      "sourceIds": [
+        "llf-hs-src-6aa915b6f6c4-cbb31d17540d",
+        "llf-hs-src-b70dd64a53e0-697d6628fedd",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-0449862cf3ccafce-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Temple / Meta Temple Data Center. Epoch 주소: 2310 Eberhardt Rd, Temple, TX 76504."
+    },
+    {
+      "id": "identity-epoch-meta-montgomery-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-montgomery-al",
+        "LLF-EPOCH-meta-montgomery"
+      ],
+      "sourceIds": [
+        "llf-hs-src-65ef1769fb31-cd7e630bbf6a",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-6e4dbb0e7bc8c557-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Montgomery / Meta Montgomery Data Center. Epoch 주소: Co Rd 42, Montgomery, AL 36105, USA."
+    },
+    {
+      "id": "identity-epoch-meta-kuna-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-kuna-id",
+        "LLF-EPOCH-meta-kuna"
+      ],
+      "sourceIds": [
+        "llf-hs-src-1c92cb3f60cb-0832b0f954e5",
+        "llf-hs-src-bb405983abd6-0159ea1c6ba2",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-e9fcbc13e0c7e48e-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Kuna / Meta Kuna Data Center. Epoch 주소: 601 Kuna Mora Rd,  Kuna ID 83634."
+    },
+    {
+      "id": "identity-epoch-meta-cheyenne-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-cheyenne-wy",
+        "LLF-EPOCH-meta-cheyenne"
+      ],
+      "sourceIds": [
+        "llf-hs-src-3c66042a1956-cf03997b40a5",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-24b7eddc9316c90b-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Cheyenne / Meta Cheyenne Data Center. Epoch 주소: Cheyenne, WY 82007, USA."
+    },
+    {
+      "id": "identity-epoch-meta-huntsville-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-huntsville-al",
+        "LLF-EPOCH-meta-huntsville"
+      ],
+      "sourceIds": [
+        "llf-hs-src-6bc13ac8fbd4-6d739560b7fe",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-a24821e052951fef-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Huntsville / Meta Huntsville Data Center. Epoch 주소: 5400 Prosperity Dr NW, Toney, AL."
+    },
+    {
+      "id": "identity-epoch-meta-eagle-mountain-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-eagle-mountain-ut",
+        "LLF-EPOCH-meta-eagle-mountain"
+      ],
+      "sourceIds": [
+        "llf-hs-src-de9292606818-ef86892b2b73",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-b9c62df0f2a524b0-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Eagle Mountain / Meta Eagle Mountain Data Center. Epoch 주소: 1275 N Community Cir, Eagle Mountain, UT 84005."
+    },
+    {
+      "id": "identity-epoch-meta-gallatin-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-gallatin-tn",
+        "LLF-EPOCH-meta-gallatin"
+      ],
+      "sourceIds": [
+        "llf-hs-src-25504cdeb672-1e63dc031d77",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-ffbace5943037330-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Gallatin / Meta Gallatin Data Center. Epoch 주소: 1 Meta Lp, Gallatin, TN 37066."
+    },
+    {
+      "id": "identity-epoch-meta-los-lunas-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-los-lunas-nm",
+        "LLF-EPOCH-meta-los-lunas"
+      ],
+      "sourceIds": [
+        "llf-hs-src-b05ccd22cace-175ccb3815b5",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-3672644d7f6ebbd7-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Los Lunas / Meta Los Lunas Data Center. Epoch 주소: 4250 Messenger Lp, Los Lunas, NM 87031."
+    },
+    {
+      "id": "identity-epoch-meta-aiken-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-aiken-sc",
+        "LLF-EPOCH-meta-aiken"
+      ],
+      "sourceIds": [
+        "llf-hs-src-562235d66665-773c224b4e64",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-aae2f1127273e6b9-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Aiken / Meta Aiken Data Center. Epoch 주소: 7601 State Hwy 105, Trenton, SC 29847, USA."
+    },
+    {
+      "id": "identity-epoch-meta-bowling-green-20261014",
+      "kind": "same_entity",
+      "facilityIds": [
+        "LLF-HS-meta-bowling-green-oh",
+        "LLF-EPOCH-meta-bowling-green"
+      ],
+      "sourceIds": [
+        "llf-hs-src-3f10a93dad78-33dfcebb9667",
+        "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
+        "epoch-source-9e7fa585f78f5217-2820f8e22d0f4db5"
+      ],
+      "reason": "Epoch의 시설명·주소와 Meta 공식 동일 이름 캠퍼스/정보시트의 지역을 대조했습니다. 동일 캠퍼스의 AI 시설 연구 자료를 기존 물리 시설에 연결하며, 부분 가동 전력은 phase 범위이고 공식 전체 용량을 대체하지 않습니다. 대조한 목록: Meta Bowling Green / Meta Bowling Green Data Center. Epoch 주소: 12356 Middleton Pike, Bowling Green, OH 43402."
+    },
+    {
+      "id": "identity-epoch-lake-mariner-tenant-scope-20261014",
+      "kind": "possible_duplicate",
+      "facilityIds": [
+        "LLF-EPOCH-core42-lake-mariner",
+        "LLF-EPOCH-anthropic-lake-mariner"
+      ],
+      "sourceIds": [
+        "epoch-source-c839f40354450206-2820f8e22d0f4db5",
+        "epoch-source-7d20732662acf542-2820f8e22d0f4db5"
+      ],
+      "reason": "두 AI 임차인 자료가 모두 7725 Lake Rd, Barker, NY의 Lake Mariner 부지를 명시합니다. 서로 다른 건물/단계와 전체 캠퍼스 경계가 검증되지 않아 독립 물리 시설로 병합·합산하지 않고 중복 가능성을 표시합니다."
     }
   ],
   "limitations": [

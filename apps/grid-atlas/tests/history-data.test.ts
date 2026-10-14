@@ -17,10 +17,19 @@ const series = (id: string) => {
 
 test('published history reproduces reviewed vintages and source declarations without DB snapshots', () => {
   validateHistoricalDataset(data);
-  const reproduced = assembleHistoricalData(read('history-generation.json'), read('history-nyiso.json'), read('history-load-reviewed.json'), data.generatedAt);
+  const reproduced = assembleHistoricalData(read('history-generation.json'), read('history-nyiso.json'), read('history-load-reviewed.json'), data.generatedAt, read('load-api-observations.json'));
   assert.deepEqual(reproduced, data);
   assert.equal(data.coverageStart, '2020-12-31');
   assert.equal(data.coverageEnd, '2026-10-08');
+});
+
+test('provider history is appended independently and cannot change reviewed series or scores', () => {
+  const reviewedOnly = assembleHistoricalData(read('history-generation.json'), read('history-nyiso.json'), read('history-load-reviewed.json'), data.generatedAt);
+  const providerIds = new Set(data.series.filter(row => row.id.startsWith('kardashev-')).map(row => row.id));
+  assert.ok(providerIds.size > 0);
+  assert.deepEqual(data.series.filter(row => !providerIds.has(row.id)), reviewedOnly.series);
+  assert.ok(data.series.filter(row => providerIds.has(row.id)).every(row => row.metric === 'load_requests'
+    && row.points.every(point => point.projectCount === null && point.ratingModelVersion === null)));
 });
 
 test('annual scores use six different contemporary sources and expose changing assessment coverage', () => {
