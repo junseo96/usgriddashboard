@@ -6354,7 +6354,30 @@
       ],
       "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
       "id": "facility-observation:cb7b16a116252f512af10a26"
+    },
+    {
+      "sourceGroup": "epoch",
+      "facilityId": "LLF-EPOCH-meta-los-lunas",
+      "observedAt": "2026-10-19T01:40:50.398Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "asOf",
+        "capacityFacts",
+        "events"
+      ],
+      "previousLifecycle": "construction",
+      "lifecycle": "construction",
+      "sourceAsOf": "2026-07-28",
+      "sourceIds": [
+        "epoch-source-26365ce6d38fefe5-4bd1d0492bf4a6f5",
+        "epoch-source-3672644d7f6ebbd7-2820f8e22d0f4db5",
+        "epoch-source-5424316d9d06c215-4a880c04f151d9b1",
+        "epoch-source-5424316d9d06c215-76c3c42fbe91d5aa",
+        "epoch-source-d361f6b06d554d8e-3873ad80e4486e7c"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:1250a0ce8d07f598abb67a17"
     }
   ],
-  "generatedAt": "2026-10-14T14:17:19.456Z"
+  "generatedAt": "2026-10-19T01:40:56.636Z"
 }
