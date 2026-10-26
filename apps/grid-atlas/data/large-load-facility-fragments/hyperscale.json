@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "hyperscale",
-  "generatedAt": "2026-10-19T01:40:41.204Z",
+  "generatedAt": "2026-10-26T01:50:43.146Z",
   "sources": [
     {
       "id": "llf-hs-src-b960ff7beab6-5e3c2829661b",
@@ -4152,6 +4152,566 @@
       "publishedAt": "2025-08-25",
       "excerpt": " Technology Parks Close $4 Billion Joint Venture Partnership Including Machine Investment Group for Lancaster Campus - Chirisa Technology Parks --> --> --> Careers News & media Contact Careers News & media Contact Careers News & media Contact LinkedIn ESG Statement Privacy & cookies policy Blue Owl and Chirisa Technology Parks Close $4 Billion Joint Venture Partnership Including Machine Investment Group for Lancaster Campus Blue Owl Extends Development Partnership with Chirisa Technology Parks to $20 Billion to Support Over 1GW of Developments LANCASTER, Pa., Aug. 25, 2025 /PRNewswire/ — Funds managed by Blue Owl Capital (“Blue Owl”), and affiliates of Chirisa Technology Parks (“CTP”) and Machine Investment Group (“MIG”) today closed on a joint venture partnership to include $4 billion of funding for the previously announced CoreWeave developments in Lancaster, Pennsylvania. CoreWeave has invested in the campus and will lease the site as part of its commitment to building future-ready AI infrastructure hubs in the regions that need them most — across America’s critical economic corridors, including the Mid-Atlantic, which this facility will serve. The Lancaster location will join CoreWeave’s expanding global network of AI data centers. Blue Owl stated its intention to fund up to $20 billion of developments for CTP, extending the existing partnership between the two groups, which currently supports almost half a gigawatt of new developments underway in Virginia and Pennsylvania. Marc Zahr, Co-President and Global Head of Real Assets at Blue Owl said, “This expanded partnership with CoreWeave, Chirisa Technology Parks and Machine Investment Group marks a significant step forward in building the mission critical infrastructure that will power the future of AI innovation. At Blue Owl, we are focused on supporting high-conviction investments with visionary and creditworthy",
       "sourceAsOf": "2025-08-25"
+    },
+    {
+      "id": "llf-hs-src-b960ff7beab6-2c90045026bb",
+      "name": "Google 공식 전체 데이터센터 위치 목록",
+      "url": "https://datacenters.google/locations/",
+      "retrievedAt": "2026-10-26T01:50:35.449Z",
+      "sha256": "2c90045026bbea2848799317ec2f24b5a8c38f9d1d72a2ae667770cc106afbad",
+      "publishedAt": null,
+      "excerpt": "We own and operate data centers around the world; structured location / inDevelopment fields.\n{\"location\": \"Armstrong County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Cedar Rapids, Iowa\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/iowa/\"}\n{\"location\": \"Chesterfield County, Virginia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Columbia County, Georgia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Columbus, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"Council Bluffs, Iowa\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/iowa/\"}\n{\"location\": \"The Dalles, Oregon\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/oregon/\"}\n{\"location\": \"Douglas County, Georgia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Fort Wayne, Indiana\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/indiana/\"}\n{\"location\": \"Haskell County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Henderson, Nevada\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/henderson-nevada/\"}\n{\"location\": \"Hermantown, Minnesota\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Jackson County, Alabama\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/alabama/\"}\n{\"location\": \"Kansas City, Missouri\", \"inDevelopment\": true, \"detailPage\": \"./../../kansas-city-missouri/\"}\n{\"location\": \"LaGrange, Georgia\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/georgia/\"}\n{\"location\": \"Lancaster, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"Lenoir, North Carolina\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/north-carolina/\"}\n{\"location\": \"Lincoln, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Loudoun County, Virginia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Mesa, Arizona\", \"inDevelopment\": false, \"detailPage\": \"\"}\n{\"location\": \"Michigan City, Indiana\", \"inDevelopment\": true, \"detailPage\": \"./../../michigan-city-indiana/\"}\n{\"location\": \"Midlothian, Texas\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Montgomery County, Tennessee\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/tennessee/\"}\n{\"location\": \"Morgan County, Indiana\", \"inDevelopment\": true, \"detailPage\": \"./../../morgan-county-indiana/\"}\n{\"location\": \"Muskogee County, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"New Albany, Ohio\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/ohio/\"}\n{\"location\": \"New Florence, Missouri\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Omaha, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Pampa, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Papillion, Nebraska\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/nebraska/\"}\n{\"location\": \"Pine Island, Minnesota\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Prince William County, Virginia\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/virginia/\"}\n{\"location\": \"Pryor, Mayes County, Oklahoma\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Red Oak, Texas\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/texas/\"}\n{\"location\": \"Stillwater, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Storey County, Nevada\", \"inDevelopment\": false, \"detailPage\": \"./../../locations/storey-county-nevada/\"}\n{\"location\": \"Tulsa, Oklahoma\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/oklahoma/\"}\n{\"location\": \"Van Buren Township, Michigan\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"West Memphis, Arkansas\", \"inDevelopment\": true, \"detailPage\": \"\"}\n{\"location\": \"Wilbarger County, Texas\", \"inDevelopment\": true, \"detailPage\": \"./../../locations/texas/\"}",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-ddc8e7921235-840a60df1f30",
+      "name": "Google South Carolina — 세 물리 시설",
+      "url": "https://datacenters.google/locations/south-carolina/",
+      "retrievedAt": "2026-10-26T01:50:35.530Z",
+      "sha256": "840a60df1f30128e769479dc428d616ff02c4c635b9937e908177100128e6d3d",
+      "publishedAt": null,
+      "excerpt": "ernet. We take data security seriously across all our data centers, including at our South Carolina locations in Moncks Corner, Summerville, and St. George. Here Neal uses special equipment to completely erase all of the data on old servers through a thorough, multi-step process that prevents access to any of our customers' data. Discover what life is like at a data center At one of our data centers in South Carolina, Neal is trained on security  y FAQ Careers Explore locations Search Google Data Centers Careers Explore locations South Carolina Our three facilities in South Carolina (across Berkeley and Dorchester counties) include one of our first data centers in the United States, and we’re proud of what we have built and innovated within the community. Since coming to South Carolina in 2007, we’ve invested locally to support job creation, business growth, and community initiatives. We ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-f3313bacd4a7-6081b24c788c",
+      "name": "Meta 공식 미국 데이터센터 전체 목록",
+      "url": "https://datacenters.atmeta.com/us-locations/",
+      "retrievedAt": "2026-10-26T01:50:35.722Z",
+      "sha256": "6081b24c788c652ac7b29b98b6a5195d4ecf4a2d8a0621d9500400dc7d165bfd",
+      "publishedAt": "2022-10-10",
+      "excerpt": "Our U.S. data center fleet; individually named campus cards with state and ground-breaking year.",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-1c92cb3f60cb-83b488447d51",
+      "name": "Meta Kuna 운영 발표",
+      "url": "https://datacenters.atmeta.com/2026/09/kuna-we-are-online/",
+      "retrievedAt": "2026-10-26T01:50:37.561Z",
+      "sha256": "83b488447d51168b4d584e7a8861abee093b8062bd5905fbbaba8b44a1927ee4",
+      "publishedAt": "2026-09-03",
+      "excerpt": "k Share on Twitter Share in Email Kuna, we are online! We’re excited to announce that the Meta Kuna Data Center is online and operational – which means it is officially part of the infrastructure that helps bring our technologies and programs to life. We chose Kuna because of its strong infrastructure, talented workforce, and outstanding community partners. Since breaking ground in 2022, this project has supported 1,600 skilled trade workers at peak construction and represents an investment of more than $1.2 billion in Kuna. From the beginning, we’ve been committed to being a good neighbor. We recently launched the Future is for Everyone Fund, a $1 billion commitment to invest directly in U.S communities where we own and operate data centers – including here in Kuna. The fund builds on our existing direct giving programs, which have to date provided more than $1.5 million in Ada County schools and nonprofits through direct funding. As part of this ongoing commitment, we announced a new",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-b70dd64a53e0-fccebd3a6040",
+      "name": "Meta Temple 운영 발표",
+      "url": "https://datacenters.atmeta.com/2026/07/temple-we-are-online/",
+      "retrievedAt": "2026-10-26T01:50:37.885Z",
+      "sha256": "fccebd3a6040d0d7d6505fb49f23df9478356075698f28111187443e192be0cf",
+      "publishedAt": "2026-07-22",
+      "excerpt": " Share Share on Facebook Share on Twitter Share in Email We are excited to announce the Meta Temple Data Center is now serving traffic. The Temple Data Center is optimized for our AI workloads as part of the industry-leading infrastructure that helps bring our technologies and programs to life. These buildings and the hardware inside them will help people connect, find communities, and grow businesses. We’re proud that this is our first AI-optimized data center to come online. This facility represents an investment of more than $1.2 billion in Temple. Construction of the Temple Data Center supported 1,200 skilled trade workers on site at peak, and the data center currently supports almost 100 operational roles. We are proud to call Temple home and we are committed to being a good neighbor and investing in the long-term vitality of this community. Temple stood out as an ideal location for",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-b385f7f39590-5a99a148199d",
+      "name": "Microsoft Alviso datacenter construction update",
+      "url": "https://local.microsoft.com/blog/alviso-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:39.304Z",
+      "sha256": "5a99a148199d24ed583d633063192801002caa22c47c5b967d9e90bc32835cff",
+      "publishedAt": "2025-11-19",
+      "excerpt": "Alviso datacenter construction update Alviso datacenter construction begins in California Microsoft is expanding its datacenter infrastructure with construction at our new Alviso site in California. This update marks the beginning of a multi-phase effort to prepare the land for future datacenter development, supporting the growing demand for cloud services and digital transformation. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction overview HITT Contracting Inc. is the general contractor for the Alviso datacenter. Construction began in fall 2025 with initial work focused on earthmoving and soil remediation. Site preparation work is expected to be completed by summer 2026. We’re working closely with HITT to keep neighbors informed ahead of any major construction activity. Construction hours Work will take place Monday through Friday, from 7:00 a.m. to 5:30 p.m. Should additional hours be required, HITT will adhere to the local requirements. Staying connected We’re committed to keeping the community informed. Visit our Microsoft in your community page for updates. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-bad1ddb37426-55e2fd5c6995",
+      "name": "Microsoft 공식 CA 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/california/",
+      "retrievedAt": "2026-10-26T01:50:38.522Z",
+      "sha256": "55e2fd5c6995642dbb0c931dbc8ce83b0af5e4d7cf917f5f011697238c64af5d",
+      "publishedAt": "2025-11-03",
+      "excerpt": "Alviso datacenter construction update — https://local.microsoft.com/blog/alviso-datacenter-construction-update/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-2f34dc23abb9-32d91e26fedf",
+      "name": "Microsoft Tyrone datacenter update",
+      "url": "https://local.microsoft.com/blog/tyrone-datacenter-update/",
+      "retrievedAt": "2026-10-26T01:50:39.431Z",
+      "sha256": "32d91e26fedfada35c118fff70aa3934c14e08d9541f6bf3a4d55725be557d6e",
+      "publishedAt": "2026-05-01",
+      "excerpt": "Tyrone datacenter update Project overview Microsoft is planning to build a new datacenter in Tyrone. In line with Microsoft’s Datacenter Community Pledge , our work follows the Community-First Infrastructure approach, reflecting a long term commitment to responsibility, transparency, and partnership with the communities where our datacenters operate. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Investing in cloud and AI infrastructure in Georgia supports long-term digital growth and helps ensure that essential online services remain reliable and accessible. Recap of the community information session – May 2026 Thank you for joining us at the information session. If you were not able to attend, we have posted a link to view the boards that were shared and answers to frequently asked questions below: Board s and slideshow from the Tyrone community meeting Understanding water use at Microsoft datacenters Understanding energy use at Microsoft datacenters Increasing access to digital skills and local job opportunities Frequently asked questions Community information session—May 2026 Please join us for a Town of Tyrone community information session on Tuesday, May 19, 2026, from 4 PM to 7 PM at the Town Hall, 950 Senoia Road, Tyrone, GA 30290. The format is an open house with topical stations that include the following (subject to change): Town priorities and entitlement process overview Energy Water and sustainability Construction timeline and impacts Site design (noise, aesthetics, trees, and emissions) Community investments/ engagement and workforce pathways Operations and jobs What to expect next / how to stay engaged Staying connected We will keep the community up to date via our Georgia page on the Microsoft in Your Community blog . For community-related questions, email georgiadc@microsoft.com or leave a message at 470-832-6713. For media inquiries, please reach out to rapidresponse@we-worldwide.com . ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-31c3015e2848-675c7ce93c43",
+      "name": "Microsoft 공식 GA 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/greater-atlanta/",
+      "retrievedAt": "2026-10-26T01:50:38.402Z",
+      "sha256": "675c7ce93c43bd414141633dcaa4033db21714255ba42ef1f3e44cfce3de40cf",
+      "publishedAt": "2022-09-16",
+      "excerpt": "Tyrone datacenter update — https://local.microsoft.com/blog/tyrone-datacenter-update/\nPalmetto datacenter construction update — https://local.microsoft.com/blog/palmetto-datacenter-construction-update/\nEast Point datacenter project overview — https://local.microsoft.com/blog/east-point-datacenter-project-overview/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-ec4b6623e670-e92e1b8d576c",
+      "name": "Microsoft Palmetto datacenter construction update",
+      "url": "https://local.microsoft.com/blog/palmetto-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:39.313Z",
+      "sha256": "e92e1b8d576cb0a26996f286fe60f5607e0868f14401b912a39bd5c4bf9ab550",
+      "publishedAt": "2024-07-03",
+      "excerpt": "Palmetto datacenter construction update Microsoft began constructing the Palmetto datacenter in April 2024. The datacenter construction site is located in the Greater Atlanta area of Palmetto, GA. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Recap: Palmetto Datacenter Project Information Session On July 23, 2024, Microsoft, in collaboration with the Mayor of Palmetto, hosted an initial information session at Palmetto Elementary School to discuss the datacenter project. The purpose of the meeting was to inform residents about the project’s details, including operations, construction activities, and community investments. Participants viewed the site plans, visual renderings, and had the opportunity to speak with the project team. If you were unable to attend, you can view materials shared , below and access video clips of the meeting. For more information or to share feedback, contact: georgiadc@microsoft.com Materials shared at the information session on July 23, 2024 View from Johnson Rd. Secondary entrance High level construction timeline Microsoft Datacenter Academy is coming to Atlanta Learn more Construction timeline Datacenter construction began in April 2024 and is estimated to be complete by the beginning of October 2025. The general contractor Turner Construction Company is permitted to work Monday through Saturday 7:00am – 7pm, excluding federal holidays. Staying connected We will keep the community up to date via our Greater Atlanta page in our Microsoft in Your Community blog. For daily operational questions, you can also reach out to the contractors: Project Manager – Jason Padavich DBIA, LEED GA at jpadavich@tcco.com Senior Project Manager – Jim Buckner at jbuckner@tcco.com Project Superintendent – Todd R. Cooksey at tcooksey@tcco.com For Microsoft specific inquiries: PalmettoDC@Microsoft.com ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-42a1bdd4cb24-657c6dc789e2",
+      "name": "Microsoft East Point datacenter project overview",
+      "url": "https://local.microsoft.com/blog/east-point-datacenter-project-overview/",
+      "retrievedAt": "2026-10-26T01:50:39.435Z",
+      "sha256": "657c6dc789e248d33f8273dbe770205e3c9c22f8e4c16e1678fe40105e4eba63",
+      "publishedAt": "2024-06-17",
+      "excerpt": "East Point datacenter project overview Learn more about Microsoft’s work in East Point, Georgia Thank you for your cooperation and patience as we continue construction on the buildout of the datacenter campus. We are committed to providing you with regular updates and communication through this website. Visit our photo gallery of the project What is a datacenter? Datacenters are part of everyday life Essential for modern technology, datacenters power everything from online grocery shopping, online banking, and remote work to scheduling medical appointments and staying connected with family and friends. Datacenters also support businesses, hospitals, schools, and governments. Datacenter buildings house thousands of computer servers and data storage devices connected to the internet. Video: Learn more about datacenters Datacenter virtual tour East Point datacenter project at a glance The project includes the construction of two datacenter buildings, a power substation, privacy screening, support facilities, and landscaping. Total Parcels: 6 Parcels Combined acreage: 131.6 (Developed Acreage 84.6) No. of Buildings : 2 Buildings Building Square footage: 489,370 sq ft. (244,685 x 2) Parking Spaces: 114 spaces Total # of Employees: +/- 50 per Building Neighborhood enhancements around the datacenter The datacenter project will also include the following neighborhood additions: A nature walk area accessible from Ben Hill Road and will include a walking trail, native plants and trees, and seating. Three-quarters of an acre in size (33,000 square feet), with dimensions of 75 feet by 440 feet. Our proposed vegetation will include a native/ sustainable mixture of evergreen and deciduous trees to be installed along Ben Hill Road. Preview the nature walk with this virtual tour. Sidewalks along Ben Hill Road An 8-10 ft. solid barrier privacy wall and supplemental trees for additional buffering between the datacenter and residential homes. Neighbors directly impacted unanimously chose this screening option. Updated landscaping along Ben Hill Road. Microsoft will plant mature and faster-growing trees, at least 18-22 ft. in height along Ben Hill Road to further screen the datacenter campus and allow it to blend into the surrounding environment naturally. Work at the datacenter We believe economic growth can and must be inclusive. That’s why we invest to help individuals, organizations, and communities access pathways to growth and opportunity. Working with local organizations and leaders, we invest in programs to help people build skills for jobs and livelihood opportunities and increase access to computer science education. Join our team. Explore our resources and build the skills to work at a datacenter Take a look at the career opportunities in Georgia The Microsoft Datacenter Academy is coming to the Atlanta Technical College. Project resources Stay informed about our ongoing East Point datacenter project updates Project timing: 2023-2026 Phase: Construction Learn more about our most frequently asked questions about datacenters Stay connected Contact us by calling 470-832-6713 or via email us at eastpointdc@microsoft.com Stop by our booth and visit us this summer at the Wednesday Wind Down event which will recur on fourth Wednesday between May through August, from 5 to 9 p.m. Community investments Microsoft invests in local programs that benefit people of all ages. In Greater Atlanta, our collaborations are organized by our focus areas of Skills for Jobs, Enabling Sustainability, and Empowering Communities. Read about many of our community investments across Greater Atlanta since 2022. Technology Education and Learning Support (TEALS) is a Microsoft Philanthropies program that builds sustainable computer science (CS) programs in high schools. We focus on serving students excluded from learning CS because of race, gender, or geography. Microsoft is building a datacenter campus in East Point, Georgia The project includes the construction of two datacenter buildings, a power substation, privacy screening, support facilities, and landscaping. Flip through our photo gallery to see the architectural renderings of the project and a computer animated preview video of the nature walk on Ben Hill Road. Learn more in our project overview section. Datacenter entrance off of Ben Hill Road Rendering of mature trees and sidewalk looking North on Ben Hill Road. Aerial rendering of datacenter campus and retaining wall location Ben Hill Road pocket park nature walk details Watch a rendering animation of the future Ben Hill Road nature walk ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-5ba9f1e5608d-10293b2cc7d5",
+      "name": "Microsoft Microsoft breaks ground on La Porte datacenter project",
+      "url": "https://local.microsoft.com/blog/microsoft-breaks-ground-on-la-porte-datacenter-project/",
+      "retrievedAt": "2026-10-26T01:50:39.319Z",
+      "sha256": "10293b2cc7d519a9227381f76e93e9eacb6c94c6b238168b7a274ef07f698c29",
+      "publishedAt": "2026-06-23",
+      "excerpt": "Microsoft breaks ground on La Porte datacenter project On Thursday, June 18, Microsoft marked an important milestone in La Porte, Indiana, with a groundbreaking event for its new datacenter project, alongside local leaders and community partners. In addition to the datacenter groundbreaking, Microsoft celebrated the signing of a partnership with Ivy Tech Community College to launch its first Microsoft Datacenter Academy in Indiana. The event brought together elected officials, community stakeholders, and partners to highlight progress on site development and reinforce Microsoft’s commitment to investing in the region through jobs, infrastructure, and long-term community engagement. Brad Smith, Microsoft Vice Chair and President, delivered remarks as part of Microsoft’s Community-First Infrastructure initiative, joining the La Porte mayor and local leaders. “AI infrastructure is driving demand for skilled trades nationwide,” said Smith. “We’re committed to helping fill these jobs with people in the communities where we operate. Our Datacenter Academy agreement with Ivy Tech Community College will do just that by equipping people in Indiana with the skills to pursue the jobs we will create here.” Beyond the thousands of construction jobs, the first phase of the new datacenter is expected to create more than 600 permanent Microsoft jobs. It will grow local tax revenues to support schools and the broader community for generations. The campus will be designed with the latest energy efficient and closed-loop liquid cooling technologies to conserve natural resources. And Microsoft will enhance the surrounding ecosystem to strengthen flood protection and natural habitat. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-47f1aabce561-a77504070fa9",
+      "name": "Microsoft 공식 IN 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/indiana/",
+      "retrievedAt": "2026-10-26T01:50:38.527Z",
+      "sha256": "a77504070fa99e904252e369f9d15e2457052e74201d40b3690fa582435f01ca",
+      "publishedAt": "2026-01-13",
+      "excerpt": "Microsoft breaks ground on La Porte datacenter project — https://local.microsoft.com/blog/microsoft-breaks-ground-on-la-porte-datacenter-project/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-ce4b5d6a6475-7344b251ad42",
+      "name": "Microsoft Ginger West datacenter construction update",
+      "url": "https://local.microsoft.com/blog/ginger-west-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:39.322Z",
+      "sha256": "7344b251ad42f5e96b6dfdd78e179d105eb3ea777f259836fb49d9d278a5ce40",
+      "publishedAt": "2025-01-08",
+      "excerpt": "Ginger West datacenter construction update Microsoft is building a datacenter in greater Des Moines, Iowa. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction overview Microsoft has contracted Turner Construction as the general contractor for the Ginger West datacenter in Iowa. Construction is estimated to be completed by summer 2028. Together with our general contractor Turner Construction, we will keep neighbors informed in advance of construction work. Completion of construction does not indicate datacenter operation/availability. Construction hours Permitted construction hours are: 6 AM – 6 PM Mon-Fri 6 AM – 3:30 PM Sat, Sun, Holidays Staying connected We will keep the community up to date via our Greater Des Moines page in our Microsoft in Your Community blog. For construction related questions, please contact Project Manager (PM): Rebecca Kalinowskyr , Turner Construction. For community related questions, contact us at iowadc@microsoft.com and 425-705-2709. For PR-related questions, contact the Microsoft Media Relations at rapidresponse@we-worldwide.com ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-981caec95ad6-7d2db86a36d4",
+      "name": "Microsoft 공식 IA 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/greater-des-moines/",
+      "retrievedAt": "2026-10-26T01:50:38.397Z",
+      "sha256": "7d2db86a36d40a1e02445b47991088e655a2af8303161e7fa4c57f92fa870362",
+      "publishedAt": "2021-08-25",
+      "excerpt": "Ginger West datacenter construction update — https://local.microsoft.com/blog/ginger-west-datacenter-construction-update/\nGinger East datacenter construction update — https://local.microsoft.com/blog/ginger-east-datacenter-construction-update/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-9b11dd506e14-b3cee522d135",
+      "name": "Microsoft Ginger East datacenter construction update",
+      "url": "https://local.microsoft.com/blog/ginger-east-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:39.750Z",
+      "sha256": "b3cee522d135f1f36535e3113cf4a43e07739c52de8641c53fd3007705eae0d2",
+      "publishedAt": "2025-01-08",
+      "excerpt": "Ginger East datacenter construction update Microsoft is building a datacenter in greater Des Moines, Iowa. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction overview Microsoft has contracted Weitz Construction as the general contractor for the Ginger East datacenter in Iowa. Construction is estimated to be completed by mid-2028. Together with our general contractor Weitz Construction, we will keep neighbors informed in advance of construction work. Completion of construction does not indicate datacenter operation/availability. Construction hours Permitted construction hours are: 6 AM – 6 PM Mon-Fri 6 AM – 3:30 PM Sat, Sun, Holidays Staying connected We will keep the community up to date via our Greater Des Moines page in our Microsoft in Your Community blog. For construction related questions, please contact Project Manager (PM): Zach Smith , Zach.Smith@weitz.com For community related questions, contact us at iowadc@microsoft.com and 425-705-2709. For PR-related questions, contact the Microsoft Media Relations at rapidresponse@we-worldwide.com ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-ac37678eb7f6-2e9a2a08d082",
+      "name": "Microsoft Aktueller Stand beim Bau des Rechenzentrums in Silver Springs",
+      "url": "https://local.microsoft.com/blog/silver-springs-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:40.099Z",
+      "sha256": "2e9a2a08d08248d7229e245f7edbe1252c001fcd06a22d119fbba2525b34cd5c",
+      "publishedAt": "2026-09-28",
+      "excerpt": "Aktueller Stand beim Bau des Rechenzentrums in Silver Springs Microsoft beginnt mit den ersten Bauarbeiten an seinem Rechenzentrumsstandort in Silver Springs, Nevada. Wir sind bestrebt, die Anwohner im Verlauf der Arbeiten auf dem Laufenden zu halten und die durch die Bauarbeiten verursachten Beeinträchtigungen so weit wie möglich zu reduzieren. Warum Rechenzentren benötigt werden Rechenzentren stellen die physische Infrastruktur bereit, auf der die Technologien basieren, die Menschen tagtäglich nutzen. Die Rechenzentren von Microsoft unterstützen Online-Dienste, die Kommunikation, Remote-Arbeit, Lernen, Gesundheitsversorgung, Geschäftsabläufe und andere digitale Aktivitäten ermöglichen. Überblick über die Konstruktion Baubericht September 2026 Auf dem Gelände in Silver Springs haben die ersten Bauarbeiten begonnen. Derzeit werden das Grundstück vorbereitet, Erdarbeiten durchgeführt und Versorgungsleitungen verlegt. Anwohner werden möglicherweise Lkw bemerken, die das Gelände befahren und wieder verlassen, Baumaschinen, die auf dem Grundstück im Einsatz sind, sowie gelegentliche Drohnenaufnahmen über dem Arbeitsbereich. Microsoft und sein Auftragnehmer werden Maßnahmen zur Staubbekämpfung ergreifen und den Lkw-Verkehr zeitlich staffeln, um die Auswirkungen auf die nahegelegenen Straßen und die umliegende Nachbarschaft zu verringern. Q&D Construction LLC ist der Generalunternehmer für diese Bauarbeiten. Die Bauarbeiten werden voraussichtlich in mehreren Phasen über die nächsten Jahre hinweg fortgesetzt. Bauzeiten Die Bauarbeiten finden innerhalb der gesetzlich zulässigen Arbeitszeiten statt und sind in der Regel für folgende Zeiträume vorgesehen: Montag bis Freitag: 7:00 bis 19:00 Uhr Samstag: 9:00 bis 17:00 Uhr Sonntage und gesetzliche Feiertage: Keine Arbeit vorgesehen In Verbindung bleiben Microsoft und Q&D Construction LLC freuen sich über Fragen zu den Bauarbeiten. Mitglieder der Gemeinde können sich unter folgender Adresse an das Bauteam wenden: E-Mail: outreachrno18@qdconstruction.com Telefon: 775-353-7030 Wir danken der Gemeinde für ihre Geduld während der Dauer dieser Arbeiten und werden im Verlauf der Bauarbeiten weitere Informationen bereitstellen. > >> >> ... ... ... ... Stichworte: Aktuelles zum Bau Nevada Surface Laptop Ultra Surface Pro Surface Laptop Copilot entdecken Microsoft 365 Microsoft-Produkte entdecken Windows 11-Apps Kontoprofil Download-Center Microsoft Store-Support Rücksendungen Bestellverfolgung Abfallverwertung Weitere Informationen Microsoft Bildung Geräte für den Bildungsbereich Microsoft Teams für den Bildungsbereich Microsoft 365 für den Bildungsbereich Office für den Bildungsbereich Aus- und Weiterbildung von Lehrkräften Angebote für Studierende und Eltern Azure für Studierende Microsoft KI Microsoft Sicherheit Azure Dynamics 365 Microsoft 365 Microsoft Copilot Microsoft Teams Kleine Unternehmen Microsoft-Entwickler Microsoft Learn Support für KI-Apps im Marketplace Microsoft Tech Community Microsoft Marketplace Microsoft Power Platform Softwareunternehmen Visual Studio Jobs & Karriere Das Unternehmen Microsoft Unternehmensnachrichten Datenschutz bei Microsoft Investoren LkSG-Beschwerdeverfahren Deutsch (Deutschland) Abwahlsymbol \"Ihre Datenschutzoptionen\" Ihre Datenschutzoptionen Abwahlsymbol „Ihre Datenschutzoptionen“ Ihre Datenschutzoptionen Verbraucherdatenschutz für Gesundheitsdaten Sich an Microsoft wenden Abo kündigen Impressum Datenschutz Cookies verwalten Nutzungsbedingungen Markenzeichen Informationen zu unserer Werbung EU-Konformitätserklärungen",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-40874be3d2cf-27a51d3a1831",
+      "name": "Microsoft 공식 NV 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/nevada/",
+      "retrievedAt": "2026-10-26T01:50:38.566Z",
+      "sha256": "27a51d3a1831d38c7205736ab480f15f0f2b175570a77de6daef48721894ef38",
+      "publishedAt": "2026-04-15",
+      "excerpt": "New Silver Springs datacenter construction update — https://local.microsoft.com/blog/silver-springs-datacenter-construction-update/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-89a707d80f0d-a78b434a4557",
+      "name": "Microsoft Conover – Lyle Creek datacenter construction update",
+      "url": "https://local.microsoft.com/blog/lyle-creek-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:39.529Z",
+      "sha256": "a78b434a4557cb51ed5ab7cc457b13e706afeac5e930167ade5e293d3bd6d0c5",
+      "publishedAt": "2024-05-15",
+      "excerpt": "Conover – Lyle Creek datacenter construction update Microsoft is building a datacenter in the greater Conover, North Carolina area near Highway 16 in Catawba County. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. September 2026: Construction update Work continues to move forward on the first building at the Lyle Creek datacenter site, with key milestones achieved on the building structure and exterior. The building exterior is in its final stages of completion. Framing and drywall work has started and continues to progress throughout the building. Work on underground infrastructure also continues to support the site and upcoming equipment deliveries. Mechanical and electrical work has begun, and additional interior work continues. Work is also beginning on additional building areas to support upcoming phases of construction. We appreciate the community’s patience as construction progresses and will continue to provide updates on significant milestones. May 2026: Construction update Work is advancing across multiple areas of the site, with key milestones reached in foundations and early structural development. Construction activity is moving forward as crews complete early phases and begin vertical construction: Underground work, foundations, and slab installation are complete for several buildings. Steel installation has begun on site, marking the start of above-ground construction. Additional buildings are progressing through foundation and footing stages as site-wide development continues. Telecommunications infrastructure work is underway in multiple areas to support future operations. February 2026: Construction update At the Lyle Creek site, Microsoft’s general contractor, Whiting‑Turner, will begin initial site preparation once weather conditions allow. Early activities will include installing fencing, preparing the site, and limited paving work to support temporary facilities. Foundation work is expected to begin in mid‑March, following completion of site preparation activities. Construction hours Construction activity is expected to take place from Monday to Friday, 7:00 AM to 6:00 PM. Work hours will follow local permitting requirements. May 2024: Construction timeline Datacenter construction began in March 2024. The general contractor Morgan Corp is preparing the site by excavating and crushing rock onsite. In some cases this involves controlled blasting in the early afternoon to break apart larger rocks. Together with our general contractor Morgan Corp we will keep neighbors informed in advance of construction work. Staying connected We will keep the community up to date via our North Carolina page in our Microsoft in your community blog. As of February 2026, our general contractor is Whiting-Turner. For construction related questions, please fill out this form, Lyle Creek Datacenter Campus . If you have any additional questions, please contact the Microsoft Community Affairs Manager at northcarolinadc@microsoft.com or leave a voicemail at 980-776-2251. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-d8299e5c2d1f-07a36978e0d5",
+      "name": "Microsoft 공식 NC 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/north-carolina/",
+      "retrievedAt": "2026-10-26T01:50:38.733Z",
+      "sha256": "07a36978e0d598adbab5e8e0e646424099d4de38775d189f59b61ec91a11cbce",
+      "publishedAt": "2022-12-20",
+      "excerpt": "Conover – Lyle Creek datacenter construction update — https://local.microsoft.com/blog/lyle-creek-datacenter-construction-update/\nHickory datacenter construction update — https://local.microsoft.com/blog/stover-datacenter-construction-update/\nMaiden-Boyd Farms datacenter construction update — https://local.microsoft.com/blog/boyd-farms-datacenter-construction-update/\nPerson County datacenter project — https://local.microsoft.com/blog/person-county-datacenter-project/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-0b5fa37be4e3-15423bdedf1b",
+      "name": "Microsoft Hickory datacenter construction update",
+      "url": "https://local.microsoft.com/blog/stover-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:39.618Z",
+      "sha256": "15423bdedf1b666a51d7357f3029e0933ab966645ce7706a4b5b85c2118bcf63",
+      "publishedAt": "2024-09-19",
+      "excerpt": "Hickory datacenter construction update Microsoft is building a datacenter in the greater Hickory, North Carolina area, near the Hickory-Lincolnton Highway in Catawba County. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. May 2026: Construction update Construction activity continues to progress at the Hickory datacenter site in North Carolina. Underground utilities installation is underway across the west, north, and south areas of the site. This work includes sanitary systems, water distribution, fire infrastructure, telecommunications, and stormwater systems that support overall site development. Foundation work is also in progress. The project remains on track to begin steel structure installation at the end of June, marking the next major phase of construction. February 2026: Construction update At the Hickory/Stover site, the general contractor Clayco will begin initial site setup and earthwork activities. This phase focuses on preparing the site for future construction and does not involve vertical building at this time. Construction hours Construction activity is expected to take place from Monday to Saturday, 7:00 AM to 6:00 PM. Work hours will follow local permitting requirements. October 2024: Community information session We have rescheduled the community information session : Monday, October 21, 5:30 PM – 7:00 PM at the Stover Datacenter Site, Hickory Lincolnton Hwy, Newton NC . September 2024: Construction update ***Meeting postponed due to recent hurricane devastation *** We invite you to a community information session: Monday, September 30, 5:00 PM – 7:00 PM at Rhoney’s Chapel AME Zion Church, 3778 Hickory Lincolnton Hwy, Newton, NC 28258 Construction timeline Datacenter construction began in July 2024. The general contractor Ames Construction Company is preparing the site by excavating and crushing rock onsite. In some cases, this involves controlled rock excavation and fracturing in the early afternoon to break apart larger rocks. Together with our general contractor Ames Construction Company, we will keep neighbors informed in advance of construction work. Staying connected We will keep the community up to date via our North Carolina page in our Microsoft in your community blog. As of March 2026, our general contractor is Clayco. For construction related questions, email Thomas Plant at plantt@claycorp.com or leave a message at 919-810‑3035. If you have any additional questions, please contact the Microsoft Community Engagement Manager at northcarolinadc@microsoft.com or leave a voicemail at 980-776-2251. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-17b4cc47b8c3-f6fdc431c6c2",
+      "name": "Microsoft Maiden-Boyd Farms datacenter construction update",
+      "url": "https://local.microsoft.com/blog/boyd-farms-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:39.730Z",
+      "sha256": "f6fdc431c6c271164def2c58d96f8282c5aba00c56ff7e1780140008a5450327",
+      "publishedAt": "2024-04-30",
+      "excerpt": "Maiden-Boyd Farms datacenter construction update Microsoft is constructing the Boyd Farms datacenter. The datacenter construction site is located off Zeb Haynes Road in Maiden, North Carolina. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction update May 2026 Microsoft continues construction at the Boyd Farm datacenter site, with crews making steady progress across building foundations, underground utilities, and infrastructure installation. The general contractor for this site changed to Clark Construction. Crews are advancing electrical, underground utility, and slab work, with the first slab pour planned for early June. South entrance utilities—including sewer, stormwater, water, and fire protection—are nearing completion. Campus-wide underground utility work continues through July, with electrical vault installation planned from early June through mid-August. Telecommunications and medium-voltage infrastructure work continues in future development areas into late summer. Rock removal update Testing to understand underground rock conditions is complete, and teams are reviewing the results to plan next steps. Additional work may be needed to remove rock in certain areas, and this request is currently under review. If approved, crews may use controlled blasting to safely break apart underground rock as part of site preparation. This work will follow all safety requirements, and neighbors will be notified in advance. Rock removal activities, including breaking, removing, and filling areas, are expected to take about 2–3 months once work begins. Construction timeline Datacenter construction began April 1, 2024. The general contractor Morgan Construction Company is preparing the site by clearing and grading it. From there they will move into excavation work and continue construction through the spring of 2025. Together with our general contractor Morgan Construction Company, we will keep neighbors informed in advance of construction work. Staying connected We will keep the community up to date via our North Carolina page in our Microsoft in your community blog. For daily operational questions, you can also reach out to the contractor at boydfarms@clarkconstruction.com , phone 828-270-1600. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-f360b734a804-298ae42129ba",
+      "name": "Microsoft Person County datacenter project",
+      "url": "https://local.microsoft.com/blog/person-county-datacenter-project/",
+      "retrievedAt": "2026-10-26T01:50:39.611Z",
+      "sha256": "298ae42129ba9bb22337f590045b7ec42ee570d44b1baf580d87460283e2d4a1",
+      "publishedAt": "2026-05-01",
+      "excerpt": "Person County datacenter project Microsoft is planning on building a datacenter campus in Person County . Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Investing in cloud infrastructure in North Carolina supports long-term digital growth and helps ensure that essential online services remain reliable and accessible. April 2026: Development update We are in the planning phase of the datacenter project, with early site preparation underway. You may notice soil sampling activities, surveying, and with road work related to the permanent closure of Country Club Road expected until late summer 2026. Our new datacenters in Person County are expected to reduce water use by relying on air ‑ cooled chillers that use a closed, recirculating water loop rather than traditional water‑intensive cooling methods. We work to minimize impacts wherever possible and invest in the communities in which we operate. We will continue to share updates as the project progresses. Staying connected We are committed to being a good neighbor and keeping the community informed. See examples of how we have been working with communities across the United States. We will keep the community up to date via our North Carolina page on the Microsoft in Your Community blog . For community-related questions, email PersonDC@microsoft.com or leave a message at 980-776-2251 For media inquiries, please reach out to rapidresponse@we-worldwide.com . Learn more about Microsoft’s approach to being a good neighbor Understanding water use at Microsoft datacenters Understanding energy use at Microsoft datacenters Increasing access to digital skills and local job opportunities ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-55d0e0e47366-f7f790477525",
+      "name": "Microsoft Responsible development in Prince William County",
+      "url": "https://local.microsoft.com/blog/environmental-planning-update-for-proposed-wellington-datacenter-site/",
+      "retrievedAt": "2026-10-26T01:50:39.719Z",
+      "sha256": "f7f790477525b92fda7c6e3cc517d8c4f5628ed503c4230e87536af76574e6da",
+      "publishedAt": "2026-09-17",
+      "excerpt": "Responsible development in Prince William County An update on our environmental work at the proposed Wellington datacenter site In 2024, Microsoft purchased land in Prince William County, Virginia for the purpose of datacenter development. While datacenter development has yet to commence, we have started the process of applying for permits. The project remains in the early planning and permitting stage with actual datacenter construction still a long way off. Microsoft is committed to responsible development on this site, respecting the unique and challenging environmental history of this land. We’re working with local partners to carry out all necessary environmental remediation and ensure our future plans have appropriately considered the local context and adequately protect the community from future environmental degradation. This environmental work is the reason that we’ve started the planning and permitting process so early – taking the necessary time to ensure plans are advanced responsibly, in compliance with all federal, state and local regulations. The approximately 124-acre property is located on Wellington Road in Gainesville, Virginia, and has a history of industrial use that predates Microsoft’s ownership and resulted in soil and groundwater contamination. Cleanup of this pre-existing contamination continues under a longstanding U.S. Environmental Protection Agency (EPA) consent order, which outlines the cleanup requirements and mandates ongoing reporting to the EPA. Under government oversight, the prior industrial operator remains responsible for maintaining the site’s groundwater treatment and monitoring systems and addressing the contamination. Microsoft is funding and providing technical support to relocate and modernize the treatment infrastructure so cleanup can continue as property plans advance. Microsoft and the previous industrial operator are coordinating with the EPA, the Virginia Department of Environmental Quality, Prince William County, and other agencies to ensure that our plans comply with all existing regulations and any necessary environmental reviews and approvals are completed before any work moves forward. Additional information about the property’s cleanup history can be found here: EPA RCRA ID: VAD023741705 | US EPA As plans are developed, Microsoft’s approach will be to avoid and minimize impacts on wetlands, waterways, and other natural resources. If impacts cannot be avoided, appropriate permits would be sought, and mitigation measures such as funding for stream and wetland restoration would be incorporated into the project. As construction moves forward, environmental controls will address stormwater, erosion, soil, dust, and waste. Additionally, materials will be evaluated and managed in accordance with applicable requirements. We will continue to share updates with the local community as plans advance and key milestones are reached. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-ab09e90738e8-5213510f2b9b",
+      "name": "Microsoft 공식 VA 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/northern-virginia/",
+      "retrievedAt": "2026-10-26T01:50:38.747Z",
+      "sha256": "5213510f2b9b4d8eb31a9a0267fba807da985fc2742ac54e395dfc56c8eaf328",
+      "publishedAt": "2022-03-02",
+      "excerpt": "Responsible development in Prince William County — https://local.microsoft.com/blog/environmental-planning-update-for-proposed-wellington-datacenter-site/\nHansen Farm datacenter construction update — https://local.microsoft.com/blog/hansen-farm-datacenter-construction-update/\nJacksonville datacenter project updates — https://local.microsoft.com/blog/jacksonville-road-datacenter-project-updates/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-d44056c1c2a7-94364d08fd76",
+      "name": "Microsoft Hansen Farm datacenter construction update",
+      "url": "https://local.microsoft.com/blog/hansen-farm-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:40.048Z",
+      "sha256": "94364d08fd766bdba416f26a5ac14288d321a8e5cb8aaa73ea1cfef451570b21",
+      "publishedAt": "2024-10-01",
+      "excerpt": "Hansen Farm datacenter construction update Microsoft is building a datacenter on Hansen Farm Road located in Manassas, Virginia. Construction is expected to continue for 18-24 months. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. January 2025: Construction update Our project team is working in compliance with Prince William county’s noise ordinance and operates within the county’s permitted work hours of 7:00 AM to 10:00 PM Monday through Friday; and 9:00 AM to 10:00 PM Saturday, Sunday and holidays. On the South end of the project, site work including rock drilling, rock processing, and rock removal will continue through March 2025. On the North End of the project, steel erection has started with concrete operations to follow. Construction trailers will be placed on the southwest corner of the property in early 2025. Building enclosure will be complete in the Summer of 2025. September 2024: Construction update Datacenter construction began in May 2024. The general contractor, Clark Technologies, a division of Clark Construction, is preparing the site by excavating and crushing rock. In some cases, this involves controlled rock fracturing in the early afternoon to break apart larger rocks. Early earthworks construction will continue through Fall 2024. In adherence to Prince William County’s noise ordinance, Clark Technologies operates within the County’s permitted work hours of 7 AM to 10 PM (Mon-Fri) and 9 AM to 10 PM (Sat, Sun, and holidays). Together with our general contractor, Clark Technologies, we will keep neighbors informed of construction activities. Staying connected We will keep the community up to date via our Northern Virginia page in our Microsoft in your community blog. For construction-related questions or concerns contact Ben Lord at Clark Technologies via email at HansenFarmBuild@clarktech.com or phone at 571-499-4281. If you have any additional questions, please contact Microsoft Community Engagement Manager at CQ-NVA-Datacenters@microsoft.com or leave a voicemail at 703-657-1760. For PR-related questions, email rapidresponse@we-worldwide.com . ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-c06c99fef16a-1ccc7756b746",
+      "name": "Microsoft Jacksonville datacenter project updates",
+      "url": "https://local.microsoft.com/blog/jacksonville-road-datacenter-project-updates/",
+      "retrievedAt": "2026-10-26T01:50:40.048Z",
+      "sha256": "1ccc7756b74689df46fa88522ad5841de9ce05480f5fd55ceb182f8364af0d6d",
+      "publishedAt": "2024-01-12",
+      "excerpt": "Jacksonville datacenter project updates Microsoft is building a datacenter on Jacksonville Avenue in Manassas, Virginia. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. September 2024: Construction updates In September 2024, Lemartec began rock removal as part of the preparation work on Jacksonville Avenue in Manassas. Earthworks include excavating and crushing rock. We anticipate completion by early 2025. We appreciate your patience as Lemartec crews work to safely construct this new datacenter. January 12, 2024: Site preparation update In January 2024, Microsoft’s general contractor, Lemartec, began site preparation work on Jacksonville Avenue in Manassas. Lemartec is permitted by Prince William County to work between 6 am and 10 pm Monday through Friday and between 9 am and 10 pm on Saturdays, Sundays and some holidays. We anticipate this phase to be completed mid-2024. We appreciate your patience as Lemartec crews work to safely construct this new datacenter. Staying connected For more information about Microsoft’s work in Northern Virginia, visit the Microsoft in your Community, Northern Virginia page. https://local.microsoft.com/communities/americas/northern-virginia/ For construction related issues, please contact Lemartec’s project manager, David Duret dduret@lemartec.com or 786-580-8428 for emergencies. For PR-related questions, email rapidresponse@we-worldwide.com If you have any additional questions, please contact Microsoft Community Engagement: CQ-NVA-Datacenters@microsoft.com or leave a voicemail at 703-657-1760. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-7c79e808cea0-a112cb896b1c",
+      "name": "Microsoft Heath datacenter construction updates",
+      "url": "https://local.microsoft.com/blog/heath-datacenter-construction-updates/",
+      "retrievedAt": "2026-10-26T01:50:40.040Z",
+      "sha256": "a112cb896b1cf5334c77b403337ef5e069c5eaba324ece736d6393e1d45e2767",
+      "publishedAt": "2026-03-02",
+      "excerpt": "Heath datacenter construction updates Microsoft is building a datacenter in the City of Heath, Licking County. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction update—July 2026 Summer activities underway at the Heath datacenter site Summer construction continues at the Microsoft datacenter site in Heath, with crews focused on safety, water management, and site preparation for future buildings. Work on the substation is also expected to begin. Residents may see fencing installed around portions of the site, stormwater holding ponds under construction, erosion controls maintained, and fill material brought in for grading. There will be an increase in truck traffic through the summer and fall, and crews will continue working to minimize impacts on neighboring properties. Microsoft appreciates the community’s continued support; questions or concerns can be directed to 380-267-4449 or info@msftheathdatacenter.com . Construction update—May 2026 As site preparation work continues, some Sunday work may be necessary to keep the project on schedule due to weather delays and time-sensitive construction milestones. Ames Construction remains in close communication with the City of Heath, which reviews and approves all work schedules and any temporary adjustments to permitted work hours. To receive advance notice of changes to work hours and other project updates, please send your email address to the project team at info@msftheathdatacenter.com . Construction update—March 2026 Site preparation begins at Heath datacenter site In the coming weeks, neighbors will see the initial activity on the site. Work will start with the removal of trees. Felled trees will be staged on site and processed with a woodchipper at a later time. Some logs may be removed from the site for reuse. Equipment used during tree removal will include chainsaws, large trucks, forestry-industry heavy equipment, and woodchippers. Crews will access the site using a construction entrance off Thornwood Drive. A second construction access road will be added off Lees Road in the near future. The tree removal activity is expected to last approximately one week, not counting the wood chipping at a later date. Early site preparation is anticipated to be substantially complete by the end of the year. A timeline for vertical construction has not yet been determined. We encourage neighbors to check back regularly for updates as work progresses. For questions or concerns, please contact the project team at 380-267-4449 or info@msftheathdatacenter.com . Construction update—February 2026 Microsoft has contracted Ames Construction as the general contractor for the Heath datacenter in Ohio. Mass grading construction is estimated to begin in February and completed in November 2026. Together with our general contractor Ames Construction, we will keep neighbors informed in advance of construction work. Completion of construction does not indicate datacenter operation/availability. Construction hours Permitted construction hours are Monday to Friday 7:00 AM – 7:00 PM with Saturdays and occasional Sundays from 8:00 AM – 5:00 PM. Staying connected We will keep the community up to date via our Ohio page on the Microsoft in Your Community blog . For construction related questions, email info@msftheathdatacenter.com or leave a message at 380-267-4449. For community-related questions, email us at ColumbusDC@microsoft.com or leave a message at 513-301-1414. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-b6257866fade-2d525e7d794c",
+      "name": "Microsoft 공식 OH 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/ohio",
+      "retrievedAt": "2026-10-26T01:50:39.086Z",
+      "sha256": "2d525e7d794c038a630760dc9f893dba943a69b01a930bc18c1cac7ea3e60aba",
+      "publishedAt": "2023-11-28",
+      "excerpt": "Heath datacenter construction updates — https://local.microsoft.com/blog/heath-datacenter-construction-updates/\nHebron datacenter construction update — https://local.microsoft.com/blog/hebron-datacenter-construction-update/\nNew Albany datacenter construction update — https://local.microsoft.com/blog/newalbany-datacenter-construction-update/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-0a62baa2cc74-85fe64ef19be",
+      "name": "Microsoft Hebron datacenter construction update",
+      "url": "https://local.microsoft.com/blog/hebron-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:39.977Z",
+      "sha256": "85fe64ef19be2dce6a5b12b196be8d27dfe197a2f2fde7bc5d685033c8278c24",
+      "publishedAt": "2025-11-13",
+      "excerpt": "Hebron datacenter construction update Microsoft is building a datacenter in Hebron, Ohio. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction update—July 2026 Summer construction activities continue at the Hebron datacenter site Summer construction continues at the Microsoft datacenter site in Hebron, with crews focused on long-term site development, safety, and environmental protection. Work on the substation is also expected to get underway. Residents may notice permanent and temporary fencing, construction of stormwater holding ponds, ongoing erosion control maintenance, and fill material being brought to the site for grading. Truck traffic through the summer and into the fall will vary based on construction needs, and crews will continue working to minimize impacts on nearby roads and properties. Microsoft and its construction partners remain committed to keeping the community informed; questions or concerns can be directed to 740-235-2678 or info@MSFTHebronDatacenter.com . Construction update—May 2026 As site preparation work continues, some Sunday work may be necessary to keep the project on schedule due to weather delays and time-sensitive construction milestones. Ames Construction remains in close communication with the Village of Hebron, which reviews and approves all work schedules and any temporary adjustments to permitted work hours. To receive advance notice of changes to work hours and other project updates, please send your email address to the project team at info@MSFTHebronDatacenter.com . Construction update—March 2026 Site preparation begins at Hebron datacenter site In the coming weeks, neighbors will begin to see initial activity on the site. Work will start with the removal of trees along the perimeter. Felled trees will be staged on site and processed with a woodchipper at a later date. Some logs may be removed from the site for reuse. The walking trail in the adjacent Thomas J. Evans Park may be closed briefly for safety reasons as trees are removed. Equipment used during tree removal will include chainsaws, large trucks, forestry-industry heavy equipment, and woodchippers. Crews will access the site using a temporary construction entrance off Canyon Road. A permanent construction access road will be established on the east side of the property, adjacent to the industrial park for continued work. The tree removal activity is expected to last approximately one week, not counting the wood chipping at a later date. We expect early site preparation to be completed by the end of the year with vertical construction to follow. We will share more details on this timeline as soon as they are available. We encourage neighbors to check back regularly for updates as work progresses. For questions or concerns, please contact the Ames project team at 740-235-2678 or email info@MSFTHebronDatacenter.com . Construction update – February Mass grading construction is estimated to begin in February and completed in November 2026. Together with our general contractor AMES Construction, we will keep neighbors informed in advance of construction work. Completion of construction does not indicate datacenter operation/availability. Construction overview Microsoft has contracted AMES Construction as the general contractor for the Hebron datacenter in Ohio. Construction hours Permitted construction hours are Monday to Friday 7:00 AM – 7:00 PM with Saturdays and occasional Sundays from 8:00 AM – 5:00 PM. Staying connected We will keep the community up to date via our Ohio page on the Microsoft in Your Community blog . For construction related questions, email AMES at info@MSFThebrondatacenter.com or leave a message at 1-740-235-2678. For community-related questions, email us at ColumbusDC@microsoft.com or leave a message at 1-513-301-1414. ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-7df42fa0f3b6-aab43f74561e",
+      "name": "Microsoft New Albany datacenter construction update",
+      "url": "https://local.microsoft.com/blog/newalbany-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:40.081Z",
+      "sha256": "aab43f74561e4c9ca56ee594bc9184d9bf0f5c2e23666c35ef0960754f3c0101",
+      "publishedAt": "2023-04-05",
+      "excerpt": "New Albany datacenter construction update Microsoft is building a datacenter in New Albany, Ohio. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction update—July 2026 New Albany site nears completion and community engagement transitions to Microsoft Construction activities associated with Ames Construction’s work at the Microsoft datacenter site in New Albany are nearing completion. Over the past couple of years, the project team has worked closely with residents, businesses, and community stakeholders to share information and respond to questions throughout the site preparation process. As this phase of work concludes, primary community engagement responsibilities will transition back to Microsoft. Limited construction activities may continue through the summer as remaining work is completed, and future development phases are planned. Microsoft will continue serving as the primary point of contact for community questions and updates moving forward. The project team extends its sincere appreciation to neighbors and community members for their patience, feedback, and partnership throughout construction. Maintaining open communication has been an important part of the project, and Microsoft looks forward to continuing that commitment as the site enters its next chapter. To reach the Microsoft team, email ColumbusDC@microsoft.com or call 513-301-1414. Construction update—May 2026 As site preparation work continues, some Sunday work may be necessary to keep the project on schedule due to weather delays and time-sensitive construction milestones. Ames Construction remains in close communication with the City of New Albany, which reviews and approves all work schedules and any temporary adjustments to permitted work hours. To receive advance notice of changes to work hours and other project updates, please send your email address to the project team at info@MSFTNewAlbanyDatacenter.com . We encourage neighbors to check back regularly for updates as work progresses. For questions or concerns, please contact the Ames project team at (380) 222-6188 or email info@MSFTNewAlbanyDatacenter.com . Construction update—March 2026 After a quiet winter season, activity will increase at the New Albany datacenter site in the coming weeks as warmer weather allows work to resume. Beginning soon, soil will be delivered to the site via a designated truck route traveling along Highway 62 (Johnstown Road) to the site on Beech Road. The route may change to Jug Street instead of Highway 62 if there are unforeseen detours. Deliveries are scheduled Monday through Saturday for approximately 10 weeks. The soil will be used to build up designated areas of the site to meet plan specifications. Once grading is complete, seed will be planted as part of final stabilization efforts. Neighbors can expect to see large dump trucks and earth-moving equipment on and near the site. This is the final step in this phase of the project. When Ames Construction has completed the work, Microsoft will resume the lead role in project communications, and updated contact information will be shared. If you have questions or concerns, please contact the Ames project team at 380-222-6188 or email info@MSFTNewAlbanyDatacenter.com . Fall & Winter 2025 Construction Update As the seasons change, the focus at the New Albany datacenter site has shifted to preparing for the Ohio winter. Ames Construction continues site preparation, which will extend through spring 2026, with efforts centered on stabilizing the surface across the site. There will be a slight increase in truck traffic as soil is delivered to the site through the remainder of the year. Certain areas will require refinement during the spring; however, the completed stabilization efforts will enable winter and spring weather conditions to further bolster and reinforce the groundwork. A native seed mix has been sown across most of the site, with plans in place for seeding the remaining area along Beech Road. For questions about the project, contact us at (380) 222-6188 or email info@MSFTNewAlbanyDatacenter.com . Summer 2025 construction update Ames Construction continues with site preparation for the Microsoft datacenter in New Albany. Crews have begun building the foundation where the facilities will sit. Most of the site prep work is on track to finish by August, with some smaller tasks possibly extending into the fall. For questions or concerns about the project, contact us at (380) 222-6188 or email info@MSFTNewAlbanyDatacenter.com . November/December 2024 construction update Ames Construction began clearing the area in late October. Installation of silt fences to protect the wetlands began in November. Job site safety will be enhanced with the installation of chain-link fences. Outlook into December Increased truck tr",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-efa66ad65ef8-662b28f08124",
+      "name": "Microsoft County Road 381 datacenter construction update",
+      "url": "https://local.microsoft.com/blog/county-road-381-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:40.166Z",
+      "sha256": "662b28f0812490a0439096984ef4f3a35afea7233dc6d88995a7c68f95f4d434",
+      "publishedAt": "2025-08-05",
+      "excerpt": "County Road 381 datacenter construction update Microsoft is building a datacenter on County Road 381 in San Antonio, Texas. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction update November 2025 Construction work continues along County Road 381. Construction vehicles will access the site directly from County Road 381 and will not travel through the subdivision. Work hours are Monday through Friday, 7 AM to 5 PM, and Saturday, 8 AM to 5 PM, weather permitting. County Road 381 will remain open to traffic with minimal interruption, if any, to allow for oversized vehicles to pass safely. For questions or updates, contact: Esther Monzon-Aguirre, Public Information Liaison Email: EMonzonAguirre@EVServicesInc.com Phone: 830-349-7837 Construction overview Construction is scheduled to begin in August 2025 , with early works kicking off the process. The project is expected to continue through Winter 2028 , with major milestones and updates shared along the way. Completion of construction does not indicate datacenter operations/availability. Microsoft and Lemartec are committed to keeping the community informed of mitigation efforts which include: Dust and debris control using water suppression methods. Noise reduction by limiting construction activities to designated hours. Traffic management through clear signage, coordinated detours with local authorities, and safe pedestrian pathways around the site. Construction hours Monday – Saturday 7:00am – 5:00pm If construction falls outside of normal operating hours, our team will notify the homeowners via email in advance as stated in the San Antonio city code. Staying connected We will keep the community up to date via our Microsoft in your community page at https://local.microsoft.com/texas . For construction related questions, please contact Esther Monzon-Aguirre at (305) 542-4000 or via email at EMonzonAguirre@EVServicesInc.com . Community-related questions can be sent to texasDC@microsoft.com . For PR-related questions, contact the Microsoft Media Relations at rapidresponse@we-worldwide.com . ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-e08f6066771a-39e5d92d757c",
+      "name": "Microsoft 공식 TX 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/greater-san-antonio/",
+      "retrievedAt": "2026-10-26T01:50:38.734Z",
+      "sha256": "39e5d92d757c8b18831ebd3332cd78661c52a297844b95e053c03da8aa162a60",
+      "publishedAt": "2023-04-05",
+      "excerpt": "County Road 381 datacenter construction update — https://local.microsoft.com/blog/county-road-381-datacenter-construction-update/\nWiseman Boulevard datacenter construction update — https://local.microsoft.com/blog/wiseman-boulevard-datacenter-construction-update/\nWestover Link datacenter construction update — https://local.microsoft.com/blog/westover-link-datacenter-construction-update/\nLambda Drive datacenter construction update — https://local.microsoft.com/blog/lambda-drive-datacenter-construction-updates/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-467a79515123-331010c15c7c",
+      "name": "Microsoft Wiseman Boulevard datacenter construction update",
+      "url": "https://local.microsoft.com/blog/wiseman-boulevard-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:40.204Z",
+      "sha256": "331010c15c7cd19de6b0d80c2b5e505e9988ad266b2fa792ea984b20242b0d34",
+      "publishedAt": "2025-04-16",
+      "excerpt": "Wiseman Boulevard datacenter construction update Microsoft is building a datacenter on Wiseman Boulevard in San Antonio, Texas. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction overview Microsoft and its general contractor Walbridge Aldinger LLC have begun construction on the Wiseman Boulevard datacenter in San Antonio. Construction is estimated to be complete in March 2026. Completion of construction does not indicate datacenter operation/availability. Our general contractor, Walbridge Aldinger LLC, will continue to mitigate dust around the site. They anticipate landscaping and asphalt roadways to be complete by early fall 2023. Construction hours Monday – Friday 7:00am – 8:00pm Saturday 8:00am – 8:00pm Sunday 9:00am – 5:00pm If construction falls outside of normal operating hours, our team will notify the homeowners association via email 72 hours in advance as stated in the San Antonio city code. Staying connected We will keep the community up to date via our Microsoft in your community page at https://local.microsoft.com/texas . For construction related questions, please contact Paul Acevedo at 210-729-8325 Community-related questions can be sent to texasDC@microsoft.com For PR-related questions, contact the Microsoft Media Relations at rapidresponse@we-worldwide.com ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-798bccc6a328-76d329b290b9",
+      "name": "Microsoft Westover Link datacenter construction update",
+      "url": "https://local.microsoft.com/blog/westover-link-datacenter-construction-update/",
+      "retrievedAt": "2026-10-26T01:50:40.252Z",
+      "sha256": "76d329b290b9bf2f8f1cafe681c1938b379da887761e851c80c38800497a8005",
+      "publishedAt": "2023-08-22",
+      "excerpt": "Westover Link datacenter construction update Microsoft is building a datacenter on Westover Link in San Antonio, Texas. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction overview Microsoft and its general contractor, Walbridge have begun site clearing and excavation for the project. Our team is permitted for site clearing work through the City of San Antonio and will implement dust mitigation around the site. Together with the general contractor, Walbridge, we are committed to notifying the community of relevant updates during the construction project. Staying connected We will keep the community up to date via our “Microsoft in your community“ page at https://local.microsoft.com/texas . For construction related questions, please contact: Matt Haller (Project Manager) Email: Mhaller2@walbridge.com Cell: 313.350.3072 Community-related questions can be sent to texasDC@microsoft.com For PR-related questions, contact the Microsoft Media Relations at rapidresponse@we-worldwide.com ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-47e6c8d2fdf1-2e5e735d1623",
+      "name": "Microsoft Lambda Drive datacenter construction update",
+      "url": "https://local.microsoft.com/blog/lambda-drive-datacenter-construction-updates/",
+      "retrievedAt": "2026-10-26T01:50:40.487Z",
+      "sha256": "2e5e735d162330892a8e09e0838460d6dd48d9175002939e29f8a8418d96fa5b",
+      "publishedAt": "2023-08-08",
+      "excerpt": "Lambda Drive datacenter construction update Project overview Microsoft is developing a datacenter campus on Lambda Drive in San Antonio, Texas. The project is currently in the first phase of development. This first phase is expected to conclude in October with subsequent construction work occurring at a later date. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction hours The general contractor, Turner Construction is expected to work Monday through Friday between 7AM and Dusk, with occasional work as needed on Saturdays during the same hours. Together with our general contractor, we will keep neighbors informed in advance of changes to work hours. Staying connected We will keep the community up to date via our “Microsoft in your community” page at Greater San Antonio – Microsoft Local For daily operational questions, you can also reach out to Turner Construction’s Project Manager Janet Fatheree at jfatheree@tcco.com . For PR-related questions contact Microsoft Media Relations . ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-6e25dad8aef2-424d5a0de5c5",
+      "name": "Microsoft Malaga datacenter project overview",
+      "url": "https://local.microsoft.com/blog/malaga-datacenter-project-overview/",
+      "retrievedAt": "2026-10-26T01:50:40.266Z",
+      "sha256": "424d5a0de5c555e8440208157015fe712865015e97251966e42d62e0d00d1a1b",
+      "publishedAt": "2023-04-19",
+      "excerpt": "Malaga datacenter project overview Project overview Microsoft is developing a datacenter campus on Malaga-Alcoa Highway. The project is currently in the first phase of development. Construction of the first datacenter will begin in June 2023 and is expected to conclude in early 2026. Completion of construction does not indicate datacenter operation/availability. The timing of construction of the other two datacenter buildings will be driven by customer demand for Microsoft cloud services. Malaga datacenter construction update Microsoft will begin construction for the first phase of development of the Malaga datacenter in June 2023. The datacenter construction site is located on Malaga-Alcoa Highway in Malaga, Washington. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction timeline Datacenter construction will begin in June 2023. The general contractor will begin clearing the site, which includes demolishing some existing buildings. From there, construction of the buildings is expected to commence in May 2024 and last through early 2026. Construction completion of the datacenter buildings does not indicate operability. For this clearing phase of construction, work is expected to take place from Monday through Friday between 6:30 AM and 4:30 PM, with occasional work as needed on Saturdays during the same hours. We will keep neighbors informed in advance of construction work and perform work at less disruptive times when possible (after hours in industrial areas and during daytime hours in residential areas). Additionally, our general contractor will use water trucks to mitigate dust. Staying connected For more information about Microsoft’s work in Central Washington, visit the Microsoft in your community page. For community-related questions, contact us at CentralWaDC@microsoft.com or leave a voicemail at 1-509-794-6526. For PR-related questions, contact Microsoft Media Relations. March 29, 2023 community info session recap Microsoft hosted a community information session about the planned Malaga datacenter campus on March 29, 2023. The project is in the planning and permitting stage for the first phase of development, which will include one datacenter building, substation, water tanks, fencing, landscaping, and other support facilities. The meeting opened with remarks from Lisa Karstetter, Community Manager for Microsoft; Ron Cridlebaugh, incoming Economic Director for Chelan County; Jim Kuntz, Chief Executive Officer for Chelan Douglas Regional Port Authority; and Shawn Smith, Managing Director of Energy Resources for Chelan County PUD. Microsoft appreciated the opportunity to talk with the more than 110 community members that participated in the meeting and visited stations to talk with subject matter experts. The meeting stations focused on an overview of datacenters, the current plan for the Malaga datacenter campus (for example, site plan, water, energy), next steps for permitting and construction, and Microsoft’s partnerships in the community. In talking with community members, Microsoft, Chelan County PUD, and Malaga Water District heard comments and responded to questions about water, construction timeline, power for the site, traffic, jobs, and community investments. If you were unable to attend the community info session, you can also view the boards shown at the meeting. English information session boards Spanish information session boards March 2023: information session invitation Join us on March 29 for an information session about the planned Microsoft Malaga datacenter campus Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver you goods and services. During this information session, you will have the opportunity to learn more about the planned datacenter that will be located on Malaga-Alcoa highway, understand our commitments to the community, review conceptual plans of the Malaga campus, and ask questions relating to the project. Event details: Wednesday, March 29, 2023 | Drop in between 6-8 p.m. Mission View Elementary School gymnasium, 60 Terminal Ave, Wenatchee, WA 98801 The event will be organized to accommodate English and Spanish. For more information about Microsoft’s work in Central Washington, visit the Microsoft in your community page . For community related questions, contact us at CentralWaDC@microsoft.com or leave a voicemail at 1-509-794-6526. For PR-related questions contact Microsoft Media Relations . ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-1e60fd1878d4-ae669213af8d",
+      "name": "Microsoft 공식 WA 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/quincy/",
+      "retrievedAt": "2026-10-26T01:50:38.900Z",
+      "sha256": "ae669213af8d0b115ddb5c63a6f02291a9dc099fd990bded5b52fffa473c8a61",
+      "publishedAt": "2021-08-26",
+      "excerpt": "Malaga datacenter project overview — https://local.microsoft.com/blog/malaga-datacenter-project-overview/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-92b58f58e983-78cea390d1bb",
+      "name": "Microsoft Mount Pleasant datacenter project update",
+      "url": "https://local.microsoft.com/blog/mount-pleasant-datacenter-project-update/",
+      "retrievedAt": "2026-10-26T01:50:40.297Z",
+      "sha256": "78cea390d1bbf59a3fb5474fb1189d163f9f17459eafd98bf8477e9ec3e850a3",
+      "publishedAt": "2023-06-30",
+      "excerpt": "Mount Pleasant datacenter project update Project overview Microsoft is developing a datacenter campus in Mount Pleasant, Wisconsin. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction update July 2026 As part of ongoing preparation at our datacenter site in Mount Pleasant, crews will begin moving soil materials between areas of the project site. Construction overview Starting on or around July 13, 2026, construction teams will begin hauling soil from one area of the site to another to support future development. This work is expected to continue for approximately eight weeks, depending on weather, permitting, and construction schedules. During this time, neighbors may notice: Increased truck traffic in and around the site. Movement of soil and construction materials. Stockpiling and early site preparation activity. Traffic and site operations Construction vehicles will use designated haul routes and approved access points within the project area. Teams will actively coordinate operations to help manage traffic flow and reduce impacts to the surrounding community. A map of the planned haul route is included for reference. Construction hours Construction activity will take place during permitted local construction hours. If work outside of these hours is required, it will follow all applicable local regulations. Staying connected We are committed to keeping our neighbors informed about construction activities. Questions about construction? Please contact Walsh Construction at MPDC@walshgroup.com or call 312-497-6967. Questions about other aspects of the project? Contact WisconsinDC@microsoft.com or leave a message at 608-535-3569. Learn more at local.microsoft.com/Wisconsin . June 2026: Community Connect Open House Microsoft hosted a Community Connect open house on June 23, 2026, at the Fountain Banquet Hall. The event provided an opportunity for community members to learn more about the Mount Pleasant datacenter project, hear the latest updates, and connect directly with subject matter experts. Attendees were able to ask questions and engage with project team members about ongoing construction activities, community investments, and upcoming milestones. Thank you to everyone who joined us and shared their feedback. Boards for Mount Pleasant Community Connect Open House April 2026: Community Office Hours Microsoft hosted “community office hours” for neighbors of the Mount Pleasant datacenter on April 9, 2026, at the Mount Pleasant Village Hall Ebe Auditorium. The informal session provided an opportunity for community members to hear about Mount Pleasant datacenter project updates, ask questions, and learn more about local investments and job opportunities. Thank you to everyone who participated. For those who were unable to attend, a link is available to view the presentation materials shared during the session. Boards for Mount Pleasant community office hours Construction update March 2026 Construction overview Construction continues at the Mount Pleasant Datacenter Campus , with progress underway across multiple phases. Phase 1—KR & 90th Work in this phase is nearing completion. Crews are finalizing interior work in several buildings and completing landscaping. Construction for Phase 1 is anticipated to be complete by spring 2026 . Phase 2—KR & H Construction activities for Phase 2 are ongoing and focused on expanding the site. Current work includes foundation installation, steel erection, and underground utility installation. This phase is scheduled to be completed in early 2028 . Phase 3—Durand & Hewitt Memorial Drive Preliminary earthwork is underway to prepare the site for future construction. To support construction operations, there are currently four site entrances: Gate 1: Highway KR Gate 2: Braun Road Gate 3: County Road H Gate 4: County Road H Construction schedule and activity Work is expected to begin in mid March , depending on ground conditions as seasonal thaw continues. To help reduce dust and debris on nearby roads, street sweepers will operate for approximately 10 hours per day . Tire wash systems are also in place at site exits to help keep surrounding roadways clean. Construction hours Construction activities are conducted in compliance with the Village of Mount Pleasant code. Work may take place between 6 AM and 10 PM, seven days per week . We appreciate your continued patience and cooperation as our crews move into the next phase of construction. Walsh Construction remains committed to minimizing disruption and maintaining safe, clean roadways throughout the project. Questions about construction? Contact Walsh Construction at MPDC@walshgroup.com . October 2025: Phase 2 construction update Microsoft is continuing development of the Mt. Pleasant datacenter campus on County Road H between Braun Road a",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-013f52eb39a5-f1279528de94",
+      "name": "Microsoft 공식 WI 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/wisconsin/",
+      "retrievedAt": "2026-10-26T01:50:39.048Z",
+      "sha256": "f1279528de9402e6288d4225e63217a686cda9b8fd8bc5edd1481401352cca4e",
+      "publishedAt": "2023-05-31",
+      "excerpt": "Mount Pleasant datacenter project update — https://local.microsoft.com/blog/mount-pleasant-datacenter-project-update/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-88a0a0dc43d0-a6ca2af533bd",
+      "name": "Microsoft Cheyenne 명시된 두 개발 부지",
+      "url": "https://local.microsoft.com/blog/cheyenne-datacenter-update/",
+      "retrievedAt": "2026-10-26T01:50:40.362Z",
+      "sha256": "a6ca2af533bd2a160f05d8043df2dc6ef585e5094f49777a6582bdaa7d5fa547",
+      "publishedAt": "2026-05-21",
+      "excerpt": "enne expansion update – May 2026 Microsoft has submitted applications with the City of Cheyenne for two additional datacenter expansion areas: a 385 acre site east of College Drive near Cheyenne Business Parkway, and an approximately 35 acre site South of Happy Jack Road near North Range Business Park. Along with our most recent expansion announcement in April, these applications represent the next step in Microsoft’s long-term commitment to Cheyenne and are guided by our Community-First Infrastructure approach—grounded in responsible growth, partnership with local communities, and a focus on creating enduring economic and social benefits, including job creation and contributions to the local tax base. Community information session Please join us for a Cheyenne community information session on Thursday, May 28, 2026, from 5:30 PM to 8:30 PM at the Laramie County Community College Flex Tech Building, 1400 E College Dr, Cheyenne, WY 82007. Station topics will include recent announcements , water use, energy, jobs, and community investments. For more information about Microsoft in Cheye",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-36c3f843b21f-cb4541bfd8eb",
+      "name": "Microsoft HR Ranch Road datacenter construction",
+      "url": "https://local.microsoft.com/blog/hr-ranch-road-datacenter-construction/",
+      "retrievedAt": "2026-10-26T01:50:40.394Z",
+      "sha256": "cb4541bfd8eb601c367f60a4b10a1f5777020bf35c2458d5250b86946eb51b8d",
+      "publishedAt": "2025-08-14",
+      "excerpt": "HR Ranch Road datacenter construction Microsoft is building a datacenter on HR Ranch Road located in the greater Cheyenne, WY area. Why datacenters are needed Datacenters provide the physical infrastructure for the technology we depend on at work and in our personal lives. Whenever you open an app on your phone, join a virtual classroom or meeting, snap and save photos, or play a game with your friends online, you are using a datacenter. Local businesses, government, hospitals, and schools rely on datacenters every day to deliver goods and services to you. Construction overview Microsoft has contracted with JE Dunn as the general contractor for HR Ranch Road construction site in Cheyenne, WY. Construction is expected to continue for approximately 18–24 months, with heavy earthwork anticipated from July 2025 through November 2025 and overall completion targeted for early 2026. Completion of construction does not indicate datacenter operation/availability. Construction will take place Monday through Saturday, 7:00 a.m. – 5:00 p.m. Neighbors within the vicinity will be notified ahead of construction. A community meeting is planned for November 2025. Staying connected We will keep the community up to date via our Cheyenne page in our Microsoft in Your Community blog. For construction related questions, please contact Project Manager (PM): Jake Coutts, HRRanch@jedunn.com . For community related questions, contact us at CheyenneDC@microsoft.com . For PR-related questions, contact the Microsoft Media Relations at rapidresponse@we-worldwide.com . ",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-5f2f8f1d19da-afaa2e7a26b7",
+      "name": "Microsoft 공식 WY 시설 지역 색인",
+      "url": "https://local.microsoft.com/communities/americas/cheyenne/",
+      "retrievedAt": "2026-10-26T01:50:38.914Z",
+      "sha256": "afaa2e7a26b76d17cce2e03b5b39afffeb86be69f0f45246ad6dc5cd47009993",
+      "publishedAt": "2021-08-26",
+      "excerpt": "HR Ranch Road datacenter construction — https://local.microsoft.com/blog/hr-ranch-road-datacenter-construction/",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-1cfbcdd8d079-21b39edf9b53",
+      "name": "Oracle abilene 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/abilene/",
+      "retrievedAt": "2026-10-26T01:50:40.775Z",
+      "sha256": "21b39edf9b536aeec8d55b03cbe75b2de6b1464c03c27d9148a8eb6641729a6d",
+      "publishedAt": null,
+      "excerpt": "Abilene, Texas Data Center Abilene Data Center Facts Open all Construction Timeline and Delivery AI workloads went live less than a year after construction began. Jobs The project is expected to generate more than 9,000 construction jobs, as well as 1,000 ongoing project-supported jobs within the first two years after construction is complete. Local suppliers, vendors, contractors and residents will be prioritized. Oracle is currently hiring for a range of permanent positions in tech, engineering and operations, as well as offering a paid work trainee program to help launch a career in tech without experience. Community Impact This AI data center will yield an estimated $30 million annually in local economic benefits for the City of Abilene and Taylor County, supporting schools, emergency services, roads, and county programs. Energy The Abilene AI data center connects directly to the ERCOT grid, allowing us to draw from the region's robust and growing supply of renewable energy, including wind, which often goes underutilized in the area. To support grid stability, the Abilene campus uses GE Vernova’s modern natural gas turbines for backup power. The turbines are equipped with Selective Catalytic Reduction (SCR) technology, which transforms nitrogen oxides (NOx) into harmless water vapor and nitrogen through a catalytic converter, producing 90% lower emissions than conventional gas- or diesel-powered reciprocating engines, with little to no methane slip. Water The Abilene AI data center uses a one-time fill, closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. Each building will use roughly 50,000 gallons per year for cooling maintenance, which is under the yearly water use of a single American household—an exceptionally small amount for a facility of this size. Size The campus consists of eight buildings on 1,100 acres, encompassing 4 million square feet of building space. Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-24ddd3fbe221-81c822d1c1c8",
+      "name": "Oracle shackelford county 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/shackelford-county/",
+      "retrievedAt": "2026-10-26T01:50:40.777Z",
+      "sha256": "81c822d1c1c8a9d9a66f4426a04ea1aaa34bbcebcf1b49ee828e18c468069fb5",
+      "publishedAt": null,
+      "excerpt": "Shackelford County, Texas Data Center Shackelford County Data Center Facts Open all Jobs The project is expected to generate more than 5,000 construction jobs, as well as more than 1,600 ongoing project-supported jobs once construction is completed. Local suppliers, vendors, contractors and residents will be prioritized. Community Impact The project will contribute more than $100M in local county tax revenue. Oracle and our partners will work closely with general contractors, trade partners, local community organizations, and educational institutions to create shared value across the state. We will fund college scholarships for Shackelford County students annually throughout the lifespan of the project to help further local hiring efforts. Energy The campus will rely on its own onsite power system, providing a steady and reliable source of electricity. The microgrid is built using ultra low emission, reciprocating engines. Water The Shackelford County AI data center uses a one-time fill, closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. Size The campus will include 10 buildings on 1,200 acres, encompassing 3.7 million square feet. Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-25e580176911-a80d88058779",
+      "name": "Oracle dona ana county 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/dona-ana-county/",
+      "retrievedAt": "2026-10-26T01:50:40.808Z",
+      "sha256": "a80d88058779acd60adcf5b55e4493ac5914c6e3ce193039aad40c7b805f98e1",
+      "publishedAt": null,
+      "excerpt": "Doña Ana County, New Mexico Data Center View in Spanish --> See more data centers View in Spanish --> Obtenga más información sobre el Centro de datos del condado de Doña Ana, Nuevo México Obtenga más información sobre los centros de datos de IA de Oracle Doña Ana County Data Center Facts Open all Jobs The project is expected to generate more than 7,000 construction jobs, as well as more than 1,500 ongoing project-supported jobs once construction is completed. Local suppliers, vendors, contractors and residents will be prioritized. Community Impact We expect to see a boost to Doña Ana County’s economy of about $384 million each year during construction—$113 million per year once the AI data center is operational. $360 million in direct payments to Doña Ana County to improve schools, infrastructure, and local services We have committed an additional $50 million to improve local water and wastewater systems. $6.9 million will support community projects across New Mexico, including: $4 million in local workforce development education. $1.5 million for the county community fund to support the Boys and Girls Club of Las Cruces. $250,000 for desalination and clean drinking water. $150,000 for regional connectivity at the community college. $1 million for habitat restoration. The project will fully fund any water facility and sewer improvements needed for the campus’s own operations, separate from these community investments. Water The Doña Ana County AI data center uses a one-time fill, closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. The on-site microgrid uses fuel cell technology that does not require water during normal operations. Energy The campus will be powered by an on-site microgrid using Bloom Energy fuel cell technology, reflecting an updated energy design that prioritizes lower emissions, minimal water use, and reliable operation. The microgrid will operate independently of the local power grid, ensuring no impact on residents’ electricity rates or supply reliability. Oracle will fully fund all energy infrastructure and electricity costs associated with the project. Size The campus, encompassing the data centers and microgrids, will include four data center buildings and a warehouse across 818 acres. Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Learn more about the opportunities coming soon. Learn more /SC07v2 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-bda0c0acdd62-1d99e12f23a8",
+      "name": "Oracle port washington 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/port-washington/",
+      "retrievedAt": "2026-10-26T01:50:40.810Z",
+      "sha256": "1d99e12f23a8c3a370ea4ac7571b8eb972216c0233365441f713cdd4b4f7e40e",
+      "publishedAt": null,
+      "excerpt": "Port Washington, Wisconsin Data Center Port Washington Data Center Facts Open all Jobs The Port Washington project is expected to generate more than 4,000 union construction jobs and more than 1,000 ongoing project-supported jobs onsite. Local suppliers, vendors, contractors and residents will be prioritized with a union-first approach. Community Impact The project will contribute $175 million for local infrastructure upgrades, including expanded capacity for water and wastewater treatment facilities, upgraded water mains and sewer lines, a new water tower and power infrastructure. It’s expected to generate more than $11 billion for the local economy. Additional initiatives will focus on restoring wetlands, increasing biodiversity, and minimizing light pollution. Energy 70% of energy for the Port Washington campus will come from zero-emission sources, including wind, solar, and batteries. The project will add about 2,000 MW of new zero-emission power to Wisconsin’s grid, which means more reliable, affordable energy for local families and businesses. The project will fully fund all electrical infrastructure upgrades, requiring no increase to local energy bills. Water The Port Washington AI data center uses a closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. There’s a commitment to being “water positive,” with restoration projects returning more water to the environment than the campus consumes. Size The campus will consist of four buildings on 500 of its 672 acres. Remaining acres will be preserved as natural spaces. Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Learn more about the opportunities coming soon. Learn more /SC07v2 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-bf6985c99fea-f86a168987f9",
+      "name": "Oracle saline township 공식 AI 캠퍼스",
+      "url": "https://www.oracle.com/data-centers/saline-township/",
+      "retrievedAt": "2026-10-26T01:50:40.802Z",
+      "sha256": "f86a168987f96f79f4eb64b3873f3d689ce7b2cf376c27464c0e8547e223c03e",
+      "publishedAt": null,
+      "excerpt": "Saline Township, Michigan Data Center Saline Township Data Center Facts Open all Jobs The project is expected to create 2,500+ union construction jobs, 450+ permanent jobs onsite, and 1,500+ jobs county-wide to support the project. Local suppliers, vendors, contractors and residents will be prioritized. Community Impact Millions of dollars will support community projects, services, schools, and new infrastructure supporting public safety. Stormwater management features are designed to significantly reduce runoff into the Saline River. Water The Saline Township AI data center uses a one-time fill, closed-loop, non-evaporative liquid cooling system that significantly reduces water consumption. Energy The project will be served by existing high-voltage power lines, which will have enough capacity to run the AI data center. Oracle will pay for the required energy infrastructure upgrades, keeping local residents’ electric bills in check. Utility customers will benefit from Oracle contributing its share to the fixed costs of maintaining and improving the grid – projected to be approximately $300 million annually. Size The AI data center uses only 250 of 1,000+ acres. Remaining acres will be preserved for open space, farmland, wetlands, and natural woods. Previous Slide Building the Right Way Investing in Saline An Idea That Works The Barn Next Slide play / pause slider /SH06v0 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Learn more about the opportunities coming soon. Learn more /SC07v2 --> Interested in a Career at an Oracle Data Center? Oracle data centers are the future of cloud and AI. It takes creative, technical minds to operate them. Bring your experience to Oracle—or join our paid trainee program to get started in tech. Find your future with Oracle. Learn more Statements on this page relating to Oracle’s future plans, expectations, beliefs, intentions, and prospects are “forward-looking statements” and are subject to material risks and uncertainties. A detailed discussion of these factors and other risks that affect our business is contained in Oracle’s Securities and Exchange Commission (SEC) filings, including our most recent reports on Form 10-K and Form 10-Q under the heading “Risk Factors.” These filings are available on the SEC’s website or on Oracle’s website at http://www.oracle.com/investor . All information in this presentation is current as of January 2026 and Oracle undertakes no duty to update any statement in light of new information or future events. © 2026 Oracle Privacy / Do Not Sell My Info Ad Choices Careers Subscribe to emails Integrity Helpline Resources Contact Us Facebook X LinkedIn YouTube",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-75808617777a-983cd2c62eb8",
+      "name": "Cipher 공식 개별 캠퍼스 용량·가동 계획",
+      "url": "https://cipherdigital.com/infrastructure/",
+      "retrievedAt": "2026-10-26T01:50:41.007Z",
+      "sha256": "983cd2c62eb85e12510a7b12b6bd27e3aae1eeed2aab1a50b05f00b53162cb0c",
+      "publishedAt": null,
+      "excerpt": "data-oa-site-item data-oa-site-index=\"0\"> Barber Lake Capacity 300 MW Energization Timeline Energized\ndata-oa-site-item data-oa-site-index=\"1\"> Black Pearl Capacity 300 MW Energization Timeline Energized\ndata-oa-site-item data-oa-site-index=\"2\"> Third HPC Lease Capacity 100 MW Energization Timeline 2026 Q4 \ndata-oa-site-item data-oa-site-index=\"0\"> Reveille Capacity 70 MW Energization Timeline 2027 Q3\ndata-oa-site-item data-oa-site-index=\"1\"> Ulysses Capacity 200 MW Energization Timeline 2027 Q4\ndata-oa-site-item data-oa-site-index=\"2\"> Colchis Capacity 1000 MW Energization Timeline 2028-29 Est.\ndata-oa-site-item data-oa-site-index=\"3\"> Mikeska Capacity 500 MW Energization Timeline 2028-29 Est.\ndata-oa-site-item data-oa-site-index=\"4\"> McLennan Capacity 500 MW Energization Timeline 2028-29 Est.\ndata-oa-site-item data-oa-site-index=\"5\"> Barber Lake Expansion Capacity 500 MW Energization Timeline 2030 +\ndata-oa-site-item data-oa-site-index=\"6\"> Stingray Expansion Capacity 200 MW Energization Timeline 2030 +\ndata-oa-site-item data-oa-site-index=\"7\"> Apollo Capacity 900 MW Energization Timeline 2030 +\ndata-oa-site-item data-oa-site-index=\"8\"> Milsing Capacity 500 MW Energization Timeline 2030 + \ndata-oa-site-item data-oa-site-index=\"0\"> Odessa Capacity 207 MW Operating Hashrate ~11.6 EH/s “ We are firmly focused on establishing Cipher Digital as the premier developer and operator of data centers powering the next generation of compute.” Tyler Page Chief Executive Officer Built for Hyperscale. Company Investor Resources Infrastructure Careers Insights Terms of Use Privacy Policy Get in Tou",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-62ff652ec494-17c8602a904f",
+      "name": "Amazon 공식 시설·개발 발표",
+      "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+      "retrievedAt": "2026-10-26T01:50:42.551Z",
+      "sha256": "17c8602a904f935de3ac56d40b593c94d4d4b8390b875732bb2a82e08cb2c5bc",
+      "publishedAt": "2025-06-09",
+      "excerpt": "ata center infrastructure to support artificial intelligence (AI) and cloud computing technologies. Salem Township and Falls Township are the first communities identified as sites for these future innovation campuses. Multiple additional Pennsylvania communities are under consideration. This landmark investment is expected to create at least 1,250 new high-skilled jobs while supporting thousands of other jobs in the Amazon Web Services (AWS) data center supply chain. The new high-skilled jobs will range from data center engineers and network specialists, to engineering operations managers, security specialists, and many more technical roles. In addition to these direct positions, this planned investment is expected to support thousands of local construction jobs and positions in the data center supply chain, as well as other jobs in the local community. An AWS technician gives us a tour of a data center in eastern Oregon—see what it's like inside Fidel Contreras is a data center technician lead with Amazon Web Services. Follow him and his colleagues on a tour inside a data center and find out what it’s like to work there. Today's announcement in Pennsylvania, alongside previous commitments made across the U.S. in recent months, further strengthens our investment in generative AI and high-tech cloud infrastructure. These efforts reflect Amazon’s ongoing commitment to supporting U.S. leadership in AI and helping customers across all industries harness AI-driven solutions to tra\nucture to support artificial intelligence (AI) and cloud computing technologies. Salem Township and Falls Township are the first communities identified as sites for these future innovation campuses. Multiple additional Pennsylvania communities are under consideration. This landmark investment is expected to create at least 1,250 new high-skilled jobs while supporting thousands of other jobs in the Amazon Web Services (AWS) data center supply chain. The new high-skilled jobs will range from data center engineers and network specialists, to engineering operations managers, security specialists, and many more technical roles. In addition to these direct positions, this planned investment is expected to support thousands of local construction jobs and positions in the data center supply chain, as well as other jobs in the local community. An AWS technician gives us a tour of a data center in eastern Oregon—see what it's like inside Fidel Contreras is a data center technician lead with Amazon Web Services. Follow him and his colleagues on a tour inside a data center and find out what it’s like to work there. Today's announcement in Pennsylvania, alongside previous commitments made across the U.S. in recent months, further strengthens our investment in generative AI and high-tech cloud infrastructure. These efforts reflect Amazon’s ongoing commitment to supporting U.S. leadership in AI and helping customers across all industries harness AI-driven solutions to transform operations a",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-5447313a836b-0bcc06727867",
+      "name": "Amazon 공식 시설·개발 발표",
+      "url": "https://www.aboutamazon.com/news/aws/aws-indiana-investment-11-billion",
+      "retrievedAt": "2026-10-26T01:50:42.632Z",
+      "sha256": "0bcc06727867d01f2f1fea92fe0ed32a46143cf874fef20b6d806b8f8c164c0d",
+      "publishedAt": "2024-04-25",
+      "excerpt": "orce into our community,” said Carl Baxmeyer, president, St. Joseph County Board of Commissioners. “This new data center campus to be built in the Indiana Enterprise Center (IEC) over the next decade will be a major employment center for all of northern Indiana. This project announcement also shows our alignment with the state’s goal to create next level jobs that benefit all Hoosiers.” Learn more about the ways in which AWS data centers benefit local communities . Trending news and stories Amazon is creating over 300,000 new US jobs this holiday season with increased pay and expanded benefits Amazon’s Kindle+ subscription: Your questions, answered Amazon introduces 2 new AI products from Bee: Bee Frontier and Bee Eclipse Shop top deals from Amazon’s 2026 Holiday Beauty Event Related Tags Indiana Amazon Data Centers AWS Community Job creation and investment Education Share More Amazon News Previous slide 1 / 1 Next slide How AWS is helping companies build physical AI machines that think AWS Claude Haiku 5.5 is now available on AWS AWS Inside the AWS lab that makes everything you do online feel effortless AWS How AWS has helped more than 30,000 job seekers land cloud computing jobs AWS AWS becomes first cloud provider approved for NATO RESTRICTED workloads across all member nations AWS What AWS's chief AI and technology officer told employees about the future of AI AWS Amazon Connect expands into a set of agentic AI solutions AWS AWS announces Fastnet, a dedicated high-capacit",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-eac40091fd35-508836488b5d",
+      "name": "Amazon 공식 시설·개발 발표",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
+      "retrievedAt": "2026-10-26T01:50:42.608Z",
+      "sha256": "508836488b5dba0491eb066172f1daa6d3cadd8f49c64912da645dde5d867176",
+      "publishedAt": "2026-04-09",
+      "excerpt": " During the hottest 9% of the year, we strategically deploy water-based cooling. Beginning in 2027, Amazon’s facility in Canton will transition entirely to using recycled wastewater for cooling, reusing an average of 83 million gallons annually. Amazon data centers: How much water and electricity do they really use? Data centers create new jobs, use significantly less water than golf courses and car washes, and don't drive up electricity rates. Additionally, we are partnering with Arable on a water replenishment project for the Mississippi River Alluvial Aquifer, helping regional farmers use advanced technology to make more precise decisions about water use. The project is expected to reduce groundwater withdrawal by 150 million gallons annually—enough water to supply more than 1,600 Mississippi households for an entire year. Supporting local communities Amazon volunteers and community members assembling meal kits in Jackson, Mississippi. Photo by GARRICK QUICK Amazon works hard to make sure the communities in which we operate are better off because we're there. We’ve partnered with Mississippi communities for more than a decade and built a significant presence across the state, investing in the people and communities we serve. For example: When the Jackson water system failed in August 2022, we delivered 326,000 bottles of water and worked with partners to distribute 1,000 snap-on filtration systems to households in need. We’ve launched Amazon Think Big Corners at every elem\n $11 billion investment in Madison County and a $1 billion investment in Hinds County, where we are transforming the former Delphi manufacturing plant into a cutting-edge data center facility. Our data centers house advanced cloud computing infrastructure that powers services that people rely on every day—from health care systems that help patients get better outcomes, to innovations helping farmers grow more food with less water , to research capabilities at a scale not previously possible. These are practical and tangible benefits that solve real challenges and improve lives. And the impact extends well beyond technology; our data centers are also creating lasting economic opportunity. In Madison County alone, more than 75 Mississippi companies are engaged in construction and operations, employing thousands of construction workers, electricians, and operational staff. Building Strong Communities We work hard to make sure the communities in which we operate are better off because we're there. We do that by creating jobs with good pay and benefits, building responsibly, working with local contractors and small businesses, and investing in infrastructure like schools, affordable housing, and essential services. “Amazon isn’t just reinvesting in Mississippi—the company is once again betting on our people. $25 billion in two years is providing Mississippians with high-tech, high-paying opportunities, strengthening our communities, and showing the world that our state is open for",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-6ee4e71932ab-bd2812314d44",
+      "name": "Amazon 공식 시설·개발 발표",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-louisiana-new-jobs",
+      "retrievedAt": "2026-10-26T01:50:42.632Z",
+      "sha256": "bd2812314d4403b81a11eac6d336c2964af38d2c1fd606e35613b9e282ba16b0",
+      "publishedAt": "2026-02-23",
+      "excerpt": "o $18 billion, expanding the scope of its data center campuses across Caddo and Bossier Parishes to a third planned campus in Shreveport. The increased commitment builds on a $12 billion planned investment announced in February and deepens Amazon's long-term presence in the region, reflecting confidence in northwest Louisiana's infrastructure, workforce, and collaborative leadership. “Amazon’s expanded investment is creating new opportunities for Louisiana people and businesses to grow alongside it,” Susan B. Bourgeois, secretary of Louisiana Economic Development. “From preparing Louisianans for high-paying careers to putting our local companies in the pipeline for contracts, we are focused on making sure investments of this scale create opportunity that reaches well beyond the project site. The real measure of a project like this is how broadly its benefits are felt, and we are working to ensure they reach workers, businesses, and communities across Louisiana.” When fully built out, the three planned campuses are expected to create up to 750 full-time jobs at Amazon data centers and support 2,500 additional positions in the broader community. These roles include electricians, HVAC technicians, project engineers, network specialists, operations managers, security specialists, and other skilled positions offering competitive pay and comprehensive benefits. \"When we announced our investment in northwest Louisiana earlier this year, we made a promise: Amazon pays its own way, an",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-9a177c1266d5-39608cd7ca86",
+      "name": "Amazon 공식 시설·개발 발표",
+      "url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news",
+      "retrievedAt": "2026-10-26T01:50:42.904Z",
+      "sha256": "39608cd7ca8695bb7a94e63e0c5d9b911fb16a1c2c1f3413012ca76a8f8d3562",
+      "publishedAt": "2026-10-16",
+      "excerpt": "newly rebuilt deck for a resident during the United Way of Richmond County's annual Days of Caring. Amazon is building a new data center campus in Richmond County, North Carolina, but the team didn't wait for operations to begin to start getting involved. From September 16–18, 45 employees fanned out across the county for the United Way of Richmond County's annual Days of Caring, volunteering on three projects and logging nearly 170 hours combined. Feeding kids on the weekends The team spent the morning with Backpack Pals, assembling more than 450 weekend meal kits for children across Richmond County schools. The kits make sure students have something to eat when the cafeteria isn't an option. Many of our employees are parents, so this project was personal. Making Ms. Vickie's home accessible again Part of the team joined Habitat for Humanity of the NC Sandhills for a multiday volunteer effort to demolish and rebuild three decks for Ms. Vickie, a local resident who could no longer safely get in and out of her home. Our team was proud to be part of the crew that made her home accessible again. Getting the food pantry ready The rest of the team deep-cleaned and restocked Our Daily Bread Food Ministry's food pantry from floor to ceiling—organizing shelves, rotating inventory, and preparing it to serve the families who depend on it most. What's ahead This was the first volunteer day for the team, but it won't be the last. They're already planning more community projects before th",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-f5d4251eed68-6f5dcc7c4b01",
+      "name": "xAI 공식 Colossus 시설 소개",
+      "url": "https://x.ai/colossus",
+      "retrievedAt": "2026-10-26T01:50:42.459Z",
+      "sha256": "6f5dcc7c4b0155e60290b6c0303e39a9a3b52dfe46015487eab02bb0d8615db8",
+      "publishedAt": null,
+      "excerpt": "mentation Grok Build Try for free New: Anthropic partners with Colossus Our gigafactory of compute. Built in 122 days — outpacing every estimate — Colossus was the most powerful AI training system yet. Then we doubled it in 92 days to 200k GPUs. This is just the beginning. 200,000 H100 GPUs in a single interconnected cluster The build We go further, faster We were told it would take 24 months to build. So we took the project into our own hands, questioned everything, removed whatever was unnecessary, and accomplished our goal in four months. By the numbers Unprecedented scale We doubled our compute at an unprecedented rate, with a roadmap to 1M GPUs. Progress in AI is driven by compute and no one has come close to building at this magnitude and speed. :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:var(--number-flow-char-height, 1em) !important}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:calc(var(--number",
+      "sourceAsOf": null
+    },
+    {
+      "id": "llf-hs-src-c12a16a0be49-537f4732a8e0",
+      "name": "Chirisa / CoreWeave Lancaster 공식 개발 공시",
+      "url": "https://chirisatechnologyparks.com/blue-owl-and-chirisa-technology-parks-close-4-billion-joint-venture-partnership-including-machine-investment-group-for-lancaster-campus/",
+      "retrievedAt": "2026-10-26T01:50:42.385Z",
+      "sha256": "537f4732a8e05e225fab2e506d7df37850c609c18668cd2691d9611039355023",
+      "publishedAt": "2025-08-25",
+      "excerpt": " Technology Parks Close $4 Billion Joint Venture Partnership Including Machine Investment Group for Lancaster Campus - Chirisa Technology Parks --> --> --> Careers News & media Contact Careers News & media Contact Careers News & media Contact LinkedIn ESG Statement Privacy & cookies policy Blue Owl and Chirisa Technology Parks Close $4 Billion Joint Venture Partnership Including Machine Investment Group for Lancaster Campus Blue Owl Extends Development Partnership with Chirisa Technology Parks to $20 Billion to Support Over 1GW of Developments LANCASTER, Pa., Aug. 25, 2025 /PRNewswire/ — Funds managed by Blue Owl Capital (“Blue Owl”), and affiliates of Chirisa Technology Parks (“CTP”) and Machine Investment Group (“MIG”) today closed on a joint venture partnership to include $4 billion of funding for the previously announced CoreWeave developments in Lancaster, Pennsylvania. CoreWeave has invested in the campus and will lease the site as part of its commitment to building future-ready AI infrastructure hubs in the regions that need them most — across America’s critical economic corridors, including the Mid-Atlantic, which this facility will serve. The Lancaster location will join CoreWeave’s expanding global network of AI data centers. Blue Owl stated its intention to fund up to $20 billion of developments for CTP, extending the existing partnership between the two groups, which currently supports almost half a gigawatt of new developments underway in Virginia and Pennsylvania. Marc Zahr, Co-President and Global Head of Real Assets at Blue Owl said, “This expanded partnership with CoreWeave, Chirisa Technology Parks and Machine Investment Group marks a significant step forward in building the mission critical infrastructure that will power the future of AI innovation. At Blue Owl, we are focused on supporting high-conviction investments with visionary and creditworthy",
+      "sourceAsOf": "2025-08-25"
     }
   ],
   "facilities": [
@@ -4175,7 +4735,8 @@
         "llf-hs-src-eac40091fd35-08fbd831f002",
         "llf-hs-src-eac40091fd35-9982ca78fd09",
         "llf-hs-src-eac40091fd35-8618d8260069",
-        "llf-hs-src-eac40091fd35-4e520463f5df"
+        "llf-hs-src-eac40091fd35-4e520463f5df",
+        "llf-hs-src-eac40091fd35-508836488b5d"
       ],
       "capacityFacts": [],
       "events": [],
@@ -4208,7 +4769,8 @@
         "llf-hs-src-eac40091fd35-08fbd831f002",
         "llf-hs-src-eac40091fd35-9982ca78fd09",
         "llf-hs-src-eac40091fd35-8618d8260069",
-        "llf-hs-src-eac40091fd35-4e520463f5df"
+        "llf-hs-src-eac40091fd35-4e520463f5df",
+        "llf-hs-src-eac40091fd35-508836488b5d"
       ],
       "capacityFacts": [],
       "events": [],
@@ -4242,7 +4804,8 @@
         "llf-hs-src-62ff652ec494-e391eaf85deb",
         "llf-hs-src-62ff652ec494-777d194a0b57",
         "llf-hs-src-62ff652ec494-3ac038636dec",
-        "llf-hs-src-62ff652ec494-d5fe2111a272"
+        "llf-hs-src-62ff652ec494-d5fe2111a272",
+        "llf-hs-src-62ff652ec494-17c8602a904f"
       ],
       "capacityFacts": [],
       "events": [
@@ -4251,7 +4814,7 @@
           "date": "2025-06-09",
           "status": "planned",
           "sourceIds": [
-            "llf-hs-src-62ff652ec494-d5fe2111a272"
+            "llf-hs-src-62ff652ec494-17c8602a904f"
           ],
           "note": "이 날짜의 공식 공시에서 확인된 상태이며 계획된 완공 날짜가 아닙니다."
         }
@@ -4285,7 +4848,8 @@
         "llf-hs-src-5447313a836b-447fa0dbd662",
         "llf-hs-src-5447313a836b-eaf10b7ace8c",
         "llf-hs-src-5447313a836b-4e32385605f3",
-        "llf-hs-src-5447313a836b-a1555b0b3d57"
+        "llf-hs-src-5447313a836b-a1555b0b3d57",
+        "llf-hs-src-5447313a836b-0bcc06727867"
       ],
       "capacityFacts": [],
       "events": [
@@ -4294,7 +4858,7 @@
           "date": "2024-04-25",
           "status": "planned",
           "sourceIds": [
-            "llf-hs-src-5447313a836b-a1555b0b3d57"
+            "llf-hs-src-5447313a836b-0bcc06727867"
           ],
           "note": "이 날짜의 공식 공시에서 확인된 상태이며 계획된 완공 날짜가 아닙니다."
         }
@@ -4326,7 +4890,8 @@
       "sourceIds": [
         "llf-hs-src-9a177c1266d5-a65cb44a10f4",
         "llf-hs-src-9a177c1266d5-88f4abcfee8f",
-        "llf-hs-src-9a177c1266d5-5f8f2ec4b467"
+        "llf-hs-src-9a177c1266d5-5f8f2ec4b467",
+        "llf-hs-src-9a177c1266d5-39608cd7ca86"
       ],
       "capacityFacts": [],
       "events": [
@@ -4335,7 +4900,7 @@
           "date": "2026-09-23",
           "status": "construction",
           "sourceIds": [
-            "llf-hs-src-9a177c1266d5-5f8f2ec4b467"
+            "llf-hs-src-9a177c1266d5-39608cd7ca86"
           ],
           "note": "이 날짜의 공식 공시에서 확인된 상태이며 계획된 완공 날짜가 아닙니다."
         }
@@ -4369,7 +4934,8 @@
         "llf-hs-src-62ff652ec494-e391eaf85deb",
         "llf-hs-src-62ff652ec494-777d194a0b57",
         "llf-hs-src-62ff652ec494-3ac038636dec",
-        "llf-hs-src-62ff652ec494-d5fe2111a272"
+        "llf-hs-src-62ff652ec494-d5fe2111a272",
+        "llf-hs-src-62ff652ec494-17c8602a904f"
       ],
       "capacityFacts": [],
       "events": [
@@ -4378,7 +4944,7 @@
           "date": "2025-06-09",
           "status": "planned",
           "sourceIds": [
-            "llf-hs-src-62ff652ec494-d5fe2111a272"
+            "llf-hs-src-62ff652ec494-17c8602a904f"
           ],
           "note": "이 날짜의 공식 공시에서 확인된 상태이며 계획된 완공 날짜가 아닙니다."
         }
@@ -4412,7 +4978,8 @@
         "llf-hs-src-6ee4e71932ab-b9541652c263",
         "llf-hs-src-6ee4e71932ab-09d169312336",
         "llf-hs-src-6ee4e71932ab-f659e9c4373d",
-        "llf-hs-src-6ee4e71932ab-fd3ceb7e8d7d"
+        "llf-hs-src-6ee4e71932ab-fd3ceb7e8d7d",
+        "llf-hs-src-6ee4e71932ab-bd2812314d44"
       ],
       "capacityFacts": [],
       "events": [],
@@ -4447,7 +5014,8 @@
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4458,7 +5026,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"7\"> Apollo Capacity 900 MW Energization Timeline 2030 +"
         }
@@ -4506,7 +5074,8 @@
         "llf-hs-src-f4d0310cb8ae-f476c44b127a",
         "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4517,7 +5086,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"0\"> Barber Lake Capacity 300 MW Energization Timeline Energized"
         }
@@ -4562,7 +5131,8 @@
       "sourceIds": [
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4573,7 +5143,7 @@
           "scope": "phase",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"5\"> Barber Lake Expansion Capacity 500 MW Energization Timeline 2030 +"
         }
@@ -4610,7 +5180,8 @@
         "llf-hs-src-f4d0310cb8ae-f476c44b127a",
         "llf-hs-src-9ff77cdeaa3a-2ccd7fcc2c30",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4621,7 +5192,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"1\"> Black Pearl Capacity 300 MW Energization Timeline Energized"
         }
@@ -4667,7 +5238,8 @@
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-f4d0310cb8ae-f476c44b127a",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4678,7 +5250,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"2\"> Colchis Capacity 1000 MW Energization Timeline 2028-29 Est."
         }
@@ -4715,7 +5287,8 @@
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-f4d0310cb8ae-f476c44b127a",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4726,7 +5299,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"4\"> McLennan Capacity 500 MW Energization Timeline 2028-29 Est."
         }
@@ -4763,7 +5336,8 @@
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-f4d0310cb8ae-f476c44b127a",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4774,7 +5348,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"3\"> Mikeska Capacity 500 MW Energization Timeline 2028-29 Est."
         }
@@ -4810,7 +5384,8 @@
       "sourceIds": [
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4821,7 +5396,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"8\"> Milsing Capacity 500 MW Energization Timeline 2030 + "
         }
@@ -4857,7 +5432,8 @@
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-f4d0310cb8ae-f476c44b127a",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4868,7 +5444,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"0\"> Odessa Capacity 207 MW Operating Hashrate ~11.6 EH/s “ We are firmly focused on establishing Cipher Digital as the premier developer and operator of data centers powering the next generation of comp"
         }
@@ -4904,7 +5480,8 @@
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-f4d0310cb8ae-f476c44b127a",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -4915,7 +5492,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"0\"> Reveille Capacity 70 MW Energization Timeline 2027 Q3"
         }
@@ -5055,7 +5632,8 @@
         "llf-hs-src-75808617777a-4049ddd4c580",
         "llf-hs-src-f4d0310cb8ae-f476c44b127a",
         "llf-hs-src-75808617777a-cecac32030a5",
-        "llf-hs-src-75808617777a-d677a878e7d9"
+        "llf-hs-src-75808617777a-d677a878e7d9",
+        "llf-hs-src-75808617777a-983cd2c62eb8"
       ],
       "capacityFacts": [
         {
@@ -5066,7 +5644,7 @@
           "scope": "campus",
           "asOf": null,
           "sourceIds": [
-            "llf-hs-src-75808617777a-d677a878e7d9"
+            "llf-hs-src-75808617777a-983cd2c62eb8"
           ],
           "note": "회사 표의 Site Capacity. 계통 신청 MW·실제 운영 부하·IT 부하와 동일하지 않습니다. data-oa-site-item data-oa-site-index=\"1\"> Ulysses Capacity 200 MW Energization Timeline 2027 Q4"
         }
@@ -5112,7 +5690,8 @@
       "sourceIds": [
         "llf-hs-src-c12a16a0be49-8ba805f68a38",
         "llf-hs-src-c12a16a0be49-95ba54c1bc85",
-        "llf-hs-src-c12a16a0be49-3d19eda4445f"
+        "llf-hs-src-c12a16a0be49-3d19eda4445f",
+        "llf-hs-src-c12a16a0be49-537f4732a8e0"
       ],
       "capacityFacts": [],
       "events": [
@@ -5121,7 +5700,7 @@
           "date": "2025-08-25",
           "status": "construction",
           "sourceIds": [
-            "llf-hs-src-c12a16a0be49-3d19eda4445f"
+            "llf-hs-src-c12a16a0be49-537f4732a8e0"
           ],
           "note": "공식 개발·임대 공시 당시 공사 상태. 이후 전체 운영 여부는 별도 확인이 필요합니다."
         }
@@ -5161,7 +5740,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5198,7 +5778,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5235,7 +5816,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5272,7 +5854,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5309,7 +5892,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5346,7 +5930,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5383,7 +5968,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5420,7 +6006,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5457,7 +6044,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5494,7 +6082,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5531,7 +6120,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5568,7 +6158,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5605,7 +6196,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5642,7 +6234,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5679,7 +6272,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5716,7 +6310,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5753,7 +6348,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5790,7 +6386,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5827,7 +6424,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5864,7 +6462,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5901,7 +6500,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5946,7 +6546,9 @@
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
         "llf-hs-src-ddc8e7921235-958a1aeeaaa6",
         "llf-hs-src-b960ff7beab6-f41b98b66a02",
-        "llf-hs-src-ddc8e7921235-6441527716dd"
+        "llf-hs-src-ddc8e7921235-6441527716dd",
+        "llf-hs-src-b960ff7beab6-2c90045026bb",
+        "llf-hs-src-ddc8e7921235-840a60df1f30"
       ],
       "capacityFacts": [],
       "events": [],
@@ -5983,7 +6585,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6020,7 +6623,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6057,7 +6661,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6094,7 +6699,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6131,7 +6737,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6168,7 +6775,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6205,7 +6813,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6242,7 +6851,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6279,7 +6889,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6316,7 +6927,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6353,7 +6965,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6390,7 +7003,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6435,7 +7049,9 @@
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
         "llf-hs-src-ddc8e7921235-958a1aeeaaa6",
         "llf-hs-src-b960ff7beab6-f41b98b66a02",
-        "llf-hs-src-ddc8e7921235-6441527716dd"
+        "llf-hs-src-ddc8e7921235-6441527716dd",
+        "llf-hs-src-b960ff7beab6-2c90045026bb",
+        "llf-hs-src-ddc8e7921235-840a60df1f30"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6472,7 +7088,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6509,7 +7126,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6554,7 +7172,9 @@
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
         "llf-hs-src-ddc8e7921235-958a1aeeaaa6",
         "llf-hs-src-b960ff7beab6-f41b98b66a02",
-        "llf-hs-src-ddc8e7921235-6441527716dd"
+        "llf-hs-src-ddc8e7921235-6441527716dd",
+        "llf-hs-src-b960ff7beab6-2c90045026bb",
+        "llf-hs-src-ddc8e7921235-840a60df1f30"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6591,7 +7211,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6628,7 +7249,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6665,7 +7287,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6702,7 +7325,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6739,7 +7363,8 @@
         "llf-hs-src-b960ff7beab6-34712e163e14",
         "llf-hs-src-b960ff7beab6-aa491140642b",
         "llf-hs-src-b960ff7beab6-e6b6651e3759",
-        "llf-hs-src-b960ff7beab6-f41b98b66a02"
+        "llf-hs-src-b960ff7beab6-f41b98b66a02",
+        "llf-hs-src-b960ff7beab6-2c90045026bb"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6772,7 +7397,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-562235d66665-773c224b4e64",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6806,7 +7432,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-b6e2edab673e-c0296e4901e0",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6840,7 +7467,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-ef015d2e3b6a-d76a50b027ba",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6874,7 +7502,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-3f10a93dad78-33dfcebb9667",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6908,7 +7537,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-3c66042a1956-cf03997b40a5",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6942,7 +7572,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-acb839545b25-b6b37aafc5d6",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -6976,7 +7607,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-de9292606818-ef86892b2b73",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7010,7 +7642,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-d4f1983fe260-65b6c169c837",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7044,7 +7677,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-c919faa91170-207eaa7cdc33",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7078,7 +7712,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-fe98e5f17c76-1ffa8b194222",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7112,7 +7747,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-25504cdeb672-1e63dc031d77",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7146,7 +7782,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-e0883bbcae4d-b1c0e40adbec",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7180,7 +7817,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-6bc13ac8fbd4-6d739560b7fe",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7214,7 +7852,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-78574629315e-a90340ad225c",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7248,7 +7887,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-dce36590b08a-0e13db67e37e",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7285,7 +7925,9 @@
         "llf-hs-src-f3313bacd4a7-139057615565",
         "llf-hs-src-1c92cb3f60cb-366aa0a27e1c",
         "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
-        "llf-hs-src-1c92cb3f60cb-6f1c67df3618"
+        "llf-hs-src-1c92cb3f60cb-6f1c67df3618",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c",
+        "llf-hs-src-1c92cb3f60cb-83b488447d51"
       ],
       "capacityFacts": [],
       "events": [
@@ -7294,7 +7936,7 @@
           "date": "2026-09-03",
           "status": "operating",
           "sourceIds": [
-            "llf-hs-src-1c92cb3f60cb-6f1c67df3618"
+            "llf-hs-src-1c92cb3f60cb-83b488447d51"
           ],
           "note": "이 날짜의 공식 게시물에서 운영 상태를 발표했습니다. 정확한 최초 통전 시각은 아닙니다."
         }
@@ -7329,7 +7971,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-3ab3e99f8f6d-6fcd3c53cc73",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7363,7 +8006,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-b05ccd22cace-175ccb3815b5",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7397,7 +8041,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-73a509c9c6f9-d588ef15fc22",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7431,7 +8076,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-65ef1769fb31-cd7e630bbf6a",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7465,7 +8111,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-7c4432f4bc8b-86fad34a53e4",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7499,7 +8146,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-91b1debefc55-89043380d04a",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7533,7 +8181,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-fec866e1c421-92590f9115b6",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7571,7 +8220,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-43bfbf4bac46-2aae63212baa",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7605,7 +8255,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-b9624f9194cd-c006e395043d",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7639,7 +8290,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-b4c5c8071982-59a420c4cbeb",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7676,7 +8328,9 @@
         "llf-hs-src-f3313bacd4a7-139057615565",
         "llf-hs-src-b70dd64a53e0-eb23f3a71f96",
         "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
-        "llf-hs-src-b70dd64a53e0-a4ab192d2199"
+        "llf-hs-src-b70dd64a53e0-a4ab192d2199",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c",
+        "llf-hs-src-b70dd64a53e0-fccebd3a6040"
       ],
       "capacityFacts": [],
       "events": [
@@ -7685,7 +8339,7 @@
           "date": "2026-07-22",
           "status": "operating",
           "sourceIds": [
-            "llf-hs-src-b70dd64a53e0-a4ab192d2199"
+            "llf-hs-src-b70dd64a53e0-fccebd3a6040"
           ],
           "note": "공식 게시물에서 now serving traffic 운영 상태를 발표했습니다."
         }
@@ -7721,7 +8375,8 @@
         "llf-hs-src-f3313bacd4a7-b8913e4cc2bf",
         "llf-hs-src-6d6ff5da3e32-3083e8e42a9c",
         "llf-hs-src-f3313bacd4a7-139057615565",
-        "llf-hs-src-f3313bacd4a7-45dcefa1a10c"
+        "llf-hs-src-f3313bacd4a7-45dcefa1a10c",
+        "llf-hs-src-f3313bacd4a7-6081b24c788c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7765,7 +8420,9 @@
         "llf-hs-src-b385f7f39590-5f700ae548a8",
         "llf-hs-src-bad1ddb37426-0aecbb0086d2",
         "llf-hs-src-b385f7f39590-0626569ac630",
-        "llf-hs-src-bad1ddb37426-5652626b6aba"
+        "llf-hs-src-bad1ddb37426-5652626b6aba",
+        "llf-hs-src-b385f7f39590-5a99a148199d",
+        "llf-hs-src-bad1ddb37426-55e2fd5c6995"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7808,7 +8465,9 @@
         "llf-hs-src-17b4cc47b8c3-49c5495c8262",
         "llf-hs-src-d8299e5c2d1f-69215511f901",
         "llf-hs-src-17b4cc47b8c3-d174141ea024",
-        "llf-hs-src-d8299e5c2d1f-645e178ab43b"
+        "llf-hs-src-d8299e5c2d1f-645e178ab43b",
+        "llf-hs-src-17b4cc47b8c3-f6fdc431c6c2",
+        "llf-hs-src-d8299e5c2d1f-07a36978e0d5"
       ],
       "capacityFacts": [],
       "events": [
@@ -7817,7 +8476,7 @@
           "date": "2024-04-01",
           "status": "construction",
           "sourceIds": [
-            "llf-hs-src-17b4cc47b8c3-d174141ea024"
+            "llf-hs-src-17b4cc47b8c3-f6fdc431c6c2"
           ],
           "note": "Datacenter construction began April 1, 2024."
         }
@@ -7855,7 +8514,8 @@
         "llf-hs-src-88a0a0dc43d0-61286e42456b",
         "llf-hs-src-88a0a0dc43d0-10240b79db0b",
         "llf-hs-src-88a0a0dc43d0-23a90d94e6d3",
-        "llf-hs-src-88a0a0dc43d0-1b3875795e9e"
+        "llf-hs-src-88a0a0dc43d0-1b3875795e9e",
+        "llf-hs-src-88a0a0dc43d0-a6ca2af533bd"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7892,7 +8552,8 @@
         "llf-hs-src-88a0a0dc43d0-61286e42456b",
         "llf-hs-src-88a0a0dc43d0-10240b79db0b",
         "llf-hs-src-88a0a0dc43d0-23a90d94e6d3",
-        "llf-hs-src-88a0a0dc43d0-1b3875795e9e"
+        "llf-hs-src-88a0a0dc43d0-1b3875795e9e",
+        "llf-hs-src-88a0a0dc43d0-a6ca2af533bd"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7936,7 +8597,9 @@
         "llf-hs-src-efa66ad65ef8-30f33ec2430e",
         "llf-hs-src-e08f6066771a-ecf644a16d80",
         "llf-hs-src-efa66ad65ef8-e34312cb7105",
-        "llf-hs-src-e08f6066771a-365a4a12ab17"
+        "llf-hs-src-e08f6066771a-365a4a12ab17",
+        "llf-hs-src-efa66ad65ef8-662b28f08124",
+        "llf-hs-src-e08f6066771a-39e5d92d757c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -7980,7 +8643,9 @@
         "llf-hs-src-42a1bdd4cb24-563d2ee25d36",
         "llf-hs-src-31c3015e2848-0538a3e124ec",
         "llf-hs-src-42a1bdd4cb24-d6c07e845364",
-        "llf-hs-src-31c3015e2848-192156d12758"
+        "llf-hs-src-31c3015e2848-192156d12758",
+        "llf-hs-src-42a1bdd4cb24-657c6dc789e2",
+        "llf-hs-src-31c3015e2848-675c7ce93c43"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8025,7 +8690,9 @@
         "llf-hs-src-9b11dd506e14-41be8c3e57b3",
         "llf-hs-src-981caec95ad6-2334381ea8fa",
         "llf-hs-src-9b11dd506e14-b76a94a5c68b",
-        "llf-hs-src-981caec95ad6-a6941030463c"
+        "llf-hs-src-981caec95ad6-a6941030463c",
+        "llf-hs-src-9b11dd506e14-b3cee522d135",
+        "llf-hs-src-981caec95ad6-7d2db86a36d4"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8070,7 +8737,9 @@
         "llf-hs-src-ce4b5d6a6475-4f071983099e",
         "llf-hs-src-981caec95ad6-2334381ea8fa",
         "llf-hs-src-ce4b5d6a6475-469ed966910e",
-        "llf-hs-src-981caec95ad6-a6941030463c"
+        "llf-hs-src-981caec95ad6-a6941030463c",
+        "llf-hs-src-ce4b5d6a6475-7344b251ad42",
+        "llf-hs-src-981caec95ad6-7d2db86a36d4"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8113,7 +8782,9 @@
         "llf-hs-src-d44056c1c2a7-6c25d9060955",
         "llf-hs-src-ab09e90738e8-3ef6e89c4700",
         "llf-hs-src-d44056c1c2a7-c00cae546b80",
-        "llf-hs-src-ab09e90738e8-ee5406dde88e"
+        "llf-hs-src-ab09e90738e8-ee5406dde88e",
+        "llf-hs-src-d44056c1c2a7-94364d08fd76",
+        "llf-hs-src-ab09e90738e8-5213510f2b9b"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8157,7 +8828,9 @@
         "llf-hs-src-7c79e808cea0-48acb8c69c6f",
         "llf-hs-src-b6257866fade-336790c73fc3",
         "llf-hs-src-7c79e808cea0-fa37576d4683",
-        "llf-hs-src-b6257866fade-0f9b8e95123a"
+        "llf-hs-src-b6257866fade-0f9b8e95123a",
+        "llf-hs-src-7c79e808cea0-a112cb896b1c",
+        "llf-hs-src-b6257866fade-2d525e7d794c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8201,7 +8874,9 @@
         "llf-hs-src-0a62baa2cc74-5d83b924688c",
         "llf-hs-src-b6257866fade-336790c73fc3",
         "llf-hs-src-0a62baa2cc74-669d7ef7b1f8",
-        "llf-hs-src-b6257866fade-0f9b8e95123a"
+        "llf-hs-src-b6257866fade-0f9b8e95123a",
+        "llf-hs-src-0a62baa2cc74-85fe64ef19be",
+        "llf-hs-src-b6257866fade-2d525e7d794c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8245,7 +8920,9 @@
         "llf-hs-src-36c3f843b21f-eb0fa82ebf0a",
         "llf-hs-src-5f2f8f1d19da-a3ac6a6aa64d",
         "llf-hs-src-36c3f843b21f-c5d831a359fb",
-        "llf-hs-src-5f2f8f1d19da-1e7491c58154"
+        "llf-hs-src-5f2f8f1d19da-1e7491c58154",
+        "llf-hs-src-36c3f843b21f-cb4541bfd8eb",
+        "llf-hs-src-5f2f8f1d19da-afaa2e7a26b7"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8289,7 +8966,9 @@
         "llf-hs-src-c06c99fef16a-0f4adc93c2e5",
         "llf-hs-src-ab09e90738e8-3ef6e89c4700",
         "llf-hs-src-c06c99fef16a-080fd3db8717",
-        "llf-hs-src-ab09e90738e8-ee5406dde88e"
+        "llf-hs-src-ab09e90738e8-ee5406dde88e",
+        "llf-hs-src-c06c99fef16a-1ccc7756b746",
+        "llf-hs-src-ab09e90738e8-5213510f2b9b"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8333,7 +9012,9 @@
         "llf-hs-src-5ba9f1e5608d-b14ad99c2bb7",
         "llf-hs-src-47f1aabce561-a29ef94f86d5",
         "llf-hs-src-5ba9f1e5608d-fc430832743f",
-        "llf-hs-src-47f1aabce561-b003558ae869"
+        "llf-hs-src-47f1aabce561-b003558ae869",
+        "llf-hs-src-5ba9f1e5608d-10293b2cc7d5",
+        "llf-hs-src-47f1aabce561-a77504070fa9"
       ],
       "capacityFacts": [],
       "events": [
@@ -8342,7 +9023,7 @@
           "date": "2026-06-18",
           "status": "construction",
           "sourceIds": [
-            "llf-hs-src-5ba9f1e5608d-fc430832743f"
+            "llf-hs-src-5ba9f1e5608d-10293b2cc7d5"
           ],
           "note": "On Thursday, June 18 [2026], Microsoft marked ... a groundbreaking event for its new datacenter project."
         }
@@ -8387,7 +9068,9 @@
         "llf-hs-src-47e6c8d2fdf1-c761496f86dd",
         "llf-hs-src-e08f6066771a-ecf644a16d80",
         "llf-hs-src-47e6c8d2fdf1-3ade19956859",
-        "llf-hs-src-e08f6066771a-365a4a12ab17"
+        "llf-hs-src-e08f6066771a-365a4a12ab17",
+        "llf-hs-src-47e6c8d2fdf1-2e5e735d1623",
+        "llf-hs-src-e08f6066771a-39e5d92d757c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8431,7 +9114,9 @@
         "llf-hs-src-89a707d80f0d-8ac06d8cded1",
         "llf-hs-src-d8299e5c2d1f-69215511f901",
         "llf-hs-src-89a707d80f0d-719eac29e49f",
-        "llf-hs-src-d8299e5c2d1f-645e178ab43b"
+        "llf-hs-src-d8299e5c2d1f-645e178ab43b",
+        "llf-hs-src-89a707d80f0d-a78b434a4557",
+        "llf-hs-src-d8299e5c2d1f-07a36978e0d5"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8475,7 +9160,9 @@
         "llf-hs-src-6e25dad8aef2-8c4c50996295",
         "llf-hs-src-1e60fd1878d4-4ad07938defd",
         "llf-hs-src-6e25dad8aef2-758d738c6a75",
-        "llf-hs-src-1e60fd1878d4-be85c80a6269"
+        "llf-hs-src-1e60fd1878d4-be85c80a6269",
+        "llf-hs-src-6e25dad8aef2-424d5a0de5c5",
+        "llf-hs-src-1e60fd1878d4-ae669213af8d"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8519,7 +9206,9 @@
         "llf-hs-src-92b58f58e983-8be5ad171c21",
         "llf-hs-src-013f52eb39a5-f132eca1c07a",
         "llf-hs-src-92b58f58e983-d0e6e94b55c8",
-        "llf-hs-src-013f52eb39a5-4f21c2f2790b"
+        "llf-hs-src-013f52eb39a5-4f21c2f2790b",
+        "llf-hs-src-92b58f58e983-78cea390d1bb",
+        "llf-hs-src-013f52eb39a5-f1279528de94"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8563,7 +9252,9 @@
         "llf-hs-src-7df42fa0f3b6-dc7a168c227c",
         "llf-hs-src-b6257866fade-336790c73fc3",
         "llf-hs-src-7df42fa0f3b6-964ee41cf65c",
-        "llf-hs-src-b6257866fade-0f9b8e95123a"
+        "llf-hs-src-b6257866fade-0f9b8e95123a",
+        "llf-hs-src-7df42fa0f3b6-aab43f74561e",
+        "llf-hs-src-b6257866fade-2d525e7d794c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8607,7 +9298,9 @@
         "llf-hs-src-ec4b6623e670-d753f2790d52",
         "llf-hs-src-31c3015e2848-0538a3e124ec",
         "llf-hs-src-ec4b6623e670-36d81b56df9e",
-        "llf-hs-src-31c3015e2848-192156d12758"
+        "llf-hs-src-31c3015e2848-192156d12758",
+        "llf-hs-src-ec4b6623e670-e92e1b8d576c",
+        "llf-hs-src-31c3015e2848-675c7ce93c43"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8651,7 +9344,9 @@
         "llf-hs-src-f360b734a804-2364e0e04356",
         "llf-hs-src-d8299e5c2d1f-69215511f901",
         "llf-hs-src-f360b734a804-064251eb16cb",
-        "llf-hs-src-d8299e5c2d1f-645e178ab43b"
+        "llf-hs-src-d8299e5c2d1f-645e178ab43b",
+        "llf-hs-src-f360b734a804-298ae42129ba",
+        "llf-hs-src-d8299e5c2d1f-07a36978e0d5"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8666,7 +9361,7 @@
     },
     {
       "id": "LLF-HS-microsoft-silver-springs",
-      "name": "Microsoft Silver Springs",
+      "name": "Microsoft Aktueller Stand beim Bau des Rechenzentrums in Silver Springs",
       "operator": "Microsoft",
       "sector": "data_center",
       "region": "West",
@@ -8678,7 +9373,7 @@
       "lon": null,
       "identityKind": "campus",
       "parentId": null,
-      "lifecycle": "construction",
+      "lifecycle": "unknown",
       "asOf": null,
       "sourceIds": [
         "llf-hs-src-ac37678eb7f6-2802bcc8c33f",
@@ -8695,7 +9390,9 @@
         "llf-hs-src-ac37678eb7f6-b87a6bd7e7b5",
         "llf-hs-src-40874be3d2cf-c17101de29a9",
         "llf-hs-src-ac37678eb7f6-a6364ba1c542",
-        "llf-hs-src-40874be3d2cf-5f3b65e5004e"
+        "llf-hs-src-40874be3d2cf-5f3b65e5004e",
+        "llf-hs-src-ac37678eb7f6-2e9a2a08d082",
+        "llf-hs-src-40874be3d2cf-27a51d3a1831"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8739,7 +9436,9 @@
         "llf-hs-src-0b5fa37be4e3-4cda22c4a84e",
         "llf-hs-src-d8299e5c2d1f-69215511f901",
         "llf-hs-src-0b5fa37be4e3-af442fa5744b",
-        "llf-hs-src-d8299e5c2d1f-645e178ab43b"
+        "llf-hs-src-d8299e5c2d1f-645e178ab43b",
+        "llf-hs-src-0b5fa37be4e3-15423bdedf1b",
+        "llf-hs-src-d8299e5c2d1f-07a36978e0d5"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8783,7 +9482,9 @@
         "llf-hs-src-2f34dc23abb9-4bd467df57f9",
         "llf-hs-src-31c3015e2848-0538a3e124ec",
         "llf-hs-src-2f34dc23abb9-ee7a6522b345",
-        "llf-hs-src-31c3015e2848-192156d12758"
+        "llf-hs-src-31c3015e2848-192156d12758",
+        "llf-hs-src-2f34dc23abb9-32d91e26fedf",
+        "llf-hs-src-31c3015e2848-675c7ce93c43"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8827,7 +9528,9 @@
         "llf-hs-src-55d0e0e47366-4b9da2b122da",
         "llf-hs-src-ab09e90738e8-3ef6e89c4700",
         "llf-hs-src-55d0e0e47366-6383b6ac52bb",
-        "llf-hs-src-ab09e90738e8-ee5406dde88e"
+        "llf-hs-src-ab09e90738e8-ee5406dde88e",
+        "llf-hs-src-55d0e0e47366-f7f790477525",
+        "llf-hs-src-ab09e90738e8-5213510f2b9b"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8870,7 +9573,9 @@
         "llf-hs-src-798bccc6a328-c41a88e05463",
         "llf-hs-src-e08f6066771a-ecf644a16d80",
         "llf-hs-src-798bccc6a328-3b5fc8714fe6",
-        "llf-hs-src-e08f6066771a-365a4a12ab17"
+        "llf-hs-src-e08f6066771a-365a4a12ab17",
+        "llf-hs-src-798bccc6a328-76d329b290b9",
+        "llf-hs-src-e08f6066771a-39e5d92d757c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8914,7 +9619,9 @@
         "llf-hs-src-467a79515123-0d1c90e98478",
         "llf-hs-src-e08f6066771a-ecf644a16d80",
         "llf-hs-src-467a79515123-643e6f3de7f7",
-        "llf-hs-src-e08f6066771a-365a4a12ab17"
+        "llf-hs-src-e08f6066771a-365a4a12ab17",
+        "llf-hs-src-467a79515123-331010c15c7c",
+        "llf-hs-src-e08f6066771a-39e5d92d757c"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8951,7 +9658,8 @@
         "llf-hs-src-1cfbcdd8d079-4e486fe57d3c",
         "llf-hs-src-1cfbcdd8d079-890576152f18",
         "llf-hs-src-1cfbcdd8d079-10a6e8b65d04",
-        "llf-hs-src-1cfbcdd8d079-72510a14b48c"
+        "llf-hs-src-1cfbcdd8d079-72510a14b48c",
+        "llf-hs-src-1cfbcdd8d079-21b39edf9b53"
       ],
       "capacityFacts": [],
       "events": [],
@@ -8961,7 +9669,7 @@
           "kind": "unknown",
           "date": null,
           "sourceIds": [
-            "llf-hs-src-1cfbcdd8d079-72510a14b48c"
+            "llf-hs-src-1cfbcdd8d079-21b39edf9b53"
           ],
           "note": "AI workloads went live; The Abilene AI data center connects directly to the ERCOT grid. 일부 통전·운영만 확인되며 전체 8동 캠퍼스의 통전·운영 승인 완료는 미확인입니다. 전체 캠퍼스 완료 점수에 사용하지 않습니다."
         }
@@ -9001,7 +9709,8 @@
         "llf-hs-src-25e580176911-5b81bf129d17",
         "llf-hs-src-25e580176911-0aeb5a2330ff",
         "llf-hs-src-25e580176911-3708bde8e894",
-        "llf-hs-src-25e580176911-f71eaacd7c31"
+        "llf-hs-src-25e580176911-f71eaacd7c31",
+        "llf-hs-src-25e580176911-a80d88058779"
       ],
       "capacityFacts": [],
       "events": [],
@@ -9041,7 +9750,8 @@
         "llf-hs-src-bda0c0acdd62-4a0ab134694b",
         "llf-hs-src-bda0c0acdd62-730f697d09bf",
         "llf-hs-src-bda0c0acdd62-868143252dfd",
-        "llf-hs-src-bda0c0acdd62-066f2877ef0e"
+        "llf-hs-src-bda0c0acdd62-066f2877ef0e",
+        "llf-hs-src-bda0c0acdd62-1d99e12f23a8"
       ],
       "capacityFacts": [],
       "events": [],
@@ -9081,7 +9791,8 @@
         "llf-hs-src-bf6985c99fea-833a0c78795d",
         "llf-hs-src-bf6985c99fea-e01b95ec3ac2",
         "llf-hs-src-bf6985c99fea-4a3771b2be4f",
-        "llf-hs-src-bf6985c99fea-6e50d596b47c"
+        "llf-hs-src-bf6985c99fea-6e50d596b47c",
+        "llf-hs-src-bf6985c99fea-f86a168987f9"
       ],
       "capacityFacts": [],
       "events": [],
@@ -9123,7 +9834,8 @@
         "llf-hs-src-24ddd3fbe221-b96068fdd06f",
         "llf-hs-src-24ddd3fbe221-b4e4aa63e227",
         "llf-hs-src-24ddd3fbe221-bf17fd3cce43",
-        "llf-hs-src-24ddd3fbe221-92f074b42975"
+        "llf-hs-src-24ddd3fbe221-92f074b42975",
+        "llf-hs-src-24ddd3fbe221-81c822d1c1c8"
       ],
       "capacityFacts": [],
       "events": [],
@@ -9243,7 +9955,8 @@
         "llf-hs-src-f5d4251eed68-25f9af428181",
         "llf-hs-src-f5d4251eed68-64e5c8e80f66",
         "llf-hs-src-f5d4251eed68-4851e6b32a5a",
-        "llf-hs-src-f5d4251eed68-ef683ee8da78"
+        "llf-hs-src-f5d4251eed68-ef683ee8da78",
+        "llf-hs-src-f5d4251eed68-6f5dcc7c4b01"
       ],
       "capacityFacts": [
         {

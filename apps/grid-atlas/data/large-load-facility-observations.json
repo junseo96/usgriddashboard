@@ -6377,7 +6377,84 @@
       ],
       "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
       "id": "facility-observation:1250a0ce8d07f598abb67a17"
+    },
+    {
+      "sourceGroup": "operators",
+      "facilityId": "LLF-equinix-sv18",
+      "observedAt": "2026-10-26T01:50:35.149Z",
+      "kind": "facility_discovered",
+      "changedFields": [
+        "facility"
+      ],
+      "previousLifecycle": null,
+      "lifecycle": "operating",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "operator-source:a707df20da75cca5:fa41efc47cb2"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:599402bf64bee503e6fee463"
+    },
+    {
+      "sourceGroup": "hyperscale",
+      "facilityId": "LLF-HS-microsoft-silver-springs",
+      "observedAt": "2026-10-26T01:50:43.202Z",
+      "kind": "lifecycle_changed",
+      "changedFields": [
+        "name",
+        "lifecycle"
+      ],
+      "previousLifecycle": "construction",
+      "lifecycle": "unknown",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "llf-hs-src-ac37678eb7f6-2802bcc8c33f",
+        "llf-hs-src-40874be3d2cf-6ebb9dc97838",
+        "llf-hs-src-ac37678eb7f6-31a06f45b993",
+        "llf-hs-src-ac37678eb7f6-d94a030eec7a",
+        "llf-hs-src-40874be3d2cf-0cf22bdf22f9",
+        "llf-hs-src-ac37678eb7f6-e76a23c32a60",
+        "llf-hs-src-40874be3d2cf-93eddf515cfc",
+        "llf-hs-src-ac37678eb7f6-d5e1702cb872",
+        "llf-hs-src-40874be3d2cf-6057a731a837",
+        "llf-hs-src-ac37678eb7f6-4c4be1970cab",
+        "llf-hs-src-40874be3d2cf-c86bd7aa5b9c",
+        "llf-hs-src-ac37678eb7f6-b87a6bd7e7b5",
+        "llf-hs-src-40874be3d2cf-c17101de29a9",
+        "llf-hs-src-ac37678eb7f6-a6364ba1c542",
+        "llf-hs-src-40874be3d2cf-5f3b65e5004e",
+        "llf-hs-src-ac37678eb7f6-2e9a2a08d082",
+        "llf-hs-src-40874be3d2cf-27a51d3a1831"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:08dedcafa0ffe21fb5061a48"
+    },
+    {
+      "sourceGroup": "epoch",
+      "facilityId": "LLF-EPOCH-anthropic-amazon-new-carlisle",
+      "observedAt": "2026-10-26T01:50:51.847Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "asOf",
+        "capacityFacts",
+        "events"
+      ],
+      "previousLifecycle": "construction",
+      "lifecycle": "construction",
+      "sourceAsOf": "2026-10-19",
+      "sourceIds": [
+        "epoch-source-2be9079ea5d314e4-4a1b35b1b0179a3f",
+        "epoch-source-4a713a52b28d091b-fdd4b1c55faaad9b",
+        "epoch-source-5424316d9d06c215-4a880c04f151d9b1",
+        "epoch-source-5424316d9d06c215-76c3c42fbe91d5aa",
+        "epoch-source-624f405909733347-3873ad80e4486e7c",
+        "epoch-source-624f405909733347-4bd1d0492bf4a6f5",
+        "epoch-source-e6c5544bf5dedd59-271e08676cbf0897",
+        "epoch-source-e6c5544bf5dedd59-2820f8e22d0f4db5"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:6477e6e03d0b3b77f1904b51"
     }
   ],
-  "generatedAt": "2026-10-19T01:40:56.636Z"
+  "generatedAt": "2026-10-26T01:50:58.897Z"
 }
