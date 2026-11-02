@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "municipal",
-  "generatedAt": "2026-10-26T01:50:57.283Z",
+  "generatedAt": "2026-11-02T02:08:41.471Z",
   "sources": [
     {
       "id": "municipal-pwc-buildings-0-e980a52d96833093",
@@ -15,6 +15,16 @@
     },
     {
       "id": "municipal-pwc-buildings-100-04eeb4890702e610",
+      "name": "Prince William County — Data Center Buildings (buildings-100)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&objectIds=107,108,109,110,111,112,113,114,116,118,121,122,123,124,125,126,127,128,129,130,131,132,134,135,136,137,138,139,140,141,143,144,153,154,155,156,157,158,160,161,162,163,164,165,166,167,168,169,170,171,172,204,205,206,207,208,209,210,215,216,217,218,219,220,221,222,223,224,225,226,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,251,252,253,254,255,258,259,260,262,263,264,265,271&outFields=OBJECTID,GlobalID,BuildingName,Address,BuildingID,BuildingStatus,YearBuilt,PermitCase,PermitStatus,OCCDate,CreateDate,LastEditDate,PlanningCaseNumber,PlanningCaseName&returnGeometry=false&orderByFields=OBJECTID+ASC&resultRecordCount=100",
+      "retrievedAt": "2026-10-26T01:50:56.669Z",
+      "sha256": "04eeb4890702e6103fdbca95842a3d3d9b9fc7beb29fc3d0728dbf104b9e51f9",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
+      "id": "municipal-pwc-buildings-100-04eeb4890702e610@0de199efcdc47fa1",
       "name": "Prince William County — Data Center Buildings (buildings-100)",
       "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&objectIds=107,108,109,110,111,112,113,114,116,118,121,122,123,124,125,126,127,128,129,130,131,132,134,135,136,137,138,139,140,141,143,144,153,154,155,156,157,158,160,161,162,163,164,165,166,167,168,169,170,171,172,204,205,206,207,208,209,210,215,216,217,218,219,220,221,222,223,224,225,226,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,251,252,253,254,255,258,259,260,262,263,264,265,271&outFields=OBJECTID,GlobalID,BuildingName,Address,BuildingID,BuildingStatus,YearBuilt,PermitCase,PermitStatus,OCCDate,CreateDate,LastEditDate,PlanningCaseNumber,PlanningCaseName&returnGeometry=false&orderByFields=OBJECTID+ASC&resultRecordCount=100",
       "retrievedAt": "2026-10-26T01:50:56.669Z",
@@ -64,6 +74,16 @@
       "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
     },
     {
+      "id": "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f@3f60b21ba464e115@6fd02f384e543cdb@a8bf7bcee641f573",
+      "name": "Prince William County — Data Center Buildings (buildings-100)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&objectIds=107,108,109,110,111,112,113,114,116,118,121,122,123,124,125,126,127,128,129,130,131,132,134,135,136,137,138,139,140,141,143,144,153,154,155,156,157,158,160,161,162,163,164,165,166,167,168,169,170,171,172,204,205,206,207,208,209,210,215,216,217,218,219,220,221,222,223,224,225,226,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,251,252,253,254,255,258,259,260,262,263,264,265,271&outFields=OBJECTID,GlobalID,BuildingName,Address,BuildingID,BuildingStatus,YearBuilt,PermitCase,PermitStatus,OCCDate,CreateDate,LastEditDate,PlanningCaseNumber,PlanningCaseName&returnGeometry=false&orderByFields=OBJECTID+ASC&resultRecordCount=100",
+      "retrievedAt": "2026-10-14T13:54:21.237Z",
+      "sha256": "35cbd1ed4bc249f90e4a985a28953b718c6098c4f312c2a4c5be8bf74efff99c",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
       "id": "municipal-pwc-buildings-200-22aede357136580e",
       "name": "Prince William County — Data Center Buildings (buildings-200)",
       "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&objectIds=272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,677,678,679,680,682&outFields=OBJECTID,GlobalID,BuildingName,Address,BuildingID,BuildingStatus,YearBuilt,PermitCase,PermitStatus,OCCDate,CreateDate,LastEditDate,PlanningCaseNumber,PlanningCaseName&returnGeometry=false&orderByFields=OBJECTID+ASC&resultRecordCount=100",
@@ -99,6 +119,16 @@
       "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&where=1%3D1&returnIdsOnly=true",
       "retrievedAt": "2026-10-26T01:50:56.960Z",
       "sha256": "85573a9f028b5e19043ad2719829bea5fcc2e637b195e407c5a44d0a6922be95",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
+      "id": "municipal-pwc-ids-after-89198369128aabfd",
+      "name": "Prince William County — Data Center Buildings (ids-after)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&where=1%3D1&returnIdsOnly=true",
+      "retrievedAt": "2026-11-02T02:08:41.097Z",
+      "sha256": "89198369128aabfd5a6a2f0aaf0201ee4d69ee5c384260778166b608479ada4f",
       "publishedAt": null,
       "sourceAsOf": null,
       "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
@@ -144,11 +174,41 @@
       "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
     },
     {
+      "id": "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5@1f7b68bbef1f6084@32304b3029d8fa5f@cd817a6ce481fb55",
+      "name": "Prince William County — Data Center Buildings (ids-before)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&where=1%3D1&returnIdsOnly=true",
+      "retrievedAt": "2026-10-14T13:54:19.762Z",
+      "sha256": "4a203e24fd0420b6477235794ac53fa26d66a079677fef518afec67a15218ee9",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
       "id": "municipal-pwc-ids-before-85573a9f028b5e19",
       "name": "Prince William County — Data Center Buildings (ids-before)",
       "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&where=1%3D1&returnIdsOnly=true",
       "retrievedAt": "2026-10-26T01:50:52.051Z",
       "sha256": "85573a9f028b5e19043ad2719829bea5fcc2e637b195e407c5a44d0a6922be95",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
+      "id": "municipal-pwc-ids-before-85573a9f028b5e19@4d4324644711b2b1",
+      "name": "Prince William County — Data Center Buildings (ids-before)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&where=1%3D1&returnIdsOnly=true",
+      "retrievedAt": "2026-10-26T01:50:52.051Z",
+      "sha256": "85573a9f028b5e19043ad2719829bea5fcc2e637b195e407c5a44d0a6922be95",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
+      "id": "municipal-pwc-ids-before-89198369128aabfd",
+      "name": "Prince William County — Data Center Buildings (ids-before)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9/query?f=json&where=1%3D1&returnIdsOnly=true",
+      "retrievedAt": "2026-11-02T02:08:39.094Z",
+      "sha256": "89198369128aabfd5a6a2f0aaf0201ee4d69ee5c384260778166b608479ada4f",
       "publishedAt": null,
       "sourceAsOf": null,
       "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
@@ -185,6 +245,16 @@
     },
     {
       "id": "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07@89883a0f739fe7f3@8c8b1e88b27b67d1",
+      "name": "Prince William County — Data Center Buildings (layer)",
+      "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9?f=json",
+      "retrievedAt": "2026-10-14T13:54:19.544Z",
+      "sha256": "da37937b93fe92d006a6c49a27af3febe171af0d91f9fceb6ad4492a19e8b926",
+      "publishedAt": null,
+      "sourceAsOf": null,
+      "excerpt": "County building inventory. GlobalID, building/permit status and occupancy date; no electricity MW or connection approval. © Prince William County Planning/Development Services/GIS."
+    },
+    {
+      "id": "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07@89883a0f739fe7f3@8c8b1e88b27b67d1@9f46ecccd60c45ab",
       "name": "Prince William County — Data Center Buildings (layer)",
       "url": "https://gisweb.pwcva.gov/arcgis/rest/services/Planning/Build_Out_Analysis/MapServer/9?f=json",
       "retrievedAt": "2026-10-14T13:54:19.544Z",
@@ -244,6 +314,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
+      "name": "QTS Manassas 1",
+      "url": "https://q.com/data-centers/manassas/",
+      "retrievedAt": "2026-10-26T01:50:32.972Z",
+      "sha256": "ce2b3da30b1fc5edf8ace64392f3e82802efa8a530e2f322558551c0fe3ed0c1",
+      "publishedAt": null,
+      "excerpt": "Manassas 1 Designed to meet rapid, large-scale deployments and offering one of the most flexible, efficient campuses in the region. Schedule a tour Schedule a tour Proud to call Virginia home Headquarted in Virginia, we are deeply committed to the state and its communities and we’re proud to contribute to the continued growth and success. Check out our other Virginia data center campuses. Ashburn Ashburn Ashburn Moran Ashburn Moran Richmond Richmond Our data center campus features Campus Footprint 100+ acre campus Design & POwer Powering the campus 190+ MW of critical campus capacity 105-acre campus Planned 6-building campus Customizable space and power with exponential growth opportunities Redundant campus fiber conduit system allows for express fiber to each building and between future buildings DC5 - TBD DC1 - 9400 Godwin Dr, Manassas, VA 20110 DC2 - 9420 Godwin Dr, Manassas, VA 20110 DC4 - TBD DC6 - TBD TBD Manassas 1 DC1 – 9400 Godwin Dr, Manassas, Virginia 20110 DC2 – 9420 Godwin Dr, Manassas, Virginia 20110 DC3-4, & 6 – TBD, Manassas, Virginia DC5 – 9301 Freedom Center Blvd, Manassas, Virginia 20109 View on Google Maps View on Google Maps Schedule a data center tour QTS is Powered by People who are here for you. See how our advanced technologies and resilient facilities can fit your neeeds. Schedule a tour Schedule a tour ",
+      "sourceAsOf": null
+    },
+    {
       "id": "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
       "name": "QTS Manassas 1",
       "url": "https://q.com/data-centers/manassas/",
@@ -269,6 +349,26 @@
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
       "retrievedAt": "2026-10-19T01:40:25.168Z",
       "sha256": "49120ca1c4f11ce16c4f71ff5b0492f3585b5ee03d0d843c76967c3594896b0f",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
+      "id": "operator-source:bd921023b547421e:49120ca1c4f1@a710feb9e5bba441@ff2a3f4081561fbe",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-19T01:40:25.168Z",
+      "sha256": "49120ca1c4f11ce16c4f71ff5b0492f3585b5ee03d0d843c76967c3594896b0f",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
+      "id": "operator-source:bd921023b547421e:64ef01ae85a2@d3d928138458a8f5",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-26T01:50:27.540Z",
+      "sha256": "64ef01ae85a22cdff01fa7402398844b6ce8a49aa014b4fd92baac94b9b64e88",
       "publishedAt": null,
       "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
       "sourceAsOf": null
@@ -305,6 +405,16 @@
     },
     {
       "id": "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946@76bc7854aa03192b@80a5a47414562033",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T08:19:43.534Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946@76bc7854aa03192b@80a5a47414562033@3006ac82f800aa65",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
       "retrievedAt": "2026-10-12T08:19:43.534Z",
@@ -354,6 +464,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64@2347160622f6fae3@cd2bfaf4f9036b9e@eb348d3b4b7ba97c",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T09:24:52.152Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
       "id": "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
@@ -385,6 +505,16 @@
     },
     {
       "id": "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2@2ce2985bc6600713@10dac205892fb9cb",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T09:21:12.373Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2@2ce2985bc6600713@10dac205892fb9cb@7e2846e0a06f26fe",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
       "retrievedAt": "2026-10-12T09:21:12.373Z",
@@ -434,6 +564,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87@6d9dbc1ec9243bdb@7eb42234951e6b6d@150ac0240fdbc1b6",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T09:12:16.552Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
       "id": "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
@@ -474,6 +614,16 @@
       "sourceAsOf": null
     },
     {
+      "id": "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71@3e1624cbcd54982b@c80ccd4f25a8078d@b6188bba156fe015",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-12T09:02:11.812Z",
+      "sha256": "a1140ca48c1506d1ee0f9a93aabdfacad330b720c9f05a547d72122796161022",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
       "id": "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
@@ -485,6 +635,16 @@
     },
     {
       "id": "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5@fe7c6fa090883316",
+      "name": "Equinix DC14 — Manassas",
+      "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
+      "retrievedAt": "2026-10-14T14:16:26.733Z",
+      "sha256": "f50df7c1743de400ba992fede5005ed19b413124802ccbb5093adc4938c777e4",
+      "publishedAt": null,
+      "excerpt": "Washington DC DC14 Located in Manassas, DC14 is the ideal site for customers with large deployments built to handle explosive data growth. Tech specs Book a tour Address 7400 Infantry Ridge Road Manassas, VA 20109 Useful Links Contact support Speak to sales This map requires javscript to function Space Accelerate time-to-market with our vast, global data center footprint delivering scalable capacity that evolves with your business needs. 42,539 Square feet (ft²) Power Safeguard operations and prevent outages with enterprise-grade uninterruptible power supply (UPS) systems and built-in redundancy. N+1 Power redundancy Advanced Cooling Support AI and high-density workloads with next-gen cooling solutions that boost performance and efficiency while prioritizing sustainability. N+1 Cooling redundancy Reliability Mitigate risk with resilient infrastructure, robust disaster recovery and an industry-leading uptime track record of 99.999%+ globally. 99.999% Global Guaranteed Uptime Certified to global standards Our data centers meet rigorous global benchmarks for energy efficiency and environmental responsibility. View all certifications HECVAT HIPAA ISO 22301 ISO 27001 ISO 9001 NIST 800-53/FISMA High PCI DSS SOC 1 Type II SOC 2 Type II Washington DC DC14 specifications Print tech specs Building Facilities Sustainability Products Features Feature description Colocation Space 3,952 m 2 (42,539 ft 2 ) Building Description 2-Story, Reinforced Concrete Parking Parking adjacent to the building. No charge. Floor Load Capacity Raised: 250 psf (12 kN/m 2 ) Slab: 3500 psf (168 kN/m 2 ) Floo",
+      "sourceAsOf": null
+    },
+    {
+      "id": "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5@fe7c6fa090883316@a8cfe4437ec0e881",
       "name": "Equinix DC14 — Manassas",
       "url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14",
       "retrievedAt": "2026-10-14T14:16:26.733Z",
@@ -512,40 +672,53 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610",
+        "municipal-pwc-buildings-100-04eeb4890702e610@0de199efcdc47fa1",
         "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f",
         "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f@3f60b21ba464e115",
         "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f@3f60b21ba464e115@6fd02f384e543cdb",
+        "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f@3f60b21ba464e115@6fd02f384e543cdb@a8bf7bcee641f573",
         "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5",
         "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5@1f7b68bbef1f6084",
         "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5@1f7b68bbef1f6084@32304b3029d8fa5f",
+        "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5@1f7b68bbef1f6084@32304b3029d8fa5f@cd817a6ce481fb55",
+        "municipal-pwc-ids-before-85573a9f028b5e19@4d4324644711b2b1",
         "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07",
         "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07@89883a0f739fe7f3",
         "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07@89883a0f739fe7f3@8c8b1e88b27b67d1",
+        "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07@89883a0f739fe7f3@8c8b1e88b27b67d1@9f46ecccd60c45ab",
         "operator-source:bd921023b547421e:49120ca1c4f1@a710feb9e5bba441",
+        "operator-source:bd921023b547421e:49120ca1c4f1@a710feb9e5bba441@ff2a3f4081561fbe",
+        "operator-source:bd921023b547421e:64ef01ae85a2@d3d928138458a8f5",
         "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb",
         "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946",
         "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946@76bc7854aa03192b",
         "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946@76bc7854aa03192b@80a5a47414562033",
+        "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946@76bc7854aa03192b@80a5a47414562033@3006ac82f800aa65",
         "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554",
         "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64",
         "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64@2347160622f6fae3",
         "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64@2347160622f6fae3@cd2bfaf4f9036b9e",
+        "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64@2347160622f6fae3@cd2bfaf4f9036b9e@eb348d3b4b7ba97c",
         "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d",
         "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2",
         "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2@2ce2985bc6600713",
         "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2@2ce2985bc6600713@10dac205892fb9cb",
+        "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2@2ce2985bc6600713@10dac205892fb9cb@7e2846e0a06f26fe",
         "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3",
         "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87",
         "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87@6d9dbc1ec9243bdb",
         "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87@6d9dbc1ec9243bdb@7eb42234951e6b6d",
+        "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87@6d9dbc1ec9243bdb@7eb42234951e6b6d@150ac0240fdbc1b6",
         "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f",
         "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71",
         "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71@3e1624cbcd54982b",
         "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71@3e1624cbcd54982b@c80ccd4f25a8078d",
+        "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71@3e1624cbcd54982b@c80ccd4f25a8078d@b6188bba156fe015",
         "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5",
-        "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5@fe7c6fa090883316"
+        "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5@fe7c6fa090883316",
+        "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5@fe7c6fa090883316@a8cfe4437ec0e881"
       ],
       "capacityFacts": [],
       "events": [],
@@ -556,40 +729,53 @@
           "date": "2009-10-23",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610",
+            "municipal-pwc-buildings-100-04eeb4890702e610@0de199efcdc47fa1",
             "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f",
             "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f@3f60b21ba464e115",
             "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f@3f60b21ba464e115@6fd02f384e543cdb",
+            "municipal-pwc-buildings-100-35cbd1ed4bc249f9@aa8858e2d4daf16f@3f60b21ba464e115@6fd02f384e543cdb@a8bf7bcee641f573",
             "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5",
             "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5@1f7b68bbef1f6084",
             "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5@1f7b68bbef1f6084@32304b3029d8fa5f",
+            "municipal-pwc-ids-before-4a203e24fd0420b6@2208cc8acbf210c5@1f7b68bbef1f6084@32304b3029d8fa5f@cd817a6ce481fb55",
+            "municipal-pwc-ids-before-85573a9f028b5e19@4d4324644711b2b1",
             "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07",
             "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07@89883a0f739fe7f3",
             "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07@89883a0f739fe7f3@8c8b1e88b27b67d1",
+            "municipal-pwc-layer-da37937b93fe92d0@c9559347c6894d07@89883a0f739fe7f3@8c8b1e88b27b67d1@9f46ecccd60c45ab",
             "operator-source:bd921023b547421e:49120ca1c4f1@a710feb9e5bba441",
+            "operator-source:bd921023b547421e:49120ca1c4f1@a710feb9e5bba441@ff2a3f4081561fbe",
+            "operator-source:bd921023b547421e:64ef01ae85a2@d3d928138458a8f5",
             "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb",
             "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946",
             "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946@76bc7854aa03192b",
             "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946@76bc7854aa03192b@80a5a47414562033",
+            "operator-source:bd921023b547421e:a1140ca48c15@443b896bddbb27fb@8bb85657549ef946@76bc7854aa03192b@80a5a47414562033@3006ac82f800aa65",
             "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554",
             "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64",
             "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64@2347160622f6fae3",
             "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64@2347160622f6fae3@cd2bfaf4f9036b9e",
+            "operator-source:bd921023b547421e:a1140ca48c15@496d1d01f23f0554@c979a2079fdf4e64@2347160622f6fae3@cd2bfaf4f9036b9e@eb348d3b4b7ba97c",
             "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d",
             "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2",
             "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2@2ce2985bc6600713",
             "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2@2ce2985bc6600713@10dac205892fb9cb",
+            "operator-source:bd921023b547421e:a1140ca48c15@4b0a29ed5f8aa94d@7189cd2b01042cf2@2ce2985bc6600713@10dac205892fb9cb@7e2846e0a06f26fe",
             "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3",
             "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87",
             "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87@6d9dbc1ec9243bdb",
             "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87@6d9dbc1ec9243bdb@7eb42234951e6b6d",
+            "operator-source:bd921023b547421e:a1140ca48c15@5547b5c496d26ad3@997e258e425e4d87@6d9dbc1ec9243bdb@7eb42234951e6b6d@150ac0240fdbc1b6",
             "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f",
             "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71",
             "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71@3e1624cbcd54982b",
             "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71@3e1624cbcd54982b@c80ccd4f25a8078d",
+            "operator-source:bd921023b547421e:a1140ca48c15@63335e660171ea6f@24002b51c5df7b71@3e1624cbcd54982b@c80ccd4f25a8078d@b6188bba156fe015",
             "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5",
-            "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5@fe7c6fa090883316"
+            "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5@fe7c6fa090883316",
+            "operator-source:bd921023b547421e:f50df7c1743d@b367fd42355481a5@fe7c6fa090883316@a8cfe4437ec0e881"
           ],
           "note": "지방 건축허가 BLD2006-05319 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
         }
@@ -632,7 +818,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -672,7 +858,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -711,7 +897,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -749,7 +935,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -788,7 +974,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -827,7 +1013,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -865,7 +1051,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -877,7 +1063,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-06092 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -917,7 +1103,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -955,7 +1141,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -967,7 +1153,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-05471 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -1006,7 +1192,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -1018,7 +1204,7 @@
           "date": "2026-07-01",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2024-07030 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -1060,7 +1246,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -1100,7 +1286,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -1112,7 +1298,7 @@
           "date": "2016-07-22",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2015-23921 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -1153,7 +1339,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -1192,7 +1378,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -1231,13 +1417,14 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093",
         "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
         "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
         "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
         "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
         "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+        "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
         "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
         "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
       ],
@@ -1250,13 +1437,14 @@
           "date": "2019-03-28",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093",
             "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
             "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
             "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
             "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
             "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+            "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
             "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
             "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
           ],
@@ -1300,7 +1488,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -1339,7 +1527,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -1378,7 +1566,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -1390,7 +1578,7 @@
           "date": "2021-01-05",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2019-02023 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -1431,7 +1619,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -1470,7 +1658,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -1509,7 +1697,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -1547,7 +1735,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -1586,7 +1774,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -1598,7 +1786,7 @@
           "date": "2020-05-14",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2018-03269 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -1639,7 +1827,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -1678,7 +1866,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -1690,7 +1878,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2026-01905 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -1730,7 +1918,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -1769,7 +1957,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -1809,7 +1997,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -1848,7 +2036,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -1887,7 +2075,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -1925,7 +2113,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -1964,7 +2152,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2002,7 +2190,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2041,13 +2229,14 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093",
         "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
         "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
         "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
         "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
         "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+        "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
         "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
         "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
       ],
@@ -2060,13 +2249,14 @@
           "date": "2024-07-11",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093",
             "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
             "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
             "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
             "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
             "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+            "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
             "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
             "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
           ],
@@ -2110,7 +2300,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -2122,7 +2312,7 @@
           "date": "2017-09-14",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2016-05888 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -2163,7 +2353,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2175,7 +2365,7 @@
           "date": "2023-07-11",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610"
           ],
           "note": "지방 건축허가 BLD2018-06209 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -2216,7 +2406,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -2255,7 +2445,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -2267,7 +2457,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-03391 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -2307,7 +2497,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -2346,7 +2536,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2385,7 +2575,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -2397,7 +2587,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2024-03062 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -2436,7 +2626,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -2448,7 +2638,7 @@
           "date": "2020-12-02",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2019-04018 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -2489,7 +2679,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -2527,7 +2717,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -2539,7 +2729,7 @@
           "date": "2025-05-28",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-00752 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -2581,7 +2771,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2620,7 +2810,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2659,7 +2849,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2697,7 +2887,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -2736,7 +2926,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2775,7 +2965,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -2814,7 +3004,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -2853,7 +3043,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -2865,7 +3055,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2024-02491 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -2906,7 +3096,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -2918,7 +3108,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-05922 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -2958,13 +3148,14 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093",
         "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
         "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
         "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
         "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
         "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+        "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
         "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
         "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
       ],
@@ -2977,13 +3168,14 @@
           "date": "2025-12-29",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093",
             "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
             "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
             "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
             "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
             "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+            "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
             "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
             "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
           ],
@@ -3027,7 +3219,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -3066,7 +3258,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3078,7 +3270,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-04670 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -3117,7 +3309,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -3156,7 +3348,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -3196,7 +3388,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3208,7 +3400,7 @@
           "date": "2017-08-04",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2017-01263 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -3249,7 +3441,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -3287,7 +3479,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3299,7 +3491,7 @@
           "date": "2017-06-01",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2016-06361 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -3340,7 +3532,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -3379,7 +3571,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -3417,7 +3609,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3455,7 +3647,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3467,7 +3659,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2024-05348 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -3507,7 +3699,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3545,7 +3737,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -3584,7 +3776,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3596,7 +3788,7 @@
           "date": "2026-01-08",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2024-01532 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -3637,7 +3829,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3649,7 +3841,7 @@
           "date": "2025-06-11",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-03508 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -3690,7 +3882,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3728,7 +3920,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -3767,7 +3959,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3806,7 +3998,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3845,7 +4037,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -3884,7 +4076,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -3923,7 +4115,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -3962,7 +4154,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -3974,7 +4166,7 @@
           "date": "2026-09-17",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-04428 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4016,7 +4208,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4028,7 +4220,7 @@
           "date": "2025-02-20",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-04680 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4070,7 +4262,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4082,7 +4274,7 @@
           "date": "2020-02-05",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2019-01459 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4123,7 +4315,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -4162,7 +4354,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -4201,7 +4393,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -4240,7 +4432,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4252,7 +4444,7 @@
           "date": "2017-09-24",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2017-00581 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4293,7 +4485,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -4332,7 +4524,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -4371,7 +4563,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4383,7 +4575,7 @@
           "date": "2026-02-11",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-02498 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4425,7 +4617,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -4437,7 +4629,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610"
           ],
           "note": "지방 건축허가 BLD2024-05622 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4477,7 +4669,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4489,7 +4681,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-04861 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4528,7 +4720,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4540,7 +4732,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2020-04041 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4579,7 +4771,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -4618,7 +4810,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4630,7 +4822,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-02545 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4670,7 +4862,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -4709,7 +4901,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4721,7 +4913,7 @@
           "date": "2025-06-18",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-05363 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4762,7 +4954,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -4801,7 +4993,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -4840,7 +5032,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4878,7 +5070,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -4890,7 +5082,7 @@
           "date": "2024-09-25",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-00509 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -4931,7 +5123,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -4970,7 +5162,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5008,7 +5200,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -5020,7 +5212,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-07492 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -5059,7 +5251,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -5098,7 +5290,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -5136,7 +5328,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -5174,7 +5366,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -5186,7 +5378,7 @@
           "date": "2012-09-20",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2012-02503 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -5227,7 +5419,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -5266,7 +5458,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5304,7 +5496,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5343,7 +5535,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -5355,7 +5547,7 @@
           "date": "2020-07-14",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2020-05182 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -5397,7 +5589,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -5436,7 +5628,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -5448,7 +5640,7 @@
           "date": "1986-06-04",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2012-03056 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -5489,7 +5681,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -5528,7 +5720,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5567,7 +5759,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5605,7 +5797,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5643,7 +5835,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5681,7 +5873,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5693,7 +5885,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610"
           ],
           "note": "지방 건축허가 BLD2026-00592 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -5733,7 +5925,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5772,7 +5964,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5810,7 +6002,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -5849,7 +6041,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -5888,7 +6080,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -5927,13 +6119,14 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093",
         "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
         "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
         "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
         "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
         "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+        "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
         "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
         "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
       ],
@@ -5946,13 +6139,14 @@
           "date": "2023-04-28",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093",
             "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
             "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
             "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
             "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
             "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+            "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
             "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
             "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
           ],
@@ -5995,7 +6189,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6034,7 +6228,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6072,7 +6266,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -6111,7 +6305,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6123,7 +6317,7 @@
           "date": "2025-06-24",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-01345 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6165,7 +6359,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6177,7 +6371,7 @@
           "date": "2016-01-22",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2015-22325 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6218,7 +6412,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6230,7 +6424,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-07720 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6269,7 +6463,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6308,7 +6502,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6320,7 +6514,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2026-05831 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6359,7 +6553,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -6397,7 +6591,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -6436,7 +6630,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -6475,7 +6669,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -6514,7 +6708,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6526,7 +6720,7 @@
           "date": "2024-01-22",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-01092 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6568,7 +6762,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6580,7 +6774,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2026-01701 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6620,7 +6814,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -6659,7 +6853,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -6698,7 +6892,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6710,7 +6904,7 @@
           "date": "2024-08-30",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-03853 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6751,7 +6945,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -6790,7 +6984,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6802,7 +6996,7 @@
           "date": "2023-03-13",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2021-00330 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6844,7 +7038,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -6883,7 +7077,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6895,7 +7089,7 @@
           "date": "2010-04-20",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2007-04468 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6937,7 +7131,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -6949,7 +7143,7 @@
           "date": "2025-06-11",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-03506 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -6990,7 +7184,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -7029,7 +7223,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -7068,7 +7262,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -7108,7 +7302,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -7146,7 +7340,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -7185,7 +7379,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -7197,7 +7391,7 @@
           "date": "2026-07-02",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2024-04783 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -7239,7 +7433,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -7277,7 +7471,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -7316,7 +7510,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -7355,7 +7549,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -7394,7 +7588,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -7433,7 +7627,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -7445,7 +7639,7 @@
           "date": "2022-03-08",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2020-04380 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -7487,7 +7681,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -7499,7 +7693,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-01296 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -7538,7 +7732,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -7550,7 +7744,7 @@
           "date": "2019-10-24",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2018-04430 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -7591,7 +7785,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -7603,7 +7797,7 @@
           "date": "2014-07-29",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2014-01766 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -7644,7 +7838,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -7656,7 +7850,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2026-04432 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -7696,13 +7890,14 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093",
         "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
         "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
         "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
         "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
         "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+        "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
         "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
         "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
       ],
@@ -7715,13 +7910,14 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093",
             "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
             "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
             "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
             "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
             "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+            "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
             "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
             "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
           ],
@@ -7763,7 +7959,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -7775,7 +7971,7 @@
           "date": "2017-10-26",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610"
           ],
           "note": "지방 건축허가 BLD2016-04280 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -7816,7 +8012,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -7855,7 +8051,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -7894,7 +8090,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -7933,7 +8129,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -7945,7 +8141,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-03019 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -7985,7 +8181,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8023,7 +8219,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8062,7 +8258,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8101,7 +8297,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8139,7 +8335,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8151,7 +8347,7 @@
           "date": "2025-11-19",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2024-02971 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -8192,7 +8388,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -8231,7 +8427,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8270,7 +8466,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8282,7 +8478,7 @@
           "date": "2024-07-29",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-03130 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -8324,7 +8520,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8336,7 +8532,7 @@
           "date": "2025-07-07",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2023-00562 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -8378,7 +8574,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8416,7 +8612,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8456,13 +8652,14 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093",
         "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
         "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
         "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
         "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
         "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+        "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
         "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
         "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
       ],
@@ -8475,13 +8672,14 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093",
             "operator-source:541ca4e7d68d3957:077517e28bd4@8465d51a162d4874",
             "operator-source:541ca4e7d68d3957:0c9f8c56c1ec@2d4feca093f0e3b0",
             "operator-source:541ca4e7d68d3957:0cd7632c43bf@976fbc252e2ee4dc",
             "operator-source:541ca4e7d68d3957:4bd6561ba3be@b7bb9c55046f56f6",
             "operator-source:541ca4e7d68d3957:6e066e89b74d@1a5d04f2ec0b0ca0",
+            "operator-source:541ca4e7d68d3957:ce2b3da30b1f@83d82e0c9451cc0c",
             "operator-source:541ca4e7d68d3957:e336fb6e33e6@33019cbe8bc27ae9",
             "operator-source:541ca4e7d68d3957:fff4a647cdf4@4712ae0e4d418455"
           ],
@@ -8523,7 +8721,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8535,7 +8733,7 @@
           "date": "2012-09-20",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2009-02929 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -8576,7 +8774,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8588,7 +8786,7 @@
           "date": "2021-11-26",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610"
           ],
           "note": "지방 건축허가 BLD2020-04888 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -8629,7 +8827,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -8668,7 +8866,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -8707,7 +8905,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8719,7 +8917,7 @@
           "date": "2025-11-04",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-01720 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -8760,7 +8958,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -8772,7 +8970,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-04928 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -8812,7 +9010,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8851,7 +9049,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8890,7 +9088,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8928,7 +9126,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -8966,7 +9164,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9005,7 +9203,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9044,7 +9242,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -9056,7 +9254,7 @@
           "date": "2023-06-09",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-00534 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -9097,7 +9295,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -9135,7 +9333,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9174,7 +9372,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -9213,7 +9411,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9251,7 +9449,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -9290,7 +9488,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9329,7 +9527,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -9368,7 +9566,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -9380,7 +9578,7 @@
           "date": "2021-10-14",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2020-00115 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -9422,7 +9620,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -9434,7 +9632,7 @@
           "date": "2024-05-24",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2021-08185 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -9476,7 +9674,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -9488,7 +9686,7 @@
           "date": "2017-10-22",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2017-02845 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -9529,7 +9727,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -9568,7 +9766,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -9606,7 +9804,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9645,7 +9843,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9683,7 +9881,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -9695,7 +9893,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-01136 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -9734,7 +9932,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9773,7 +9971,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -9785,7 +9983,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-00827 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -9824,7 +10022,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9836,7 +10034,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610"
           ],
           "note": "지방 건축허가 BLD2026-02951 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -9876,7 +10074,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -9888,7 +10086,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610"
           ],
           "note": "지방 건축허가 BLD2026-00593 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -9928,7 +10126,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -9967,7 +10165,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -10006,7 +10204,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10044,7 +10242,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -10056,7 +10254,7 @@
           "date": "2002-11-06",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2001-04142 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -10098,7 +10296,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -10110,7 +10308,7 @@
           "date": "2025-10-31",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2021-02881 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -10151,7 +10349,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -10190,7 +10388,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10229,7 +10427,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10267,7 +10465,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -10279,7 +10477,7 @@
           "date": "2025-06-24",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-03616 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -10321,7 +10519,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -10360,7 +10558,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10399,7 +10597,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10438,7 +10636,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10477,7 +10675,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -10489,7 +10687,7 @@
           "date": "2025-07-16",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-07412 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -10530,7 +10728,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10568,7 +10766,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -10607,7 +10805,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -10619,7 +10817,7 @@
           "date": "2025-06-26",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2024-02696 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -10660,7 +10858,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10699,7 +10897,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10737,7 +10935,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10776,7 +10974,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10814,7 +11012,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10826,7 +11024,7 @@
           "date": "2002-06-04",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-100-04eeb4890702e610"
           ],
           "note": "지방 건축허가 BLD2026-02975 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -10867,7 +11065,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -10906,7 +11104,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -10918,7 +11116,7 @@
           "date": "2024-11-05",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2022-07765 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -10959,7 +11157,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -10971,7 +11169,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-00144 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -11010,7 +11208,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -11049,7 +11247,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -11061,7 +11259,7 @@
           "date": null,
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2025-03129 상태 Issued. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -11102,7 +11300,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -11140,7 +11338,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -11178,7 +11376,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -11216,7 +11414,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -11228,7 +11426,7 @@
           "date": "2020-09-16",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2019-01155 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -11269,7 +11467,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-0-e980a52d96833093"
       ],
       "capacityFacts": [],
@@ -11281,7 +11479,7 @@
           "date": "2019-11-15",
           "sourceIds": [
             "municipal-pwc-layer-da37937b93fe92d0",
-            "municipal-pwc-ids-before-85573a9f028b5e19",
+            "municipal-pwc-ids-before-89198369128aabfd",
             "municipal-pwc-buildings-0-e980a52d96833093"
           ],
           "note": "지방 건축허가 BLD2019-02581 상태 Finaled. 사용승인일이 있으면 해당 승인 날짜만 보존합니다. 전력회사 공급계약·계통 신청·통전 승인이 아닙니다."
@@ -11322,7 +11520,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-200-22aede357136580e"
       ],
       "capacityFacts": [],
@@ -11361,7 +11559,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -11400,7 +11598,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
@@ -11438,7 +11636,7 @@
       "asOf": null,
       "sourceIds": [
         "municipal-pwc-layer-da37937b93fe92d0",
-        "municipal-pwc-ids-before-85573a9f028b5e19",
+        "municipal-pwc-ids-before-89198369128aabfd",
         "municipal-pwc-buildings-100-04eeb4890702e610"
       ],
       "capacityFacts": [],
