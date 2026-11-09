@@ -6634,7 +6634,109 @@
       ],
       "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
       "id": "facility-observation:34782f38cd6e328f712751a3"
+    },
+    {
+      "sourceGroup": "hyperscale",
+      "facilityId": "LLF-HS-google-franklin-furnace-ohio",
+      "observedAt": "2026-11-09T07:54:56.077Z",
+      "kind": "facility_discovered",
+      "changedFields": [
+        "facility"
+      ],
+      "previousLifecycle": null,
+      "lifecycle": "planned",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-04303ddcdcc3"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:78dffc2be341642c34dd6988"
+    },
+    {
+      "sourceGroup": "hyperscale",
+      "facilityId": "LLF-HS-google-haskell-texas",
+      "observedAt": "2026-11-09T07:54:56.077Z",
+      "kind": "facility_discovered",
+      "changedFields": [
+        "facility"
+      ],
+      "previousLifecycle": null,
+      "lifecycle": "planned",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "llf-hs-src-b960ff7beab6-04303ddcdcc3"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:35b74e7be117d67c0d2559eb"
+    },
+    {
+      "sourceGroup": "hyperscale",
+      "facilityId": "LLF-HS-microsoft-silver-springs",
+      "observedAt": "2026-11-09T07:54:56.077Z",
+      "kind": "lifecycle_changed",
+      "changedFields": [
+        "name",
+        "lifecycle"
+      ],
+      "previousLifecycle": "construction",
+      "lifecycle": "unknown",
+      "sourceAsOf": null,
+      "sourceIds": [
+        "llf-hs-src-ac37678eb7f6-2802bcc8c33f",
+        "llf-hs-src-40874be3d2cf-6ebb9dc97838",
+        "llf-hs-src-ac37678eb7f6-31a06f45b993",
+        "llf-hs-src-ac37678eb7f6-d94a030eec7a",
+        "llf-hs-src-40874be3d2cf-0cf22bdf22f9",
+        "llf-hs-src-ac37678eb7f6-e76a23c32a60",
+        "llf-hs-src-40874be3d2cf-93eddf515cfc",
+        "llf-hs-src-ac37678eb7f6-d5e1702cb872",
+        "llf-hs-src-40874be3d2cf-6057a731a837",
+        "llf-hs-src-ac37678eb7f6-4c4be1970cab",
+        "llf-hs-src-40874be3d2cf-c86bd7aa5b9c",
+        "llf-hs-src-ac37678eb7f6-b87a6bd7e7b5",
+        "llf-hs-src-40874be3d2cf-c17101de29a9",
+        "llf-hs-src-ac37678eb7f6-a6364ba1c542",
+        "llf-hs-src-40874be3d2cf-5f3b65e5004e",
+        "llf-hs-src-ac37678eb7f6-2e9a2a08d082",
+        "llf-hs-src-40874be3d2cf-27a51d3a1831",
+        "llf-hs-src-ac37678eb7f6-c158de09f05e",
+        "llf-hs-src-40874be3d2cf-be6f0acc94d1",
+        "llf-hs-src-ac37678eb7f6-5115a3dddc71",
+        "llf-hs-src-40874be3d2cf-4521ff689b9f"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:dd1b8d70744d74ca6a39339f"
+    },
+    {
+      "sourceGroup": "epoch",
+      "facilityId": "LLF-EPOCH-meta-aiken",
+      "observedAt": "2026-11-09T07:55:05.238Z",
+      "kind": "facility_details_changed",
+      "changedFields": [
+        "capacityFacts"
+      ],
+      "previousLifecycle": "construction",
+      "lifecycle": "construction",
+      "sourceAsOf": "2026-08-07",
+      "sourceIds": [
+        "epoch-source-2be9079ea5d314e4-4a1b35b1b0179a3f",
+        "epoch-source-5424316d9d06c215-4a880c04f151d9b1",
+        "epoch-source-5424316d9d06c215-76c3c42fbe91d5aa",
+        "epoch-source-65c467f89dfd01c4-4d61d61d0e1cf625",
+        "epoch-source-675395670a3f078f-ca8fe11455f63ff4",
+        "epoch-source-aae2f1127273e6b9-271e08676cbf0897",
+        "epoch-source-aae2f1127273e6b9-2820f8e22d0f4db5",
+        "epoch-source-aae2f1127273e6b9-cc66e9295c6ec2ba",
+        "epoch-source-aae2f1127273e6b9-ffdcc0422b3b8a80",
+        "epoch-source-e1ca000bde9628c1-3873ad80e4486e7c",
+        "epoch-source-e1ca000bde9628c1-4bd1d0492bf4a6f5",
+        "epoch-source-e1ca000bde9628c1-661dcff268881c13",
+        "epoch-source-e1ca000bde9628c1-fdd4b1c55faaad9b",
+        "epoch-source-e73db41246a15238-fcc299a617049db6"
+      ],
+      "note": "Actual acquisition comparison; observedAt is not the date construction, operation, or application began.",
+      "id": "facility-observation:8f27c2753e48058a25c2156b"
     }
   ],
-  "generatedAt": "2026-11-02T02:08:42.662Z"
+  "generatedAt": "2026-11-09T07:55:08.956Z"
 }
