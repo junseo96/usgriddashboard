@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T08:35:02.639278Z",
+  "generatedAt": "2026-11-23T09:45:36.876605Z",
   "provider": "kardashev",
   "records": [
     {
@@ -1459,16 +1459,16 @@
     }
   ],
   "collection": {
-    "startedAt": "2026-11-16T08:35:02.433436Z",
-    "completedAt": "2026-11-16T08:35:02.639278Z",
+    "startedAt": "2026-11-23T09:45:36.349782Z",
+    "completedAt": "2026-11-23T09:45:36.876605Z",
     "status": "success",
-    "lastSuccessAt": "2026-11-16T08:35:02.639278Z",
+    "lastSuccessAt": "2026-11-23T09:45:36.876605Z",
     "addedCount": 0,
     "error": null,
     "endpointReceipts": [
       {
         "url": "https://data.kardashevlabs.org/ercot/large-load/history",
-        "fetchedAt": "2026-11-16T08:35:02.541850Z",
+        "fetchedAt": "2026-11-23T09:45:36.709224Z",
         "httpStatus": 200,
         "sha256": "70824ecbaf84550b5ac22d6af28c6860fcd398e9bfbebabbddfc9d869e02d02d",
         "bytes": 16426,
@@ -1476,7 +1476,7 @@
       },
       {
         "url": "https://data.kardashevlabs.org/ercot/large-load/latest",
-        "fetchedAt": "2026-11-16T08:35:02.636611Z",
+        "fetchedAt": "2026-11-23T09:45:36.873833Z",
         "httpStatus": 200,
         "sha256": "a0edd0788f007acdfb4718f13dcc0773d9d219db1becf72315f90ce24d156763",
         "bytes": 1162,
